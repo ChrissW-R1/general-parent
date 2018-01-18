@@ -6,6 +6,7 @@
 	<groupId>me.chrisswr1</groupId>
 	<artifactId>general-parent</artifactId>
 	<version>0.1.0-SNAPSHOT</version>
+	<packaging>pom</packaging>
 
 	<name>General Parent</name>
 	<url>https://github.com/ChrissW-R1/${project.artifactId}</url>
