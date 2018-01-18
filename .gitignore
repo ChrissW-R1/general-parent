@@ -1,0 +1,74 @@
+# Created by .ignore support plugin (hsz.mobi)
+
+### Common
+#### Logging
+*.log
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+
+#### Package Files
+*.zip
+*.tar.gz
+*.rar
+
+# Output of 'npm pack'
+*.tgz
+
+### Operating Systems
+#### Windows
+Thumbs.db
+
+#### Mac OS X
+.DS_Store
+
+### Build Tools
+#### Maven
+target/
+dependency-reduced-pom.xml
+build_sample.properties
+
+#### Grunt
+# intermediate storage (http://gruntjs.com/creating-plugins#storing-task-files)
+.grunt
+
+### Languages
+#### Java
+bin/
+*.class
+*.jar
+*.war
+*.ear
+
+#### TypeScript
+# Typescript v1 declaration files
+typings/
+
+### Frameworks
+#### Node.js
+# Dependency directories
+node_modules/
+
+#### Android
+*.dex
+*.apk
+
+#### Apache Cordova
+platforms/
+plugins/
+www/
+
+### IDEs
+#### IntelliJ IDEA
+# Reference: https://intellij-support.jetbrains.com/hc/en-us/articles/206544839
+.idea/
+*.iml
+
+#### Eclipse
+.project
+.classpath
+.settings/
+out/
+
+#### Android Studio
+gen/
