@@ -15,6 +15,9 @@ hs_err_pid*
 # Output of 'npm pack'
 *.tgz
 
+#### Executables
+*.exe
+
 ### Operating Systems
 #### Windows
 Thumbs.db
@@ -50,6 +53,7 @@ typings/
 # Dependency directories
 node_modules/
 package-lock.json
+node/
 
 #### Android
 *.dex

@@ -1,7 +1,6 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
 		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
->
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>me.chrisswr1</groupId>
@@ -87,6 +86,7 @@
 				<includes>
 					<include>README.md</include>
 				</includes>
+				<targetPath>META-INF</targetPath>
 			</resource>
 		</resources>
 		<pluginManagement>
@@ -145,7 +145,6 @@
 					<version>${plugin.resources.version}</version>
 					<configuration>
 						<escapeString>\</escapeString>
-						<addDefaultExcludes>false</addDefaultExcludes>
 					</configuration>
 				</plugin>
 				<plugin>
@@ -175,6 +174,9 @@
 				<plugin>
 					<artifactId>maven-release-plugin</artifactId>
 					<version>${plugin.release.version}</version>
+					<configuration>
+						<autoVersionSubmodules>true</autoVersionSubmodules>
+					</configuration>
 				</plugin>
 			</plugins>
 		</pluginManagement>
@@ -193,4 +195,8 @@
 			</plugin>
 		</plugins>
 	</build>
+
+	<modules>
+		<module>general-resources</module>
+	</modules>
 </project>

@@ -1,0 +1,45 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<artifactId>general-parent</artifactId>
+		<groupId>me.chrisswr1</groupId>
+		<version>0.1.0-SNAPSHOT</version>
+	</parent>
+
+	<artifactId>general-resources</artifactId>
+
+	<name>General Resources</name>
+	<description>
+		Contains different resources for new projects and respositories.
+	</description>
+
+	<properties>
+		<project.parent.basedir>${project.basedir}/../</project.parent.basedir>
+	</properties>
+
+	<build>
+		<resources>
+			<resource>
+				<directory>${project.parent.basedir}</directory>
+				<includes>
+					<include>.gitignore</include>
+					<include>.editorconfig</include>
+				</includes>
+				<filtering>false</filtering>
+			</resource>
+		</resources>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<artifactId>maven-resources-plugin</artifactId>
+					<configuration>
+						<addDefaultExcludes>false</addDefaultExcludes>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+</project>
