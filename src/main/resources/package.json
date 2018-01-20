@@ -11,7 +11,7 @@
 		"properties",
 		"settings"
 	],
-	"homepage"    : "https://ChrissW-R1.me",
+	"homepage"    : "${project.url}",
 	"license"     : "Apache-2.0",
 	"author"      : "ChrissW-R1",
 	"contributors": [
@@ -26,6 +26,6 @@
 		"url" : "git+https://github.com/ChrissW-R1/${project.artifactId}.git"
 	},
 	"bugs"        : {
-		"url": "https://github.com/ChrissW-R1/general-parent/issues"
+		"url": "https://github.com/ChrissW-R1/${project.artifactId}/issues"
 	}
 }
