@@ -1,5 +1,5 @@
 {
-	"name"        : "@chrissw-r1\/${project.artifactId}",
+	"name"        : "@chrissw-r1/${project.artifactId}",
 	"version"     : "${project.version}",
 	"description" : "${project.description}",
 	"keywords"    : [
