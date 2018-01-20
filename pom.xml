@@ -10,9 +10,15 @@
 
 	<name>General Parent</name>
 	<url>https://github.com/ChrissW-R1/${project.artifactId}</url>
+	<inceptionYear>2018</inceptionYear>
 	<description>
 		This project only contains the default properties and settings, which should be used in all projects of ChrissW-R1.
 	</description>
+
+	<organization>
+		<name>ChrissW-R1</name>
+		<url>http://ChrissW-R1.me</url>
+	</organization>
 
 	<licenses>
 		<license>
@@ -45,9 +51,19 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.parent.basedir>${project.basedir}</project.parent.basedir>
+		<java.version>1.8</java.version>
 
+		<plugin.buildhelper.version>3.0.0</plugin.buildhelper.version>
+		<plugin.license.version>1.14</plugin.license.version>
 		<plugin.resources.version>3.0.2</plugin.resources.version>
+		<plugin.compiler.version>3.7.0</plugin.compiler.version>
+		<plugin.release.version>2.5.3</plugin.release.version>
 	</properties>
+
+	<scm>
+		<developerConnection>scm:git:https://github.com/ChrissW-R1/${project.artifactId}.git</developerConnection>
+		<url>https://github.com/ChrissW-R1/${project.artifactId}</url>
+	</scm>
 
 	<build>
 		<resources>
@@ -59,13 +75,87 @@
 		<pluginManagement>
 			<plugins>
 				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>build-helper-maven-plugin</artifactId>
+					<version>${plugin.buildhelper.version}</version>
+					<executions>
+						<execution>
+							<id>timestamp-property</id>
+							<goals>
+								<goal>timestamp-property</goal>
+							</goals>
+							<phase>validate</phase>
+							<configuration>
+								<name>project.versionYear</name>
+								<pattern>yyyy</pattern>
+								<locale>en,US</locale>
+							</configuration>
+						</execution>
+					</executions>
+				</plugin>
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>license-maven-plugin</artifactId>
+					<version>${plugin.license.version}</version>
+					<configuration>
+						<licenseFile>${project.parent.basedir}/LICENSE</licenseFile>
+						<licenseName>apache_v2</licenseName>
+						<missingFile>${project.parent.basedir}/src/main/license/THIRD-PARTY.properties</missingFile>
+						<useMissingFile>true</useMissingFile>
+						<sortArtifactByName>true</sortArtifactByName>
+						<fileTemplate>/org/codehaus/mojo/license/third-party-file-groupByLicense.ftl</fileTemplate>
+						<licenseMerges>
+							<licenseMerge>
+								Apache License, Version 2.0 (Apache-2.0)
+								| Apache-2.0
+							</licenseMerge>
+						</licenseMerges>
+					</configuration>
+					<executions>
+						<execution>
+							<id>add-licenses</id>
+							<phase>generate-resources</phase>
+							<goals>
+								<goal>update-project-license</goal>
+								<goal>add-third-party</goal>
+								<goal>download-licenses</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+				<plugin>
 					<artifactId>maven-resources-plugin</artifactId>
 					<version>${plugin.resources.version}</version>
 					<configuration>
 						<escapeString>\</escapeString>
 					</configuration>
 				</plugin>
+				<plugin>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>${plugin.compiler.version}</version>
+					<configuration>
+						<source>${java.version}</source>
+						<target>${java.version}</target>
+					</configuration>
+				</plugin>
+				<plugin>
+					<artifactId>maven-release-plugin</artifactId>
+					<version>${plugin.release.version}</version>
+					<configuration>
+						<autoVersionSubmodules>true</autoVersionSubmodules>
+					</configuration>
+				</plugin>
 			</plugins>
 		</pluginManagement>
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>build-helper-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>license-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
 	</build>
 </project>
