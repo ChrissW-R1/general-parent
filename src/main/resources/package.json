@@ -1,8 +1,8 @@
 {
-	"name"        : "@chrissw-r1/${project.artifactId}",
-	"version"     : "${project.version}",
-	"description" : "${project.description}",
-	"keywords"    : [
+	"name"           : "@chrissw-r1/${project.artifactId}",
+	"version"        : "${project.version}",
+	"description"    : "${project.description}",
+	"keywords"       : [
 		"ChrissW-R1",
 		"parent",
 		"project",
@@ -11,21 +11,26 @@
 		"properties",
 		"settings"
 	],
-	"homepage"    : "${project.url}",
-	"license"     : "Apache-2.0",
-	"author"      : "ChrissW-R1",
-	"contributors": [
+	"homepage"       : "${project.url}",
+	"license"        : "Apache-2.0",
+	"author"         : "ChrissW-R1",
+	"contributors"   : [
 		{
 			"name" : "ChrissW-R1",
 			"email": "contact@ChrissW-R1.me",
 			"url"  : "http://ChrissW-R1.me"
 		}
 	],
-	"repository"  : {
+	"repository"     : {
 		"type": "git",
 		"url" : "git+https://github.com/ChrissW-R1/${project.artifactId}.git"
 	},
-	"bugs"        : {
+	"bugs"           : {
 		"url": "https://github.com/ChrissW-R1/${project.artifactId}/issues"
+	},
+	"devDependencies": {
+		"typescript": "~${npm-typescript.version}",
+		"tslint"    : "~${tslint.version}",
+		"codelyzer" : "^${codelyzer.version}"
 	}
 }

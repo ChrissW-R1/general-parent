@@ -54,6 +54,10 @@
 		<project.parent.basedir>${project.basedir}</project.parent.basedir>
 		<java.version>1.8</java.version>
 
+		<npm-typescript.version>2.6.2</npm-typescript.version>
+		<tslint.version>5.9.1</tslint.version>
+		<codelyzer.version>4.1.0</codelyzer.version>
+
 		<plugin.buildhelper.version>3.0.0</plugin.buildhelper.version>
 		<plugin.license.version>1.14</plugin.license.version>
 		<plugin.resources.version>3.0.2</plugin.resources.version>
