@@ -29,8 +29,12 @@
 		"url": "https://github.com/ChrissW-R1/${project.artifactId}/issues"
 	},
 	"devDependencies": {
-		"typescript": "~${npm-typescript.version}",
-		"tslint"    : "~${tslint.version}",
-		"codelyzer" : "^${codelyzer.version}"
+		"typescript"          : "~${npm-typescript.version}",
+		"tslint"              : "~${tslint.version}",
+		"codelyzer"           : "~${codelyzer.version}",
+		"grunt"               : "~${grunt.version}",
+		"grunt-contrib-clean" : "~${grunt-clean.version}",
+		"grunt-ts"            : "~${grunt-ts.version}",
+		"grunt-contrib-uglify": "~${uglify.version}"
 	}
 }

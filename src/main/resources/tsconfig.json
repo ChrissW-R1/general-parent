@@ -1,12 +1,12 @@
 {
 	"compilerOptions": {
 		"sourceRoot"            : "src/main/ts",
-		"outDir"                : "dist",
+		"outDir"                : "target/generated-sources/ts-compiled",
 		"target"                : "ES3",
 		"moduleResolution"      : "node",
 		"module"                : "commonjs",
 		"sourceMap"             : true,
-		"declaration"           : true,
+		"declaration"           : false,
 		"experimentalDecorators": true,
 		"emitDecoratorMetadata" : true,
 		"noEmitOnError"         : false,
@@ -17,7 +17,7 @@
 		"node_modules/@types"
 	],
 	"exclude"        : [
-		"dist",
+		"target",
 		"node_modules"
 	]
 }

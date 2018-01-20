@@ -57,6 +57,10 @@
 		<npm-typescript.version>2.6.2</npm-typescript.version>
 		<tslint.version>5.9.1</tslint.version>
 		<codelyzer.version>4.1.0</codelyzer.version>
+		<grunt.version>1.0.1</grunt.version>
+		<grunt-clean.version>1.1.0</grunt-clean.version>
+		<grunt-ts.version>5.5.1</grunt-ts.version>
+		<uglify.version>3.3.0</uglify.version>
 
 		<plugin.buildhelper.version>3.0.0</plugin.buildhelper.version>
 		<plugin.license.version>1.14</plugin.license.version>
