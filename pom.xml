@@ -71,6 +71,14 @@
 				<directory>src/main/resources</directory>
 				<filtering>true</filtering>
 			</resource>
+			<resource>
+				<directory>${project.basedir}</directory>
+				<includes>
+					<include>README.md</include>
+					<include>.gitignore</include>
+				</includes>
+				<filtering>false</filtering>
+			</resource>
 		</resources>
 		<pluginManagement>
 			<plugins>
@@ -128,6 +136,7 @@
 					<version>${plugin.resources.version}</version>
 					<configuration>
 						<escapeString>\</escapeString>
+						<addDefaultExcludes>false</addDefaultExcludes>
 					</configuration>
 				</plugin>
 				<plugin>
