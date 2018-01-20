@@ -48,6 +48,7 @@ typings/
 #### Node.js
 # Dependency directories
 node_modules/
+dist/
 package-lock.json
 
 #### Android

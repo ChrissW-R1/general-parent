@@ -1,0 +1,23 @@
+{
+	"compilerOptions": {
+		"sourceRoot"            : "src/main/ts",
+		"outDir"                : "dist",
+		"target"                : "ES3",
+		"moduleResolution"      : "node",
+		"module"                : "commonjs",
+		"sourceMap"             : true,
+		"declaration"           : true,
+		"experimentalDecorators": true,
+		"emitDecoratorMetadata" : true,
+		"noEmitOnError"         : false,
+		"noImplicitAny"         : true
+	},
+	"compileOnSave"  : true,
+	"typeRoots"      : [
+		"node_modules/@types"
+	],
+	"exclude"        : [
+		"dist",
+		"node_modules"
+	]
+}
