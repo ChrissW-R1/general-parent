@@ -33,6 +33,7 @@
 		"tslint"              : "~${tslint.version}",
 		"codelyzer"           : "~${codelyzer.version}",
 		"grunt"               : "~${grunt.version}",
+		"grunt-cli"           : "~${grunt-cli.version}",
 		"grunt-contrib-clean" : "~${grunt-clean.version}",
 		"grunt-ts"            : "~${grunt-ts.version}",
 		"grunt-contrib-uglify": "~${uglify.version}"

@@ -48,7 +48,7 @@
 					</dependencies>
 					<executions>
 						<execution>
-							<id>unpack-project-files</id>
+							<id>unpack-common-project-files</id>
 							<phase>initialize</phase>
 							<goals>
 								<goal>unpack</goal>

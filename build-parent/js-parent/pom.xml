@@ -10,7 +10,7 @@
 	</parent>
 
 	<artifactId>js-parent</artifactId>
-	<packaging>pom</packaging>
+	<!--packaging>pom</packaging-->
 
 	<name>JavaScript Parent</name>
 	<description>
@@ -21,6 +21,14 @@
 		<project.parent.basedir>${project.basedir}/../../</project.parent.basedir>
 
 		<nodejs.version>9.4.0</nodejs.version>
+		<npm-typescript.version>2.6.2</npm-typescript.version>
+		<tslint.version>5.9.1</tslint.version>
+		<codelyzer.version>4.1.0</codelyzer.version>
+		<grunt.version>1.0.1</grunt.version>
+		<grunt-cli.version>1.2.0</grunt-cli.version>
+		<grunt-clean.version>1.1.0</grunt-clean.version>
+		<grunt-ts.version>5.5.1</grunt-ts.version>
+		<uglify.version>3.3.0</uglify.version>
 
 		<plugin.frontend.version>1.6</plugin.frontend.version>
 	</properties>
@@ -28,6 +36,58 @@
 	<build>
 		<pluginManagement>
 			<plugins>
+				<plugin>
+					<groupId>org.apache.portals.jetspeed-2</groupId>
+					<artifactId>jetspeed-unpack-maven-plugin</artifactId>
+					<executions>
+						<execution>
+							<id>unpack-js-project-files</id>
+							<phase>initialize</phase>
+							<goals>
+								<goal>unpack</goal>
+							</goals>
+							<configuration>
+								<unpack>
+									<artifact>${project.groupId}:general-resources:jar</artifact>
+									<targetDirectory>${project.basedir}</targetDirectory>
+									<resources>
+										<resource>
+											<path>resources</path>
+											<include>tsconfig.json,tslint.json</include>
+											<overwrite>true</overwrite>
+											<flat>true</flat>
+										</resource>
+									</resources>
+								</unpack>
+							</configuration>
+						</execution>
+					</executions>
+				</plugin>
+				<plugin>
+					<artifactId>maven-resources-plugin</artifactId>
+					<executions>
+						<execution>
+							<id>generate-js-project-files</id>
+							<phase>process-sources</phase>
+							<goals>
+								<goal>copy-resources</goal>
+							</goals>
+							<configuration>
+								<resources>
+									<resource>
+										<directory>src/main/node</directory>
+										<includes>
+											<include>package.json</include>
+											<include>Gruntfile.js</include>
+										</includes>
+										<filtering>true</filtering>
+									</resource>
+								</resources>
+								<outputDirectory>${project.basedir}</outputDirectory>
+							</configuration>
+						</execution>
+					</executions>
+				</plugin>
 				<plugin>
 					<groupId>com.github.eirslett</groupId>
 					<artifactId>frontend-maven-plugin</artifactId>
@@ -41,6 +101,18 @@
 							<id>install-nodejs</id>
 							<goals>
 								<goal>install-node-and-npm</goal>
+							</goals>
+						</execution>
+						<execution>
+							<id>npm-install</id>
+							<goals>
+								<goal>npm</goal>
+							</goals>
+						</execution>
+						<execution>
+							<id>grunt-build</id>
+							<goals>
+								<goal>grunt</goal>
 							</goals>
 						</execution>
 					</executions>
