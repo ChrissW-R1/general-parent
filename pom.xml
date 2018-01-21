@@ -198,5 +198,6 @@
 
 	<modules>
 		<module>general-resources</module>
+		<module>build-parent</module>
 	</modules>
 </project>
