@@ -59,7 +59,6 @@
 				<directory>${project.module-root.basedir}</directory>
 				<includes>
 					<include>.gitignore</include>
-					<include>.editorconfig</include>
 				</includes>
 				<targetPath>resources</targetPath>
 				<filtering>false</filtering>
