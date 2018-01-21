@@ -34,6 +34,7 @@
 				<excludes>
 					<exclude>project.properties</exclude>
 					<exclude>package.json</exclude>
+					<exclude>tsconfig.json</exclude>
 				</excludes>
 				<targetPath>resources</targetPath>
 				<filtering>true</filtering>
@@ -43,8 +44,9 @@
 				<includes>
 					<include>project.properties</include>
 					<include>package.json</include>
+					<include>tsconfig.json</include>
 				</includes>
-				<targetPath>resources</targetPath>
+				<targetPath>unfiltered-resources</targetPath>
 				<filtering>false</filtering>
 			</resource>
 			<resource>

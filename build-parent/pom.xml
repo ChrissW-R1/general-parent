@@ -91,7 +91,7 @@
 									<targetDirectory>${project.build.directory}/generated-resources</targetDirectory>
 									<resources>
 										<resource>
-											<path>resources</path>
+											<path>unfiltered-resources</path>
 											<include>project.properties</include>
 											<flat>true</flat>
 										</resource>

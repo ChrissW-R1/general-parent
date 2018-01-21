@@ -78,8 +78,28 @@
 									<resources>
 										<resource>
 											<path>resources</path>
-											<include>tsconfig.json,tslint.json</include>
+											<include>tslint.json</include>
 											<overwrite>true</overwrite>
+											<flat>true</flat>
+										</resource>
+									</resources>
+								</unpack>
+							</configuration>
+						</execution>
+						<execution>
+							<id>unpack-unfiltered-js-project-files</id>
+							<phase>initialize</phase>
+							<goals>
+								<goal>unpack</goal>
+							</goals>
+							<configuration>
+								<unpack>
+									<artifact>${project.groupId}:general-resources:jar</artifact>
+									<targetDirectory>${project.build.directory}/generated-resources</targetDirectory>
+									<resources>
+										<resource>
+											<path>unfiltered-resources</path>
+											<include>tsconfig.json</include>
 											<flat>true</flat>
 										</resource>
 									</resources>
@@ -99,6 +119,13 @@
 							</goals>
 							<configuration>
 								<resources>
+									<resource>
+										<directory>${project.build.directory}/generated-resources</directory>
+										<includes>
+											<include>tsconfig.json</include>
+										</includes>
+										<filtering>true</filtering>
+									</resource>
 									<resource>
 										<directory>src/main/node</directory>
 										<includes>

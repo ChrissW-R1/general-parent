@@ -10,18 +10,18 @@ module.exports = function (grunt) {
 							 },
 							 files  : {
 								 src: [
-									 "src/main/ts/**/*.ts"
+									 "${project.build.sourceDirectory}/**/*.ts"
 								 ]
 							 }
 						 },
 						 ts    : {
 							 options: {
-								 rootDir: "src/main/ts"
+								 rootDir: "${project.build.sourceDirectory}"
 							 },
 							 main   : {
 								 tsconfig: true,
-								 src     : "src/main/ts/**/*.ts",
-								 dest    : "target/generated-sources/ts-compiled"
+								 src     : "${project.build.sourceDirectory}/**/*.ts",
+								 dest    : "${project.build.directory}/generated-sources/ts-compiled"
 							 }
 						 },
 						 uglify: {
@@ -32,9 +32,9 @@ module.exports = function (grunt) {
 								 files: [
 									 {
 										 expand: true,
-										 cwd   : "target/generated-sources/ts-compiled",
+										 cwd   : "${project.build.directory}/generated-sources/ts-compiled",
 										 src   : "**/*.js",
-										 dest  : "target/generated-sources/uglified",
+										 dest  : "${project.build.directory}/generated-sources/uglified",
 										 ext   : ".min.js"
 									 }
 								 ]

@@ -1,7 +1,7 @@
 {
 	"compilerOptions": {
-		"sourceRoot"            : "src/main/ts",
-		"outDir"                : "target/generated-sources/ts-compiled",
+		"sourceRoot"            : "${project.build.sourceDirectory}",
+		"outDir"                : "${project.build.directory}/generated-sources/ts-compiled",
 		"target"                : "ES3",
 		"moduleResolution"      : "node",
 		"module"                : "commonjs",
@@ -17,7 +17,7 @@
 		"node_modules/@types"
 	],
 	"exclude"        : [
-		"target",
+		"${project.build.directory}",
 		"node_modules",
 		"build-exe"
 	]
