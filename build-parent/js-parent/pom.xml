@@ -73,7 +73,7 @@
 							</goals>
 							<configuration>
 								<unpack>
-									<artifact>${project.groupId}:general-resources:jar</artifact>
+									<artifact>me.chrisswr1:general-resources:jar</artifact>
 									<targetDirectory>${project.basedir}</targetDirectory>
 									<resources>
 										<resource>
@@ -94,7 +94,7 @@
 							</goals>
 							<configuration>
 								<unpack>
-									<artifact>${project.groupId}:general-resources:jar</artifact>
+									<artifact>me.chrisswr1:general-resources:jar</artifact>
 									<targetDirectory>${project.build.directory}/generated-resources</targetDirectory>
 									<resources>
 										<resource>
