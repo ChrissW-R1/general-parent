@@ -10,7 +10,7 @@
 	</parent>
 
 	<artifactId>js-parent</artifactId>
-	<!--packaging>pom</packaging-->
+	<packaging>pom</packaging>
 
 	<name>JavaScript Parent</name>
 	<description>
@@ -24,9 +24,11 @@
 		<npm-typescript.version>2.6.2</npm-typescript.version>
 		<tslint.version>5.9.1</tslint.version>
 		<codelyzer.version>4.1.0</codelyzer.version>
+		<rxjs.version>5.5.6</rxjs.version>
+		<angular.version>5.2.1</angular.version>
 		<grunt.version>1.0.1</grunt.version>
 		<grunt-cli.version>1.2.0</grunt-cli.version>
-		<grunt-clean.version>1.1.0</grunt-clean.version>
+		<grunt-tslint.version>5.0.1</grunt-tslint.version>
 		<grunt-ts.version>5.5.1</grunt-ts.version>
 		<uglify.version>3.3.0</uglify.version>
 
