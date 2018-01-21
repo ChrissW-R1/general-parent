@@ -136,7 +136,7 @@
 
 	<profiles>
 		<profile>
-			<id>attach-javadocs-and-sources</id>
+			<id>attach-docs-and-sources</id>
 			<build>
 				<plugins>
 					<plugin>
@@ -144,17 +144,6 @@
 						<executions>
 							<execution>
 								<id>attach-javadocs</id>
-								<goals>
-									<goal>jar</goal>
-								</goals>
-							</execution>
-						</executions>
-					</plugin>
-					<plugin>
-						<artifactId>maven-source-plugin</artifactId>
-						<executions>
-							<execution>
-								<id>attach-sources</id>
 								<goals>
 									<goal>jar</goal>
 								</goals>
