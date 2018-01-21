@@ -29,16 +29,20 @@
 		"url": "${project.issueManagement.url}"
 	},
 	"devDependencies": {
-		"typescript"          : "~${npm-typescript.version}",
-		"tslint"              : "~${tslint.version}",
-		"codelyzer"           : "~${codelyzer.version}",
-		"rxjs"                : "~${rxjs.version}",
-		"@angular/core"       : "~${angular.version}",
-		"@angular/compiler"   : "~${angular.version}",
-		"grunt"               : "~${grunt.version}",
-		"grunt-cli"           : "~${grunt-cli.version}",
-		"grunt-tslint"        : "~${grunt-tslint.version}",
-		"grunt-ts"            : "~${grunt-ts.version}",
-		"grunt-contrib-uglify": "~${uglify.version}"
+		"typescript"                       : "~${npm-typescript.version}",
+		"tslint"                           : "~${tslint.version}",
+		"rxjs"                             : "~${rxjs.version}",
+		"zone.js"                          : "~${zonejs.version}",
+		"@angular/core"                    : "~${angular.version}",
+		"@angular/common"                  : "~${angular.version}",
+		"@angular/compiler"                : "~${angular.version}",
+		"@angular/platform-browser"        : "~${angular.version}",
+		"@angular/platform-browser-dynamic": "~${angular.version}",
+		"codelyzer"                        : "~${codelyzer.version}",
+		"grunt"                            : "~${grunt.version}",
+		"grunt-cli"                        : "~${grunt-cli.version}",
+		"grunt-tslint"                     : "~${grunt-tslint.version}",
+		"grunt-ts"                         : "~${grunt-ts.version}",
+		"grunt-contrib-uglify"             : "~${uglify.version}"
 	}
 }

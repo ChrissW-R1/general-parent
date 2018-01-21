@@ -25,6 +25,7 @@
 		<tslint.version>5.9.1</tslint.version>
 		<codelyzer.version>4.1.0</codelyzer.version>
 		<rxjs.version>5.5.6</rxjs.version>
+		<zonejs.version>0.8.20</zonejs.version>
 		<angular.version>5.2.1</angular.version>
 		<grunt.version>1.0.1</grunt.version>
 		<grunt-cli.version>1.2.0</grunt-cli.version>
