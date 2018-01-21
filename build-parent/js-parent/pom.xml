@@ -36,6 +36,29 @@
 	</properties>
 
 	<build>
+		<sourceDirectory>src/main/ts</sourceDirectory>
+		<testSourceDirectory>src/test/ts</testSourceDirectory>
+		<outputDirectory>${project.build.directory}/dist</outputDirectory>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+			</resource>
+			<resource>
+				<directory>${project.build.directory}/generated-resources</directory>
+				<includes>
+					<include>project.properties</include>
+				</includes>
+				<filtering>true</filtering>
+			</resource>
+			<resource>
+				<directory>${project.basedir}</directory>
+				<includes>
+					<include>README.md</include>
+				</includes>
+				<targetPath>META-INF</targetPath>
+			</resource>
+		</resources>
 		<pluginManagement>
 			<plugins>
 				<plugin>

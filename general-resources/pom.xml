@@ -48,6 +48,13 @@
 				<filtering>false</filtering>
 			</resource>
 			<resource>
+				<directory>${project.basedir}</directory>
+				<includes>
+					<include>README.md</include>
+				</includes>
+				<targetPath>META-INF</targetPath>
+			</resource>
+			<resource>
 				<directory>${project.parent.basedir}</directory>
 				<includes>
 					<include>.gitignore</include>

@@ -23,16 +23,27 @@
 		<plugin.unpack.version>2.3.1</plugin.unpack.version>
 	</properties>
 
-	<dependencies>
-		<dependency>
-			<groupId>${project.groupId}</groupId>
-			<artifactId>general-resources</artifactId>
-			<version>${project.version}</version>
-			<scope>provided</scope>
-		</dependency>
-	</dependencies>
-
 	<build>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+			</resource>
+			<resource>
+				<directory>${project.build.directory}/generated-resources</directory>
+				<includes>
+					<include>project.properties</include>
+				</includes>
+				<filtering>true</filtering>
+			</resource>
+			<resource>
+				<directory>${project.basedir}</directory>
+				<includes>
+					<include>README.md</include>
+				</includes>
+				<targetPath>META-INF</targetPath>
+			</resource>
+		</resources>
 		<pluginManagement>
 			<plugins>
 				<plugin>
@@ -62,6 +73,26 @@
 											<path>resources</path>
 											<include>.gitignore,.editorconfig</include>
 											<overwrite>true</overwrite>
+											<flat>true</flat>
+										</resource>
+									</resources>
+								</unpack>
+							</configuration>
+						</execution>
+						<execution>
+							<id>unpack-common-resources</id>
+							<phase>generate-resources</phase>
+							<goals>
+								<goal>unpack</goal>
+							</goals>
+							<configuration>
+								<unpack>
+									<artifact>${project.groupId}:general-resources:jar</artifact>
+									<targetDirectory>${project.build.directory}/generated-resources</targetDirectory>
+									<resources>
+										<resource>
+											<path>resources</path>
+											<include>project.properties</include>
 											<flat>true</flat>
 										</resource>
 									</resources>

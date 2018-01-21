@@ -57,6 +57,7 @@
 		<plugin.license.version>1.14</plugin.license.version>
 		<plugin.resources.version>3.0.2</plugin.resources.version>
 		<plugin.compiler.version>3.7.0</plugin.compiler.version>
+		<plugin.source.version>3.0.1</plugin.source.version>
 		<plugin.release.version>2.5.3</plugin.release.version>
 	</properties>
 
@@ -151,6 +152,10 @@
 						<source>${java.version}</source>
 						<target>${java.version}</target>
 					</configuration>
+				</plugin>
+				<plugin>
+					<artifactId>maven-source-plugin</artifactId>
+					<version>${plugin.source.version}</version>
 				</plugin>
 				<plugin>
 					<artifactId>maven-release-plugin</artifactId>
