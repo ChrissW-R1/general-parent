@@ -26,6 +26,9 @@ Thumbs.db
 .DS_Store
 
 ### Build Tools
+#### Common
+build-exe/
+
 #### Maven
 target/
 dependency-reduced-pom.xml
@@ -53,7 +56,6 @@ typings/
 # Dependency directories
 node_modules/
 package-lock.json
-node/
 
 #### Android
 *.dex

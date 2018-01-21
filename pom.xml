@@ -86,6 +86,13 @@
 				</includes>
 				<targetPath>META-INF</targetPath>
 			</resource>
+			<resource>
+				<directory>general-resources/src/main/resources</directory>
+				<includes>
+					<include>project.properties</include>
+				</includes>
+				<filtering>true</filtering>
+			</resource>
 		</resources>
 		<pluginManagement>
 			<plugins>
