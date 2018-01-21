@@ -82,5 +82,6 @@
 
 	<modules>
 		<module>java-parent</module>
+		<module>js-parent</module>
 	</modules>
 </project>
