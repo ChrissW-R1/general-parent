@@ -38,6 +38,8 @@ build_sample.properties
 # intermediate storage (http://gruntjs.com/creating-plugins#storing-task-files)
 .grunt
 .tscache
+Gruntfile.js
+!**/src/**/Gruntfile.js
 
 ### Languages
 #### Java
@@ -50,12 +52,18 @@ bin/
 #### TypeScript
 # Typescript v1 declaration files
 typings/
+tsconfig.json
+!**/src/**/tsconfig.json
+tslint.json
+!**/src/**/tslint.json
 
 ### Frameworks
 #### Node.js
 # Dependency directories
 node_modules/
 package-lock.json
+package.json
+!**/src/**/package.json
 
 #### Android
 *.dex
@@ -67,6 +75,10 @@ plugins/
 www/
 
 ### IDEs
+#### Common
+.editorconfig
+!**/src/**/.editorconfig
+
 #### IntelliJ IDEA
 # Reference: https://intellij-support.jetbrains.com/hc/en-us/articles/206544839
 .idea/
