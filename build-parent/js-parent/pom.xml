@@ -113,7 +113,7 @@
 					<executions>
 						<execution>
 							<id>generate-js-project-files</id>
-							<phase>process-sources</phase>
+							<phase>generate-sources</phase>
 							<goals>
 								<goal>copy-resources</goal>
 							</goals>
@@ -172,6 +172,9 @@
 			</plugins>
 		</pluginManagement>
 		<plugins>
+			<plugin>
+				<artifactId>maven-resources-plugin</artifactId>
+			</plugin>
 			<plugin>
 				<groupId>com.github.eirslett</groupId>
 				<artifactId>frontend-maven-plugin</artifactId>
