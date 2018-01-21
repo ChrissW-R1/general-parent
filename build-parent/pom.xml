@@ -67,7 +67,7 @@
 							<configuration>
 								<unpack>
 									<artifact>${project.groupId}:general-resources:jar</artifact>
-									<targetDirectory>${project.parent.basedir}</targetDirectory>
+									<targetDirectory>${project.module-root.basedir}</targetDirectory>
 									<resources>
 										<resource>
 											<path>resources</path>

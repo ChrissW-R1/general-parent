@@ -23,10 +23,10 @@
 	],
 	"repository"     : {
 		"type": "git",
-		"url" : "git+https://github.com/ChrissW-R1/${project.artifactId}.git"
+		"url" : "git+${project.scm.url}.git"
 	},
 	"bugs"           : {
-		"url": "https://github.com/ChrissW-R1/${project.artifactId}/issues"
+		"url": "${project.issueManagement.url}"
 	},
 	"devDependencies": {
 		"typescript"          : "~${npm-typescript.version}",

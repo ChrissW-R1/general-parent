@@ -18,7 +18,7 @@
 	</description>
 
 	<properties>
-		<project.parent.basedir>${project.basedir}/../../</project.parent.basedir>
+		<project.module-root.basedir>${project.parent.basedir}/../</project.module-root.basedir>
 
 		<lombok.version>1.16.20</lombok.version>
 		<slf4j.version>1.7.25</slf4j.version>

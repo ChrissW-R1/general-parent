@@ -9,7 +9,7 @@
 	<packaging>pom</packaging>
 
 	<name>General Parent</name>
-	<url>https://github.com/ChrissW-R1/${project.artifactId}</url>
+	<url>https://github.com/ChrissW-R1/${project.module-root.artifactId}</url>
 	<inceptionYear>2018</inceptionYear>
 	<description>
 		This project only contains the default properties and settings, which should be used in all projects of ChrissW-R1.
@@ -51,6 +51,8 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.parent.basedir>${project.basedir}</project.parent.basedir>
+		<project.module-root.artifactId>general-parent</project.module-root.artifactId>
+		<project.module-root.basedir>${project.parent.basedir}</project.module-root.basedir>
 		<java.version>1.8</java.version>
 
 		<plugin.buildhelper.version>3.0.0</plugin.buildhelper.version>
@@ -62,9 +64,15 @@
 	</properties>
 
 	<scm>
-		<developerConnection>scm:git:https://github.com/ChrissW-R1/${project.artifactId}.git</developerConnection>
-		<url>https://github.com/ChrissW-R1/${project.artifactId}</url>
+		<url>https://github.com/ChrissW-R1/${project.module-root.artifactId}</url>
+		<connection>scm:git:${project.scm.url}.git</connection>
+		<developerConnection>${project.scm.connection}</developerConnection>
 	</scm>
+
+	<issueManagement>
+		<url>https://github.com/ChrissW-R1/${project.module-root.artifactId}/issues</url>
+		<system>GitHub</system>
+	</issueManagement>
 
 	<build>
 		<resources>
@@ -113,9 +121,9 @@
 					<artifactId>license-maven-plugin</artifactId>
 					<version>${plugin.license.version}</version>
 					<configuration>
-						<licenseFile>${project.parent.basedir}/LICENSE</licenseFile>
+						<licenseFile>${project.module-root.basedir}/LICENSE</licenseFile>
 						<licenseName>apache_v2</licenseName>
-						<missingFile>${project.parent.basedir}/src/main/license/THIRD-PARTY.properties</missingFile>
+						<missingFile>${project.module-root.basedir}/src/main/license/THIRD-PARTY.properties</missingFile>
 						<useMissingFile>true</useMissingFile>
 						<sortArtifactByName>true</sortArtifactByName>
 						<fileTemplate>/org/codehaus/mojo/license/third-party-file-groupByLicense.ftl</fileTemplate>

@@ -55,7 +55,7 @@
 				<targetPath>META-INF</targetPath>
 			</resource>
 			<resource>
-				<directory>${project.parent.basedir}</directory>
+				<directory>${project.module-root.basedir}</directory>
 				<includes>
 					<include>.gitignore</include>
 					<include>.editorconfig</include>

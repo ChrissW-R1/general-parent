@@ -18,7 +18,7 @@
 	</description>
 
 	<properties>
-		<project.parent.basedir>${project.basedir}/../../</project.parent.basedir>
+		<project.module-root.basedir>${project.parent.basedir}/../</project.module-root.basedir>
 
 		<nodejs.version>9.4.0</nodejs.version>
 		<npm-typescript.version>2.6.2</npm-typescript.version>
