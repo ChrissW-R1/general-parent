@@ -85,7 +85,6 @@
 				<includes>
 					<include>README.md</include>
 				</includes>
-				<targetPath>META-INF</targetPath>
 			</resource>
 			<resource>
 				<directory>general-resources/src/main/resources</directory>

@@ -57,7 +57,6 @@
 				<includes>
 					<include>README.md</include>
 				</includes>
-				<targetPath>META-INF</targetPath>
 			</resource>
 		</resources>
 		<pluginManagement>

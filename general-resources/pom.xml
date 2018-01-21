@@ -54,7 +54,6 @@
 				<includes>
 					<include>README.md</include>
 				</includes>
-				<targetPath>META-INF</targetPath>
 			</resource>
 			<resource>
 				<directory>${project.module-root.basedir}</directory>
