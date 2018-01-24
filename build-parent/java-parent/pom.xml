@@ -28,6 +28,11 @@
 		<plugin.findbugs.version>3.0.5</plugin.findbugs.version>
 		<plugin.surefire.version>2.20.1</plugin.surefire.version>
 		<plugin.javadoc.version>3.0.0</plugin.javadoc.version>
+
+		<lombok.javadoc-url>https://projectlombok.org/api</lombok.javadoc-url>
+		<slf4j.javadoc-url>https://www.slf4j.org/apidocs</slf4j.javadoc-url>
+		<junit.platform.javadoc-url>http://junit.org/junit5/docs/current/api</junit.platform.javadoc-url>
+		<mockito.javadoc-url>https://static.javadoc.io/org.mockito/mockito-core/${mockito.version}</mockito.javadoc-url>
 	</properties>
 
 	<dependencies>
@@ -115,9 +120,10 @@
 					<version>${plugin.javadoc.version}</version>
 					<configuration>
 						<links>
-							<link>https://projectlombok.org/api</link>
-							<link>https://www.slf4j.org/apidocs</link>
-							<link>http://junit.org/junit5/docs/current/api</link>
+							<link>${lombok.javadoc-url}</link>
+							<link>${slf4j.javadoc-url}</link>
+							<link>${junit.platform.javadoc-url}</link>
+							<link>${mockito.javadoc-url}</link>
 						</links>
 					</configuration>
 				</plugin>
@@ -136,6 +142,19 @@
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>findbugs-maven-plugin</artifactId>
+				<version>${plugin.findbugs.version}</version>
+			</plugin>
+			<plugin>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>${plugin.javadoc.version}</version>
+				<configuration>
+					<links>
+						<link>${lombok.javadoc-url}</link>
+						<link>${slf4j.javadoc-url}</link>
+						<link>${junit.platform.javadoc-url}</link>
+						<link>${mockito.javadoc-url}</link>
+					</links>
+				</configuration>
 			</plugin>
 		</plugins>
 	</reporting>
