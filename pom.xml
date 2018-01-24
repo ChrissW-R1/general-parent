@@ -9,11 +9,11 @@
 	<packaging>pom</packaging>
 
 	<name>General Parent</name>
-	<url>https://github.com/ChrissW-R1/${project.module-root.artifactId}</url>
-	<inceptionYear>2018</inceptionYear>
 	<description>
 		This project only contains the default properties and settings, which should be used in all projects of ChrissW-R1.
 	</description>
+	<url>https://github.com/ChrissW-R1/${project.module-root.artifactId}</url>
+	<inceptionYear>2018</inceptionYear>
 
 	<organization>
 		<name>ChrissW-R1</name>
@@ -22,7 +22,7 @@
 
 	<licenses>
 		<license>
-			<name>Apache-2.0</name>
+			<name>Apache License (ASL), Version 2.0 (Apache-2.0)</name>
 			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
 			<distribution>repo</distribution>
 		</license>
