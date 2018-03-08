@@ -133,14 +133,25 @@
 								Apache License (ASL), Version 2.0 (Apache-2.0)
 								| Apache-2.0
 								| Apache 2
+								| Apache License 2.0
 								| Apache License, Version 2.0
 								| The Apache License, Version 2.0
 								| The Apache Software License, Version 2.0
 							</licenseMerge>
 							<licenseMerge>
+								BSD 2-Clause License (BSD), (BSD-2-Clause)
+								| BSD-2-Clause
+								| BSD License
+							</licenseMerge>
+							<licenseMerge>
 								Common Development and Distribution License (CDDL), Version 1.0 (CDDL-1.0)
 								| CDDL-1.0
 								| COMMON DEVELOPMENT AND DISTRIBUTION LICENSE (CDDL) Version 1.0
+							</licenseMerge>
+							<licenseMerge>
+								Common Development and Distribution License (CDDL), Version 1.1 (CDDL-1.1)
+								| CDDL-1.1
+								| CDDL 1.1
 							</licenseMerge>
 							<licenseMerge>
 								Eclipse Public License (EPL), Version 1.0 (EPL-1.0)
@@ -153,10 +164,64 @@
 								| Eclipse Public License v2.0
 							</licenseMerge>
 							<licenseMerge>
+								EPSG database distribution license (EPSG-DDL)
+								| EPSG-DDL
+								| EPSG database distribution license
+							</licenseMerge>
+							<licenseMerge>
+								GNU General Public License (GPL), Version 2.0 (GPL-2.0)
+								| GPL-2.0
+							</licenseMerge>
+							<licenseMerge>
+								GNU General Public License (GPL) with Classpath exception (CPE), Version 2.0 (GPL-2.0-with-classpath-exception)
+								| GPL-2.0-with-classpath-exception
+								| GPL2 w/ CPE
+							</licenseMerge>
+							<licenseMerge>
+								Java Distribution License (JDL), Version 1.1.x (JDL-1.1.x)
+								| JDL-1.1.x
+								| JDL (Java Distribution License)
+							</licenseMerge>
+							<licenseMerge>
+								GNU Lesser General Public License (LGPL), Version 2.1 (LGPL-2.1-only)
+								| LGPL-2.1-only
+								| GNU Lesser General Public License, Version 2.1
+								| LGPL 2.1
+								| LGPLv2
+							</licenseMerge>
+							<licenseMerge>
+								GNU Lesser General Public License (LGPL), Version 2.1+ (LGPL-2.1-or-later)
+								| LGPL-2.1-or-later
+								| GNU Lesser General Public License (LGPL)
+								| Lesser General Public License (LGPL)
+							</licenseMerge>
+							<licenseMerge>
 								MIT License (MIT)
 								| MIT
 								| MIT License
 								| The MIT License
+								| The MIT License(MIT)
+							</licenseMerge>
+							<licenseMerge>
+								Mozilla Public License (MPL), Version 1.1 (MPL-1.1)
+								| MPL-1.1
+								| MPL 1.1
+							</licenseMerge>
+							<licenseMerge>
+								OGC Copyright (OGC)
+								| OGC
+								| OGC copyright
+							</licenseMerge>
+							<licenseMerge>
+								Individual Apache License
+								| Indv-Apache
+								| Similar to Apache License but with the acknowledgment clause removed
+							</licenseMerge>
+							<licenseMerge>
+								Individual BSD License
+								| Indv-BSD
+								| BSD License for HSQL
+								| HSQLDB License, a BSD open source license
 							</licenseMerge>
 						</licenseMerges>
 					</configuration>
