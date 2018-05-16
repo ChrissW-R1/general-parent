@@ -57,8 +57,8 @@
 		<netbeans.hint.jdkPlatform>JDK_${java.version}</netbeans.hint.jdkPlatform>
 
 		<plugin.buildhelper.version>3.0.0</plugin.buildhelper.version>
-		<plugin.license.version>1.14</plugin.license.version>
-		<plugin.resources.version>3.0.2</plugin.resources.version>
+		<plugin.license.version>1.16</plugin.license.version>
+		<plugin.resources.version>3.1.0</plugin.resources.version>
 		<plugin.compiler.version>3.7.0</plugin.compiler.version>
 		<plugin.source.version>3.0.1</plugin.source.version>
 		<plugin.project-info-reports.version>2.9</plugin.project-info-reports.version>
