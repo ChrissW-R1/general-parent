@@ -179,4 +179,8 @@
 			</build>
 		</profile>
 	</profiles>
+
+	<modules>
+		<module>webapp-parent</module>
+	</modules>
 </project>

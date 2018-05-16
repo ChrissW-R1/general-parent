@@ -134,6 +134,7 @@
 								| Apache-2.0
 								| Apache 2
 								| Apache License 2.0
+								| Apache License, 2.0
 								| Apache License, Version 2.0
 								| The Apache License, Version 2.0
 								| The Apache Software License, Version 2.0
@@ -152,6 +153,7 @@
 								Common Development and Distribution License (CDDL), Version 1.1 (CDDL-1.1)
 								| CDDL-1.1
 								| CDDL 1.1
+								| Common Development and Distribution License (CDDL), Version 1.1
 							</licenseMerge>
 							<licenseMerge>
 								Creative Commons (CC) Attribution International Public License, Version 4.0 (CC-BY-4.0)
@@ -181,6 +183,7 @@
 								GNU General Public License (GPL) with Classpath exception (CPE), Version 2.0 (GPL-2.0-with-classpath-exception)
 								| GPL-2.0-with-classpath-exception
 								| GPL2 w/ CPE
+								| The GNU General Public License (GPL), Version 2, With Classpath Exception
 							</licenseMerge>
 							<licenseMerge>
 								Java Distribution License (JDL), Version 1.1.x (JDL-1.1.x)
@@ -218,6 +221,11 @@
 								| OGC copyright
 							</licenseMerge>
 							<licenseMerge>
+								Public Domain (PD)
+								| PD
+								| Public Domain
+							</licenseMerge>
+							<licenseMerge>
 								Individual Apache License
 								| Indv-Apache
 								| Similar to Apache License but with the acknowledgment clause removed
@@ -227,6 +235,7 @@
 								| Indv-BSD
 								| BSD License for HSQL
 								| HSQLDB License, a BSD open source license
+								| Modified BSD
 							</licenseMerge>
 						</licenseMerges>
 					</configuration>
