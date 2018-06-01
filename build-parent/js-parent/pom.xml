@@ -20,13 +20,13 @@
 	<properties>
 		<project.module-root.basedir>${project.parent.basedir}/../</project.module-root.basedir>
 
-		<nodejs.version>10.1.0</nodejs.version>
-		<npm-typescript.version>2.8.3</npm-typescript.version>
+		<nodejs.version>10.3.0</nodejs.version>
+		<npm-typescript.version>2.9.1</npm-typescript.version>
 		<tslint.version>5.10.0</tslint.version>
 		<codelyzer.version>4.3.0</codelyzer.version>
-		<rxjs.version>6.1.0</rxjs.version>
+		<rxjs.version>6.2.0</rxjs.version>
 		<zonejs.version>0.8.26</zonejs.version>
-		<angular.version>6.0.1</angular.version>
+		<angular.version>6.0.3</angular.version>
 		<grunt.version>1.0.2</grunt.version>
 		<grunt-cli.version>1.2.0</grunt-cli.version>
 		<grunt-tslint.version>5.0.2</grunt-tslint.version>

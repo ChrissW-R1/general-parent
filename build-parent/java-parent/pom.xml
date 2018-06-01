@@ -20,14 +20,14 @@
 	<properties>
 		<project.module-root.basedir>${project.parent.basedir}/../</project.module-root.basedir>
 
-		<lombok.version>1.16.20</lombok.version>
+		<lombok.version>1.16.22</lombok.version>
 		<slf4j.version>1.7.25</slf4j.version>
 		<junit.platform.version>1.2.0</junit.platform.version>
 		<mockito.version>2.18.3</mockito.version>
 
 		<plugin.findbugs.version>3.0.5</plugin.findbugs.version>
 		<plugin.surefire.version>2.21.0</plugin.surefire.version>
-		<plugin.javadoc.version>3.0.0</plugin.javadoc.version>
+		<plugin.javadoc.version>3.0.1</plugin.javadoc.version>
 
 		<lombok.javadoc-url>https://projectlombok.org/api</lombok.javadoc-url>
 		<slf4j.javadoc-url>https://www.slf4j.org/apidocs</slf4j.javadoc-url>
