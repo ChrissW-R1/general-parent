@@ -21,6 +21,7 @@
 		<project.module-root.basedir>${project.parent.basedir}/../</project.module-root.basedir>
 
 		<nodejs.version>10.3.0</nodejs.version>
+		<yarn.version>1.7.0</yarn.version>
 		<npm-typescript.version>2.9.1</npm-typescript.version>
 		<tslint.version>5.10.0</tslint.version>
 		<codelyzer.version>4.3.0</codelyzer.version>
@@ -147,18 +148,19 @@
 					<configuration>
 						<installDirectory>build-exe</installDirectory>
 						<nodeVersion>v${nodejs.version}</nodeVersion>
+						<yarnVersion>v${yarn.version}</yarnVersion>
 					</configuration>
 					<executions>
 						<execution>
 							<id>install-nodejs</id>
 							<goals>
-								<goal>install-node-and-npm</goal>
+								<goal>install-node-and-yarn</goal>
 							</goals>
 						</execution>
 						<execution>
-							<id>npm-install</id>
+							<id>yarn-install</id>
 							<goals>
-								<goal>npm</goal>
+								<goal>yarn</goal>
 							</goals>
 						</execution>
 						<execution>
