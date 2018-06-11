@@ -60,6 +60,7 @@
 		<plugin.license.version>1.16</plugin.license.version>
 		<plugin.resources.version>3.1.0</plugin.resources.version>
 		<plugin.compiler.version>3.7.0</plugin.compiler.version>
+		<plugin.jar.version>3.1.0</plugin.jar.version>
 		<plugin.source.version>3.0.1</plugin.source.version>
 		<plugin.project-info-reports.version>2.9</plugin.project-info-reports.version>
 		<plugin.release.version>2.5.3</plugin.release.version>
@@ -259,12 +260,8 @@
 					</configuration>
 				</plugin>
 				<plugin>
-					<artifactId>maven-compiler-plugin</artifactId>
-					<version>${plugin.compiler.version}</version>
-					<configuration>
-						<source>${java.version}</source>
-						<target>${java.version}</target>
-					</configuration>
+					<artifactId>maven-jar-plugin</artifactId>
+					<version>${plugin.jar.version}</version>
 				</plugin>
 				<plugin>
 					<artifactId>maven-source-plugin</artifactId>

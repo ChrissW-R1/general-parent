@@ -115,5 +115,6 @@
 	<modules>
 		<module>java-parent</module>
 		<module>js-parent</module>
+		<module>php-parent</module>
 	</modules>
 </project>

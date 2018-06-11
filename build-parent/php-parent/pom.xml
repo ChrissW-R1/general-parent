@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<artifactId>build-parent</artifactId>
+		<groupId>me.chrisswr1</groupId>
+		<version>0.1.0-SNAPSHOT</version>
+	</parent>
+
+	<artifactId>php-parent</artifactId>
+	<packaging>pom</packaging>
+
+	<name>PHP Parent</name>
+
+	<properties>
+		<project.module-root.basedir>${project.parent.basedir}/../</project.module-root.basedir>
+
+		<plugin.composer.version>1.1</plugin.composer.version>
+	</properties>
+
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>uk.co.codezen</groupId>
+					<artifactId>composer-maven-plugin</artifactId>
+					<version>${plugin.composer.version}</version>
+
+					<configuration>
+						<phpPath>${php.path}</phpPath>
+						<composerPharPath>src/main/php/composer.phar</composerPharPath>
+						<composerJsonPath>src/main/php/composer.json</composerJsonPath>
+						<withDev>false</withDev>
+						<withOptimisedAutoloader>true</withOptimisedAutoloader>
+					</configuration>
+
+					<executions>
+						<execution>
+							<phase>process-resources</phase>
+							<goals>
+								<goal>install</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+		<plugins>
+			<plugin>
+				<groupId>uk.co.codezen</groupId>
+				<artifactId>composer-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+</project>
