@@ -32,7 +32,7 @@ build-exe/
 #### Maven
 target/
 dependency-reduced-pom.xml
-build_sample.properties
+build.properties
 
 #### Grunt
 # intermediate storage (http://gruntjs.com/creating-plugins#storing-task-files)
