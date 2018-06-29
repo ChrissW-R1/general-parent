@@ -63,6 +63,7 @@
 		<plugin.compiler.version>3.7.0</plugin.compiler.version>
 		<plugin.jar.version>3.1.0</plugin.jar.version>
 		<plugin.source.version>3.0.1</plugin.source.version>
+		<plugin.gpg.version>1.6</plugin.gpg.version>
 		<plugin.project-info-reports.version>2.9</plugin.project-info-reports.version>
 		<plugin.release.version>2.5.3</plugin.release.version>
 	</properties>
@@ -287,6 +288,18 @@
 					<version>${plugin.source.version}</version>
 				</plugin>
 				<plugin>
+					<artifactId>maven-gpg-plugin</artifactId>
+					<version>${plugin.gpg.version}</version>
+					<executions>
+						<execution>
+							<id>sign-artifacts</id>
+							<goals>
+								<goal>sign</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+				<plugin>
 					<artifactId>maven-release-plugin</artifactId>
 					<version>${plugin.release.version}</version>
 					<configuration>
@@ -303,6 +316,9 @@
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>license-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<artifactId>maven-gpg-plugin</artifactId>
 			</plugin>
 		</plugins>
 	</build>
