@@ -53,7 +53,7 @@
 		<project.parent.basedir>${project.basedir}</project.parent.basedir>
 		<project.module-root.artifactId>general-parent</project.module-root.artifactId>
 		<project.module-root.basedir>${project.parent.basedir}</project.module-root.basedir>
-		<java.version>1.9</java.version>
+		<java.version>1.10</java.version>
 		<netbeans.hint.jdkPlatform>JDK_${java.version}</netbeans.hint.jdkPlatform>
 
 		<plugin.properties.version>1.0.0</plugin.properties.version>
@@ -64,6 +64,8 @@
 		<plugin.jar.version>3.1.0</plugin.jar.version>
 		<plugin.source.version>3.0.1</plugin.source.version>
 		<plugin.gpg.version>1.6</plugin.gpg.version>
+		<plugin.site.version>3.7.1</plugin.site.version>
+		<!-- maven-project-info-reports-plugin: Version 3.0.0 is not stable in use with maven-site-plugin -->
 		<plugin.project-info-reports.version>2.9</plugin.project-info-reports.version>
 		<plugin.release.version>2.5.3</plugin.release.version>
 	</properties>
@@ -325,6 +327,10 @@
 
 	<reporting>
 		<plugins>
+			<plugin>
+				<artifactId>maven-site-plugin</artifactId>
+				<version>${plugin.site.version}</version>
+			</plugin>
 			<plugin>
 				<artifactId>maven-project-info-reports-plugin</artifactId>
 				<version>${plugin.project-info-reports.version}</version>

@@ -20,7 +20,7 @@
 	<properties>
 		<project.parent.basedir>${project.basedir}/../</project.parent.basedir>
 
-		<general-resources.version>0.1.0-SNAPSHOT</general-resources.version>
+		<general-resources.version>${project.parent.version}</general-resources.version>
 
 		<plugin.unpack.version>2.3.1</plugin.unpack.version>
 	</properties>
