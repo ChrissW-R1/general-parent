@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
 		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
@@ -147,7 +148,8 @@
 					<configuration>
 						<licenseFile>${project.module-root.basedir}/LICENSE</licenseFile>
 						<licenseName>apache_v2</licenseName>
-						<missingFile>${project.module-root.basedir}/src/main/license/THIRD-PARTY.properties</missingFile>
+						<missingFile>${project.module-root.basedir}/src/main/license/THIRD-PARTY.properties
+						</missingFile>
 						<useMissingFile>true</useMissingFile>
 						<sortArtifactByName>true</sortArtifactByName>
 						<fileTemplate>/org/codehaus/mojo/license/third-party-file-groupByLicense.ftl</fileTemplate>
