@@ -270,7 +270,7 @@
 							<phase>generate-resources</phase>
 							<goals>
 								<goal>update-project-license</goal>
-								<goal>add-third-party</goal>
+								<goal>aggregate-add-third-party</goal>
 								<goal>download-licenses</goal>
 							</goals>
 						</execution>
