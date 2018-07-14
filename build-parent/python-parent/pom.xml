@@ -19,8 +19,6 @@
 		<project.module-root.basedir>${project.parent.basedir}/../</project.module-root.basedir>
 
 		<assembly.config.file>src/main/assembly/bin.xml</assembly.config.file>
-
-		<plugin.assembly.version>3.1.0</plugin.assembly.version>
 	</properties>
 
 	<build>

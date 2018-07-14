@@ -24,6 +24,7 @@
 		<general-resources.version>${project.parent.version}</general-resources.version>
 
 		<plugin.unpack.version>2.3.1</plugin.unpack.version>
+		<plugin.assembly.version>3.1.0</plugin.assembly.version>
 	</properties>
 
 	<build>
