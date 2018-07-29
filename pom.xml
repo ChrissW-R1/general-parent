@@ -51,9 +51,11 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<project.parent.basedir>${project.basedir}</project.parent.basedir>
+		<project.parent.relativedir></project.parent.relativedir>
+		<project.parent.basedir>${project.basedir}/${project.parent.relativedir}</project.parent.basedir>
 		<project.module-root.artifactId>general-parent</project.module-root.artifactId>
-		<project.module-root.basedir>${project.parent.basedir}</project.module-root.basedir>
+		<project.module-root.relativedir>${project.parent.relativedir}</project.module-root.relativedir>
+		<project.module-root.basedir>${project.basedir}/${project.module-root.relativedir}</project.module-root.basedir>
 		<java.version>1.10</java.version>
 		<netbeans.hint.jdkPlatform>JDK_${java.version}</netbeans.hint.jdkPlatform>
 

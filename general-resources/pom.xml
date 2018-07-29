@@ -18,7 +18,7 @@
 	</description>
 
 	<properties>
-		<project.parent.basedir>${project.basedir}/../</project.parent.basedir>
+		<project.parent.relativedir>../</project.parent.relativedir>
 	</properties>
 
 	<build>

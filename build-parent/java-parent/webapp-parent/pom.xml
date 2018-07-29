@@ -19,7 +19,7 @@
 	</description>
 
 	<properties>
-		<project.module-root.basedir>${project.parent.basedir}/../../</project.module-root.basedir>
+		<project.module-root.relativedir>${project.parent.relativedir}../../</project.module-root.relativedir>
 
 		<servlet.version>4.0.1</servlet.version>
 		<jersey.version>2.27</jersey.version>

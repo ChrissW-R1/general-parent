@@ -19,7 +19,7 @@
 	</description>
 
 	<properties>
-		<project.parent.basedir>${project.basedir}/../</project.parent.basedir>
+		<project.parent.relativedir>../</project.parent.relativedir>
 
 		<general-resources.version>${project.parent.version}</general-resources.version>
 

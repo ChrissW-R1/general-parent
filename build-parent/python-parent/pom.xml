@@ -16,7 +16,7 @@
 	<name>Python Parent</name>
 
 	<properties>
-		<project.module-root.basedir>${project.parent.basedir}/../</project.module-root.basedir>
+		<project.module-root.relativedir>${project.parent.relativedir}../</project.module-root.relativedir>
 
 		<assembly.config.file>src/main/assembly/bin.xml</assembly.config.file>
 	</properties>

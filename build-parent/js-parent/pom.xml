@@ -19,7 +19,7 @@
 	</description>
 
 	<properties>
-		<project.module-root.basedir>${project.parent.basedir}/../</project.module-root.basedir>
+		<project.module-root.relativedir>${project.parent.relativedir}../</project.module-root.relativedir>
 
 		<nodejs.version>10.6.0</nodejs.version>
 		<yarn.version>1.7.0</yarn.version>
