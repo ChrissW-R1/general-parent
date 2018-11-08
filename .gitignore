@@ -1,6 +1,10 @@
 # Created by .ignore support plugin (hsz.mobi)
 
 ### Common
+#### Temporary Files
+tmp/
+*.tmp
+
 #### Logging
 *.log
 
@@ -41,6 +45,10 @@ build.properties
 Gruntfile.js
 !**/src/**/Gruntfile.js
 
+#### Angular
+dist/
+out-tsc/
+
 ### Languages
 #### Java
 bin/
@@ -56,6 +64,9 @@ tsconfig.json
 !**/src/**/tsconfig.json
 tslint.json
 !**/src/**/tslint.json
+
+#### Sass
+.sass-cache/
 
 ### Frameworks
 #### Node.js
@@ -84,6 +95,10 @@ www/
 .idea/
 *.iml
 
+
+#### Visual Studio Code
+.vscode/
+
 #### Eclipse
 .project
 .classpath
@@ -92,3 +107,6 @@ out/
 
 #### Android Studio
 gen/
+
+#### AWS Cloud9
+.c9/
