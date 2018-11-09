@@ -30,16 +30,15 @@
 					<groupId>uk.co.codezen</groupId>
 					<artifactId>composer-maven-plugin</artifactId>
 					<version>${plugin.composer.version}</version>
-
 					<configuration>
 						<phpPath>${php.path}</phpPath>
 						<composerJsonPath>${composer.config.file}</composerJsonPath>
 						<withDev>false</withDev>
 						<withOptimisedAutoloader>true</withOptimisedAutoloader>
 					</configuration>
-
 					<executions>
 						<execution>
+							<id>composer-install</id>
 							<phase>process-resources</phase>
 							<goals>
 								<goal>install</goal>

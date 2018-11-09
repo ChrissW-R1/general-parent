@@ -63,6 +63,7 @@
 		<plugin.buildhelper.version>3.0.0</plugin.buildhelper.version>
 		<plugin.license.version>1.16</plugin.license.version>
 		<plugin.resources.version>3.1.0</plugin.resources.version>
+		<plugin.antrun.version>1.8</plugin.antrun.version>
 		<plugin.compiler.version>3.8.0</plugin.compiler.version>
 		<plugin.jar.version>3.1.0</plugin.jar.version>
 		<plugin.source.version>3.0.1</plugin.source.version>
@@ -119,6 +120,7 @@
 					<version>${plugin.properties.version}</version>
 					<executions>
 						<execution>
+							<id>read-properties</id>
 							<phase>initialize</phase>
 							<goals>
 								<goal>read-project-properties</goal>

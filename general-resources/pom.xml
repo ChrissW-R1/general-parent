@@ -73,7 +73,31 @@
 						<addDefaultExcludes>false</addDefaultExcludes>
 					</configuration>
 				</plugin>
+				<plugin>
+					<artifactId>maven-antrun-plugin</artifactId>
+					<version>${plugin.antrun.version}</version>
+					<executions>
+						<execution>
+							<id>move-gitignore</id>
+							<phase>compile</phase>
+							<goals>
+								<goal>run</goal>
+							</goals>
+							<configuration>
+								<target>
+									<move file="${project.build.outputDirectory}/resources/.gitignore"
+										  tofile="${project.build.outputDirectory}/resources/default.gitignore"/>
+								</target>
+							</configuration>
+						</execution>
+					</executions>
+				</plugin>
 			</plugins>
 		</pluginManagement>
+		<plugins>
+			<plugin>
+				<artifactId>maven-antrun-plugin</artifactId>
+			</plugin>
+		</plugins>
 	</build>
 </project>
