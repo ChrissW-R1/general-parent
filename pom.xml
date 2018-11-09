@@ -23,8 +23,8 @@
 
 	<licenses>
 		<license>
-			<name>Apache License (ASL), Version 2.0 (Apache-2.0)</name>
-			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+			<name>${license.signature}</name>
+			<url>${license.url}</url>
 			<distribution>repo</distribution>
 		</license>
 	</licenses>
@@ -71,6 +71,13 @@
 		<!-- maven-project-info-reports-plugin: Version 3.0.0 is not stable in use with maven-site-plugin -->
 		<plugin.project-info-reports.version>2.9</plugin.project-info-reports.version>
 		<plugin.release.version>2.5.3</plugin.release.version>
+
+		<license.name>Apache</license.name>
+		<license.version>2.0</license.version>
+		<license.abbr>ASL</license.abbr>
+		<license.id>${license.name}-${license.version}</license.id>
+		<license.url>http://www.apache.org/licenses/LICENSE-${license.version}.txt</license.url>
+		<license.signature>${license.name} License (${license.abbr}), Version ${license.version} (${license.id})</license.signature>
 	</properties>
 
 	<scm>
