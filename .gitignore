@@ -25,6 +25,8 @@ hs_err_pid*
 ### Operating Systems
 #### Windows
 Thumbs.db
+Desktop.ini
+desktop.ini
 
 #### Mac OS X
 .DS_Store
@@ -95,7 +97,6 @@ www/
 .idea/
 *.iml
 
-
 #### Visual Studio Code
 .vscode/
 
@@ -110,3 +111,6 @@ gen/
 
 #### AWS Cloud9
 .c9/
+
+### Project specific
+default.gitignore
