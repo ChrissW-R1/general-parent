@@ -21,14 +21,15 @@
 	<properties>
 		<project.module-root.relativedir>${project.parent.relativedir}../</project.module-root.relativedir>
 
-		<lombok.version>1.18.4</lombok.version>
+		<lombok.version>1.18.6</lombok.version>
 		<slf4j.version>1.8.0-beta2</slf4j.version>
-		<junit.jupiter.version>5.3.1</junit.jupiter.version>
-		<junit.platform.version>1.3.1</junit.platform.version>
-		<mockito.version>2.23.0</mockito.version>
+		<junit.jupiter.version>5.4.0</junit.jupiter.version>
+		<junit.platform.version>1.4.0</junit.platform.version>
+		<junit.platform.surefire.version>1.3.2</junit.platform.surefire.version>
+		<mockito.version>2.24.0</mockito.version>
 
-		<plugin.spotbugs.version>3.1.8</plugin.spotbugs.version>
-		<plugin.surefire.version>2.22.1</plugin.surefire.version>
+		<plugin.spotbugs.version>3.1.11</plugin.spotbugs.version>
+		<plugin.surefire.version>3.0.0-M3</plugin.surefire.version>
 		<plugin.javadoc.version>3.0.1</plugin.javadoc.version>
 
 		<lombok.javadoc-url>https://projectlombok.org/api</lombok.javadoc-url>
@@ -64,7 +65,7 @@
 		<dependency>
 			<groupId>org.junit.platform</groupId>
 			<artifactId>junit-platform-surefire-provider</artifactId>
-			<version>${junit.platform.version}</version>
+			<version>${junit.platform.surefire.version}</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
@@ -133,7 +134,7 @@
 						<dependency>
 							<groupId>org.junit.platform</groupId>
 							<artifactId>junit-platform-surefire-provider</artifactId>
-							<version>${junit.platform.version}</version>
+							<version>${junit.platform.surefire.version}</version>
 						</dependency>
 					</dependencies>
 				</plugin>

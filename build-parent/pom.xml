@@ -24,7 +24,7 @@
 		<general-resources.version>${project.parent.version}</general-resources.version>
 
 		<plugin.unpack.version>2.3.1</plugin.unpack.version>
-		<plugin.assembly.version>3.1.0</plugin.assembly.version>
+		<plugin.assembly.version>3.1.1</plugin.assembly.version>
 	</properties>
 
 	<build>
@@ -117,7 +117,7 @@
 							<configuration>
 								<target>
 									<move file="${project.module-root.basedir}/default.gitignore"
-										  tofile="${project.module-root.basedir}/.gitignore"/>
+										  tofile="${project.module-root.basedir}/.gitignore" />
 								</target>
 							</configuration>
 						</execution>
@@ -129,7 +129,7 @@
 							</goals>
 							<configuration>
 								<target>
-									<delete file="${project.module-root.basedir}/default.gitignore"/>
+									<delete file="${project.module-root.basedir}/default.gitignore" />
 								</target>
 							</configuration>
 						</execution>

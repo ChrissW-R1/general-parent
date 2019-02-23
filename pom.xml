@@ -61,11 +61,11 @@
 
 		<plugin.properties.version>1.0.0</plugin.properties.version>
 		<plugin.buildhelper.version>3.0.0</plugin.buildhelper.version>
-		<plugin.license.version>1.16</plugin.license.version>
+		<plugin.license.version>1.17</plugin.license.version>
 		<plugin.resources.version>3.1.0</plugin.resources.version>
 		<plugin.antrun.version>1.8</plugin.antrun.version>
 		<plugin.compiler.version>3.8.0</plugin.compiler.version>
-		<plugin.jar.version>3.1.0</plugin.jar.version>
+		<plugin.jar.version>3.1.1</plugin.jar.version>
 		<plugin.source.version>3.0.1</plugin.source.version>
 		<plugin.gpg.version>1.6</plugin.gpg.version>
 		<plugin.site.version>3.7.1</plugin.site.version>
@@ -178,6 +178,7 @@
 							<licenseMerge>
 								BSD 2-Clause License (BSD), (BSD-2-Clause)
 								| BSD-2-Clause
+								| BSD 2-Clause
 								| BSD License
 							</licenseMerge>
 							<licenseMerge>
@@ -205,6 +206,7 @@
 								Eclipse Public License (EPL), Version 2.0 (EPL-2.0)
 								| EPL-2.0
 								| Eclipse Public License v2.0
+								| EPL 2.0
 							</licenseMerge>
 							<licenseMerge>
 								EPSG database distribution license (EPSG-DDL)
@@ -242,7 +244,9 @@
 							<licenseMerge>
 								MIT License (MIT)
 								| MIT
+								| jQuery license
 								| MIT License
+								| MIT license
 								| The MIT License
 								| The MIT License(MIT)
 							</licenseMerge>
@@ -262,6 +266,11 @@
 								| Public Domain
 							</licenseMerge>
 							<licenseMerge>
+								W3C Software Notice and License (W3C)
+								| W3C
+								| W3C license
+							</licenseMerge>
+							<licenseMerge>
 								Individual Apache License
 								| Indv-Apache
 								| Similar to Apache License but with the acknowledgment clause removed
@@ -270,6 +279,7 @@
 								Individual BSD License
 								| Indv-BSD
 								| BSD License for HSQL
+								| EDL 1.0
 								| HSQLDB License, a BSD open source license
 								| Modified BSD
 							</licenseMerge>
