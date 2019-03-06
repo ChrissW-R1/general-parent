@@ -251,5 +251,6 @@
 
 	<modules>
 		<module>webapp-parent</module>
+		<module>java-exe-parent</module>
 	</modules>
 </project>
