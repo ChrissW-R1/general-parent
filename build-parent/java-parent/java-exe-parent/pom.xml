@@ -60,11 +60,24 @@
 				</plugin>
 			</plugins>
 		</pluginManagement>
-		<plugins>
-			<plugin>
-				<groupId>com.akathist.maven.plugins.launch4j</groupId>
-				<artifactId>launch4j-maven-plugin</artifactId>
-			</plugin>
-		</plugins>
 	</build>
+
+	<profiles>
+		<profile>
+			<id>launch4j</id>
+			<activation>
+				<file>
+					<exists>target/*.jar</exists>
+				</file>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>com.akathist.maven.plugins.launch4j</groupId>
+						<artifactId>launch4j-maven-plugin</artifactId>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
 </project>
