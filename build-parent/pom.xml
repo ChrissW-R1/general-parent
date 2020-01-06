@@ -23,8 +23,8 @@
 
 		<general-resources.version>${project.parent.version}</general-resources.version>
 
-		<plugin.unpack.version>2.3.1</plugin.unpack.version>
-		<plugin.assembly.version>3.1.1</plugin.assembly.version>
+		<plugin.unpack.version>2.3.2</plugin.unpack.version>
+		<plugin.assembly.version>3.2.0</plugin.assembly.version>
 	</properties>
 
 	<build>
@@ -50,7 +50,7 @@
 		<pluginManagement>
 			<plugins>
 				<plugin>
-					<groupId>org.apache.portals.jetspeed-2</groupId>
+					<groupId>nl.praegus</groupId>
 					<artifactId>jetspeed-unpack-maven-plugin</artifactId>
 					<version>${plugin.unpack.version}</version>
 					<dependencies>
@@ -139,7 +139,7 @@
 		</pluginManagement>
 		<plugins>
 			<plugin>
-				<groupId>org.apache.portals.jetspeed-2</groupId>
+				<groupId>nl.praegus</groupId>
 				<artifactId>jetspeed-unpack-maven-plugin</artifactId>
 			</plugin>
 			<plugin>

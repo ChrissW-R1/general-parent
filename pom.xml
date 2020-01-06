@@ -61,14 +61,14 @@
 
 		<plugin.properties.version>1.0.0</plugin.properties.version>
 		<plugin.buildhelper.version>3.0.0</plugin.buildhelper.version>
-		<plugin.license.version>1.19</plugin.license.version>
+		<plugin.license.version>2.0.0</plugin.license.version>
 		<plugin.resources.version>3.1.0</plugin.resources.version>
 		<plugin.antrun.version>1.8</plugin.antrun.version>
-		<plugin.compiler.version>3.8.0</plugin.compiler.version>
-		<plugin.jar.version>3.1.1</plugin.jar.version>
-		<plugin.source.version>3.0.1</plugin.source.version>
+		<plugin.compiler.version>3.8.1</plugin.compiler.version>
+		<plugin.jar.version>3.2.0</plugin.jar.version>
+		<plugin.source.version>3.2.1</plugin.source.version>
 		<plugin.gpg.version>1.6</plugin.gpg.version>
-		<plugin.site.version>3.7.1</plugin.site.version>
+		<plugin.site.version>3.8.2</plugin.site.version>
 		<!-- maven-project-info-reports-plugin: Version 3.0.0 is not stable in use with maven-site-plugin -->
 		<plugin.project-info-reports.version>2.9</plugin.project-info-reports.version>
 		<plugin.release.version>2.5.3</plugin.release.version>
