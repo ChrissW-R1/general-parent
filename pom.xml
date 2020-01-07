@@ -56,8 +56,9 @@
 		<project.module-root.artifactId>general-parent</project.module-root.artifactId>
 		<project.module-root.relativedir>${project.parent.relativedir}</project.module-root.relativedir>
 		<project.module-root.basedir>${project.basedir}/${project.module-root.relativedir}</project.module-root.basedir>
-		<java.version>1.11</java.version>
-		<netbeans.hint.jdkPlatform>JDK_${java.version}</netbeans.hint.jdkPlatform>
+		<java.version>11</java.version>
+		<java.version.prefixed>1.${java.version}</java.version.prefixed>
+		<netbeans.hint.jdkPlatform>JDK_${java.version.prefixed}</netbeans.hint.jdkPlatform>
 
 		<plugin.properties.version>1.0.0</plugin.properties.version>
 		<plugin.buildhelper.version>3.0.0</plugin.buildhelper.version>

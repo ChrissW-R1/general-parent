@@ -45,7 +45,7 @@
 									<mainClass>${mainClass}</mainClass>
 								</classPath>
 								<jre>
-									<minVersion>${java.version}</minVersion>
+									<minVersion>${java.version.prefixed}</minVersion>
 								</jre>
 								<versionInfo>
 									<fileVersion>${project.version}</fileVersion>
