@@ -56,7 +56,7 @@
 		<project.module-root.artifactId>general-parent</project.module-root.artifactId>
 		<project.module-root.relativedir>${project.parent.relativedir}</project.module-root.relativedir>
 		<project.module-root.basedir>${project.basedir}/${project.module-root.relativedir}</project.module-root.basedir>
-		<java.version>11</java.version>
+		<java.version>8</java.version>
 		<java.version.prefixed>1.${java.version}</java.version.prefixed>
 		<netbeans.hint.jdkPlatform>JDK_${java.version.prefixed}</netbeans.hint.jdkPlatform>
 
