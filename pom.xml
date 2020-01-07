@@ -62,7 +62,7 @@
 
 		<plugin.properties.version>1.0.0</plugin.properties.version>
 		<plugin.buildhelper.version>3.0.0</plugin.buildhelper.version>
-		<plugin.license.version>2.0.0</plugin.license.version>
+		<plugin.license.version>1.20</plugin.license.version>
 		<plugin.resources.version>3.1.0</plugin.resources.version>
 		<plugin.antrun.version>1.8</plugin.antrun.version>
 		<plugin.compiler.version>3.8.1</plugin.compiler.version>
@@ -368,6 +368,11 @@
 			<plugin>
 				<artifactId>maven-project-info-reports-plugin</artifactId>
 				<version>${plugin.project-info-reports.version}</version>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>license-maven-plugin</artifactId>
+				<version>${plugin.license.version}</version>
 			</plugin>
 		</plugins>
 	</reporting>
