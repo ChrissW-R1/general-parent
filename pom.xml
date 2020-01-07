@@ -167,10 +167,16 @@
 						<fileTemplate>/org/codehaus/mojo/license/third-party-file-groupByLicense.ftl</fileTemplate>
 						<licenseMerges>
 							<licenseMerge>
+								GNU Affero General Public License (AGPL), Version 3.0+ (AGPL-3.0-or-later)
+								| AGPL-3.0-or-later
+								| GNU Affero General Public License (AGPL) version 3.0
+							</licenseMerge>
+							<licenseMerge>
 								Apache License (ASL), Version 2.0 (Apache-2.0)
 								| Apache-2.0
 								| Apache 2
 								| Apache License 2.0
+								| Apache License version 2.0
 								| Apache License, 2.0
 								| Apache License, Version 2.0
 								| The Apache License, Version 2.0
@@ -180,7 +186,13 @@
 								BSD 2-Clause License (BSD), (BSD-2-Clause)
 								| BSD-2-Clause
 								| BSD 2-Clause
+								| BSD 2-Clause License
 								| BSD License
+							</licenseMerge>
+							<licenseMerge>
+								BSD 3-Clause License (BSD), (BSD-3-Clause)
+								| BSD-3-Clause
+								| BSD 3-Clause License
 							</licenseMerge>
 							<licenseMerge>
 								Common Development and Distribution License (CDDL), Version 1.0 (CDDL-1.0)
@@ -206,12 +218,14 @@
 							<licenseMerge>
 								Eclipse Public License (EPL), Version 1.0 (EPL-1.0)
 								| EPL-1.0
+								| Eclipse Public License - v 1.0
 								| Eclipse Public License, Version 1.0
 							</licenseMerge>
 							<licenseMerge>
 								Eclipse Public License (EPL), Version 2.0 (EPL-2.0)
 								| EPL-2.0
 								| Eclipse Public License v2.0
+								| Eclipse Public License - v 2.0
 								| EPL 2.0
 							</licenseMerge>
 							<licenseMerge>
@@ -220,8 +234,33 @@
 								| EPSG database distribution license
 							</licenseMerge>
 							<licenseMerge>
+								European Union Public License (EUPL), Version 1.1 (EUPL-1.1)
+								| EUPL-1.1
+								| European Union Public License v1.1
+							</licenseMerge>
+							<licenseMerge>
+								GNU Free Documentation License (FDL), Version 1.3+ (GFDL-1.3-or-later)
+								| GFDL-1.3-or-later
+								| GNU Free Documentation License (FDL) version 1.3
+							</licenseMerge>
+							<licenseMerge>
+								GNU General Public License (GPL), Version 1.0+ (GPL-1.0-or-later)
+								| GPL-1.0-or-later
+								| GNU General Public License (GPL) version 1.0
+							</licenseMerge>
+							<licenseMerge>
 								GNU General Public License (GPL), Version 2.0 (GPL-2.0)
 								| GPL-2.0
+							</licenseMerge>
+							<licenseMerge>
+								GNU General Public License (GPL), Version 2.0+ (GPL-2.0-or-later)
+								| GPL-2.0-or-later
+								| GNU General Public License (GPL) version 2.0
+							</licenseMerge>
+							<licenseMerge>
+								GNU General Public License (GPL), Version 3.0+ (GPL-3.0-or-later)
+								| GPL-3.0-or-later
+								| GNU General Public License (GPL) version 3.0
 							</licenseMerge>
 							<licenseMerge>
 								GNU General Public License (GPL) with Classpath exception (CPE), Version 2.0 (GPL-2.0-with-classpath-exception)
@@ -244,8 +283,14 @@
 							<licenseMerge>
 								GNU Lesser General Public License (LGPL), Version 2.1+ (LGPL-2.1-or-later)
 								| LGPL-2.1-or-later
+								| GNU General Lesser Public License (LGPL) version 2.1
 								| GNU Lesser General Public License (LGPL)
 								| Lesser General Public License (LGPL)
+							</licenseMerge>
+							<licenseMerge>
+								GNU Lesser General Public License (LGPL), Version 3.0+ (LGPL-3.0-or-later)
+								| LGPL-3.0-or-later
+								| GNU General Lesser Public License (LGPL) version 3.0
 							</licenseMerge>
 							<licenseMerge>
 								MIT License (MIT)
@@ -253,6 +298,7 @@
 								| jQuery license
 								| MIT License
 								| MIT license
+								| MIT-License
 								| The MIT License
 								| The MIT License(MIT)
 							</licenseMerge>
