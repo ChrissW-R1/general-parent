@@ -35,7 +35,7 @@
 		"@angular/core":                     "~${angular.version}",
 		"@angular/common":                   "~${angular.version}",
 		"@angular/compiler":                 "~${angular.version}",
-		"@angular/http":                     "~${angular.version}",
+		"@angular/common":                   "~${angular.version}",
 		"@angular/router":                   "~${angular.version}",
 		"@angular/forms":                    "~${angular.version}",
 		"@angular/platform-browser":         "~${angular.version}",
@@ -64,6 +64,7 @@
 		"karma-firefox-launcher":    "~${karma.firefox.version}",
 		"karma-opera-launcher":      "~${karma.opera.version}",
 		"karma-safari-launcher":     "~${karma.safari.version}",
+		"karma-edgium-launcher":     "~${karma.edgium.version}",
 		"karma-edge-launcher":       "~${karma.edge.version}",
 		"karma-ie-launcher":         "~${karma.ie.version}",
 		"karma-mocha-reporter":      "~${karma.mocha.reporter.version}"
