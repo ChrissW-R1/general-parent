@@ -25,7 +25,7 @@
 		<yarn.version>1.22.4</yarn.version>
 		<npm-typescript.version>3.9.5</npm-typescript.version>
 		<ts-node.version>8.10.2</ts-node.version>
-		<tslint.version>5.20.1</tslint.version>
+		<eslint.version>7.3.1</eslint.version>
 		<codelyzer.version>5.2.2</codelyzer.version>
 		<core-js.version>3.6.5</core-js.version>
 		<rxjs.version>6.5.5</rxjs.version>
@@ -33,7 +33,7 @@
 		<angular.version>10.0.2</angular.version>
 		<grunt.version>1.1.0</grunt.version>
 		<grunt-cli.version>1.3.2</grunt-cli.version>
-		<grunt-tslint.version>5.0.2</grunt-tslint.version>
+		<grunt-eslint.version>23.0.0</grunt-eslint.version>
 		<grunt-ts.version>5.5.1</grunt-ts.version>
 		<uglify.version>4.0.1</uglify.version>
 		<angular.cli.version>10.0.0</angular.cli.version>
@@ -96,7 +96,7 @@
 									<resources>
 										<resource>
 											<path>resources</path>
-											<include>tslint.json</include>
+											<include>.eslintrc.json</include>
 											<overwrite>true</overwrite>
 											<flat>true</flat>
 										</resource>

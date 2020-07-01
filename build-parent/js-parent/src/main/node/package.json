@@ -45,11 +45,11 @@
 	"devDependencies": {
 		"typescript":                "~${npm-typescript.version}",
 		"ts-node":                   "~${ts-node.version}",
-		"tslint":                    "~${tslint.version}",
+		"eslint":                    "~${eslint.version}",
 		"codelyzer":                 "~${codelyzer.version}",
 		"grunt":                     "~${grunt.version}",
 		"grunt-cli":                 "~${grunt-cli.version}",
-		"grunt-tslint":              "~${grunt-tslint.version}",
+		"grunt-eslint":              "~${grunt-eslint.version}",
 		"grunt-ts":                  "~${grunt-ts.version}",
 		"grunt-contrib-uglify":      "~${uglify.version}",
 		"@angular/cli":              "~${angular.cli.version}",

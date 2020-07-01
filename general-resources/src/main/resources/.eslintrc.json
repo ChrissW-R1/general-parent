@@ -1,5 +1,5 @@
 {
-	"extends":        "tslint:recommended",
+	"extends":        "eslint:recommended",
 	"rulesDirectory": [
 		"node_modules/codelyzer"
 	],

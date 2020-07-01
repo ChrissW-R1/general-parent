@@ -412,11 +412,11 @@
 				<artifactId>maven-project-info-reports-plugin</artifactId>
 				<version>${plugin.project-info-reports.version}</version>
 			</plugin>
-			<plugin>
+			<!--plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>license-maven-plugin</artifactId>
 				<version>${plugin.license.version}</version>
-			</plugin>
+			</plugin-->
 		</plugins>
 	</reporting>
 
@@ -454,11 +454,11 @@
 		</profile>
 		<profile>
 			<id>sign-artifacts</id>
-			<activation>
+			<!--activation>
 				<property>
 					<name>fullBuild</name>
 				</property>
-			</activation>
+			</activation-->
 			<build>
 				<plugins>
 					<plugin>

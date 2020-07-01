@@ -2,17 +2,13 @@ module.exports = function(grunt) {
 	// Project configuration
 	grunt.initConfig({
 						 pkg:    grunt.file.readJSON("package.json"),
-						 tslint: {
+						 eslint: {
 							 options: {
-								 configuration: "tslint.json",
-								 force:         false,
-								 fix:           true
+								 configFile: ".eslintrc.json"
 							 },
-							 files:   {
-								 src: [
-									 "${project.build.sourceDirectory}/**/*.ts"
-								 ]
-							 }
+							 target:  [
+								 "${project.build.sourceDirectory}/**/*.ts"
+							 ]
 						 },
 						 ts:     {
 							 options: {
@@ -43,13 +39,13 @@ module.exports = function(grunt) {
 					 });
 
 	// Load plugins
-	grunt.loadNpmTasks("grunt-tslint");
+	grunt.loadNpmTasks("grunt-eslint");
 	grunt.loadNpmTasks("grunt-ts");
 	grunt.loadNpmTasks("grunt-contrib-uglify");
 
 	// Default task(s)
 	grunt.registerTask("default", [
-		"tslint",
+		"eslint",
 		"ts",
 		"uglify"
 	]);
