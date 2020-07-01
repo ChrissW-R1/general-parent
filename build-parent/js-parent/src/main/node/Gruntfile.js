@@ -1,41 +1,41 @@
-module.exports = function (grunt) {
+module.exports = function(grunt) {
 	// Project configuration
 	grunt.initConfig({
-						 pkg   : grunt.file.readJSON("package.json"),
+						 pkg:    grunt.file.readJSON("package.json"),
 						 tslint: {
 							 options: {
 								 configuration: "tslint.json",
-								 force        : false,
-								 fix          : true
+								 force:         false,
+								 fix:           true
 							 },
-							 files  : {
+							 files:   {
 								 src: [
 									 "${project.build.sourceDirectory}/**/*.ts"
 								 ]
 							 }
 						 },
-						 ts    : {
+						 ts:     {
 							 options: {
 								 rootDir: "${project.build.sourceDirectory}"
 							 },
-							 main   : {
+							 main:    {
 								 tsconfig: true,
-								 src     : "${project.build.sourceDirectory}/**/*.ts",
-								 dest    : "${project.build.directory}/generated-sources/ts-compiled"
+								 src:      "${project.build.sourceDirectory}/**/*.ts",
+								 dest:     "${project.build.directory}/generated-sources/ts-compiled"
 							 }
 						 },
 						 uglify: {
 							 options: {
 								 sourceMap: true
 							 },
-							 main   : {
+							 main:    {
 								 files: [
 									 {
 										 expand: true,
-										 cwd   : "${project.build.directory}/generated-sources/ts-compiled",
-										 src   : "**/*.js",
-										 dest  : "${project.build.directory}/generated-sources/uglified",
-										 ext   : ".min.js"
+										 cwd:    "${project.build.directory}/generated-sources/ts-compiled",
+										 src:    "**/*.js",
+										 dest:   "${project.build.directory}/generated-sources/uglified",
+										 ext:    ".min.js"
 									 }
 								 ]
 							 }

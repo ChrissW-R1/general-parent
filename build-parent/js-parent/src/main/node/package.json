@@ -1,8 +1,8 @@
 {
-	"name"           : "@chrissw-r1/${project.artifactId}",
-	"version"        : "${project.version}",
-	"description"    : "${project.description}",
-	"keywords"       : [
+	"name":            "@chrissw-r1/${project.artifactId}",
+	"version":         "${project.version}",
+	"description":     "${project.description}",
+	"keywords":        [
 		"ChrissW-R1",
 		"parent",
 		"project",
@@ -11,61 +11,61 @@
 		"properties",
 		"settings"
 	],
-	"homepage"       : "${project.url}",
-	"license"        : "${license.id}",
-	"author"         : "ChrissW-R1",
-	"contributors"   : [
+	"homepage":        "${project.url}",
+	"license":         "${license.id}",
+	"author":          "ChrissW-R1",
+	"contributors":    [
 		{
-			"name" : "ChrissW-R1",
+			"name":  "ChrissW-R1",
 			"email": "contact@ChrissW-R1.me",
-			"url"  : "http://ChrissW-R1.me"
+			"url":   "http://ChrissW-R1.me"
 		}
 	],
-	"repository"     : {
+	"repository":      {
 		"type": "git",
-		"url" : "git+${project.scm.url}.git"
+		"url":  "git+${project.scm.url}.git"
 	},
-	"bugs"           : {
+	"bugs":            {
 		"url": "${project.issueManagement.url}"
 	},
-	"dependencies"   : {
-		"core-js"                          : "^${core-js.version}",
-		"rxjs"                             : "~${rxjs.version}",
-		"zone.js"                          : "~${zonejs.version}",
-		"@angular/core"                    : "~${angular.version}",
-		"@angular/common"                  : "~${angular.version}",
-		"@angular/compiler"                : "~${angular.version}",
-		"@angular/http"                    : "~${angular.version}",
-		"@angular/router"                  : "~${angular.version}",
-		"@angular/forms"                   : "~${angular.version}",
-		"@angular/platform-browser"        : "~${angular.version}",
+	"dependencies":    {
+		"core-js":                           "^${core-js.version}",
+		"rxjs":                              "~${rxjs.version}",
+		"zone.js":                           "~${zonejs.version}",
+		"@angular/core":                     "~${angular.version}",
+		"@angular/common":                   "~${angular.version}",
+		"@angular/compiler":                 "~${angular.version}",
+		"@angular/http":                     "~${angular.version}",
+		"@angular/router":                   "~${angular.version}",
+		"@angular/forms":                    "~${angular.version}",
+		"@angular/platform-browser":         "~${angular.version}",
 		"@angular/platform-browser-dynamic": "~${angular.version}",
-		"@angular/animations"              : "~${angular.version}"
+		"@angular/animations":               "~${angular.version}"
 	},
 	"devDependencies": {
-		"typescript"               : "~${npm-typescript.version}",
-		"ts-node"                  : "~${ts-node.version}",
-		"tslint"                   : "~${tslint.version}",
-		"codelyzer"                : "~${codelyzer.version}",
-		"grunt"                    : "~${grunt.version}",
-		"grunt-cli"                : "~${grunt-cli.version}",
-		"grunt-tslint"             : "~${grunt-tslint.version}",
-		"grunt-ts"                 : "~${grunt-ts.version}",
-		"grunt-contrib-uglify"     : "~${uglify.version}",
-		"@angular/cli"             : "~${angular.cli.version}",
-		"@angular/compiler-cli"    : "~${angular.version}",
+		"typescript":                "~${npm-typescript.version}",
+		"ts-node":                   "~${ts-node.version}",
+		"tslint":                    "~${tslint.version}",
+		"codelyzer":                 "~${codelyzer.version}",
+		"grunt":                     "~${grunt.version}",
+		"grunt-cli":                 "~${grunt-cli.version}",
+		"grunt-tslint":              "~${grunt-tslint.version}",
+		"grunt-ts":                  "~${grunt-ts.version}",
+		"grunt-contrib-uglify":      "~${uglify.version}",
+		"@angular/cli":              "~${angular.cli.version}",
+		"@angular/compiler-cli":     "~${angular.version}",
 		"@angular/language-service": "~${angular.version}",
-		"mocha"                    : "~${mocha.version}",
-		"chai"                     : "~${chai.version}",
-		"karma"                    : "~${karma.version}",
-		"karma-mocha"              : "~${karma.mocha.version}",
-		"karma-chai"               : "~${karma.chai.version}",
-		"karma-chrome-launcher"    : "~${karma.chrome.version}",
-		"karma-firefox-launcher"   : "~${karma.firefox.version}",
-		"karma-opera-launcher"     : "~${karma.opera.version}",
-		"karma-safari-launcher"    : "~${karma.safari.version}",
-		"karma-edge-launcher"      : "~${karma.edge.version}",
-		"karma-ie-launcher"        : "~${karma.ie.version}",
-		"karma-mocha-reporter"     : "~${karma.mocha.reporter.version}"
+		"mocha":                     "~${mocha.version}",
+		"chai":                      "~${chai.version}",
+		"karma":                     "~${karma.version}",
+		"karma-mocha":               "~${karma.mocha.version}",
+		"karma-chai":                "~${karma.chai.version}",
+		"karma-chrome-launcher":     "~${karma.chrome.version}",
+		"karma-firefox-launcher":    "~${karma.firefox.version}",
+		"karma-opera-launcher":      "~${karma.opera.version}",
+		"karma-safari-launcher":     "~${karma.safari.version}",
+		"karma-edge-launcher":       "~${karma.edge.version}",
+		"karma-ie-launcher":         "~${karma.ie.version}",
+		"karma-mocha-reporter":      "~${karma.mocha.reporter.version}"
 	}
 }

@@ -1,22 +1,22 @@
 {
 	"compilerOptions": {
-		"sourceRoot"            : "${project.build.sourceDirectory}",
-		"outDir"                : "${project.build.directory}/generated-sources/ts-compiled",
-		"target"                : "ES3",
-		"moduleResolution"      : "node",
-		"module"                : "commonjs",
-		"sourceMap"             : true,
-		"declaration"           : false,
+		"sourceRoot":             "${project.build.sourceDirectory}",
+		"outDir":                 "${project.build.directory}/generated-sources/ts-compiled",
+		"target":                 "ES3",
+		"moduleResolution":       "node",
+		"module":                 "commonjs",
+		"sourceMap":              true,
+		"declaration":            false,
 		"experimentalDecorators": true,
-		"emitDecoratorMetadata" : true,
-		"noEmitOnError"         : false,
-		"noImplicitAny"         : true
+		"emitDecoratorMetadata":  true,
+		"noEmitOnError":          false,
+		"noImplicitAny":          true
 	},
-	"compileOnSave"  : true,
-	"typeRoots"      : [
+	"compileOnSave":   true,
+	"typeRoots":       [
 		"node_modules/@types"
 	],
-	"exclude"        : [
+	"exclude":         [
 		"${project.build.directory}",
 		"node_modules",
 		"build-exe"
