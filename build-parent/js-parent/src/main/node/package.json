@@ -62,6 +62,7 @@
 		"eslint-plugin-jsdoc":                     "~${eslint.jsdoc.version}",
 		"eslint-plugin-prefer-arrow":              "~${eslint.prefer-arrow.version}",
 		"codelyzer":                               "~${codelyzer.version}",
+		"eslint-plugin-codelyzer":                 "~${eslint.codelyzer.version}",
 		"mocha":                                   "~${mocha.version}",
 		"chai":                                    "~${chai.version}",
 		"karma":                                   "~${karma.version}",

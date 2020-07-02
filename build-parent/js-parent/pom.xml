@@ -43,6 +43,7 @@
 		<eslint.jsdoc.version>28.6.1</eslint.jsdoc.version>
 		<eslint.prefer-arrow.version>1.2.1</eslint.prefer-arrow.version>
 		<codelyzer.version>5.2.2</codelyzer.version>
+		<eslint.codelyzer.version>0.0.1-alpha.12</eslint.codelyzer.version>
 		<mocha.version>8.0.1</mocha.version>
 		<chai.version>4.2.0</chai.version>
 		<karma.version>5.1.0</karma.version>
