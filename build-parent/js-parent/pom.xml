@@ -21,36 +21,36 @@
 	<properties>
 		<project.module-root.relativedir>${project.parent.relativedir}../</project.module-root.relativedir>
 
-		<nodejs.version>14.5.0</nodejs.version>
-		<yarn.version>1.22.4</yarn.version>
-		<core-js.version>3.6.5</core-js.version>
-		<rxjs.version>6.5.5</rxjs.version>
-		<zonejs.version>0.10.3</zonejs.version>
-		<angular.version>10.0.2</angular.version>
-		<npm-typescript.version>3.9.5</npm-typescript.version>
-		<ts-node.version>8.10.2</ts-node.version>
-		<grunt.version>1.1.0</grunt.version>
+		<nodejs.version>15.6.0</nodejs.version>
+		<yarn.version>1.22.5</yarn.version>
+		<core-js.version>3.8.2</core-js.version>
+		<rxjs.version>6.6.3</rxjs.version>
+		<zonejs.version>0.11.3</zonejs.version>
+		<angular.version>11.0.9</angular.version>
+		<npm-typescript.version>4.1.3</npm-typescript.version>
+		<ts-node.version>9.1.1</ts-node.version>
+		<grunt.version>1.3.0</grunt.version>
 		<grunt-cli.version>1.3.2</grunt-cli.version>
 		<grunt-eslint.version>23.0.0</grunt-eslint.version>
 		<grunt-ts.version>5.5.1</grunt-ts.version>
-		<uglify.version>4.0.1</uglify.version>
-		<angular.cli.version>10.0.0</angular.cli.version>
-		<eslint.version>7.3.1</eslint.version>
-		<angular.eslint-plugin.version>0.0.1-alpha.32</angular.eslint-plugin.version>
-		<typescript.eslint.version>3.5.0</typescript.eslint.version>
-		<eslint.prettier.version>6.11.0</eslint.prettier.version>
-		<eslint.import.version>2.22.0</eslint.import.version>
-		<eslint.jsdoc.version>28.6.1</eslint.jsdoc.version>
-		<eslint.prefer-arrow.version>1.2.1</eslint.prefer-arrow.version>
-		<codelyzer.version>5.2.2</codelyzer.version>
+		<uglify.version>5.0.0</uglify.version>
+		<angular.cli.version>11.0.7</angular.cli.version>
+		<eslint.version>7.17.0</eslint.version>
+		<angular.eslint-plugin.version>1.1.0</angular.eslint-plugin.version>
+		<typescript.eslint.version>4.13.0</typescript.eslint.version>
+		<eslint.prettier.version>7.1.0</eslint.prettier.version>
+		<eslint.import.version>2.22.1</eslint.import.version>
+		<eslint.jsdoc.version>31.0.5</eslint.jsdoc.version>
+		<eslint.prefer-arrow.version>1.2.2</eslint.prefer-arrow.version>
+		<codelyzer.version>6.0.1</codelyzer.version>
 		<eslint.codelyzer.version>0.0.1-alpha.12</eslint.codelyzer.version>
-		<mocha.version>8.0.1</mocha.version>
+		<mocha.version>8.2.1</mocha.version>
 		<chai.version>4.2.0</chai.version>
-		<karma.version>5.1.0</karma.version>
+		<karma.version>6.0.0</karma.version>
 		<karma.mocha.version>2.0.1</karma.mocha.version>
 		<karma.chai.version>0.1.0</karma.chai.version>
 		<karma.chrome.version>3.1.0</karma.chrome.version>
-		<karma.firefox.version>1.3.0</karma.firefox.version>
+		<karma.firefox.version>2.1.0</karma.firefox.version>
 		<karma.opera.version>1.0.0</karma.opera.version>
 		<karma.safari.version>1.0.0</karma.safari.version>
 		<karma.edgium.version>4.0.0-0</karma.edgium.version>
@@ -58,7 +58,7 @@
 		<karma.ie.version>1.0.0</karma.ie.version>
 		<karma.mocha.reporter.version>2.2.5</karma.mocha.reporter.version>
 
-		<plugin.frontend.version>1.10.0</plugin.frontend.version>
+		<plugin.frontend.version>1.11.0</plugin.frontend.version>
 	</properties>
 
 	<build>
