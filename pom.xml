@@ -62,16 +62,15 @@
 
 		<plugin.properties.version>1.0.0</plugin.properties.version>
 		<plugin.buildhelper.version>3.2.0</plugin.buildhelper.version>
-		<plugin.license.version>1.20</plugin.license.version>
-		<plugin.resources.version>3.1.0</plugin.resources.version>
+		<plugin.license.version>2.0.0</plugin.license.version>
+		<plugin.resources.version>3.2.0</plugin.resources.version>
 		<plugin.antrun.version>3.0.0</plugin.antrun.version>
 		<plugin.compiler.version>3.8.1</plugin.compiler.version>
 		<plugin.jar.version>3.2.0</plugin.jar.version>
 		<plugin.source.version>3.2.1</plugin.source.version>
 		<plugin.gpg.version>1.6</plugin.gpg.version>
 		<plugin.site.version>3.9.1</plugin.site.version>
-		<!-- maven-project-info-reports-plugin: Version 3.0.0 is not stable in use with maven-site-plugin -->
-		<plugin.project-info-reports.version>2.9</plugin.project-info-reports.version>
+		<plugin.project-info-reports.version>3.1.1</plugin.project-info-reports.version>
 		<plugin.release.version>2.5.3</plugin.release.version>
 
 		<license.name>Apache</license.name>
@@ -160,8 +159,7 @@
 					<configuration>
 						<licenseFile>${project.module-root.basedir}/LICENSE</licenseFile>
 						<licenseName>apache_v2</licenseName>
-						<missingFile>${project.module-root.basedir}/src/main/license/THIRD-PARTY.properties
-						</missingFile>
+						<missingFile>${project.module-root.basedir}/src/main/license/THIRD-PARTY.properties</missingFile>
 						<useMissingFile>true</useMissingFile>
 						<sortArtifactByName>true</sortArtifactByName>
 						<fileTemplate>/org/codehaus/mojo/license/third-party-file-groupByLicense.ftl</fileTemplate>

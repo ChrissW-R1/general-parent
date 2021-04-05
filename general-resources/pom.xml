@@ -86,7 +86,7 @@
 							<configuration>
 								<target>
 									<move file="${project.build.outputDirectory}/resources/.gitignore"
-										  tofile="${project.build.outputDirectory}/resources/default.gitignore" />
+										  tofile="${project.build.outputDirectory}/resources/default.gitignore"/>
 								</target>
 							</configuration>
 						</execution>
