@@ -14,7 +14,7 @@
 
 	<name>General Resources</name>
 	<description>
-		Contains different resources for new projects and respositories.
+		Contains different resources for new projects and repositories.
 	</description>
 
 	<properties>
@@ -86,7 +86,7 @@
 							<configuration>
 								<target>
 									<move file="${project.build.outputDirectory}/resources/.gitignore"
-										  tofile="${project.build.outputDirectory}/resources/default.gitignore"/>
+										  tofile="${project.build.outputDirectory}/resources/default.gitignore" />
 								</target>
 							</configuration>
 						</execution>
