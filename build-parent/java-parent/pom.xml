@@ -57,15 +57,15 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
-			<groupId>org.junit.platform</groupId>
-			<artifactId>junit-platform-commons</artifactId>
-			<version>${junit.platform.version}</version>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter</artifactId>
+			<version>${junit.jupiter.version}</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.junit.platform</groupId>
-			<artifactId>junit-platform-surefire-provider</artifactId>
-			<version>${junit.platform.surefire.version}</version>
+			<artifactId>junit-platform-commons</artifactId>
+			<version>${junit.platform.version}</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
@@ -131,13 +131,6 @@
 				<plugin>
 					<artifactId>maven-surefire-plugin</artifactId>
 					<version>${plugin.surefire.version}</version>
-					<dependencies>
-						<dependency>
-							<groupId>org.junit.platform</groupId>
-							<artifactId>junit-platform-surefire-provider</artifactId>
-							<version>${junit.platform.surefire.version}</version>
-						</dependency>
-					</dependencies>
 				</plugin>
 				<plugin>
 					<artifactId>maven-javadoc-plugin</artifactId>
