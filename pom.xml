@@ -94,6 +94,14 @@
 		<system>GitHub</system>
 	</issueManagement>
 
+	<distributionManagement>
+		<repository>
+			<id>general-parent</id>
+			<name>General Parent - Repository</name>
+			<url>https://maven.pkg.github.com/ChrissW-R1/general-parent</url>
+		</repository>
+	</distributionManagement>
+
 	<build>
 		<resources>
 			<resource>
