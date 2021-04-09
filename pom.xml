@@ -64,8 +64,7 @@
 		<plugin.buildhelper.version>3.2.0</plugin.buildhelper.version>
 		<!-- license-maven-plugin in version 2.0.0 is not compatible with maven-site-plugin -->
 		<plugin.license.version>1.20</plugin.license.version>
-		<!-- maven-resources-plugin throws exception in version 3.2.0 -->
-		<plugin.resources.version>3.1.0</plugin.resources.version>
+		<plugin.resources.version>3.2.0</plugin.resources.version>
 		<plugin.antrun.version>3.0.0</plugin.antrun.version>
 		<plugin.compiler.version>3.8.1</plugin.compiler.version>
 		<plugin.jar.version>3.2.0</plugin.jar.version>
@@ -101,6 +100,19 @@
 			<url>https://maven.pkg.github.com/ChrissW-R1/general-parent</url>
 		</repository>
 	</distributionManagement>
+
+	<repositories>
+		<repository>
+			<id>general-parent</id>
+			<url>https://maven.pkg.github.com/ChrissW-R1/general-parent/</url>
+		</repository>
+	</repositories>
+	<pluginRepositories>
+		<pluginRepository>
+			<id>general-parent</id>
+			<url>https://maven.pkg.github.com/ChrissW-R1/general-parent/</url>
+		</pluginRepository>
+	</pluginRepositories>
 
 	<build>
 		<resources>
