@@ -97,13 +97,17 @@
 		<repository>
 			<id>general-parent</id>
 			<name>General Parent - Repository</name>
-			<url>https://maven.pkg.github.com/ChrissW-R1/general-parent</url>
+			<url>${env.CI_SERVER_URL}/api/v4/projects/${env.CI_PROJECT_ID}/packages/maven</url>
 		</repository>
 	</distributionManagement>
 
 	<repositories>
+  <repository>
+    <id>general-parent</id>
+    <url>${env.CI_SERVER_URL}/api/v4/projects/${env.CI_PROJECT_ID}/packages/maven</url>
+  </repository>
 		<repository>
-			<id>general-parent</id>
+			<id>general-parent-github</id>
 			<url>https://maven.pkg.github.com/ChrissW-R1/general-parent/</url>
 		</repository>
 	</repositories>
