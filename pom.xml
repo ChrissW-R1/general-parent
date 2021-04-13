@@ -13,7 +13,7 @@
 	<description>
 		This project only contains the default properties and settings, which should be used in all projects of ChrissW-R1.
 	</description>
-	<url>https://github.com/ChrissW-R1/${project.module-root.artifactId}</url>
+	<url>https://gitlab.com/${project.organization.name}/${project.artifactId}</url>
 	<inceptionYear>2018</inceptionYear>
 
 	<organization>
@@ -84,14 +84,14 @@
 	</properties>
 
 	<scm>
-		<url>https://github.com/ChrissW-R1/${project.module-root.artifactId}</url>
+		<url>${project.url}</url>
 		<connection>scm:git:${project.scm.url}.git</connection>
 		<developerConnection>${project.scm.connection}</developerConnection>
 	</scm>
 
 	<issueManagement>
-		<url>https://github.com/ChrissW-R1/${project.module-root.artifactId}/issues</url>
-		<system>GitHub</system>
+		<url>${project.scm.url}/-/issues</url>
+		<system>GitLab</system>
 	</issueManagement>
 
 	<distributionManagement>
@@ -107,15 +107,11 @@
 			<id>general-parent</id>
 			<url>https://gitlab.com/api/v4/projects/${project.gitlab.id}/packages/maven</url>
 		</repository>
-		<repository>
-			<id>general-parent-github</id>
-			<url>https://maven.pkg.github.com/ChrissW-R1/general-parent/</url>
-		</repository>
 	</repositories>
 	<pluginRepositories>
 		<pluginRepository>
 			<id>general-parent</id>
-			<url>https://maven.pkg.github.com/ChrissW-R1/general-parent/</url>
+			<url>https://gitlab.com/api/v4/projects/${project.gitlab.id}/packages/maven</url>
 		</pluginRepository>
 	</pluginRepositories>
 
