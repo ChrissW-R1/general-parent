@@ -51,14 +51,14 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<project.parent.relativedir></project.parent.relativedir>
+		<project.gitlab.id>25831549</project.gitlab.id>
+		<project.parent.relativedir />
 		<project.parent.basedir>${project.basedir}/${project.parent.relativedir}</project.parent.basedir>
 		<project.module-root.artifactId>general-parent</project.module-root.artifactId>
 		<project.module-root.relativedir>${project.parent.relativedir}</project.module-root.relativedir>
 		<project.module-root.basedir>${project.basedir}/${project.module-root.relativedir}</project.module-root.basedir>
 		<java.version>8</java.version>
 		<java.version.prefixed>1.${java.version}</java.version.prefixed>
-		<project.gitlab.id>25831549</project.gitlab.id>
 		<netbeans.hint.jdkPlatform>JDK_${java.version.prefixed}</netbeans.hint.jdkPlatform>
 
 		<plugin.properties.version>1.0.0</plugin.properties.version>
