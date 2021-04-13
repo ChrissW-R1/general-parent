@@ -1,3 +1,5 @@
 maven_build:
   image: maven:3-jdk-8
-  script: mvn -B site package deploy
+  script: mvn -B site package deploy -s ci_settings.xml
+  only:
+    - master
