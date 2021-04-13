@@ -58,6 +58,7 @@
 		<project.module-root.basedir>${project.basedir}/${project.module-root.relativedir}</project.module-root.basedir>
 		<java.version>8</java.version>
 		<java.version.prefixed>1.${java.version}</java.version.prefixed>
+		<project.gitlab.id>25831549</project.gitlab.id>
 		<netbeans.hint.jdkPlatform>JDK_${java.version.prefixed}</netbeans.hint.jdkPlatform>
 
 		<plugin.properties.version>1.0.0</plugin.properties.version>
@@ -97,15 +98,15 @@
 		<repository>
 			<id>general-parent</id>
 			<name>General Parent - Repository</name>
-			<url>${env.CI_SERVER_URL}/api/v4/projects/${env.CI_PROJECT_ID}/packages/maven</url>
+			<url>https://gitlab.com/api/v4/projects/${project.gitlab.id}/packages/maven</url>
 		</repository>
 	</distributionManagement>
 
 	<repositories>
-  <repository>
-    <id>general-parent</id>
-    <url>${env.CI_SERVER_URL}/api/v4/projects/${env.CI_PROJECT_ID}/packages/maven</url>
-  </repository>
+		<repository>
+			<id>general-parent</id>
+			<url>https://gitlab.com/api/v4/projects/${project.gitlab.id}/packages/maven</url>
+		</repository>
 		<repository>
 			<id>general-parent-github</id>
 			<url>https://maven.pkg.github.com/ChrissW-R1/general-parent/</url>
