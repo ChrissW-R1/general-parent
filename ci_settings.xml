@@ -16,7 +16,7 @@
 		<server>
 			<id>general-parent-site</id>
 			<username>mvnsiteuploader</username>
-			<password>${env.mvnsiteuploader}</password>
+			<password>${mvnsiteuploader}</password>
 		</server>
 	</servers>
 </settings>

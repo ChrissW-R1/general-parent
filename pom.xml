@@ -13,7 +13,7 @@
 	<description>
 		This project only contains the default properties and settings, which should be used in all projects of ChrissW-R1.
 	</description>
-	<url>https://gitlab.com/${project.organization.name}/${project.module-root.artifactId}</url>
+	<url>https://docs.urelion.world/${project.organization.name}/${project.module-root.artifactId}</url>
 	<inceptionYear>2018</inceptionYear>
 
 	<organization>
@@ -34,7 +34,7 @@
 			<id>ChrissW-R1</id>
 			<name>ChrissW-R1</name>
 			<email>contact@ChrissW-R1.me</email>
-			<url>http://chrissw-r1.me</url>
+			<url>http://ChrissW-R1.me</url>
 			<timezone>Europe/Berlin</timezone>
 			<roles>
 				<role>manager</role>
@@ -86,7 +86,7 @@
 	</properties>
 
 	<scm>
-		<url>${project.url}</url>
+		<url>https://gitlab.com/${project.organization.name}/${project.module-root.artifactId}</url>
 		<connection>scm:git:${project.scm.url}.git</connection>
 		<developerConnection>${project.scm.connection}</developerConnection>
 	</scm>
@@ -105,7 +105,7 @@
 		<site>
 			<id>general-parent-site</id>
 			<name>General Parent - Site</name>
-			<url>ftp://urelion.world/${project.groupId}/${project.module-root.artifactId}</url>
+			<url>ftp://docs.urelion.world/${project.groupId}/${project.module-root.artifactId}</url>
 		</site>
 	</distributionManagement>
 
