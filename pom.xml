@@ -13,7 +13,7 @@
 	<description>
 		This project only contains the default properties and settings, which should be used in all projects of ChrissW-R1.
 	</description>
-	<url>https://docs.urelion.world/${project.organization.name}/${project.module-root.artifactId}</url>
+	<url>https://docs.urelion.world/${project.groupId}/${project.module-root.artifactId}</url>
 	<inceptionYear>2018</inceptionYear>
 
 	<organization>
