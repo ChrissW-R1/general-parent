@@ -61,6 +61,8 @@
 		<java.version.prefixed>1.${java.version}</java.version.prefixed>
 		<netbeans.hint.jdkPlatform>JDK_${java.version.prefixed}</netbeans.hint.jdkPlatform>
 
+		<wagon.version>3.4.3</wagon.version>
+
 		<plugin.properties.version>1.0.0</plugin.properties.version>
 		<plugin.buildhelper.version>3.2.0</plugin.buildhelper.version>
 		<!-- license-maven-plugin in version 2.0.0 is not compatible with maven-site-plugin -->
@@ -100,6 +102,11 @@
 			<name>General Parent - Repository</name>
 			<url>https://gitlab.com/api/v4/projects/${project.gitlab.id}/packages/maven</url>
 		</repository>
+		<site>
+			<id>general-parent-site</id>
+			<name>General Parent - Site</name>
+			<url>ftp://urelion.world/${project.groupId}/${project.module-root.artifactId}</url>
+		</site>
 	</distributionManagement>
 
 	<repositories>
@@ -116,6 +123,23 @@
 	</pluginRepositories>
 
 	<build>
+		<extensions>
+			<extension>
+				<groupId>org.apache.maven.wagon</groupId>
+				<artifactId>wagon-ssh</artifactId>
+				<version>${wagon.version}</version>
+			</extension>
+			<extension>
+				<groupId>org.apache.maven.wagon</groupId>
+				<artifactId>wagon-ssh-external</artifactId>
+				<version>${wagon.version}</version>
+			</extension>
+			<extension>
+				<groupId>org.apache.maven.wagon</groupId>
+				<artifactId>wagon-ftp</artifactId>
+				<version>${wagon.version}</version>
+			</extension>
+		</extensions>
 		<resources>
 			<resource>
 				<directory>src/main/resources</directory>

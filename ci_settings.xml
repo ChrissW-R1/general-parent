@@ -13,5 +13,10 @@
 				</httpHeaders>
 			</configuration>
 		</server>
+		<server>
+			<id>general-parent-site</id>
+			<username>mvnsiteuploader</username>
+			<password>${env.mvnsiteuploader}</password>
+		</server>
 	</servers>
 </settings>
