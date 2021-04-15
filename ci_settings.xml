@@ -3,7 +3,7 @@
 		  xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.1.0 http://maven.apache.org/xsd/settings-1.1.0.xsd">
 	<servers>
 		<server>
-			<id>gitlab-repo</id>
+			<id>project-repo</id>
 			<configuration>
 				<httpHeaders>
 					<property>
@@ -14,7 +14,7 @@
 			</configuration>
 		</server>
 		<server>
-			<id>site-repo</id>
+			<id>project-site-repo</id>
 			<username>mvnsiteuploader</username>
 			<password>${mvnsiteuploader}</password>
 		</server>
