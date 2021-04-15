@@ -98,13 +98,13 @@
 
 	<distributionManagement>
 		<repository>
-			<id>general-parent</id>
-			<name>General Parent - Repository</name>
+			<id>gitlab-repo</id>
+			<name>GitLab Package Registry</name>
 			<url>https://gitlab.com/api/v4/projects/${project.gitlab.id}/packages/maven</url>
 		</repository>
 		<site>
-			<id>general-parent-site</id>
-			<name>General Parent - Site</name>
+			<id>site-repo</id>
+			<name>Site - Repository</name>
 			<url>ftp://docs.urelion.world/${project.groupId}/${project.module-root.artifactId}</url>
 		</site>
 	</distributionManagement>
