@@ -10,30 +10,38 @@
 		<version>0.1.0-SNAPSHOT</version>
 	</parent>
 
+	<!-- project identifier -->
 	<artifactId>webapp-parent</artifactId>
 	<packaging>pom</packaging>
 
+	<!-- project metadata -->
 	<name>Web App Parent</name>
 	<description>
 		Parent of all Web App projects by ChrissW-R1
 	</description>
 
 	<properties>
+		<!-- technically-based properties -->
 		<project.module-root.relativedir>${project.parent.relativedir}../../</project.module-root.relativedir>
 
+		<!-- dependency versions -->
 		<servlet.version>4.0.1</servlet.version>
 		<jersey.version>3.0.0</jersey.version>
 
+		<!-- JavaDoc URLs -->
 		<jersey.javadoc-url>https://jersey.github.io/apidocs/${jersey.version}/jersey</jersey.javadoc-url>
 	</properties>
 
 	<dependencies>
+		<!-- provided dependencies -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
 			<version>${servlet.version}</version>
 			<scope>provided</scope>
 		</dependency>
+
+		<!-- default dependencies -->
 		<dependency>
 			<groupId>org.glassfish.jersey.core</groupId>
 			<artifactId>jersey-server</artifactId>

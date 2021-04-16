@@ -10,14 +10,17 @@
 		<version>0.1.0-SNAPSHOT</version>
 	</parent>
 
+	<!-- project identifier -->
 	<artifactId>general-resources</artifactId>
 
+	<!-- project metadata -->
 	<name>General Resources</name>
 	<description>
 		Contains different resources for new projects and repositories.
 	</description>
 
 	<properties>
+		<!-- technically-based properties -->
 		<project.parent.relativedir>../</project.parent.relativedir>
 	</properties>
 

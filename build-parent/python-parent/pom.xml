@@ -10,17 +10,19 @@
 		<version>0.1.0-SNAPSHOT</version>
 	</parent>
 
+	<!-- project identifier -->
 	<artifactId>python-parent</artifactId>
 	<packaging>pom</packaging>
 
+	<!-- project metadata -->
 	<name>Python Parent</name>
 	<description>
 		Defines the basic build process of Python projects.
 	</description>
 
 	<properties>
+		<!-- technically-based properties -->
 		<project.module-root.relativedir>${project.parent.relativedir}../</project.module-root.relativedir>
-
 		<assembly.config.file>src/main/assembly/bin.xml</assembly.config.file>
 	</properties>
 

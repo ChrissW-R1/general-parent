@@ -10,17 +10,21 @@
 		<version>0.1.0-SNAPSHOT</version>
 	</parent>
 
+	<!-- project identifier -->
 	<artifactId>java-exe-parent</artifactId>
 	<packaging>pom</packaging>
 
+	<!-- project metadata -->
 	<name>Executable Java Parent</name>
 	<description>
 		Parent of all Java projects, which creates executable files
 	</description>
 
 	<properties>
+		<!-- technically-based properties -->
 		<project.module-root.relativedir>${project.parent.relativedir}../../</project.module-root.relativedir>
 
+		<!-- plugin versions -->
 		<plugin.launch4j.version>1.7.25</plugin.launch4j.version>
 	</properties>
 
