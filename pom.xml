@@ -15,7 +15,7 @@
 	<description>
 		This project only contains the default properties and settings, which should be used in all projects of ChrissW-R1.
 	</description>
-	<url>https://docs.urelion.world/${project.groupId}/${project.module-root.artifactId}</url>
+	<url>${project.site.baseUrl}/${project.site.urlPath}</url>
 	<inceptionYear>2018</inceptionYear>
 
 	<organization>
@@ -59,13 +59,16 @@
 		<project.module-root.artifactId>general-parent</project.module-root.artifactId>
 		<project.module-root.relativedir>${project.parent.relativedir}</project.module-root.relativedir>
 		<project.module-root.basedir>${project.basedir}/${project.module-root.relativedir}</project.module-root.basedir>
-		<site.deploy.url>${site.deploy.baseUrl}/${project.groupId}/${project.module-root.artifactId}/${project.version}</site.deploy.url>
+		<project.site.urlPath>${project.groupId}/${project.module-root.artifactId}/${project.version}</project.site.urlPath>
+		<project.site.baseUrl>https://${project.site.basePath}</project.site.baseUrl>
+		<project.site.deploy.baseUrl>ftp://${project.site.basePath}</project.site.deploy.baseUrl>
+		<project.site.deploy.url>${project.site.deploy.baseUrl}/${project.site.urlPath}</project.site.deploy.url>
 		<java.version.prefixed>1.${java.version}</java.version.prefixed>
 		<netbeans.hint.jdkPlatform>JDK_${java.version.prefixed}</netbeans.hint.jdkPlatform>
 
 		<!-- project-specific properties -->
+		<project.site.basePath>docs.urelion.world</project.site.basePath>
 		<project.gitlab.id>25831549</project.gitlab.id>
-		<site.deploy.baseUrl>ftp://docs.urelion.world</site.deploy.baseUrl>
 		<java.version>8</java.version>
 
 		<!-- license definition -->
@@ -115,7 +118,7 @@
 		<site>
 			<id>project-site-repo</id>
 			<name>Project's Site - Repository</name>
-			<url>${site.deploy.url}</url>
+			<url>${project.site.deploy.url}</url>
 		</site>
 	</distributionManagement>
 
