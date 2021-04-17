@@ -4,10 +4,16 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
+	<parent>
+		<groupId>org.apache</groupId>
+		<artifactId>apache</artifactId>
+		<version>23</version>
+	</parent>
+
 	<!-- project identifier -->
 	<groupId>me.chrisswr1</groupId>
 	<artifactId>general-parent</artifactId>
-	<version>0.1.0-SNAPSHOT</version>
+	<version>${revision}</version>
 	<packaging>pom</packaging>
 
 	<!-- project metadata -->
@@ -65,6 +71,7 @@
 		<project.site.deploy.url>${project.site.deploy.baseUrl}/${project.site.urlPath}</project.site.deploy.url>
 		<java.version.prefixed>1.${java.version}</java.version.prefixed>
 		<netbeans.hint.jdkPlatform>JDK_${java.version.prefixed}</netbeans.hint.jdkPlatform>
+		<revision>0.1.0-SNAPSHOT</revision>
 
 		<!-- project-specific properties -->
 		<project.site.basePath>docs.urelion.world</project.site.basePath>
@@ -81,7 +88,6 @@
 
 		<!-- dependency versions -->
 		<wagon.version>3.4.3</wagon.version>
-		<general-parent.version>${project.version}</general-parent.version>
 
 		<!-- plugin versions -->
 		<plugin.properties.version>1.0.0</plugin.properties.version>
