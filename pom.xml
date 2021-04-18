@@ -123,6 +123,11 @@
 			<name>Project Repository</name>
 			<url>https://gitlab.com/api/v4/projects/${project.gitlab.id}/packages/maven</url>
 		</repository>
+		<snapshotRepository>
+			<id>${project.distributionManagement.repository.id}</id>
+			<name>${project.distributionManagement.repository.name}</name>
+			<url>${project.distributionManagement.repository.url</url>
+		</snapshotRepository>
 		<site>
 			<id>project-site-repo</id>
 			<name>Project's Site - Repository</name>
