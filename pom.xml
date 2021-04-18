@@ -126,7 +126,7 @@
 		<snapshotRepository>
 			<id>${project.distributionManagement.repository.id}</id>
 			<name>${project.distributionManagement.repository.name}</name>
-			<url>${project.distributionManagement.repository.url</url>
+			<url>${project.distributionManagement.repository.url}</url>
 		</snapshotRepository>
 		<site>
 			<id>project-site-repo</id>
