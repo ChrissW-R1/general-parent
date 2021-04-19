@@ -54,6 +54,7 @@
 	<properties>
 		<!-- technically-based properties -->
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.scm.id>project-repo</project.scm.id>
 		<project.parent.relativedir />
 		<project.parent.basedir>${project.basedir}/${project.parent.relativedir}</project.parent.basedir>
 		<project.module-root.artifactId>general-parent</project.module-root.artifactId>
