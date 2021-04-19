@@ -199,7 +199,7 @@
 					<plugins>
 						<plugin>
 							<artifactId>maven-compiler-plugin</artifactId>
-							<configuration combine.children="append">
+							<configuration>
 								<release>${java.version}</release>
 							</configuration>
 						</plugin>
@@ -234,7 +234,7 @@
 							<artifactId>maven-jar-plugin</artifactId>
 							<configuration>
 								<archive>
-									<manifest combine.children="append">
+									<manifest>
 										<mainClass>${mainClass}</mainClass>
 									</manifest>
 								</archive>

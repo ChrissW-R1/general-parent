@@ -419,6 +419,13 @@
 				<plugin>
 					<artifactId>maven-jar-plugin</artifactId>
 					<version>${plugin.jar.version}</version>
+					<configuration>
+						<archive>
+							<manifestEntries>
+								<Built-By>${project.organization.name}</Built-By>
+							</manifestEntries>
+						</archive>
+					</configuration>
 				</plugin>
 				<plugin>
 					<artifactId>maven-source-plugin</artifactId>
