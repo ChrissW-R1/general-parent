@@ -46,7 +46,7 @@
 								<outfile>${project.build.directory}/${project.build.finalName}.exe</outfile>
 								<jar>${project.build.directory}/${project.build.finalName}.jar</jar>
 								<classPath>
-									<mainClass>${mainClass}</mainClass>
+									<mainClass>${mainClass.fullPath}</mainClass>
 								</classPath>
 								<jre>
 									<minVersion>${java.version.prefixed}</minVersion>

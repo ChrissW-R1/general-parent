@@ -24,6 +24,8 @@
 		<!-- technically-based properties -->
 		<project.module-root.relativedir>${project.parent.relativedir}../</project.module-root.relativedir>
 		<java.rootPackage>${project.groupId}.${java.package}</java.rootPackage>
+		<mainClass.localPath />
+		<mainClass.fullPath>${java.rootPackage}.${mainClass.localPath}</mainClass.fullPath>
 
 		<!-- project-specific properties -->
 		<java.package>javaparent</java.package>
@@ -235,7 +237,7 @@
 							<configuration>
 								<archive>
 									<manifest>
-										<mainClass>${mainClass}</mainClass>
+										<mainClass>${mainClass.fullPath}</mainClass>
 									</manifest>
 								</archive>
 							</configuration>
@@ -245,7 +247,7 @@
 							<configuration>
 								<archive>
 									<manifest>
-										<mainClass>${mainClass}</mainClass>
+										<mainClass>${mainClass.fullPath}</mainClass>
 									</manifest>
 								</archive>
 								<descriptorRefs>
