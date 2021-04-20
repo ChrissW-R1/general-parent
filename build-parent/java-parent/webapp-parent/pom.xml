@@ -26,10 +26,11 @@
 
 		<!-- dependency versions -->
 		<servlet.version>4.0.1</servlet.version>
-		<jersey.version>3.0.0</jersey.version>
+		<jersey.version>3.0.1</jersey.version>
 
 		<!-- JavaDoc URLs -->
-		<jersey.javadoc-url>https://jersey.github.io/apidocs/${jersey.version}/jersey</jersey.javadoc-url>
+		<servlet.javadoc-url>https://javaee.github.io/javaee-spec/javadocs</servlet.javadoc-url>
+		<jersey.javadoc-url>https://eclipse-ee4j.github.io/jersey.github.io/apidocs/${jersey.version}/jersey</jersey.javadoc-url>
 	</properties>
 
 	<dependencies>
@@ -66,6 +67,7 @@
 					<artifactId>maven-javadoc-plugin</artifactId>
 					<configuration>
 						<links combine.children="append">
+							<link>${servlet.javadoc-url}</link>
 							<link>${jersey.javadoc-url}</link>
 						</links>
 					</configuration>
@@ -80,6 +82,7 @@
 				<artifactId>maven-javadoc-plugin</artifactId>
 				<configuration>
 					<links combine.children="append">
+						<link>${servlet.javadoc-url}</link>
 						<link>${jersey.javadoc-url}</link>
 					</links>
 				</configuration>
