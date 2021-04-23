@@ -85,6 +85,7 @@
 		<wagon.version>3.4.3</wagon.version>
 
 		<!-- plugin versions -->
+		<plugin.replacer.version>1.5.3</plugin.replacer.version>
 		<plugin.properties.version>1.0.0</plugin.properties.version>
 		<plugin.buildhelper.version>3.2.0</plugin.buildhelper.version>
 		<!-- license-maven-plugin in version 2.0.0 is not compatible with maven-site-plugin -->
@@ -180,6 +181,29 @@
 		</resources>
 		<pluginManagement>
 			<plugins>
+				<plugin>
+					<groupId>com.google.code.maven-replacer-plugin</groupId>
+					<artifactId>replacer</artifactId>
+					<version>${plugin.replacer.version}</version>
+					<executions>
+						<execution>
+							<id>set-general-parent-version</id>
+							<phase>generate-resources</phase>
+							<goals>
+								<goal>replace</goal>
+							</goals>
+							<configuration>
+								<file>pom.xml</file>
+								<replacements>
+									<replacement>
+										<token>&lt;general-parent.version>(.*)&lt;/general-parent.version></token>
+										<value>&lt;general-parent.version>${project.version}&lt;/general-parent.version></value>
+									</replacement>
+								</replacements>
+							</configuration>
+						</execution>
+					</executions>
+				</plugin>
 				<plugin>
 					<groupId>org.codehaus.mojo</groupId>
 					<artifactId>properties-maven-plugin</artifactId>
@@ -466,6 +490,10 @@
 			</plugins>
 		</pluginManagement>
 		<plugins>
+			<plugin>
+				<groupId>com.google.code.maven-replacer-plugin</groupId>
+				<artifactId>replacer</artifactId>
+			</plugin>
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>build-helper-maven-plugin</artifactId>
