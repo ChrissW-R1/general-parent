@@ -196,6 +196,7 @@
 							<fileset>
 								<directory>./</directory>
 								<includes>
+									<include>dependency-reduced-pom.xml</include>
 									<include>tsconfig.json</include>
 									<include>.eslintrc.json</include>
 									<include>package.json</include>
