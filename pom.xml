@@ -85,6 +85,7 @@
 		<wagon.version>3.4.3</wagon.version>
 
 		<!-- plugin versions -->
+		<plugin.clean.version>3.1.0</plugin.clean.version>
 		<plugin.replacer.version>1.5.3</plugin.replacer.version>
 		<plugin.properties.version>1.0.0</plugin.properties.version>
 		<plugin.buildhelper.version>3.2.0</plugin.buildhelper.version>
@@ -181,6 +182,29 @@
 		</resources>
 		<pluginManagement>
 			<plugins>
+				<plugin>
+					<artifactId>maven-clean-plugin</artifactId>
+					<version>${plugin.clean.version}</version>
+					<configuration>
+						<filesets>
+							<fileset>
+								<directory>build-exe</directory>
+							</fileset>
+							<fileset>
+								<directory>node_modules</directory>
+							</fileset>
+							<fileset>
+								<directory>./</directory>
+								<includes>
+									<include>tsconfig.json</include>
+									<include>.eslintrc.json</include>
+									<include>package.json</include>
+									<include>Gruntfile.js</include>
+								</includes>
+							</fileset>
+						</filesets>
+					</configuration>
+				</plugin>
 				<plugin>
 					<groupId>com.google.code.maven-replacer-plugin</groupId>
 					<artifactId>replacer</artifactId>
