@@ -25,7 +25,7 @@
 		<project.module-root.relativedir>${project.parent.relativedir}../../</project.module-root.relativedir>
 
 		<!-- plugin versions -->
-		<plugin.launch4j.version>2.1.0</plugin.launch4j.version>
+		<plugin.launch4j.version>2.1.1</plugin.launch4j.version>
 	</properties>
 
 	<build>

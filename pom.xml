@@ -95,9 +95,9 @@
 		<plugin.compiler.version>3.8.1</plugin.compiler.version>
 		<plugin.jar.version>3.2.0</plugin.jar.version>
 		<plugin.source.version>3.2.1</plugin.source.version>
-		<plugin.gpg.version>1.6</plugin.gpg.version>
+		<plugin.gpg.version>3.0.1</plugin.gpg.version>
 		<plugin.site.version>3.9.1</plugin.site.version>
-		<plugin.project-info-reports.version>3.1.1</plugin.project-info-reports.version>
+		<plugin.project-info-reports.version>3.1.2</plugin.project-info-reports.version>
 		<plugin.release.version>2.5.3</plugin.release.version>
 	</properties>
 
