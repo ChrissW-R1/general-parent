@@ -29,6 +29,7 @@
 
 		<!-- project-specific properties -->
 		<java.package>javaparent</java.package>
+		<obfuscate>true</obfuscate>
 
 		<!-- dependency versions -->
 		<lombok.version>1.18.20</lombok.version>
@@ -39,6 +40,7 @@
 		<mockito.version>3.9.0</mockito.version>
 
 		<!-- plugin versions -->
+		<plugin.proguard.version>2.3.1</plugin.proguard.version>
 		<plugin.spotbugs.version>4.2.3</plugin.spotbugs.version>
 		<plugin.surefire.version>3.0.0-M5</plugin.surefire.version>
 		<plugin.shade.version>3.2.4</plugin.shade.version>
@@ -147,6 +149,25 @@
 					<version>${plugin.surefire.version}</version>
 				</plugin>
 				<plugin>
+					<groupId>com.github.wvengen</groupId>
+					<artifactId>proguard-maven-plugin</artifactId>
+					<version>${plugin.proguard.version}</version>
+					<executions>
+						<execution>
+							<phase>package</phase>
+							<goals>
+								<goal>proguard</goal>
+							</goals>
+						</execution>
+					</executions>
+					<configuration>
+						<obfuscate>${obfuscate}</obfuscate>
+						<options>
+							<option>-allowaccessmodification</option>
+						</options>
+					</configuration>
+				</plugin>
+				<plugin>
 					<artifactId>maven-javadoc-plugin</artifactId>
 					<version>${plugin.javadoc.version}</version>
 					<configuration>
@@ -192,6 +213,28 @@
 
 	<profiles>
 		<profile>
+			<id>jdk-8</id>
+			<activation>
+				<jdk>(,8]</jdk>
+			</activation>
+			<build>
+				<pluginManagement>
+					<plugins>
+						<plugin>
+							<groupId>com.github.wvengen</groupId>
+							<artifactId>proguard-maven-plugin</artifactId>
+							<configuration>
+								<libs>
+									<lib>${java.home}/lib/rt.jar</lib>
+									<lib>${java.home}/lib/jsse.jar</lib>
+								</libs>
+							</configuration>
+						</plugin>
+					</plugins>
+				</pluginManagement>
+			</build>
+		</profile>
+		<profile>
 			<id>jdk-9</id>
 			<activation>
 				<jdk>[9,)</jdk>
@@ -205,8 +248,37 @@
 								<release>${java.version}</release>
 							</configuration>
 						</plugin>
+						<plugin>
+							<groupId>com.github.wvengen</groupId>
+							<artifactId>proguard-maven-plugin</artifactId>
+							<configuration>
+								<libs>
+									<lib>${java.home}/jmods/java.base.jmod</lib>
+									<lib>${java.home}/jmods/java.logging.jmod</lib>
+								</libs>
+							</configuration>
+						</plugin>
 					</plugins>
 				</pluginManagement>
+			</build>
+		</profile>
+		<profile>
+			<id>obfuscate</id>
+			<activation>
+				<file>
+					<exists>src/main/java</exists>
+				</file>
+				<property>
+					<name>fullBuild</name>
+				</property>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>com.github.wvengen</groupId>
+						<artifactId>proguard-maven-plugin</artifactId>
+					</plugin>
+				</plugins>
 			</build>
 		</profile>
 		<profile>
