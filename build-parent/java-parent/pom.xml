@@ -164,6 +164,7 @@
 						<obfuscate>${obfuscate}</obfuscate>
 						<options>
 							<option>-allowaccessmodification</option>
+							<option>-keep public class ${mainClass.fullPath}</option>
 						</options>
 					</configuration>
 				</plugin>
