@@ -85,6 +85,7 @@
 		<wagon.version>3.4.3</wagon.version>
 
 		<!-- plugin versions -->
+		<plugin.dependency.version>3.1.2</plugin.dependency.version>
 		<plugin.clean.version>3.1.0</plugin.clean.version>
 		<plugin.replacer.version>1.5.3</plugin.replacer.version>
 		<plugin.properties.version>1.0.0</plugin.properties.version>
@@ -183,16 +184,14 @@
 		<pluginManagement>
 			<plugins>
 				<plugin>
+					<artifactId>maven-dependency-plugin</artifactId>
+					<version>${plugin.dependency.version}</version>
+				</plugin>
+				<plugin>
 					<artifactId>maven-clean-plugin</artifactId>
 					<version>${plugin.clean.version}</version>
 					<configuration>
 						<filesets>
-							<fileset>
-								<directory>build-exe</directory>
-							</fileset>
-							<fileset>
-								<directory>node_modules</directory>
-							</fileset>
 							<fileset>
 								<directory>./</directory>
 								<includes>
@@ -591,6 +590,38 @@
 				<plugins>
 					<plugin>
 						<artifactId>maven-gpg-plugin</artifactId>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile>
+			<id>clean-dependencies</id>
+			<build>
+				<plugins>
+					<plugin>
+						<artifactId>maven-dependency-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>clean-local-repository</id>
+								<phase>pre-clean</phase>
+								<goals>
+									<goal>purge-local-repository</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<artifactId>maven-clean-plugin</artifactId>
+						<configuration>
+							<filesets combine.children="append">
+								<fileset>
+									<directory>build-exe</directory>
+								</fileset>
+								<fileset>
+									<directory>node_modules</directory>
+								</fileset>
+							</filesets>
+						</configuration>
 					</plugin>
 				</plugins>
 			</build>
