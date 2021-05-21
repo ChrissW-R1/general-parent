@@ -273,8 +273,9 @@
 					<configuration>
 						<licenseFile>${project.module-root.basedir}/LICENSE</licenseFile>
 						<licenseName>apache_v2</licenseName>
-						<missingFile>${project.module-root.basedir}/src/main/license/THIRD-PARTY.properties</missingFile>
+						<missingFile>${project.build.directory}/generated-resources/THIRD-PARTY.properties</missingFile>
 						<useMissingFile>true</useMissingFile>
+						<licensesConfigFile>${project.basedir}/src/main/license/licenses.xml</licensesConfigFile>
 						<sortArtifactByName>true</sortArtifactByName>
 						<fileTemplate>/org/codehaus/mojo/license/third-party-file-groupByLicense.ftl</fileTemplate>
 						<licenseMerges>
@@ -464,6 +465,27 @@
 					<configuration>
 						<escapeString>\</escapeString>
 					</configuration>
+					<executions>
+						<execution>
+							<id>third-party-filtering</id>
+							<phase>pre-site</phase>
+							<goals>
+								<goal>copy-resources</goal>
+							</goals>
+							<configuration>
+								<resources>
+									<resource>
+										<directory>${project.module-root.basedir}/src/main/license</directory>
+										<includes>
+											<include>THIRD-PARTY.properties</include>
+										</includes>
+										<filtering>true</filtering>
+									</resource>
+								</resources>
+								<outputDirectory>${project.build.directory}/generated-resources</outputDirectory>
+							</configuration>
+						</execution>
+					</executions>
 				</plugin>
 				<plugin>
 					<artifactId>maven-jar-plugin</artifactId>
@@ -521,6 +543,9 @@
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>build-helper-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<artifactId>maven-resources-plugin</artifactId>
 			</plugin>
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
@@ -621,6 +646,13 @@
 									<directory>node_modules</directory>
 								</fileset>
 							</filesets>
+						</configuration>
+					</plugin>
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>license-maven-plugin</artifactId>
+						<configuration>
+							<cleanLicensesOutputDirectory>true</cleanLicensesOutputDirectory>
 						</configuration>
 					</plugin>
 				</plugins>
