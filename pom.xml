@@ -513,6 +513,9 @@
 				<plugin>
 					<artifactId>maven-site-plugin</artifactId>
 					<version>${plugin.site.version}</version>
+					<configuration>
+						<output>${project.build.directory}/site.xml</output>
+					</configuration>
 				</plugin>
 				<plugin>
 					<artifactId>maven-gpg-plugin</artifactId>
@@ -619,6 +622,7 @@
 							<execution>
 								<id>attach-site-descriptor</id>
 								<goals>
+									<goal>effective-site</goal>
 									<goal>attach-descriptor</goal>
 								</goals>
 							</execution>
