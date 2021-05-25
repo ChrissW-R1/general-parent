@@ -171,9 +171,37 @@
 						<options>
 							<option>-allowaccessmodification</option>
 							<option>-keep public class ${mainClass.fullPath}</option>
-							<option>-keep @proguard.annotation.Keep public class *</option>
 							<option>-keep @proguard.annotation.Keep public interface *</option>
+							<option>-keep @proguard.annotation.Keep public class *</option>
 							<option>-keep @proguard.annotation.Keep public enum *</option>
+							<option>-keep @proguard.annotation.Keep public @interface *</option>
+							<option>-keep @proguard.annotation.KeepPublicClassMembers public interface *</option>
+							<option>-keep @proguard.annotation.KeepPublicClassMembers public class *</option>
+							<option>-keep @proguard.annotation.KeepPublicClassMembers public enum *</option>
+							<option>-keep @proguard.annotation.KeepPublicClassMembers public @interface *</option>
+							<option>-keepclassmembers public interface * { @proguard.annotation.Keep public *; }</option>
+							<option>-keepclassmembers public class * { @proguard.annotation.Keep public *; }</option>
+							<option>-keepclassmembers public enum * { @proguard.annotation.Keep public *; }</option>
+							<option>-keepclassmembers public @interface * { @proguard.annotation.Keep public *; }</option>
+							<option>-keepclassmembers @proguard.annotation.KeepPublicClassMembers public interface * { public *; }</option>
+							<option>-keepclassmembers @proguard.annotation.KeepPublicClassMembers public class * { public *; }</option>
+							<option>-keepclassmembers @proguard.annotation.KeepPublicClassMembers public enum * { public *; }</option>
+							<option>-keepclassmembers @proguard.annotation.KeepPublicClassMembers public @interface * { public *; }</option>
+							<option>-keepnames @proguard.annotation.KeepName public interface *</option>
+							<option>-keepnames @proguard.annotation.KeepName public class *</option>
+							<option>-keepnames @proguard.annotation.KeepName public enum *</option>
+							<option>-keepnames @proguard.annotation.KeepName public @interface *</option>
+							<option>-keepclassmembernames public interface * { @proguard.annotation.KeepName *; }</option>
+							<option>-keepclassmembernames public class * { @proguard.annotation.KeepName *; }</option>
+							<option>-keepclassmembernames public enum * { @proguard.annotation.KeepName *; }</option>
+							<option>-keepclassmembernames public @interface * { @proguard.annotation.KeepName *; }</option>
+							<option>-keepclassmembernames @proguard.annotation.KeepPublicClassMemberNames public interface * { public *; }</option>
+							<option>-keepclassmembernames @proguard.annotation.KeepPublicClassMemberNames public class * { public *; }</option>
+							<option>-keepclassmembernames @proguard.annotation.KeepPublicClassMemberNames public enum * { public *; }</option>
+							<option>-keepclassmembernames @proguard.annotation.KeepPublicClassMemberNames public @interface * { public *; }</option>
+							<option>-keep public class * implements @proguard.annotation.KeepPublicImplementations *</option>
+							<option>-keepclassmembers @proguard.annotation.KeepPublicGettersSetters class * { public *** get*(); public *** get*(int); public boolean is*(); public boolean is*(int); public void set*(***); public void set*(int, ***); }</option>
+							<option>-keepclasseswithmembers @proguard.annotation.KeepApplication public class * { public static void main(java.lang.String[]); }</option>
 						</options>
 					</configuration>
 				</plugin>
