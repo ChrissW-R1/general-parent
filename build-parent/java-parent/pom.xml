@@ -171,6 +171,7 @@
 						<options>
 							<option>-allowaccessmodification</option>
 							<option>-keep public class ${mainClass.fullPath}</option>
+							<option>-keepclassmembers public class ${mainClass.fullPath}</option>
 							<option>-keep @proguard.annotation.Keep public interface *</option>
 							<option>-keep @proguard.annotation.Keep public class *</option>
 							<option>-keep @proguard.annotation.Keep public enum *</option>
