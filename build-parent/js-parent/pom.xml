@@ -30,7 +30,7 @@
 		<core-js.version>3.12.1</core-js.version>
 		<rxjs.version>7.1.0</rxjs.version>
 		<zonejs.version>0.11.4</zonejs.version>
-		<angular.version>11.2.14</angular.version>
+		<angular.version>12.0.2</angular.version>
 		<npm-typescript.version>4.2.4</npm-typescript.version>
 		<ts-node.version>10.0.0</ts-node.version>
 		<grunt.version>1.4.1</grunt.version>
@@ -38,7 +38,7 @@
 		<grunt-eslint.version>23.0.0</grunt-eslint.version>
 		<grunt-ts.version>5.5.1</grunt-ts.version>
 		<uglify.version>5.0.1</uglify.version>
-		<angular.cli.version>11.2.13</angular.cli.version>
+		<angular.cli.version>12.0.1</angular.cli.version>
 		<eslint.version>7.27.0</eslint.version>
 		<angular.eslint-plugin.version>12.0.0</angular.eslint-plugin.version>
 		<typescript.eslint.version>4.25.0</typescript.eslint.version>
