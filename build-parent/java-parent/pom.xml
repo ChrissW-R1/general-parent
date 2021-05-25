@@ -34,6 +34,7 @@
 		<!-- dependency versions -->
 		<lombok.version>1.18.20</lombok.version>
 		<slf4j.version>1.7.30</slf4j.version>
+		<proguard.annotations.version>7.0.1</proguard.annotations.version>
 		<junit.jupiter.version>5.7.2</junit.jupiter.version>
 		<junit.platform.version>1.7.2</junit.platform.version>
 		<junit.platform.surefire.version>1.3.2</junit.platform.surefire.version>
@@ -64,6 +65,11 @@
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
 			<version>${slf4j.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.guardsquare</groupId>
+			<artifactId>proguard-annotations</artifactId>
+			<version>${proguard.annotations.version}</version>
 		</dependency>
 
 		<!-- test dependencies -->
@@ -165,6 +171,9 @@
 						<options>
 							<option>-allowaccessmodification</option>
 							<option>-keep public class ${mainClass.fullPath}</option>
+							<option>-keep @proguard.annotation.Keep public class *</option>
+							<option>-keep @proguard.annotation.Keep public interface *</option>
+							<option>-keep @proguard.annotation.Keep public enum *</option>
 						</options>
 					</configuration>
 				</plugin>
