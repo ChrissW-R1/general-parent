@@ -211,6 +211,8 @@
 					<artifactId>maven-javadoc-plugin</artifactId>
 					<version>${plugin.javadoc.version}</version>
 					<configuration>
+						<keywords>true</keywords>
+						<serialwarn>true</serialwarn>
 						<links>
 							<link>${lombok.javadoc-url}</link>
 							<link>${slf4j.javadoc-url}</link>
@@ -325,6 +327,12 @@
 			<id>attach-docs-and-sources</id>
 			<build>
 				<plugins>
+					<plugin>
+						<artifactId>maven-source-plugin</artifactId>
+						<configuration>
+							<attach>false</attach>
+						</configuration>
+					</plugin>
 					<plugin>
 						<artifactId>maven-javadoc-plugin</artifactId>
 						<executions>
