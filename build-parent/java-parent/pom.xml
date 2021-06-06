@@ -28,7 +28,7 @@
 		<mainClass.fullPath>${java.rootPackage}.${mainClass.localPath}</mainClass.fullPath>
 
 		<!-- project-specific properties -->
-		<java.package>javaparent</java.package>
+		<java.package>${project.artifactId}</java.package>
 		<obfuscate>true</obfuscate>
 
 		<!-- dependency versions -->
