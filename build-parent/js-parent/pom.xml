@@ -25,36 +25,36 @@
 		<project.module-root.relativedir>${project.parent.relativedir}../</project.module-root.relativedir>
 
 		<!-- dependency versions -->
-		<nodejs.version>16.2.0</nodejs.version>
+		<nodejs.version>16.3.0</nodejs.version>
 		<yarn.version>1.22.10</yarn.version>
-		<core-js.version>3.12.1</core-js.version>
+		<core-js.version>3.14.0</core-js.version>
 		<rxjs.version>7.1.0</rxjs.version>
 		<zonejs.version>0.11.4</zonejs.version>
-		<angular.version>11.2.14</angular.version>
-		<npm-typescript.version>4.2.4</npm-typescript.version>
+		<angular.version>12.0.3</angular.version>
+		<npm-typescript.version>4.3.2</npm-typescript.version>
 		<ts-node.version>10.0.0</ts-node.version>
 		<grunt.version>1.4.1</grunt.version>
 		<grunt-cli.version>1.4.3</grunt-cli.version>
 		<grunt-eslint.version>23.0.0</grunt-eslint.version>
 		<grunt-ts.version>5.5.1</grunt-ts.version>
 		<uglify.version>5.0.1</uglify.version>
-		<angular.cli.version>11.2.13</angular.cli.version>
-		<eslint.version>7.27.0</eslint.version>
-		<angular.eslint-plugin.version>12.0.0</angular.eslint-plugin.version>
-		<typescript.eslint.version>4.25.0</typescript.eslint.version>
+		<angular.cli.version>12.0.3</angular.cli.version>
+		<eslint.version>7.28.0</eslint.version>
+		<angular.eslint-plugin.version>12.1.0</angular.eslint-plugin.version>
+		<typescript.eslint.version>4.26.0</typescript.eslint.version>
 		<eslint.prettier.version>8.3.0</eslint.prettier.version>
-		<eslint.import.version>2.23.3</eslint.import.version>
-		<eslint.jsdoc.version>35.0.0</eslint.jsdoc.version>
+		<eslint.import.version>2.23.4</eslint.import.version>
+		<eslint.jsdoc.version>35.1.3</eslint.jsdoc.version>
 		<eslint.prefer-arrow.version>1.2.3</eslint.prefer-arrow.version>
 		<codelyzer.version>6.0.2</codelyzer.version>
 		<eslint.codelyzer.version>0.0.1-alpha.12</eslint.codelyzer.version>
 		<mocha.version>8.4.0</mocha.version>
 		<chai.version>4.3.4</chai.version>
-		<karma.version>6.3.2</karma.version>
+		<karma.version>6.3.3</karma.version>
 		<karma.mocha.version>2.0.1</karma.mocha.version>
 		<karma.chai.version>0.1.0</karma.chai.version>
 		<karma.chrome.version>3.1.0</karma.chrome.version>
-		<karma.firefox.version>2.1.0</karma.firefox.version>
+		<karma.firefox.version>2.1.1</karma.firefox.version>
 		<karma.opera.version>1.0.0</karma.opera.version>
 		<karma.safari.version>1.0.0</karma.safari.version>
 		<karma.edgium.version>4.0.0-0</karma.edgium.version>
