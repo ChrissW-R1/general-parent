@@ -56,10 +56,10 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.scm.id>project-repo</project.scm.id>
 		<project.parent.relativedir />
-		<project.parent.basedir>${project.basedir}/${project.parent.relativedir}</project.parent.basedir>
+		<project.parent.basedir>${basedir}/${project.parent.relativedir}</project.parent.basedir>
 		<project.module-root.artifactId>general-parent</project.module-root.artifactId>
 		<project.module-root.relativedir>${project.parent.relativedir}</project.module-root.relativedir>
-		<project.module-root.basedir>${project.basedir}/${project.module-root.relativedir}</project.module-root.basedir>
+		<project.module-root.basedir>${basedir}/${project.module-root.relativedir}</project.module-root.basedir>
 		<project.site.urlPath>${project.groupId}/${project.module-root.artifactId}/${project.version}</project.site.urlPath>
 		<project.site.baseUrl>https://${project.site.basePath}</project.site.baseUrl>
 		<project.site.deploy.baseUrl>ftp://${project.site.basePath}</project.site.deploy.baseUrl>
@@ -67,6 +67,12 @@
 		<java.version.prefixed>1.${java.version}</java.version.prefixed>
 		<netbeans.hint.jdkPlatform>JDK_${java.version.prefixed}</netbeans.hint.jdkPlatform>
 		<general-parent.version>0.1.0-SNAPSHOT</general-parent.version>
+		<properties.file>build.properties</properties.file>
+		<third-party-properties.filename>THIRD-PARTY.properties</third-party-properties.filename>
+		<third-party-properties.src.path>${project.module-root.basedir}/src/license</third-party-properties.src.path>
+		<third-party-properties.src.fullPath>${third-party-properties.src.path}/${third-party-properties.filename}</third-party-properties.src.fullPath>
+		<third-party-properties.target.path>${project.build.directory}/generated-resources</third-party-properties.target.path>
+		<third-party-properties.target.fullPath>${third-party-properties.target.path}/${third-party-properties.filename}</third-party-properties.target.fullPath>
 
 		<!-- project-specific properties -->
 		<project.site.basePath>docs.urelion.world</project.site.basePath>
@@ -273,7 +279,7 @@
 					<configuration>
 						<licenseFile>${project.module-root.basedir}/LICENSE</licenseFile>
 						<licenseName>apache_v2</licenseName>
-						<missingFile>${project.build.directory}/generated-resources/THIRD-PARTY.properties</missingFile>
+						<missingFile>${third-party-properties.target.fullPath}</missingFile>
 						<useMissingFile>true</useMissingFile>
 						<sortArtifactByName>true</sortArtifactByName>
 						<fileTemplate>/org/codehaus/mojo/license/third-party-file-groupByLicense.ftl</fileTemplate>
@@ -483,14 +489,14 @@
 							<configuration>
 								<resources>
 									<resource>
-										<directory>${project.module-root.basedir}/src/license</directory>
+										<directory>${third-party-properties.src.path}</directory>
 										<includes>
-											<include>THIRD-PARTY.properties</include>
+											<include>${third-party-properties.filename}</include>
 										</includes>
 										<filtering>true</filtering>
 									</resource>
 								</resources>
-								<outputDirectory>${project.build.directory}/generated-resources</outputDirectory>
+								<outputDirectory>${third-party-properties.target.path}</outputDirectory>
 							</configuration>
 						</execution>
 					</executions>
@@ -588,6 +594,43 @@
 					<plugin>
 						<groupId>org.codehaus.mojo</groupId>
 						<artifactId>properties-maven-plugin</artifactId>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile>
+			<id>attach-third-party-properties</id>
+			<activation>
+				<property>
+					<name>fullBuild</name>
+				</property>
+				<file>
+					<exists>${third-party-properties.src.fullPath}</exists>
+				</file>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>build-helper-maven-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>attach-third-party-properties</id>
+								<phase>site</phase>
+								<goals>
+									<goal>attach-artifact</goal>
+								</goals>
+								<configuration>
+									<artifacts>
+										<artifact>
+											<file>${third-party-properties.target.fullPath}</file>
+											<type>properties</type>
+											<classifier>third-party</classifier>
+										</artifact>
+									</artifacts>
+								</configuration>
+							</execution>
+						</executions>
 					</plugin>
 				</plugins>
 			</build>
