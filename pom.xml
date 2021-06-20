@@ -88,8 +88,8 @@
 		<license.signature>${license.name} License (${license.abbr}), Version ${license.version} (${license.id})</license.signature>
 
 		<!-- dependency versions -->
+		<ant.version>1.8.1</ant.version>
 		<ant-contrib.version>1.0b3</ant-contrib.version>
-		<ant-nodeps.version>1.8.1</ant-nodeps.version>
 		<wagon.version>3.4.3</wagon.version>
 
 		<!-- plugin versions -->
@@ -167,7 +167,7 @@
 		<dependency>
 			<groupId>org.apache.ant</groupId>
 			<artifactId>ant-nodeps</artifactId>
-			<version>${ant-nodeps.version}</version>
+			<version>${ant.version}</version>
 		</dependency>
 	</dependencies>
 
@@ -579,10 +579,14 @@
 									<if>
 										<available file="${third-party-properties.target.fullPath}" />
 										<then>
+											<echo message="third-party.properties exists."
+												  level="info" />
 											<property name="third-party-properties.target.missing"
 													  value="false" />
 										</then>
 										<else>
+											<echo message="third-party.properties missing."
+												  level="info" />
 											<property name="third-party-properties.target.missing"
 													  value="true" />
 										</else>
