@@ -108,7 +108,6 @@
 				</plugin>
 				<plugin>
 					<artifactId>maven-antrun-plugin</artifactId>
-					<version>${plugin.antrun.version}</version>
 					<executions>
 						<execution>
 							<id>move-gitignore</id>
