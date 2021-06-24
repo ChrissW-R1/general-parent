@@ -25,9 +25,9 @@
 		<project.module-root.relativedir>${project.parent.relativedir}../</project.module-root.relativedir>
 
 		<!-- dependency versions -->
-		<nodejs.version>16.3.0</nodejs.version>
+		<nodejs.version>16.4.0</nodejs.version>
 		<yarn.version>1.22.10</yarn.version>
-		<core-js.version>3.14.0</core-js.version>
+		<core-js.version>3.15.1</core-js.version>
 		<rxjs.version>7.1.0</rxjs.version>
 		<zonejs.version>0.11.4</zonejs.version>
 		<angular.version>12.0.5</angular.version>
@@ -40,11 +40,11 @@
 		<uglify.version>5.0.1</uglify.version>
 		<angular.cli.version>12.0.5</angular.cli.version>
 		<eslint.version>7.29.0</eslint.version>
-		<angular.eslint-plugin.version>12.1.0</angular.eslint-plugin.version>
-		<typescript.eslint.version>4.27.0</typescript.eslint.version>
+		<angular.eslint-plugin.version>12.2.0</angular.eslint-plugin.version>
+		<typescript.eslint.version>4.28.0</typescript.eslint.version>
 		<eslint.prettier.version>8.3.0</eslint.prettier.version>
 		<eslint.import.version>2.23.4</eslint.import.version>
-		<eslint.jsdoc.version>35.3.0</eslint.jsdoc.version>
+		<eslint.jsdoc.version>35.4.0</eslint.jsdoc.version>
 		<eslint.prefer-arrow.version>1.2.3</eslint.prefer-arrow.version>
 		<codelyzer.version>6.0.2</codelyzer.version>
 		<eslint.codelyzer.version>0.0.1-alpha.12</eslint.codelyzer.version>
