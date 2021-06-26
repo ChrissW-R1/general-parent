@@ -17,7 +17,7 @@
 		<server>
 			<id>project-site-repo</id>
 			<username>mvnsiteuploader</username>
-			<password>${mvnsiteuploader-pwd}</password>
+			<password>${mvnsiteuploader}</password>
 		</server>
 	</servers>
 </settings>
