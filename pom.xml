@@ -797,5 +797,6 @@
 	<modules>
 		<module>general-resources</module>
 		<module>build-parent</module>
+		<module>build-parent-test</module>
 	</modules>
 </project>
