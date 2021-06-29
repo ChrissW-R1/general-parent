@@ -8,7 +8,7 @@ used in all projects of ChrissW-R1.
 To use this in one of your projects, you only have to define some settings in
 your POM:
 
-First of all, add the repository:
+First, add the repository:
 
 ```XML
 <repositories>
@@ -27,7 +27,7 @@ Secondly, set the parent to the project type parent. Example as a Java Project:
 <parent>
 	<groupId>me.chrisswr1</groupId>
 	<artifactId>java-parent</artifactId>
-	<version>0.1.0-SNAPSHOT</version>
+	<version>1.0.0-SNAPSHOT</version>
 </parent>
 ```
 
