@@ -401,6 +401,7 @@
 	</profiles>
 
 	<modules>
+		<module>java-parent-test</module>
 		<module>webapp-parent</module>
 		<module>java-exe-parent</module>
 	</modules>
