@@ -1,6 +1,6 @@
 maven_build:
     image:  maven:3-jdk-8
-    script: mvn -X -e -B clean install deploy site -DfullBuild -s ci_settings.xml -P clean-dependencies,!sign-artifacts -pl java-parent-test
+    script: mvn -X -e -B clean install deploy site -DfullBuild -s ci_settings.xml -P clean-dependencies,!sign-artifacts -pl :java-parent-test
     only:
         - master
 
