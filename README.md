@@ -15,6 +15,7 @@ First, add the repository:
 	...
 	<repository>
 		<id>general-parent</id>
+		<name>General Parent</name>
 		<url>https://gitlab.com/api/v4/projects/25831549/packages/maven</url>
 	</repository>
 	...
