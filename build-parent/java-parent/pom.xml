@@ -7,7 +7,7 @@
 	<parent>
 		<groupId>me.chrisswr1</groupId>
 		<artifactId>build-parent</artifactId>
-		<version>0.1.0-SNAPSHOT</version>
+		<version>1.0.0-SNAPSHOT</version>
 	</parent>
 
 	<!-- project identifier -->
@@ -33,8 +33,8 @@
 
 		<!-- dependency versions -->
 		<lombok.version>1.18.20</lombok.version>
-		<slf4j.version>1.7.31</slf4j.version>
-		<proguard.annotations.version>7.0.1</proguard.annotations.version>
+		<slf4j.version>1.7.32</slf4j.version>
+		<proguard.annotations.version>7.1.1</proguard.annotations.version>
 		<junit.jupiter.version>5.7.2</junit.jupiter.version>
 		<junit.platform.version>1.7.2</junit.platform.version>
 		<junit.platform.surefire.version>1.3.2</junit.platform.surefire.version>
@@ -42,7 +42,7 @@
 
 		<!-- plugin versions -->
 		<plugin.proguard.version>2.4.0</plugin.proguard.version>
-		<plugin.spotbugs.version>4.2.3</plugin.spotbugs.version>
+		<plugin.spotbugs.version>4.3.0</plugin.spotbugs.version>
 		<plugin.surefire.version>3.0.0-M5</plugin.surefire.version>
 		<plugin.shade.version>3.2.4</plugin.shade.version>
 		<!-- maven-javadoc-plugin in version 3.3.0 is not compatible with maven-site-plugin -->
@@ -173,7 +173,7 @@
 							<option>-allowaccessmodification</option>
 							<option>-keepattributes Signature</option>
 							<option>-keep public class ${mainClass.fullPath}</option>
-							<option>-keepclassmembers public class ${mainClass.fullPath}</option>
+							<option>-keepclassmembers public class ${mainClass.fullPath} { public *; }</option>
 							<option>-keep @proguard.annotation.Keep public interface *</option>
 							<option>-keep @proguard.annotation.Keep public class *</option>
 							<option>-keep @proguard.annotation.Keep public enum *</option>
@@ -401,6 +401,7 @@
 	</profiles>
 
 	<modules>
+		<module>java-parent-test</module>
 		<module>webapp-parent</module>
 		<module>java-exe-parent</module>
 	</modules>
