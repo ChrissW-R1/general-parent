@@ -9,7 +9,7 @@
 			<licenses>
 				<license>
 					<name>Apache-2.0</name>
-					<url>https://github.com/apache/ant/blob/master/LICENSE</url>
+					<url>https://raw.githubusercontent.com/apache/ant/master/LICENSE</url>
 				</license>
 			</licenses>
 		</dependency>
