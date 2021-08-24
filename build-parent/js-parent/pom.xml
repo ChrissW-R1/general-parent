@@ -25,30 +25,30 @@
 		<project.module-root.relativedir>${project.parent.relativedir}../</project.module-root.relativedir>
 
 		<!-- dependency versions -->
-		<nodejs.version>16.6.2</nodejs.version>
+		<nodejs.version>16.7.0</nodejs.version>
 		<yarn.version>1.22.11</yarn.version>
-		<core-js.version>3.16.1</core-js.version>
+		<core-js.version>3.16.2</core-js.version>
 		<rxjs.version>7.3.0</rxjs.version>
 		<zonejs.version>0.11.4</zonejs.version>
 		<angular.version>12.2.2</angular.version>
 		<npm-typescript.version>4.3.5</npm-typescript.version>
-		<ts-node.version>10.2.0</ts-node.version>
+		<ts-node.version>10.2.1</ts-node.version>
 		<grunt.version>1.4.1</grunt.version>
 		<grunt-cli.version>1.4.3</grunt-cli.version>
 		<grunt-eslint.version>23.0.0</grunt-eslint.version>
 		<grunt-ts.version>5.5.1</grunt-ts.version>
 		<uglify.version>5.0.1</uglify.version>
-		<angular.cli.version>12.2.1</angular.cli.version>
+		<angular.cli.version>12.2.2</angular.cli.version>
 		<eslint.version>7.32.0</eslint.version>
 		<angular.eslint-plugin.version>12.3.1</angular.eslint-plugin.version>
-		<typescript.eslint.version>4.29.1</typescript.eslint.version>
+		<typescript.eslint.version>4.29.3</typescript.eslint.version>
 		<eslint.prettier.version>8.3.0</eslint.prettier.version>
-		<eslint.import.version>2.24.0</eslint.import.version>
+		<eslint.import.version>2.24.1</eslint.import.version>
 		<eslint.jsdoc.version>36.0.7</eslint.jsdoc.version>
 		<eslint.prefer-arrow.version>1.2.3</eslint.prefer-arrow.version>
 		<codelyzer.version>6.0.2</codelyzer.version>
 		<eslint.codelyzer.version>0.0.1-alpha.12</eslint.codelyzer.version>
-		<mocha.version>9.0.3</mocha.version>
+		<mocha.version>9.1.0</mocha.version>
 		<chai.version>4.3.4</chai.version>
 		<karma.version>6.3.4</karma.version>
 		<karma.mocha.version>2.0.1</karma.mocha.version>

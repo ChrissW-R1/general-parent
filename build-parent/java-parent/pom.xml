@@ -32,7 +32,9 @@
 		<obfuscate>true</obfuscate>
 
 		<!-- dependency versions -->
+		<graalvm.version>21.2.0</graalvm.version>
 		<lombok.version>1.18.20</lombok.version>
+		<lombok-pg.version>0.11.3</lombok-pg.version>
 		<slf4j.version>1.7.32</slf4j.version>
 		<proguard.annotations.version>7.1.1</proguard.annotations.version>
 		<junit.jupiter.version>5.7.2</junit.jupiter.version>
@@ -50,17 +52,30 @@
 
 		<!-- JavaDoc URLs -->
 		<lombok.javadoc-url>https://projectlombok.org/api</lombok.javadoc-url>
-		<slf4j.javadoc-url>https://www.slf4j.org/apidocs</slf4j.javadoc-url>
+		<slf4j.javadoc-url>http://www.slf4j.org/apidocs</slf4j.javadoc-url>
 		<junit.platform.javadoc-url>https://junit.org/junit5/docs/current/api</junit.platform.javadoc-url>
 		<mockito.javadoc-url>https://static.javadoc.io/org.mockito/mockito-core/${mockito.version}</mockito.javadoc-url>
 	</properties>
 
 	<dependencies>
+		<!-- provided dependencies -->
+		<dependency>
+			<groupId>org.graalvm.compiler</groupId>
+			<artifactId>compiler</artifactId>
+			<version>${graalvm.version}</version>
+			<scope>provided</scope>
+		</dependency>
+
 		<!-- default dependencies -->
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 			<version>${lombok.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.github.peichhorn</groupId>
+			<artifactId>lombok-pg</artifactId>
+			<version>${lombok-pg.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.slf4j</groupId>

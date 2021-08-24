@@ -320,6 +320,7 @@
 						<licenseFile>${project.module-root.basedir}/LICENSE</licenseFile>
 						<licenseName>apache_v2</licenseName>
 						<missingFile>${third-party-properties.target.fullPath}</missingFile>
+						<licensesConfigFile>${project.module-root.basedir}/src/license/licenses.xml</licensesConfigFile>
 						<useMissingFile>true</useMissingFile>
 						<sortArtifactByName>true</sortArtifactByName>
 						<fileTemplate>/org/codehaus/mojo/license/third-party-file-groupByLicense.ftl</fileTemplate>
