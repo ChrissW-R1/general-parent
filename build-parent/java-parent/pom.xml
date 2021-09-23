@@ -48,7 +48,8 @@
 		<plugin.spotbugs.version>4.3.0</plugin.spotbugs.version>
 		<plugin.surefire.version>3.0.0-M5</plugin.surefire.version>
 		<plugin.shade.version>3.2.4</plugin.shade.version>
-		<plugin.javadoc.version>3.3.1</plugin.javadoc.version>
+		<!-- maven-javadoc-plugin in version 3.3.0 is not compatible with maven-site-plugin -->
+		<plugin.javadoc.version>3.2.0</plugin.javadoc.version>
 
 		<!-- JavaDoc URLs -->
 		<lombok.javadoc-url>https://projectlombok.org/api</lombok.javadoc-url>
