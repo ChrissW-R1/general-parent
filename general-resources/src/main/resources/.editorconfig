@@ -1,31 +1,47 @@
 [*]
 # default properties
-charset                               = utf-8
-end_of_line                           = crlf
-insert_final_newline                  = true
-trim_trailing_whitespace              = true
-indent_style                          = tab
-tab_width                             = 4
-indent_size                           = tab
+charset                                         = utf-8
+end_of_line                                     = crlf
+indent_style                                    = tab
+tab_width                                       = 4
+indent_size                                     = tab
+trim_trailing_whitespace                        = true
+max_line_length                                 = 80
+insert_final_newline                            = true
 
 # IntelliJ specific properties
-ij_formatter_tags_enabled             = true
-ij_formatter_off_tag                  = @formatter-off
-ij_formatter_on_tag                   = @formatter-on
-ij_visual_guides                      = 80, 120
-ij_any_blank_lines_before_package     = 0
-ij_any_blank_lines_after_package      = 1
-ij_any_blank_lines_before_imports     = 1
-ij_any_blank_lines_after_imports      = 1
-ij_any_blank_lines_around_class       = 1
-ij_any_blank_lines_after_class_header = 0
-ij_smart_tabs                         = false
-ij_continuation_indent_size           = 4
-ij_any_block_brace_style              = end_of_line
-ij_any_class_brace_style              = end_of_line
-ij_any_method_brace_style             = end_of_line
-ij_any_lambda_brace_style             = end_of_line
-ij_any_if_brace_force                 = always
-ij_any_for_brace_force                = always
-ij_any_while_brace_force              = always
-ij_any_do_while_brace_force           = always
+ij_formatter_enabled                            = true
+ij_formatter_tags_enabled                       = true
+ij_formatter_off_tag                            = @formatter-off
+ij_formatter_on_tag                             = @formatter-on
+ij_visual_guides                                = 80, 120
+ij_any_blank_lines_before_package               = 0
+ij_any_blank_lines_after_package                = 1
+ij_any_blank_lines_before_imports               = 1
+ij_any_blank_lines_after_imports                = 1
+ij_any_blank_lines_around_class                 = 1
+ij_any_blank_lines_after_class_header           = 0
+ij_any_blank_lines_after_anonymous_class_header = 0
+ij_any_blank_lines_around_field                 = 0
+ij_any_blank_lines_around_field_in_interface    = 0
+ij_any_blank_lines_around_method                = 1
+ij_any_blank_lines_around_method_in_interface   = 1
+ij_any_blank_lines_before_method_body           = 0
+ij_any_blank_lines_before_class_end             = 0
+ij_smart_tabs                                   = false
+ij_continuation_indent_size                     = 4
+ij_any_if_brace_force                           = always
+ij_any_for_brace_force                          = always
+ij_any_while_brace_force                        = always
+ij_any_do_while_brace_force                     = always
+ij_any_block_brace_style                        = end_of_line
+ij_any_class_brace_style                        = end_of_line
+ij_any_method_brace_style                       = end_of_line
+ij_any_lambda_brace_style                       = end_of_line
+ij_wrap_on_typing                               = false
+
+[*.java]
+ij_java_blank_lines_around_initializer = 1
+
+[*.css]
+ij_css_brace_placement = end_of_line
