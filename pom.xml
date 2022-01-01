@@ -90,7 +90,7 @@
 		<!-- dependency versions -->
 		<ant.version>1.8.1</ant.version>
 		<ant-contrib.version>1.0b3</ant-contrib.version>
-		<wagon.version>3.4.3</wagon.version>
+		<wagon.version>3.5.1</wagon.version>
 
 		<!-- plugin versions -->
 		<plugin.dependency.version>3.2.0</plugin.dependency.version>
@@ -106,7 +106,7 @@
 		<plugin.jar.version>3.2.0</plugin.jar.version>
 		<plugin.source.version>3.2.1</plugin.source.version>
 		<plugin.gpg.version>3.0.1</plugin.gpg.version>
-		<plugin.site.version>3.9.1</plugin.site.version>
+		<plugin.site.version>3.10.0</plugin.site.version>
 		<plugin.project-info-reports.version>3.1.2</plugin.project-info-reports.version>
 		<plugin.release.version>2.5.3</plugin.release.version>
 	</properties>

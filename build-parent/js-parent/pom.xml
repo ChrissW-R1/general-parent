@@ -27,8 +27,8 @@
 		<!-- dependency versions -->
 		<nodejs.version>17.3.0</nodejs.version>
 		<yarn.version>1.22.17</yarn.version>
-		<core-js.version>3.20.0</core-js.version>
-		<rxjs.version>7.4.0</rxjs.version>
+		<core-js.version>3.20.1</core-js.version>
+		<rxjs.version>7.5.1</rxjs.version>
 		<zonejs.version>0.11.4</zonejs.version>
 		<angular.version>13.1.1</angular.version>
 		<npm-typescript.version>4.5.4</npm-typescript.version>
@@ -39,12 +39,12 @@
 		<grunt-ts.version>5.5.1</grunt-ts.version>
 		<uglify.version>5.0.1</uglify.version>
 		<angular.cli.version>13.1.2</angular.cli.version>
-		<eslint.version>8.5.0</eslint.version>
+		<eslint.version>8.6.0</eslint.version>
 		<angular.eslint-plugin.version>13.0.1</angular.eslint-plugin.version>
-		<typescript.eslint.version>5.7.0</typescript.eslint.version>
+		<typescript.eslint.version>5.8.1</typescript.eslint.version>
 		<eslint.prettier.version>8.3.0</eslint.prettier.version>
 		<eslint.import.version>2.25.3</eslint.import.version>
-		<eslint.jsdoc.version>37.4.0</eslint.jsdoc.version>
+		<eslint.jsdoc.version>37.5.0</eslint.jsdoc.version>
 		<eslint.prefer-arrow.version>1.2.3</eslint.prefer-arrow.version>
 		<codelyzer.version>6.0.2</codelyzer.version>
 		<eslint.codelyzer.version>0.0.1-alpha.12</eslint.codelyzer.version>
@@ -63,7 +63,7 @@
 		<karma.mocha.reporter.version>2.2.5</karma.mocha.reporter.version>
 
 		<!-- plugin versions -->
-		<plugin.frontend.version>1.12.0</plugin.frontend.version>
+		<plugin.frontend.version>1.12.1</plugin.frontend.version>
 	</properties>
 
 	<build>
