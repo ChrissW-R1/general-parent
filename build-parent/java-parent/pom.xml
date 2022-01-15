@@ -36,7 +36,7 @@
 		<jetbrains-annotations.version>23.0.0</jetbrains-annotations.version>
 		<lombok.version>1.18.22</lombok.version>
 		<lombok-pg.version>0.11.3</lombok-pg.version>
-		<slf4j.version>1.7.32</slf4j.version>
+		<slf4j.version>1.7.33</slf4j.version>
 		<proguard.annotations.version>7.1.1</proguard.annotations.version>
 		<junit.minor-version>8.2</junit.minor-version>
 		<junit.jupiter.version>5.${junit.minor-version}</junit.jupiter.version>
@@ -46,10 +46,9 @@
 
 		<!-- plugin versions -->
 		<plugin.proguard.version>2.5.3</plugin.proguard.version>
-		<plugin.spotbugs.version>4.5.2.0</plugin.spotbugs.version>
+		<plugin.spotbugs.version>4.5.3.0</plugin.spotbugs.version>
 		<plugin.surefire.version>3.0.0-M5</plugin.surefire.version>
 		<plugin.shade.version>3.2.4</plugin.shade.version>
-		<!-- maven-javadoc-plugin in version 3.3.0 is not compatible with maven-site-plugin -->
 		<plugin.javadoc.version>3.3.1</plugin.javadoc.version>
 
 		<!-- JavaDoc URLs -->
