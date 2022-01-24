@@ -97,12 +97,13 @@
 		<plugin.clean.version>3.1.0</plugin.clean.version>
 		<plugin.replacer.version>1.5.3</plugin.replacer.version>
 		<plugin.properties.version>1.0.0</plugin.properties.version>
-		<plugin.buildhelper.version>3.2.0</plugin.buildhelper.version>
-		<plugin.license.version>2.0.0</plugin.license.version>
+		<plugin.buildhelper.version>3.3.0</plugin.buildhelper.version>
+		<!-- license-maven-plugin in version 2.0.0 is not compatible with maven-site-plugin -->
+		<plugin.license.version>1.20</plugin.license.version>
 		<plugin.resources.version>3.2.0</plugin.resources.version>
 		<plugin.antrun.version>3.0.0</plugin.antrun.version>
-		<plugin.compiler.version>3.8.1</plugin.compiler.version>
-		<plugin.jar.version>3.2.0</plugin.jar.version>
+		<plugin.compiler.version>3.9.0</plugin.compiler.version>
+		<plugin.jar.version>3.2.2</plugin.jar.version>
 		<plugin.source.version>3.2.1</plugin.source.version>
 		<plugin.gpg.version>3.0.1</plugin.gpg.version>
 		<plugin.site.version>3.10.0</plugin.site.version>
