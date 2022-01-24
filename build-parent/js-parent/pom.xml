@@ -30,7 +30,7 @@
 		<core-js.version>3.20.3</core-js.version>
 		<rxjs.version>7.5.2</rxjs.version>
 		<zonejs.version>0.11.4</zonejs.version>
-		<angular.version>13.1.4</angular.version>
+		<angular.version>13.1.3</angular.version>
 		<npm-typescript.version>4.5.5</npm-typescript.version>
 		<ts-node.version>10.4.0</ts-node.version>
 		<grunt.version>1.4.1</grunt.version>
