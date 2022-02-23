@@ -103,7 +103,7 @@
 		<plugin.resources.version>3.2.0</plugin.resources.version>
 		<plugin.antrun.version>3.0.0</plugin.antrun.version>
 		<plugin.compiler.version>3.10.0</plugin.compiler.version>
-		<dependency-check.version>6.5.3</dependency-check.version>
+		<plugin.dependency-check.version>6.5.3</plugin.dependency-check.version>
 		<plugin.jar.version>3.2.2</plugin.jar.version>
 		<plugin.source.version>3.2.1</plugin.source.version>
 		<plugin.gpg.version>3.0.1</plugin.gpg.version>
@@ -553,7 +553,7 @@
 				<plugin>
 					<groupId>org.owasp</groupId>
 					<artifactId>dependency-check-maven</artifactId>
-					<version>${dependency-check.version}</version>
+					<version>${plugin.dependency-check.version}</version>
 					<executions>
 						<execution>
 							<goals>
