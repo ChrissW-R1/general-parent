@@ -102,7 +102,7 @@
 		<plugin.resources.version>3.2.0</plugin.resources.version>
 		<plugin.antrun.version>3.0.0</plugin.antrun.version>
 		<plugin.compiler.version>3.10.0</plugin.compiler.version>
-		<dependency-check.version>6.5.3</dependency-check.version>
+		<plugin.dependency-check.version>6.5.3</plugin.dependency-check.version>
 		<plugin.jar.version>3.2.2</plugin.jar.version>
 		<plugin.source.version>3.2.1</plugin.source.version>
 		<plugin.gpg.version>3.0.1</plugin.gpg.version>
@@ -552,11 +552,22 @@
 				<plugin>
 					<groupId>org.owasp</groupId>
 					<artifactId>dependency-check-maven</artifactId>
-					<version>${dependency-check.version}</version>
+					<version>${plugin.dependency-check.version}</version>
+					<configuration>
+						<pathToCore>${dotnetcore.path}</pathToCore>
+					</configuration>
 					<executions>
 						<execution>
+							<id>check-dependencies</id>
 							<goals>
 								<goal>check</goal>
+							</goals>
+						</execution>
+						<execution>
+							<id>aggregate-dependency-check</id>
+							<phase>site</phase>
+							<goals>
+								<goal>aggregate</goal>
 							</goals>
 						</execution>
 					</executions>
@@ -804,6 +815,19 @@
 								<phase>pre-clean</phase>
 								<goals>
 									<goal>purge-local-repository</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<groupId>org.owasp</groupId>
+						<artifactId>dependency-check-maven</artifactId>
+						<executions>
+							<execution>
+								<id>clean-nvd-copy</id>
+								<phase>pre-clean</phase>
+								<goals>
+									<goal>purge</goal>
 								</goals>
 							</execution>
 						</executions>
