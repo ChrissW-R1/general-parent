@@ -101,12 +101,13 @@
 		<plugin.license.version>2.0.0</plugin.license.version>
 		<plugin.resources.version>3.2.0</plugin.resources.version>
 		<plugin.antrun.version>3.0.0</plugin.antrun.version>
-		<plugin.compiler.version>3.9.0</plugin.compiler.version>
+		<plugin.compiler.version>3.10.0</plugin.compiler.version>
+		<dependency-check.version>6.5.3</dependency-check.version>
 		<plugin.jar.version>3.2.2</plugin.jar.version>
 		<plugin.source.version>3.2.1</plugin.source.version>
 		<plugin.gpg.version>3.0.1</plugin.gpg.version>
-		<plugin.site.version>3.10.0</plugin.site.version>
-		<plugin.project-info-reports.version>3.1.2</plugin.project-info-reports.version>
+		<plugin.site.version>3.11.0</plugin.site.version>
+		<plugin.project-info-reports.version>3.2.1</plugin.project-info-reports.version>
 		<plugin.release.version>2.5.3</plugin.release.version>
 	</properties>
 
@@ -549,6 +550,18 @@
 					</executions>
 				</plugin>
 				<plugin>
+					<groupId>org.owasp</groupId>
+					<artifactId>dependency-check-maven</artifactId>
+					<version>${dependency-check.version}</version>
+					<executions>
+						<execution>
+							<goals>
+								<goal>check</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+				<plugin>
 					<artifactId>maven-jar-plugin</artifactId>
 					<version>${plugin.jar.version}</version>
 					<configuration>
@@ -690,6 +703,29 @@
 					<plugin>
 						<groupId>org.codehaus.mojo</groupId>
 						<artifactId>properties-maven-plugin</artifactId>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile>
+			<id>check-dependencies</id>
+			<activation>
+				<property>
+					<name>fullBuild</name>
+				</property>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.owasp</groupId>
+						<artifactId>dependency-check-maven</artifactId>
+						<executions>
+							<execution>
+								<goals>
+									<goal>check</goal>
+								</goals>
+							</execution>
+						</executions>
 					</plugin>
 				</plugins>
 			</build>
