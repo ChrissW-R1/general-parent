@@ -93,21 +93,22 @@
 		<wagon.version>3.5.1</wagon.version>
 
 		<!-- plugin versions -->
-		<plugin.dependency.version>3.2.0</plugin.dependency.version>
+		<plugin.dependency.version>3.3.0</plugin.dependency.version>
 		<plugin.clean.version>3.1.0</plugin.clean.version>
 		<plugin.replacer.version>1.5.3</plugin.replacer.version>
-		<plugin.properties.version>1.0.0</plugin.properties.version>
+		<plugin.properties.version>1.1.0</plugin.properties.version>
 		<plugin.buildhelper.version>3.3.0</plugin.buildhelper.version>
 		<!-- license-maven-plugin in version 2.0.0 is not compatible with maven-site-plugin -->
 		<plugin.license.version>1.20</plugin.license.version>
 		<plugin.resources.version>3.2.0</plugin.resources.version>
 		<plugin.antrun.version>3.0.0</plugin.antrun.version>
-		<plugin.compiler.version>3.9.0</plugin.compiler.version>
+		<plugin.compiler.version>3.10.1</plugin.compiler.version>
+		<plugin.dependency-check.version>7.0.1</plugin.dependency-check.version>
 		<plugin.jar.version>3.2.2</plugin.jar.version>
 		<plugin.source.version>3.2.1</plugin.source.version>
 		<plugin.gpg.version>3.0.1</plugin.gpg.version>
-		<plugin.site.version>3.10.0</plugin.site.version>
-		<plugin.project-info-reports.version>3.1.2</plugin.project-info-reports.version>
+		<plugin.site.version>3.11.0</plugin.site.version>
+		<plugin.project-info-reports.version>3.2.2</plugin.project-info-reports.version>
 		<plugin.release.version>3.0.0-M5</plugin.release.version>
 	</properties>
 
@@ -550,6 +551,29 @@
 					</executions>
 				</plugin>
 				<plugin>
+					<groupId>org.owasp</groupId>
+					<artifactId>dependency-check-maven</artifactId>
+					<version>${plugin.dependency-check.version}</version>
+					<configuration>
+						<pathToCore>${dotnetcore.path}</pathToCore>
+					</configuration>
+					<executions>
+						<execution>
+							<id>check-dependencies</id>
+							<goals>
+								<goal>check</goal>
+							</goals>
+						</execution>
+						<execution>
+							<id>aggregate-dependency-check</id>
+							<phase>site</phase>
+							<goals>
+								<goal>aggregate</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+				<plugin>
 					<artifactId>maven-jar-plugin</artifactId>
 					<version>${plugin.jar.version}</version>
 					<configuration>
@@ -696,6 +720,29 @@
 			</build>
 		</profile>
 		<profile>
+			<id>check-dependencies</id>
+			<activation>
+				<property>
+					<name>fullBuild</name>
+				</property>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.owasp</groupId>
+						<artifactId>dependency-check-maven</artifactId>
+						<executions>
+							<execution>
+								<goals>
+									<goal>check</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile>
 			<id>attach-docs-and-sources</id>
 			<activation>
 				<property>
@@ -769,6 +816,19 @@
 								<phase>pre-clean</phase>
 								<goals>
 									<goal>purge-local-repository</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<groupId>org.owasp</groupId>
+						<artifactId>dependency-check-maven</artifactId>
+						<executions>
+							<execution>
+								<id>clean-nvd-copy</id>
+								<phase>pre-clean</phase>
+								<goals>
+									<goal>purge</goal>
 								</goals>
 							</execution>
 						</executions>
