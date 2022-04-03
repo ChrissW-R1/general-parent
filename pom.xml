@@ -62,7 +62,7 @@
 		<project.module-root.basedir>${basedir}/${project.module-root.relativedir}</project.module-root.basedir>
 		<project.site.urlPath>${project.groupId}/${project.module-root.artifactId}/${project.version}</project.site.urlPath>
 		<project.site.baseUrl>https://${project.site.basePath}</project.site.baseUrl>
-		<project.site.deploy.baseUrl>ftp://${project.site.basePath}</project.site.deploy.baseUrl>
+		<project.site.deploy.baseUrl>ftps://${project.site.baseDomain}</project.site.deploy.baseUrl>
 		<project.site.deploy.url>${project.site.deploy.baseUrl}/${project.site.urlPath}</project.site.deploy.url>
 		<java.version.prefixed>1.${java.version}</java.version.prefixed>
 		<netbeans.hint.jdkPlatform>JDK_${java.version.prefixed}</netbeans.hint.jdkPlatform>
@@ -75,7 +75,8 @@
 		<third-party-properties.target.fullPath>${third-party-properties.target.path}/${third-party-properties.filename}</third-party-properties.target.fullPath>
 
 		<!-- project-specific properties -->
-		<project.site.basePath>docs.urelion.world</project.site.basePath>
+		<project.site.baseDomain>urelion.world</project.site.baseDomain>
+		<project.site.basePath>docs.${project.site.baseDomain}</project.site.basePath>
 		<project.gitlab.id>25831549</project.gitlab.id>
 		<java.version>8</java.version>
 
