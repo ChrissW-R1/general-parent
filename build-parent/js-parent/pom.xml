@@ -26,25 +26,26 @@
 
 		<!-- dependency versions -->
 		<nodejs.version>17.8.0</nodejs.version>
-		<yarn.version>1.22.17</yarn.version>
+		<yarn.version>1.22.18</yarn.version>
+		<yarn-berry.version>3.2.0</yarn-berry.version>
 		<core-js.version>3.21.1</core-js.version>
 		<rxjs.version>7.5.5</rxjs.version>
 		<zonejs.version>0.11.5</zonejs.version>
-		<angular.version>13.2.5</angular.version>
-		<npm-typescript.version>4.6.2</npm-typescript.version>
+		<angular.version>13.3.1</angular.version>
+		<angular.cli.version>${angular.version}</angular.cli.version>
+		<npm-typescript.version>4.6.3</npm-typescript.version>
 		<ts-node.version>10.7.0</ts-node.version>
 		<grunt.version>1.4.1</grunt.version>
 		<grunt-cli.version>1.4.3</grunt-cli.version>
 		<grunt-eslint.version>24.0.0</grunt-eslint.version>
 		<grunt-ts.version>5.5.1</grunt-ts.version>
-		<uglify.version>5.0.1</uglify.version>
-		<angular.cli.version>13.3.0</angular.cli.version>
-		<eslint.version>8.11.0</eslint.version>
+		<uglify.version>5.1.0</uglify.version>
+		<eslint.version>8.12.0</eslint.version>
 		<angular.eslint.version>13.1.0</angular.eslint.version>
-		<typescript.eslint.version>5.16.0</typescript.eslint.version>
+		<typescript.eslint.version>5.17.0</typescript.eslint.version>
 		<eslint.config-prettier.version>8.5.0</eslint.config-prettier.version>
 		<eslint.import.version>2.25.4</eslint.import.version>
-		<eslint.jsdoc.version>38.0.6</eslint.jsdoc.version>
+		<eslint.jsdoc.version>38.1.6</eslint.jsdoc.version>
 		<eslint.prefer-arrow.version>1.2.3</eslint.prefer-arrow.version>
 		<codelyzer.version>6.0.2</codelyzer.version>
 		<eslint.codelyzer.version>0.0.1-alpha.12</eslint.codelyzer.version>

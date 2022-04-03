@@ -102,13 +102,13 @@
 		<plugin.resources.version>3.2.0</plugin.resources.version>
 		<plugin.antrun.version>3.0.0</plugin.antrun.version>
 		<plugin.compiler.version>3.10.1</plugin.compiler.version>
-		<plugin.dependency-check.version>7.0.1</plugin.dependency-check.version>
+		<plugin.dependency-check.version>7.0.4</plugin.dependency-check.version>
 		<plugin.jar.version>3.2.2</plugin.jar.version>
 		<plugin.source.version>3.2.1</plugin.source.version>
 		<plugin.gpg.version>3.0.1</plugin.gpg.version>
 		<plugin.site.version>3.11.0</plugin.site.version>
 		<plugin.project-info-reports.version>3.2.2</plugin.project-info-reports.version>
-		<plugin.release.version>2.5.3</plugin.release.version>
+		<plugin.release.version>3.0.0-M5</plugin.release.version>
 	</properties>
 
 	<scm>
