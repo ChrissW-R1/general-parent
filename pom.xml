@@ -563,21 +563,6 @@
 					<configuration>
 						<pathToCore>${dotnetcore.path}</pathToCore>
 					</configuration>
-					<executions>
-						<execution>
-							<id>check-dependencies</id>
-							<goals>
-								<goal>check</goal>
-							</goals>
-						</execution>
-						<execution>
-							<id>aggregate-dependency-check</id>
-							<phase>site</phase>
-							<goals>
-								<goal>aggregate</goal>
-							</goals>
-						</execution>
-					</executions>
 				</plugin>
 				<plugin>
 					<artifactId>maven-jar-plugin</artifactId>
@@ -701,6 +686,18 @@
 				<version>${plugin.project-info-reports.version}</version>
 			</plugin>
 			<plugin>
+				<groupId>org.owasp</groupId>
+				<artifactId>dependency-check-maven</artifactId>
+				<reportSets>
+					<reportSet>
+						<id>aggregate-dependency-check</id>
+						<reports>
+							<report>aggregate</report>
+						</reports>
+					</reportSet>
+				</reportSets>
+			</plugin>
+			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>license-maven-plugin</artifactId>
 				<version>${plugin.license.version}</version>
@@ -766,6 +763,7 @@
 						<artifactId>dependency-check-maven</artifactId>
 						<executions>
 							<execution>
+								<id>check-dependencies</id>
 								<goals>
 									<goal>check</goal>
 								</goals>
