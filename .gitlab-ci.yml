@@ -20,6 +20,8 @@ maven_release:
 # See https://docs.gitlab.com/ee/ci/variables/#cicd-variable-precedence
 sast:
     stage: test
+    variables:
+        SAST_JAVA_VERSION: 8
 
 include:
     -   template: Security/SAST.gitlab-ci.yml
