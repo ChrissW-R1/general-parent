@@ -94,7 +94,7 @@
 
 		<!-- plugin versions -->
 		<plugin.dependency.version>3.3.0</plugin.dependency.version>
-		<plugin.clean.version>3.1.0</plugin.clean.version>
+		<plugin.clean.version>3.2.0</plugin.clean.version>
 		<plugin.help.version>3.2.0</plugin.help.version>
 		<plugin.replacer.version>1.5.3</plugin.replacer.version>
 		<plugin.properties.version>1.1.0</plugin.properties.version>
