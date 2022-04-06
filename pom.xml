@@ -62,7 +62,7 @@
 		<project.module-root.basedir>${basedir}/${project.module-root.relativedir}</project.module-root.basedir>
 		<project.site.urlPath>${project.groupId}/${project.module-root.artifactId}/${project.version}</project.site.urlPath>
 		<project.site.baseUrl>https://${project.site.basePath}</project.site.baseUrl>
-		<project.site.deploy.baseUrl>ftp://${project.site.basePath}</project.site.deploy.baseUrl>
+		<project.site.deploy.baseUrl>ftps://${project.site.baseDomain}</project.site.deploy.baseUrl>
 		<project.site.deploy.url>${project.site.deploy.baseUrl}/${project.site.urlPath}</project.site.deploy.url>
 		<java.version.prefixed>1.${java.version}</java.version.prefixed>
 		<netbeans.hint.jdkPlatform>JDK_${java.version.prefixed}</netbeans.hint.jdkPlatform>
@@ -75,7 +75,8 @@
 		<third-party-properties.target.fullPath>${third-party-properties.target.path}/${third-party-properties.filename}</third-party-properties.target.fullPath>
 
 		<!-- project-specific properties -->
-		<project.site.basePath>docs.urelion.world</project.site.basePath>
+		<project.site.baseDomain>urelion.world</project.site.baseDomain>
+		<project.site.basePath>docs.${project.site.baseDomain}</project.site.basePath>
 		<project.gitlab.id>25831549</project.gitlab.id>
 		<java.version>8</java.version>
 
@@ -88,13 +89,13 @@
 		<license.signature>${license.name} License (${license.abbr}), Version ${license.version} (${license.id})</license.signature>
 
 		<!-- dependency versions -->
-		<ant.version>1.8.1</ant.version>
 		<ant-contrib.version>1.0b3</ant-contrib.version>
 		<wagon.version>3.5.1</wagon.version>
 
 		<!-- plugin versions -->
 		<plugin.dependency.version>3.3.0</plugin.dependency.version>
-		<plugin.clean.version>3.1.0</plugin.clean.version>
+		<plugin.clean.version>3.2.0</plugin.clean.version>
+		<plugin.help.version>3.2.0</plugin.help.version>
 		<plugin.replacer.version>1.5.3</plugin.replacer.version>
 		<plugin.properties.version>1.1.0</plugin.properties.version>
 		<plugin.buildhelper.version>3.3.0</plugin.buildhelper.version>
@@ -167,11 +168,6 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
-		<dependency>
-			<groupId>org.apache.ant</groupId>
-			<artifactId>ant-nodeps</artifactId>
-			<version>${ant.version}</version>
-		</dependency>
 	</dependencies>
 
 	<build>
@@ -234,6 +230,10 @@
 							</fileset>
 						</filesets>
 					</configuration>
+				</plugin>
+				<plugin>
+					<artifactId>maven-help-plugin</artifactId>
+					<version>${plugin.help.version}</version>
 				</plugin>
 				<plugin>
 					<groupId>com.google.code.maven-replacer-plugin</groupId>
@@ -556,21 +556,6 @@
 					<configuration>
 						<pathToCore>${dotnetcore.path}</pathToCore>
 					</configuration>
-					<executions>
-						<execution>
-							<id>check-dependencies</id>
-							<goals>
-								<goal>check</goal>
-							</goals>
-						</execution>
-						<execution>
-							<id>aggregate-dependency-check</id>
-							<phase>site</phase>
-							<goals>
-								<goal>aggregate</goal>
-							</goals>
-						</execution>
-					</executions>
 				</plugin>
 				<plugin>
 					<artifactId>maven-jar-plugin</artifactId>
@@ -694,6 +679,18 @@
 				<version>${plugin.project-info-reports.version}</version>
 			</plugin>
 			<plugin>
+				<groupId>org.owasp</groupId>
+				<artifactId>dependency-check-maven</artifactId>
+				<reportSets>
+					<reportSet>
+						<id>aggregate-dependency-check</id>
+						<reports>
+							<report>aggregate</report>
+						</reports>
+					</reportSet>
+				</reportSets>
+			</plugin>
+			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>license-maven-plugin</artifactId>
 				<version>${plugin.license.version}</version>
@@ -719,6 +716,33 @@
 			</build>
 		</profile>
 		<profile>
+			<id>effective-pom</id>
+			<activation>
+				<property>
+					<name>fullBuild</name>
+				</property>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<artifactId>maven-help-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>show-effective-pom</id>
+								<phase>validate</phase>
+								<goals>
+									<goal>effective-pom</goal>
+								</goals>
+								<configuration>
+									<output>${project.build.directory}/${project.build.finalName}-effective.pom</output>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile>
 			<id>check-dependencies</id>
 			<activation>
 				<property>
@@ -732,6 +756,7 @@
 						<artifactId>dependency-check-maven</artifactId>
 						<executions>
 							<execution>
+								<id>check-dependencies</id>
 								<goals>
 									<goal>check</goal>
 								</goals>

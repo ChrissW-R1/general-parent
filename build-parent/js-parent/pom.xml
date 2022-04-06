@@ -41,10 +41,10 @@
 		<grunt-ts.version>5.5.1</grunt-ts.version>
 		<uglify.version>5.1.0</uglify.version>
 		<eslint.version>8.12.0</eslint.version>
-		<angular.eslint.version>13.1.0</angular.eslint.version>
-		<typescript.eslint.version>5.17.0</typescript.eslint.version>
+		<angular.eslint.version>13.2.0</angular.eslint.version>
+		<typescript.eslint.version>5.18.0</typescript.eslint.version>
 		<eslint.config-prettier.version>8.5.0</eslint.config-prettier.version>
-		<eslint.import.version>2.25.4</eslint.import.version>
+		<eslint.import.version>2.26.0</eslint.import.version>
 		<eslint.jsdoc.version>38.1.6</eslint.jsdoc.version>
 		<eslint.prefer-arrow.version>1.2.3</eslint.prefer-arrow.version>
 		<codelyzer.version>6.0.2</codelyzer.version>

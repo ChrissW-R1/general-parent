@@ -97,10 +97,5 @@
 				</plugin>
 			</plugins>
 		</pluginManagement>
-		<plugins>
-			<plugin>
-				<artifactId>maven-antrun-plugin</artifactId>
-			</plugin>
-		</plugins>
 	</build>
 </project>

@@ -143,9 +143,6 @@
 				<groupId>nl.praegus</groupId>
 				<artifactId>jetspeed-unpack-maven-plugin</artifactId>
 			</plugin>
-			<plugin>
-				<artifactId>maven-antrun-plugin</artifactId>
-			</plugin>
 		</plugins>
 	</build>
 
