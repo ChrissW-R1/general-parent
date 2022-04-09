@@ -197,6 +197,7 @@
 							<option>-keepattributes RuntimeVisibleAnnotations</option>
 							<option>-keep public class ${mainClass.fullPath}</option>
 							<option>-keepclassmembers public class ${mainClass.fullPath} { public *; }</option>
+							<option>-keepclassmembers class * implements java.io.Serializable { static final long serialVersionUID; }</option>
 							<option>-keep @proguard.annotation.Keep public interface *</option>
 							<option>-keep @proguard.annotation.Keep public class *</option>
 							<option>-keep @proguard.annotation.Keep public enum *</option>
