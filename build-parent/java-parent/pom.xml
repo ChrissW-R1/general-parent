@@ -192,12 +192,25 @@
 					<configuration>
 						<obfuscate>${obfuscate}</obfuscate>
 						<options>
+							<!-- control options -->
 							<option>-allowaccessmodification</option>
 							<option>-keepattributes Signature</option>
 							<option>-keepattributes RuntimeVisibleAnnotations</option>
+
+							<!-- keep Java language specific objects -->
+							<option>-keepclassmembers class * implements java.io.Serializable { static final long serialVersionUID; }</option>
+
+							<!-- keep JPA specific objects -->
+							<option>-keep @jakarta.persistence.Embeddable public class *</option>
+							<option>-keepclassmembers @jakarta.persistence.Embeddable public class * { *; }</option>
+							<option>-keep @jakarta.persistence.Entity public class *</option>
+							<option>-keepclassmembers @jakarta.persistence.Entity public class * { *; }</option>
+
+							<!-- keep main class -->
 							<option>-keep public class ${mainClass.fullPath}</option>
 							<option>-keepclassmembers public class ${mainClass.fullPath} { public *; }</option>
-							<option>-keepclassmembers class * implements java.io.Serializable { static final long serialVersionUID; }</option>
+
+							<!-- keep annotated objects -->
 							<option>-keep @proguard.annotation.Keep public interface *</option>
 							<option>-keep @proguard.annotation.Keep public class *</option>
 							<option>-keep @proguard.annotation.Keep public enum *</option>
