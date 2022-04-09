@@ -202,9 +202,9 @@
 
 							<!-- keep JPA specific objects -->
 							<option>-keep @jakarta.persistence.Embeddable public class *</option>
-							<option>-keepclassmembers @jakarta.persistence.Embeddable public class * { *; }</option>
 							<option>-keep @jakarta.persistence.Entity public class *</option>
-							<option>-keepclassmembers @jakarta.persistence.Entity public class * { *; }</option>
+							<option>-keepclassmembers @jakarta.persistence.Entity public class * { @jakarta.persistence.Id *; }</option>
+							<option>-keepclassmembers @jakarta.persistence.Entity public class * { @jakarta.persistence.EmbeddedId *; }</option>
 
 							<!-- keep main class -->
 							<option>-keep public class ${mainClass.fullPath}</option>
