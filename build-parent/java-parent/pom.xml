@@ -235,6 +235,7 @@
 					<artifactId>maven-javadoc-plugin</artifactId>
 					<version>${plugin.javadoc.version}</version>
 					<configuration>
+						<source>${java.version}</source>
 						<keywords>true</keywords>
 						<serialwarn>true</serialwarn>
 						<links>
