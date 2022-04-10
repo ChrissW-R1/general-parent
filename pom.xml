@@ -284,6 +284,20 @@
 					<version>${plugin.buildhelper.version}</version>
 					<executions>
 						<execution>
+							<id>java-qualified-version-property</id>
+							<goals>
+								<goal>regex-property</goal>
+							</goals>
+							<phase>validate</phase>
+							<configuration>
+								<name>java.version.qualified</name>
+								<value>${java.version}</value>
+								<regex>\b([1-9]|10)\b</regex>
+								<replacement>${java.version.prefixed}</replacement>
+								<failIfNoMatch>false</failIfNoMatch>
+							</configuration>
+						</execution>
+						<execution>
 							<id>timestamp-property</id>
 							<goals>
 								<goal>timestamp-property</goal>

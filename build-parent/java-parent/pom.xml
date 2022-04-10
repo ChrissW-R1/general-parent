@@ -148,8 +148,8 @@
 					<artifactId>maven-compiler-plugin</artifactId>
 					<version>${plugin.compiler.version}</version>
 					<configuration>
-						<source>${java.version.prefixed}</source>
-						<target>${java.version.prefixed}</target>
+						<source>${java.version.qualified}</source>
+						<target>${java.version.qualified}</target>
 					</configuration>
 				</plugin>
 				<plugin>
