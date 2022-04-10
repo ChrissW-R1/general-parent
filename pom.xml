@@ -292,7 +292,7 @@
 							<configuration>
 								<name>java.version.qualified</name>
 								<value>${java.version}</value>
-								<regex>\b([1-9]|10)\b</regex>
+								<regex>^([1-9]|10)$</regex>
 								<replacement>${java.version.prefixed}</replacement>
 								<failIfNoMatch>false</failIfNoMatch>
 							</configuration>
