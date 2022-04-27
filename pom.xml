@@ -600,7 +600,7 @@
 					<executions>
 						<execution>
 							<id>echo-properties</id>
-							<phase>validate</phase>
+							<phase>generate-sources</phase>
 							<goals>
 								<goal>run</goal>
 							</goals>
@@ -744,7 +744,7 @@
 						<executions>
 							<execution>
 								<id>show-effective-pom</id>
-								<phase>validate</phase>
+								<phase>generate-sources</phase>
 								<goals>
 									<goal>effective-pom</goal>
 								</goals>
