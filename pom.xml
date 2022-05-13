@@ -544,6 +544,25 @@
 					</configuration>
 					<executions>
 						<execution>
+							<id>copy-readme</id>
+							<phase>process-resources</phase>
+							<goals>
+								<goal>copy-resources</goal>
+							</goals>
+							<configuration>
+								<outputDirectory>${project.module-root.basedir}</outputDirectory>
+								<resources>
+									<resource>
+										<directory>${project.module-root.basedir}/src/main/resources</directory>
+										<includes>
+											<include>README.md</include>
+										</includes>
+										<filtering>true</filtering>
+									</resource>
+								</resources>
+							</configuration>
+						</execution>
+						<execution>
 							<id>third-party-filtering</id>
 							<phase>pre-site</phase>
 							<goals>

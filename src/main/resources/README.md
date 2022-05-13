@@ -13,7 +13,7 @@ First, add the repository:
 <repositories>
 	...
 	<repository>
-		<id>general-parent</id>
+		<id>${project.artifactId}</id>
 		<name>General Parent</name>
 		<url>https://gitlab.com/api/v4/projects/25831549/packages/maven</url>
 	</repository>
@@ -24,9 +24,9 @@ First, add the repository:
 Secondly, set the parent to the project type parent. Example as a Java Project:
 ```XML
 <parent>
-	<groupId>me.chrisswr1</groupId>
+	<groupId>${project.groupId}</groupId>
 	<artifactId>java-parent</artifactId>
-	<version>1.0.0-SNAPSHOT</version>
+	<version>${project.version}</version>
 </parent>
 ```
 
