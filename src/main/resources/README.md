@@ -13,7 +13,7 @@ First, add the repository:
 <repositories>
 	...
 	<repository>
-		<id>${project.artifactId}</id>
+		<id>${project.module-root.artifactId}</id>
 		<name>General Parent</name>
 		<url>https://gitlab.com/api/v4/projects/25831549/packages/maven</url>
 	</repository>
