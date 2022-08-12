@@ -676,6 +676,7 @@
 					<artifactId>maven-release-plugin</artifactId>
 					<version>${plugin.release.version}</version>
 					<configuration>
+						<scmCommentPrefix>[maven-release-plugin] [skip ci]</scmCommentPrefix>
 						<autoVersionSubmodules>true</autoVersionSubmodules>
 					</configuration>
 				</plugin>
