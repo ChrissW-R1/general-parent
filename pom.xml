@@ -679,6 +679,8 @@
 					<configuration>
 						<scmCommentPrefix>[maven-release-plugin] [skip ci]</scmCommentPrefix>
 						<autoVersionSubmodules>true</autoVersionSubmodules>
+						<arguments>-DfullBuild</arguments>
+						<releaseProfiles>clean-dependencies</releaseProfiles>
 					</configuration>
 				</plugin>
 			</plugins>
