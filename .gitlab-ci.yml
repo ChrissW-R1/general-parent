@@ -1,12 +1,27 @@
+.maven_init: &maven_init |
+                         function maven_init() {
+                            git config user.email "${GITLAB_USER_EMAIL}"
+                            git config user.name "${GITLAB_USER_NAME}"
+                            cat ${gpg_private_key} | gpg --batch --import > /dev/null
+                            echo ${gpg_passphrase} | gpg --batch --always-trust --yes --passphrase-fd 0 --pinentry-mode=loopback -s $(mktemp) > /dev/null
+                         }
+                         maven_init
+
 maven_build:
     image:  maven:3-jdk-8
-    script: mvn -B clean install deploy site-deploy -DfullBuild -s ci_settings.xml -P clean-dependencies,!sign-artifacts,!obfuscate
+    before_script:
+        - *maven_init
+    script: mvn -B clean install deploy site-deploy -DfullBuild -s ci_settings.xml -P clean-dependencies
     only:
         - main
 
 maven_release:
-    image:  maven:3-jdk-8
-    script: mvn -B clean release:prepare release:perform site-deploy -DfullBuild -s ci_settings.xml -P clean-dependencies,!sign-artifacts
+    image: maven:3-jdk-8
+    before_script:
+        - *maven_init
+    script:
+        - git checkout -B "${CI_BUILD_REF_NAME}"
+        - mvn -B clean release:prepare release:perform site-deploy -DfullBuild -s ci_settings.xml -P clean-dependencies -DreleaseProfiles=clean-dependencies -Dusername=${ci_git_user} -Dpassword=${ci_git_token}
     only:
         - release
 
@@ -24,4 +39,4 @@ sast:
         SAST_JAVA_VERSION: 8
 
 include:
-    -   template: Security/SAST.gitlab-ci.yml
+    - template: Security/SAST.gitlab-ci.yml

@@ -13,7 +13,8 @@
 	<!-- project metadata -->
 	<name>General Parent</name>
 	<description>
-		This project only contains the default properties and settings, which should be used in all projects of ChrissW-R1.
+		This project only contains the default properties and settings,
+		which should be used in all projects of ChrissW-R1.
 	</description>
 	<url>${project.site.baseUrl}/${project.site.urlPath}</url>
 	<inceptionYear>2018</inceptionYear>
@@ -90,7 +91,7 @@
 
 		<!-- dependency versions -->
 		<ant-contrib.version>1.0b3</ant-contrib.version>
-		<wagon.version>3.5.1</wagon.version>
+		<wagon.version>3.5.2</wagon.version>
 
 		<!-- plugin versions -->
 		<plugin.dependency.version>3.3.0</plugin.dependency.version>
@@ -100,22 +101,23 @@
 		<plugin.properties.version>1.1.0</plugin.properties.version>
 		<plugin.buildhelper.version>3.3.0</plugin.buildhelper.version>
 		<plugin.license.version>2.0.0</plugin.license.version>
-		<plugin.resources.version>3.2.0</plugin.resources.version>
-		<plugin.antrun.version>3.0.0</plugin.antrun.version>
+		<plugin.resources.version>3.3.0</plugin.resources.version>
+		<plugin.antrun.version>3.1.0</plugin.antrun.version>
 		<plugin.compiler.version>3.10.1</plugin.compiler.version>
-		<plugin.dependency-check.version>7.0.4</plugin.dependency-check.version>
+		<plugin.dependency-check.version>7.1.1</plugin.dependency-check.version>
 		<plugin.jar.version>3.2.2</plugin.jar.version>
 		<plugin.source.version>3.2.1</plugin.source.version>
 		<plugin.gpg.version>3.0.1</plugin.gpg.version>
-		<plugin.site.version>3.11.0</plugin.site.version>
-		<plugin.project-info-reports.version>3.2.2</plugin.project-info-reports.version>
-		<plugin.release.version>3.0.0-M5</plugin.release.version>
+		<plugin.site.version>3.12.1</plugin.site.version>
+		<plugin.project-info-reports.version>3.4.1</plugin.project-info-reports.version>
+		<plugin.release.version>3.0.0-M6</plugin.release.version>
 	</properties>
 
 	<scm>
 		<url>https://gitlab.com/${project.organization.name}/${project.module-root.artifactId}</url>
 		<connection>scm:git:${project.scm.url}.git</connection>
 		<developerConnection>${project.scm.connection}</developerConnection>
+		<tag>HEAD</tag>
 	</scm>
 
 	<issueManagement>
@@ -282,6 +284,20 @@
 					<artifactId>build-helper-maven-plugin</artifactId>
 					<version>${plugin.buildhelper.version}</version>
 					<executions>
+						<execution>
+							<id>java-qualified-version-property</id>
+							<goals>
+								<goal>regex-property</goal>
+							</goals>
+							<phase>validate</phase>
+							<configuration>
+								<name>java.version.qualified</name>
+								<value>${java.version}</value>
+								<regex>^([1-9]|10)$</regex>
+								<replacement>${java.version.prefixed}</replacement>
+								<failIfNoMatch>false</failIfNoMatch>
+							</configuration>
+						</execution>
 						<execution>
 							<id>timestamp-property</id>
 							<goals>
@@ -529,6 +545,25 @@
 					</configuration>
 					<executions>
 						<execution>
+							<id>copy-readme</id>
+							<phase>process-resources</phase>
+							<goals>
+								<goal>copy-resources</goal>
+							</goals>
+							<configuration>
+								<outputDirectory>${project.module-root.basedir}</outputDirectory>
+								<resources>
+									<resource>
+										<directory>${project.module-root.basedir}/src/main/resources</directory>
+										<includes>
+											<include>README.md</include>
+										</includes>
+										<filtering>true</filtering>
+									</resource>
+								</resources>
+							</configuration>
+						</execution>
+						<execution>
 							<id>third-party-filtering</id>
 							<phase>pre-site</phase>
 							<goals>
@@ -585,7 +620,7 @@
 					<executions>
 						<execution>
 							<id>echo-properties</id>
-							<phase>validate</phase>
+							<phase>generate-sources</phase>
 							<goals>
 								<goal>run</goal>
 							</goals>
@@ -641,7 +676,10 @@
 					<artifactId>maven-release-plugin</artifactId>
 					<version>${plugin.release.version}</version>
 					<configuration>
+						<scmCommentPrefix>[maven-release-plugin] [skip ci]</scmCommentPrefix>
 						<autoVersionSubmodules>true</autoVersionSubmodules>
+						<arguments>-DfullBuild</arguments>
+						<releaseProfiles>clean-dependencies</releaseProfiles>
 					</configuration>
 				</plugin>
 			</plugins>
@@ -729,7 +767,7 @@
 						<executions>
 							<execution>
 								<id>show-effective-pom</id>
-								<phase>validate</phase>
+								<phase>generate-sources</phase>
 								<goals>
 									<goal>effective-pom</goal>
 								</goals>
