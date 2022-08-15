@@ -159,20 +159,6 @@
 		</pluginRepository>
 	</pluginRepositories>
 
-	<dependencies>
-		<dependency>
-			<groupId>ant-contrib</groupId>
-			<artifactId>ant-contrib</artifactId>
-			<version>${ant-contrib.version}</version>
-			<exclusions>
-				<exclusion>
-					<groupId>ant</groupId>
-					<artifactId>ant</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency>
-	</dependencies>
-
 	<build>
 		<extensions>
 			<extension>
@@ -618,6 +604,19 @@
 				<plugin>
 					<artifactId>maven-antrun-plugin</artifactId>
 					<version>${plugin.antrun.version}</version>
+					<dependencies>
+						<dependency>
+							<groupId>ant-contrib</groupId>
+							<artifactId>ant-contrib</artifactId>
+							<version>${ant-contrib.version}</version>
+							<exclusions>
+								<exclusion>
+									<groupId>ant</groupId>
+									<artifactId>ant</artifactId>
+								</exclusion>
+							</exclusions>
+						</dependency>
+					</dependencies>
 					<executions>
 						<execution>
 							<id>echo-properties</id>
