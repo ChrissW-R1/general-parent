@@ -1,5 +1,7 @@
 package me.chrisswr1.test;
 
+import lombok.Getter;
+
 import javax.servlet.Servlet;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -21,6 +23,14 @@ import java.io.IOException;
 )
 public class MainServlet
 extends BaseServlet {
+	/**
+	 * generated serial version unique identifier
+	 *
+	 * @since 1.0.0
+	 */
+	@Getter
+	private static final long serialVersionUID = 1L;
+
 	@Override
 	protected void doRequest(
 		HttpServletRequest request,
