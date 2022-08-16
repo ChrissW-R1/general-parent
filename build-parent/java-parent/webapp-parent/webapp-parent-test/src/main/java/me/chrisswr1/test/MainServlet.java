@@ -18,7 +18,6 @@ import java.io.IOException;
 @WebServlet(
 	description = "handles the HTTP request",
 	urlPatterns = {
-		"/",
 		"/*"
 	}
 )

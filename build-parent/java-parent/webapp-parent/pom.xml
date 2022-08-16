@@ -69,6 +69,17 @@
 				<plugin>
 					<artifactId>maven-war-plugin</artifactId>
 					<version>${plugin.war.version}</version>
+					<configuration>
+						<webResources>
+							<resource>
+								<directory>src/main/webapp</directory>
+								<includes>
+									<include>**/web.xml</include>
+								</includes>
+								<filtering>true</filtering>
+							</resource>
+						</webResources>
+					</configuration>
 				</plugin>
 				<plugin>
 					<artifactId>maven-javadoc-plugin</artifactId>
