@@ -95,6 +95,7 @@
 
 		<!-- plugin versions -->
 		<plugin.dependency.version>3.3.0</plugin.dependency.version>
+		<plugin.versions.version>2.11.0</plugin.versions.version>
 		<plugin.clean.version>3.2.0</plugin.clean.version>
 		<plugin.help.version>3.2.0</plugin.help.version>
 		<plugin.replacer.version>1.5.3</plugin.replacer.version>
@@ -201,6 +202,20 @@
 				<plugin>
 					<artifactId>maven-dependency-plugin</artifactId>
 					<version>${plugin.dependency.version}</version>
+				</plugin>
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>versions-maven-plugin</artifactId>
+					<version>${plugin.versions.version}</version>
+					<executions>
+						<execution>
+							<id>display-updates</id>
+							<goals>
+								<goal>display-property-updates</goal>
+							</goals>
+							<phase>validate</phase>
+						</execution>
+					</executions>
 				</plugin>
 				<plugin>
 					<artifactId>maven-clean-plugin</artifactId>
@@ -705,6 +720,10 @@
 			</plugins>
 		</pluginManagement>
 		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>versions-maven-plugin</artifactId>
+			</plugin>
 			<plugin>
 				<groupId>com.google.code.maven-replacer-plugin</groupId>
 				<artifactId>replacer</artifactId>
