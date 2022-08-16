@@ -29,7 +29,7 @@ extends BaseServlet {
 	 * @since 1.0.0
 	 */
 	@Getter
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1;
 
 	@Override
 	protected void doRequest(
