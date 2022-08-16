@@ -26,6 +26,7 @@
 		<!-- project-specific properties -->
 		<java.package>test</java.package>
 		<mainClass.localPath>App</mainClass.localPath>
+		<headerType>console</headerType>
 	</properties>
 
 	<dependencies>

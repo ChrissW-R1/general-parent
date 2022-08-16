@@ -26,6 +26,7 @@
 
 		<!-- project-specific properties -->
 		<fileVersion>${project.baseVersion}.${parsedVersion.buildNumber}</fileVersion>
+		<headerType>gui</headerType>
 		<copyright.notice>© ${project.versionYear} by ${project.organization.name}</copyright.notice>
 
 		<!-- plugin versions -->
@@ -55,7 +56,7 @@
 								<jre>
 									<minVersion>${java.version.prefixed}</minVersion>
 								</jre>
-								<headerType>console</headerType>
+								<headerType>${headerType}</headerType>
 								<versionInfo>
 									<productName>${project.name}</productName>
 									<productVersion>${fileVersion}</productVersion>
