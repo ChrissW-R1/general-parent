@@ -24,7 +24,7 @@ import java.io.IOException;
 public class MainServlet
 extends BaseServlet {
 	/**
-	 * generated serial version unique identifier
+	 * serial version unique identifier
 	 *
 	 * @since 1.0.0
 	 */
