@@ -3,6 +3,7 @@ package me.chrisswr1.test;
 /**
  * simple main class
  *
+ * @version 1.0.0
  * @since 1.0.0
  */
 public class App {
