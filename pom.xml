@@ -272,6 +272,26 @@
 					<version>${plugin.buildhelper.version}</version>
 					<executions>
 						<execution>
+							<id>parse-version</id>
+							<goals>
+								<goal>parse-version</goal>
+							</goals>
+							<phase>initialize</phase>
+						</execution>
+						<execution>
+							<id>base-version-property</id>
+							<goals>
+								<goal>regex-property</goal>
+							</goals>
+							<phase>initialize</phase>
+							<configuration>
+								<name>project.baseVersion</name>
+								<value>${project.version}</value>
+								<regex>[^\d\.].*</regex>
+								<replacement />
+							</configuration>
+						</execution>
+						<execution>
 							<id>java-qualified-version-property</id>
 							<goals>
 								<goal>regex-property</goal>
@@ -290,7 +310,7 @@
 							<goals>
 								<goal>timestamp-property</goal>
 							</goals>
-							<phase>validate</phase>
+							<phase>initialize</phase>
 							<configuration>
 								<name>project.versionYear</name>
 								<pattern>yyyy</pattern>

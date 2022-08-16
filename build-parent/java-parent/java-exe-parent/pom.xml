@@ -24,6 +24,10 @@
 		<!-- technically-based properties -->
 		<project.module-root.relativedir>${project.parent.relativedir}../../</project.module-root.relativedir>
 
+		<!-- project-specific properties -->
+		<fileVersion>${project.baseVersion}.${parsedVersion.buildNumber}</fileVersion>
+		<copyright.notice>© ${project.versionYear} by ${project.organization.name}</copyright.notice>
+
 		<!-- plugin versions -->
 		<plugin.launch4j.version>2.1.2</plugin.launch4j.version>
 	</properties>
@@ -44,19 +48,25 @@
 							</goals>
 							<configuration>
 								<outfile>${project.build.directory}/${project.build.finalName}.exe</outfile>
-								<jar>${project.build.directory}/${project.build.finalName}.jar</jar>
+								<jar>${project.build.directory}/${project.build.finalName}-jar-with-dependencies.jar</jar>
 								<classPath>
 									<mainClass>${mainClass.fullPath}</mainClass>
 								</classPath>
 								<jre>
 									<minVersion>${java.version.prefixed}</minVersion>
 								</jre>
+								<headerType>console</headerType>
 								<versionInfo>
-									<fileVersion>${project.version}</fileVersion>
-									<companyName>${project.organization.name}</companyName>
-									<productVersion>${project.version}</productVersion>
 									<productName>${project.name}</productName>
+									<productVersion>${fileVersion}</productVersion>
+									<txtProductVersion>${project.version}</txtProductVersion>
+									<internalName>${project.artifactId}</internalName>
+									<companyName>${project.organization.name}</companyName>
+									<copyright>${copyright.notice}</copyright>
+									<fileVersion>${fileVersion}</fileVersion>
+									<txtFileVersion>${project.version}</txtFileVersion>
 									<originalFilename>${project.build.finalName}.exe</originalFilename>
+									<fileDescription>${project.description}</fileDescription>
 								</versionInfo>
 							</configuration>
 						</execution>
@@ -70,9 +80,7 @@
 		<profile>
 			<id>launch4j</id>
 			<activation>
-				<file>
-					<exists>target/*.jar</exists>
-				</file>
+				<activeByDefault>true</activeByDefault>
 			</activation>
 			<build>
 				<plugins>
@@ -84,4 +92,8 @@
 			</build>
 		</profile>
 	</profiles>
+
+	<modules>
+		<module>java-exe-parent-test</module>
+	</modules>
 </project>
