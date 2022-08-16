@@ -28,6 +28,9 @@
 		<servlet.version>4.0.1</servlet.version>
 		<jersey.version>3.0.6</jersey.version>
 
+		<!-- plugin versions -->
+		<plugin.war.version>3.3.2</plugin.war.version>
+
 		<!-- JavaDoc URLs -->
 		<servlet.javadoc-url>https://javaee.github.io/javaee-spec/javadocs</servlet.javadoc-url>
 		<jersey.javadoc-url>https://eclipse-ee4j.github.io/jersey.github.io/apidocs/${jersey.version}/jersey</jersey.javadoc-url>
@@ -64,6 +67,10 @@
 		<pluginManagement>
 			<plugins>
 				<plugin>
+					<artifactId>maven-war-plugin</artifactId>
+					<version>${plugin.war.version}</version>
+				</plugin>
+				<plugin>
 					<artifactId>maven-javadoc-plugin</artifactId>
 					<configuration>
 						<links combine.children="append">
@@ -89,4 +96,8 @@
 			</plugin>
 		</plugins>
 	</reporting>
+
+	<modules>
+		<module>webapp-parent-test</module>
+	</modules>
 </project>
