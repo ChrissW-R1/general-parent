@@ -1,4 +1,4 @@
-package me.chrisswr1.test;
+package me.chrisswr1.test.webapp;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;

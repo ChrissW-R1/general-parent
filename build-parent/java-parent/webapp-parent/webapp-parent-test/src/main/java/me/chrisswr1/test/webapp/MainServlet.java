@@ -1,6 +1,7 @@
-package me.chrisswr1.test;
+package me.chrisswr1.test.webapp;
 
 import lombok.Getter;
+import me.chrisswr1.test.App;
 
 import javax.servlet.Servlet;
 import javax.servlet.annotation.WebServlet;
