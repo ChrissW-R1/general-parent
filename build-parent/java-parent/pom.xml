@@ -190,6 +190,7 @@
 						</execution>
 					</executions>
 					<configuration>
+						<injarNotExistsSkip>true</injarNotExistsSkip>
 						<obfuscate>${obfuscate}</obfuscate>
 						<options>
 							<!-- control options -->
@@ -378,6 +379,7 @@
 			<activation>
 				<file>
 					<exists>src/main/java</exists>
+					<missing>src/main/webapp</missing>
 				</file>
 				<property>
 					<name>fullBuild</name>

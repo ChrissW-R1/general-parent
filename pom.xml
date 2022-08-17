@@ -805,7 +805,7 @@
 						<artifactId>maven-help-plugin</artifactId>
 						<executions>
 							<execution>
-								<id>show-effective-pom</id>
+								<id>generate-effective-pom</id>
 								<phase>generate-sources</phase>
 								<goals>
 									<goal>effective-pom</goal>
