@@ -654,18 +654,6 @@
 					</dependencies>
 					<executions>
 						<execution>
-							<id>echo-properties</id>
-							<phase>generate-sources</phase>
-							<goals>
-								<goal>run</goal>
-							</goals>
-							<configuration>
-								<target>
-									<echoproperties />
-								</target>
-							</configuration>
-						</execution>
-						<execution>
 							<id>check-third-party-properties</id>
 							<phase>site</phase>
 							<goals>
@@ -793,7 +781,7 @@
 			</build>
 		</profile>
 		<profile>
-			<id>effective-pom</id>
+			<id>echo-properties</id>
 			<activation>
 				<property>
 					<name>fullBuild</name>
@@ -802,16 +790,18 @@
 			<build>
 				<plugins>
 					<plugin>
-						<artifactId>maven-help-plugin</artifactId>
+						<artifactId>maven-antrun-plugin</artifactId>
 						<executions>
 							<execution>
-								<id>generate-effective-pom</id>
+								<id>echo-properties</id>
 								<phase>generate-sources</phase>
 								<goals>
-									<goal>effective-pom</goal>
+									<goal>run</goal>
 								</goals>
 								<configuration>
-									<output>${project.build.directory}/${project.build.finalName}-effective.pom</output>
+									<target>
+										<echoproperties />
+									</target>
 								</configuration>
 							</execution>
 						</executions>
@@ -837,6 +827,33 @@
 								<goals>
 									<goal>active-profiles</goal>
 								</goals>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile>
+			<id>effective-pom</id>
+			<activation>
+				<property>
+					<name>fullBuild</name>
+				</property>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<artifactId>maven-help-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>generate-effective-pom</id>
+								<phase>generate-sources</phase>
+								<goals>
+									<goal>effective-pom</goal>
+								</goals>
+								<configuration>
+									<output>${project.build.directory}/${project.build.finalName}-effective.pom</output>
+								</configuration>
 							</execution>
 						</executions>
 					</plugin>
