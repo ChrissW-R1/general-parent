@@ -81,10 +81,9 @@
 		<profile>
 			<id>launch4j</id>
 			<activation>
-				<property>
-					<name>project.artifactId</name>
-					<value>!java-exe-parent</value>
-				</property>
+				<file>
+					<exists>src/main/java</exists>
+				</file>
 			</activation>
 			<build>
 				<plugins>
