@@ -79,12 +79,7 @@
 
 	<profiles>
 		<profile>
-			<id>launch4j</id>
-			<activation>
-				<file>
-					<exists>src/main/java</exists>
-				</file>
-			</activation>
+			<id>executable</id>
 			<build>
 				<plugins>
 					<plugin>
