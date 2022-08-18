@@ -81,6 +81,9 @@
 		<profile>
 			<id>launch4j</id>
 			<activation>
+				<property>
+					<name>executable</name>
+				</property>
 				<file>
 					<exists>src/main/java</exists>
 				</file>

@@ -420,6 +420,11 @@
 		</profile>
 		<profile>
 			<id>executable</id>
+			<activation>
+				<property>
+					<name>executable</name>
+				</property>
+			</activation>
 			<build>
 				<pluginManagement>
 					<plugins>
