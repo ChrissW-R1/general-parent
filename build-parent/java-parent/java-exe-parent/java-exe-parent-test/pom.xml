@@ -24,8 +24,8 @@
 		<project.module-root.relativedir>${project.parent.relativedir}../../../</project.module-root.relativedir>
 
 		<!-- project-specific properties -->
-		<java.package>test</java.package>
-		<mainClass.localPath>App</mainClass.localPath>
+		<java.package>test.exe</java.package>
+		<mainClass.localPath>WrappedApp</mainClass.localPath>
 		<headerType>console</headerType>
 	</properties>
 
