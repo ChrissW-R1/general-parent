@@ -302,9 +302,8 @@
 							<configuration>
 								<name>project.baseVersion</name>
 								<value>${project.version}</value>
-								<regex>[^\d\.].*</regex>
-								<replacement />
-								<failIfNoMatch>false</failIfNoMatch>
+								<regex>(\d+(\.\d+)*)(.*)</regex>
+								<replacement>$1</replacement>
 							</configuration>
 						</execution>
 						<execution>
