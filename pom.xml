@@ -546,6 +546,7 @@
 								| Modified BSD 3-Clause License
 							</licenseMerge>
 						</licenseMerges>
+						<failOnMissing>false</failOnMissing>
 					</configuration>
 					<executions>
 						<execution>
