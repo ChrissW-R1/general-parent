@@ -701,7 +701,7 @@
 					<configuration>
 						<scmCommentPrefix>[maven-release-plugin] [skip ci]</scmCommentPrefix>
 						<autoVersionSubmodules>true</autoVersionSubmodules>
-						<arguments>-DfullBuild</arguments>
+						<arguments>-Dexecutable -DfullBuild</arguments>
 					</configuration>
 				</plugin>
 			</plugins>
