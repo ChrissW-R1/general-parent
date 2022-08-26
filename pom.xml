@@ -7,7 +7,7 @@
 	<!-- project identifier -->
 	<groupId>me.chrisswr1</groupId>
 	<artifactId>general-parent</artifactId>
-	<version>1.0.0</version>
+	<version>1.0.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<!-- project metadata -->
@@ -67,7 +67,7 @@
 		<project.site.deploy.url>${project.site.deploy.baseUrl}/${project.site.urlPath}</project.site.deploy.url>
 		<java.version.prefixed>1.${java.version}</java.version.prefixed>
 		<netbeans.hint.jdkPlatform>JDK_${java.version.prefixed}</netbeans.hint.jdkPlatform>
-		<general-parent.version>1.0.0</general-parent.version>
+		<general-parent.version>1.0.0-SNAPSHOT</general-parent.version>
 		<properties.file>build.properties</properties.file>
 		<third-party-properties.filename>THIRD-PARTY.properties</third-party-properties.filename>
 		<third-party-properties.src.path>${project.module-root.basedir}/src/license</third-party-properties.src.path>
@@ -119,7 +119,7 @@
 		<url>https://gitlab.com/${project.organization.name}/${project.module-root.artifactId}</url>
 		<connection>scm:git:${project.scm.url}.git</connection>
 		<developerConnection>${project.scm.connection}</developerConnection>
-		<tag>general-parent-1.0.0</tag>
+		<tag>HEAD</tag>
 	</scm>
 
 	<issueManagement>
@@ -254,8 +254,8 @@
 								<file>pom.xml</file>
 								<replacements>
 									<replacement>
-										<token>&lt;general-parent.version&gt;(.*)&lt;/general-parent.version&gt;</token>
-										<value>&lt;general-parent.version&gt;${project.version}&lt;/general-parent.version&gt;</value>
+										<token>&lt;general-parent.version>(.*)&lt;/general-parent.version></token>
+										<value>&lt;general-parent.version>${project.version}&lt;/general-parent.version></value>
 									</replacement>
 								</replacements>
 							</configuration>
