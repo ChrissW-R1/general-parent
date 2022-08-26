@@ -5,7 +5,7 @@
 	<parent>
 		<artifactId>build-parent</artifactId>
 		<groupId>me.chrisswr1</groupId>
-		<version>1.0.1-SNAPSHOT</version>
+		<version>1.0.1</version>
 	</parent>
 
 	<!-- project identifier -->
