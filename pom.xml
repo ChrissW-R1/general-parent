@@ -550,12 +550,10 @@
 					</configuration>
 					<executions>
 						<execution>
-							<id>add-licenses</id>
+							<id>update-license</id>
 							<phase>generate-resources</phase>
 							<goals>
 								<goal>update-project-license</goal>
-								<goal>add-third-party</goal>
-								<goal>download-licenses</goal>
 							</goals>
 						</execution>
 					</executions>
@@ -877,6 +875,32 @@
 								<id>check-dependencies</id>
 								<goals>
 									<goal>check</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile>
+			<id>add-licenses</id>
+			<activation>
+				<property>
+					<name>fullBuild</name>
+				</property>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>license-maven-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>add-licenses</id>
+								<phase>generate-resources</phase>
+								<goals>
+									<goal>add-third-party</goal>
+									<goal>download-licenses</goal>
 								</goals>
 							</execution>
 						</executions>
