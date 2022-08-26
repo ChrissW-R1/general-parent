@@ -744,6 +744,7 @@
 			<plugin>
 				<groupId>org.owasp</groupId>
 				<artifactId>dependency-check-maven</artifactId>
+				<version>${plugin.dependency-check.version}</version>
 				<reportSets>
 					<reportSet>
 						<id>aggregate-dependency-check</id>
