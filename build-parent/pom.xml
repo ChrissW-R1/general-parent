@@ -59,7 +59,7 @@
 						<dependency>
 							<groupId>me.chrisswr1</groupId>
 							<artifactId>general-resources</artifactId>
-							<version>${general-parent.version}</version>
+							<version>1.0.1-SNAPSHOT</version>
 						</dependency>
 					</dependencies>
 					<executions>
