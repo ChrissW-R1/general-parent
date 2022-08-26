@@ -36,7 +36,7 @@
 		<jetbrains-annotations.version>23.0.0</jetbrains-annotations.version>
 		<lombok.version>1.18.24</lombok.version>
 		<lombok-pg.version>0.11.3</lombok-pg.version>
-		<slf4j.version>1.7.36</slf4j.version>
+		<slf4j.version>2.0.0</slf4j.version>
 		<proguard.annotations.version>7.2.2</proguard.annotations.version>
 		<junit.minor-version>9.0</junit.minor-version>
 		<junit.jupiter.version>5.${junit.minor-version}</junit.jupiter.version>
