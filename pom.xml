@@ -759,6 +759,14 @@
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>license-maven-plugin</artifactId>
 				<version>${plugin.license.version}</version>
+				<reportSets>
+					<reportSet>
+						<id>third-party-report</id>
+						<reports>
+							<report>third-party-report</report>
+						</reports>
+					</reportSet>
+				</reportSets>
 			</plugin>
 		</plugins>
 	</reporting>
