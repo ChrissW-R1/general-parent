@@ -7,7 +7,7 @@
 	<!-- project identifier -->
 	<groupId>me.chrisswr1</groupId>
 	<artifactId>general-parent</artifactId>
-	<version>1.0.0-SNAPSHOT</version>
+	<version>1.1.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<!-- project metadata -->
@@ -67,7 +67,7 @@
 		<project.site.deploy.url>${project.site.deploy.baseUrl}/${project.site.urlPath}</project.site.deploy.url>
 		<java.version.prefixed>1.${java.version}</java.version.prefixed>
 		<netbeans.hint.jdkPlatform>JDK_${java.version.prefixed}</netbeans.hint.jdkPlatform>
-		<general-parent.version>1.0.0-SNAPSHOT</general-parent.version>
+		<general-parent.version>1.0.0</general-parent.version>
 		<properties.file>build.properties</properties.file>
 		<third-party-properties.filename>THIRD-PARTY.properties</third-party-properties.filename>
 		<third-party-properties.src.path>${project.module-root.basedir}/src/license</third-party-properties.src.path>
@@ -95,8 +95,9 @@
 
 		<!-- plugin versions -->
 		<plugin.dependency.version>3.3.0</plugin.dependency.version>
+		<plugin.versions.version>2.11.0</plugin.versions.version>
 		<plugin.clean.version>3.2.0</plugin.clean.version>
-		<plugin.help.version>3.2.0</plugin.help.version>
+		<plugin.help.version>3.3.0</plugin.help.version>
 		<plugin.replacer.version>1.5.3</plugin.replacer.version>
 		<plugin.properties.version>1.1.0</plugin.properties.version>
 		<plugin.buildhelper.version>3.3.0</plugin.buildhelper.version>
@@ -104,7 +105,7 @@
 		<plugin.resources.version>3.3.0</plugin.resources.version>
 		<plugin.antrun.version>3.1.0</plugin.antrun.version>
 		<plugin.compiler.version>3.10.1</plugin.compiler.version>
-		<plugin.dependency-check.version>7.1.1</plugin.dependency-check.version>
+		<plugin.dependency-check.version>7.1.2</plugin.dependency-check.version>
 		<plugin.jar.version>3.2.2</plugin.jar.version>
 		<plugin.source.version>3.2.1</plugin.source.version>
 		<plugin.gpg.version>3.0.1</plugin.gpg.version>
@@ -202,6 +203,20 @@
 					<version>${plugin.dependency.version}</version>
 				</plugin>
 				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>versions-maven-plugin</artifactId>
+					<version>${plugin.versions.version}</version>
+					<executions>
+						<execution>
+							<id>display-updates</id>
+							<goals>
+								<goal>display-property-updates</goal>
+							</goals>
+							<phase>validate</phase>
+						</execution>
+					</executions>
+				</plugin>
+				<plugin>
 					<artifactId>maven-clean-plugin</artifactId>
 					<version>${plugin.clean.version}</version>
 					<configuration>
@@ -238,8 +253,8 @@
 								<file>pom.xml</file>
 								<replacements>
 									<replacement>
-										<token>&lt;general-parent.version>(.*)&lt;/general-parent.version></token>
-										<value>&lt;general-parent.version>${project.version}&lt;/general-parent.version></value>
+										<token>&lt;general-parent.version&gt;(.*)&lt;/general-parent.version&gt;</token>
+										<value>&lt;general-parent.version&gt;${project.version}&lt;/general-parent.version&gt;</value>
 									</replacement>
 								</replacements>
 							</configuration>
@@ -271,6 +286,26 @@
 					<version>${plugin.buildhelper.version}</version>
 					<executions>
 						<execution>
+							<id>parse-version</id>
+							<goals>
+								<goal>parse-version</goal>
+							</goals>
+							<phase>initialize</phase>
+						</execution>
+						<execution>
+							<id>base-version-property</id>
+							<goals>
+								<goal>regex-property</goal>
+							</goals>
+							<phase>initialize</phase>
+							<configuration>
+								<name>project.baseVersion</name>
+								<value>${project.version}</value>
+								<regex>(\d+(\.\d+)*)(.*)</regex>
+								<replacement>$1</replacement>
+							</configuration>
+						</execution>
+						<execution>
 							<id>java-qualified-version-property</id>
 							<goals>
 								<goal>regex-property</goal>
@@ -289,7 +324,7 @@
 							<goals>
 								<goal>timestamp-property</goal>
 							</goals>
-							<phase>validate</phase>
+							<phase>initialize</phase>
 							<configuration>
 								<name>project.versionYear</name>
 								<pattern>yyyy</pattern>
@@ -510,15 +545,14 @@
 								| Modified BSD 3-Clause License
 							</licenseMerge>
 						</licenseMerges>
+						<failOnMissing>false</failOnMissing>
 					</configuration>
 					<executions>
 						<execution>
-							<id>add-licenses</id>
+							<id>update-license</id>
 							<phase>generate-resources</phase>
 							<goals>
 								<goal>update-project-license</goal>
-								<goal>aggregate-add-third-party</goal>
-								<goal>download-licenses</goal>
 							</goals>
 						</execution>
 					</executions>
@@ -618,18 +652,6 @@
 					</dependencies>
 					<executions>
 						<execution>
-							<id>echo-properties</id>
-							<phase>generate-sources</phase>
-							<goals>
-								<goal>run</goal>
-							</goals>
-							<configuration>
-								<target>
-									<echoproperties />
-								</target>
-							</configuration>
-						</execution>
-						<execution>
 							<id>check-third-party-properties</id>
 							<phase>site</phase>
 							<goals>
@@ -675,15 +697,19 @@
 					<artifactId>maven-release-plugin</artifactId>
 					<version>${plugin.release.version}</version>
 					<configuration>
-						<scmCommentPrefix>[maven-release-plugin] [skip ci]</scmCommentPrefix>
 						<autoVersionSubmodules>true</autoVersionSubmodules>
-						<arguments>-DfullBuild</arguments>
-						<releaseProfiles>clean-dependencies</releaseProfiles>
+						<tagNameFormat>@{project.version}</tagNameFormat>
+						<scmCommentPrefix>[maven-release-plugin] [skip ci]</scmCommentPrefix>
+						<arguments>-Dexecutable -DfullBuild</arguments>
 					</configuration>
 				</plugin>
 			</plugins>
 		</pluginManagement>
 		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>versions-maven-plugin</artifactId>
+			</plugin>
 			<plugin>
 				<groupId>com.google.code.maven-replacer-plugin</groupId>
 				<artifactId>replacer</artifactId>
@@ -718,6 +744,7 @@
 			<plugin>
 				<groupId>org.owasp</groupId>
 				<artifactId>dependency-check-maven</artifactId>
+				<version>${plugin.dependency-check.version}</version>
 				<reportSets>
 					<reportSet>
 						<id>aggregate-dependency-check</id>
@@ -731,6 +758,14 @@
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>license-maven-plugin</artifactId>
 				<version>${plugin.license.version}</version>
+				<reportSets>
+					<reportSet>
+						<id>third-party-report</id>
+						<reports>
+							<report>third-party-report</report>
+						</reports>
+					</reportSet>
+				</reportSets>
 			</plugin>
 		</plugins>
 	</reporting>
@@ -753,6 +788,59 @@
 			</build>
 		</profile>
 		<profile>
+			<id>echo-properties</id>
+			<activation>
+				<property>
+					<name>fullBuild</name>
+				</property>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<artifactId>maven-antrun-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>echo-properties</id>
+								<phase>generate-sources</phase>
+								<goals>
+									<goal>run</goal>
+								</goals>
+								<configuration>
+									<target>
+										<echoproperties />
+									</target>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile>
+			<id>show-active-profiles</id>
+			<activation>
+				<property>
+					<name>fullBuild</name>
+				</property>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<artifactId>maven-help-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>show-active-profiles</id>
+								<phase>validate</phase>
+								<goals>
+									<goal>active-profiles</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile>
 			<id>effective-pom</id>
 			<activation>
 				<property>
@@ -765,7 +853,7 @@
 						<artifactId>maven-help-plugin</artifactId>
 						<executions>
 							<execution>
-								<id>show-effective-pom</id>
+								<id>generate-effective-pom</id>
 								<phase>generate-sources</phase>
 								<goals>
 									<goal>effective-pom</goal>
@@ -796,6 +884,32 @@
 								<id>check-dependencies</id>
 								<goals>
 									<goal>check</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile>
+			<id>add-licenses</id>
+			<activation>
+				<property>
+					<name>fullBuild</name>
+				</property>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>license-maven-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>add-licenses</id>
+								<phase>generate-resources</phase>
+								<goals>
+									<goal>add-third-party</goal>
+									<goal>download-licenses</goal>
 								</goals>
 							</execution>
 						</executions>

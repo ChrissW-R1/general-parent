@@ -7,7 +7,7 @@
 	<parent>
 		<groupId>me.chrisswr1</groupId>
 		<artifactId>build-parent</artifactId>
-		<version>1.0.0-SNAPSHOT</version>
+		<version>1.1.0-SNAPSHOT</version>
 	</parent>
 
 	<!-- project identifier -->
@@ -36,7 +36,7 @@
 		<jetbrains-annotations.version>23.0.0</jetbrains-annotations.version>
 		<lombok.version>1.18.24</lombok.version>
 		<lombok-pg.version>0.11.3</lombok-pg.version>
-		<slf4j.version>1.7.36</slf4j.version>
+		<slf4j.version>2.0.0</slf4j.version>
 		<proguard.annotations.version>7.2.2</proguard.annotations.version>
 		<junit.minor-version>9.0</junit.minor-version>
 		<junit.jupiter.version>5.${junit.minor-version}</junit.jupiter.version>
@@ -190,6 +190,7 @@
 						</execution>
 					</executions>
 					<configuration>
+						<injarNotExistsSkip>true</injarNotExistsSkip>
 						<obfuscate>${obfuscate}</obfuscate>
 						<options>
 							<!-- control options -->
@@ -378,6 +379,7 @@
 			<activation>
 				<file>
 					<exists>src/main/java</exists>
+					<missing>src/main/webapp</missing>
 				</file>
 				<property>
 					<name>fullBuild</name>
@@ -418,6 +420,11 @@
 		</profile>
 		<profile>
 			<id>executable</id>
+			<activation>
+				<property>
+					<name>executable</name>
+				</property>
+			</activation>
 			<build>
 				<pluginManagement>
 					<plugins>
