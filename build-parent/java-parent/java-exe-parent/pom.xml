@@ -54,6 +54,7 @@
 									<mainClass>${mainClass.fullPath}</mainClass>
 								</classPath>
 								<jre>
+									<path>${java.home}</path>
 									<minVersion>${java.version.prefixed}</minVersion>
 								</jre>
 								<headerType>${headerType}</headerType>
