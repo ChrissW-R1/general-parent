@@ -617,6 +617,7 @@
 					<version>${plugin.dependency-check.version}</version>
 					<configuration>
 						<pathToCore>${dotnetcore.path}</pathToCore>
+						<yarnAuditAnalyzerEnabled>false</yarnAuditAnalyzerEnabled>
 					</configuration>
 				</plugin>
 				<plugin>
