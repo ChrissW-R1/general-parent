@@ -26,6 +26,7 @@
 		<java.rootPackage>${project.groupId}.${java.package}</java.rootPackage>
 		<mainClass.localPath />
 		<mainClass.fullPath>${java.rootPackage}.${mainClass.localPath}</mainClass.fullPath>
+		<java.filteredSource.dir>${project.build.directory}/filtered-sources/java</java.filteredSource.dir>
 
 		<!-- project-specific properties -->
 		<java.package>${project.artifactId}</java.package>
@@ -123,7 +124,13 @@
 	</dependencies>
 
 	<build>
+		<sourceDirectory>${java.filteredSource.dir}</sourceDirectory>
 		<resources>
+			<resource>
+				<directory>src/main/java</directory>
+				<filtering>true</filtering>
+				<targetPath>${java.filteredSource.dir}</targetPath>
+			</resource>
 			<resource>
 				<directory>src/main/resources</directory>
 				<filtering>true</filtering>
