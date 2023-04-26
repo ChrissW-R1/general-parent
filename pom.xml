@@ -54,6 +54,7 @@
 
 	<properties>
 		<!-- technically-based properties -->
+		<project.build.artifactFileName>${project.build.finalName}.${project.packaging}</project.build.artifactFileName>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.scm.id>project-repo</project.scm.id>
 		<project.parent.relativedir />
@@ -67,6 +68,7 @@
 		<project.site.deploy.url>${project.site.deploy.baseUrl}/${project.site.urlPath}</project.site.deploy.url>
 		<java.version.prefixed>1.${java.version}</java.version.prefixed>
 		<netbeans.hint.jdkPlatform>JDK_${java.version.prefixed}</netbeans.hint.jdkPlatform>
+		<copy-artifact.dir />
 		<general-parent.version>1.2.0-SNAPSHOT</general-parent.version>
 		<properties.file>build.properties</properties.file>
 		<third-party-properties.filename>THIRD-PARTY.properties</third-party-properties.filename>
@@ -1037,6 +1039,33 @@
 						<configuration>
 							<cleanLicensesOutputDirectory>true</cleanLicensesOutputDirectory>
 						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile>
+			<id>copy-artifact</id>
+			<build>
+				<plugins>
+					<plugin>
+						<artifactId>maven-antrun-plugin</artifactId>
+						<executions>
+							<execution>
+								<phase>install</phase>
+								<goals>
+									<goal>run</goal>
+								</goals>
+								<configuration>
+									<target>
+										<mkdir dir="${copy-artifact.dir}" />
+										<copy todir="${copy-artifact.dir}">
+											<fileset dir="${project.build.directory}"
+													 includes="${project.build.artifactFileName}" />
+										</copy>
+									</target>
+								</configuration>
+							</execution>
+						</executions>
 					</plugin>
 				</plugins>
 			</build>
