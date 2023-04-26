@@ -1051,6 +1051,7 @@
 						<artifactId>maven-antrun-plugin</artifactId>
 						<executions>
 							<execution>
+								<id>copy-artifact</id>
 								<phase>install</phase>
 								<goals>
 									<goal>run</goal>
