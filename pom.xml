@@ -7,7 +7,7 @@
 	<!-- project identifier -->
 	<groupId>me.chrisswr1</groupId>
 	<artifactId>general-parent</artifactId>
-	<version>1.1.0-SNAPSHOT</version>
+	<version>1.2.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<!-- project metadata -->
@@ -54,6 +54,7 @@
 
 	<properties>
 		<!-- technically-based properties -->
+		<project.build.artifactFileName>${project.build.finalName}.${project.packaging}</project.build.artifactFileName>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.scm.id>project-repo</project.scm.id>
 		<project.parent.relativedir />
@@ -67,7 +68,8 @@
 		<project.site.deploy.url>${project.site.deploy.baseUrl}/${project.site.urlPath}</project.site.deploy.url>
 		<java.version.prefixed>1.${java.version}</java.version.prefixed>
 		<netbeans.hint.jdkPlatform>JDK_${java.version.prefixed}</netbeans.hint.jdkPlatform>
-		<general-parent.version>1.1.0-SNAPSHOT</general-parent.version>
+		<copy-artifact.dir />
+		<general-parent.version>1.2.0-SNAPSHOT</general-parent.version>
 		<properties.file>build.properties</properties.file>
 		<third-party-properties.filename>THIRD-PARTY.properties</third-party-properties.filename>
 		<third-party-properties.src.path>${project.module-root.basedir}/src/license</third-party-properties.src.path>
@@ -91,27 +93,27 @@
 
 		<!-- dependency versions -->
 		<ant-contrib.version>1.0b3</ant-contrib.version>
-		<wagon.version>3.5.2</wagon.version>
+		<wagon.version>3.5.3</wagon.version>
 
 		<!-- plugin versions -->
-		<plugin.dependency.version>3.3.0</plugin.dependency.version>
-		<plugin.versions.version>2.11.0</plugin.versions.version>
+		<plugin.dependency.version>3.5.0</plugin.dependency.version>
+		<plugin.versions.version>2.15.0</plugin.versions.version>
 		<plugin.clean.version>3.2.0</plugin.clean.version>
-		<plugin.help.version>3.3.0</plugin.help.version>
+		<plugin.help.version>3.4.0</plugin.help.version>
 		<plugin.replacer.version>1.5.3</plugin.replacer.version>
 		<plugin.properties.version>1.1.0</plugin.properties.version>
 		<plugin.buildhelper.version>3.3.0</plugin.buildhelper.version>
 		<plugin.license.version>2.0.0</plugin.license.version>
-		<plugin.resources.version>3.3.0</plugin.resources.version>
+		<plugin.resources.version>3.3.1</plugin.resources.version>
 		<plugin.antrun.version>3.1.0</plugin.antrun.version>
-		<plugin.compiler.version>3.10.1</plugin.compiler.version>
-		<plugin.dependency-check.version>7.1.2</plugin.dependency-check.version>
-		<plugin.jar.version>3.2.2</plugin.jar.version>
+		<plugin.compiler.version>3.11.0</plugin.compiler.version>
+		<plugin.dependency-check.version>8.2.1</plugin.dependency-check.version>
+		<plugin.jar.version>3.3.0</plugin.jar.version>
 		<plugin.source.version>3.2.1</plugin.source.version>
 		<plugin.gpg.version>3.0.1</plugin.gpg.version>
 		<plugin.site.version>3.12.1</plugin.site.version>
-		<plugin.project-info-reports.version>3.4.1</plugin.project-info-reports.version>
-		<plugin.release.version>3.0.0-M6</plugin.release.version>
+		<plugin.project-info-reports.version>3.4.3</plugin.project-info-reports.version>
+		<plugin.release.version>3.0.0</plugin.release.version>
 	</properties>
 
 	<scm>
@@ -372,6 +374,7 @@
 								Apache License (ASL), Version 1.1 (Apache-1.1)
 								| Apache-1.1
 								| The Apache Software License, Version 1.1
+								| http://ant-contrib.sourceforge.net/tasks/LICENSE.txt
 							</licenseMerge>
 							<licenseMerge>
 								Apache License (ASL), Version 2.0 (Apache-2.0)
@@ -475,6 +478,7 @@
 								| GPL-2.0-with-classpath-exception
 								| GPL2 w/ CPE
 								| The GNU General Public License (GPL), Version 2, With Classpath Exception
+								| GNU General Public License, version 2, with the Classpath Exception
 							</licenseMerge>
 							<licenseMerge>
 								Java Distribution License (JDL), Version 1.1.x (JDL-1.1.x)
@@ -616,6 +620,7 @@
 					<version>${plugin.dependency-check.version}</version>
 					<configuration>
 						<pathToCore>${dotnetcore.path}</pathToCore>
+						<yarnAuditAnalyzerEnabled>false</yarnAuditAnalyzerEnabled>
 					</configuration>
 				</plugin>
 				<plugin>
@@ -1033,6 +1038,34 @@
 						<configuration>
 							<cleanLicensesOutputDirectory>true</cleanLicensesOutputDirectory>
 						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile>
+			<id>copy-artifact</id>
+			<build>
+				<plugins>
+					<plugin>
+						<artifactId>maven-antrun-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>copy-artifact</id>
+								<phase>install</phase>
+								<goals>
+									<goal>run</goal>
+								</goals>
+								<configuration>
+									<target>
+										<mkdir dir="${copy-artifact.dir}" />
+										<copy todir="${copy-artifact.dir}">
+											<fileset dir="${project.build.directory}"
+													 includes="${project.build.artifactFileName}" />
+										</copy>
+									</target>
+								</configuration>
+							</execution>
+						</executions>
 					</plugin>
 				</plugins>
 			</build>
