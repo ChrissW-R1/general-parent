@@ -484,6 +484,10 @@
 
 	<modules>
 		<module>java-parent-test</module>
+		<module>java-8-test</module>
+		<module>java-11-test</module>
+		<module>java-17-test</module>
+		<module>java-latest-test</module>
 		<module>webapp-parent</module>
 		<module>java-exe-parent</module>
 	</modules>
