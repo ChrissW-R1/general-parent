@@ -24,8 +24,8 @@
 		<project.module-root.relativedir>${project.parent.relativedir}../../</project.module-root.relativedir>
 
 		<!-- project-specific properties -->
-		<java.package>test</java.package>
-		<mainClass.localPath>App</mainClass.localPath>
+		<java.package>test.java17</java.package>
+		<mainClass.localPath>Java17App</mainClass.localPath>
 		<java.version>17</java.version>
 	</properties>
 </project>
