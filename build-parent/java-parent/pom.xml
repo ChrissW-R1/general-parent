@@ -35,7 +35,7 @@
 		<!-- dependency versions -->
 		<graalvm.version>23.0.1</graalvm.version>
 		<jetbrains-annotations.version>24.0.1</jetbrains-annotations.version>
-		<jcip-annotations.version>1.0</jcip-annotations.version>
+		<jcip-annotations.version>1.0-1</jcip-annotations.version>
 		<spotbugs.version>4.7.3</spotbugs.version>
 		<lombok.version>1.18.28</lombok.version>
 		<lombok-pg.version>0.11.3</lombok-pg.version>
@@ -78,7 +78,7 @@
 
 		<!-- default dependencies -->
 		<dependency>
-			<groupId>net.jcip</groupId>
+			<groupId>com.github.stephenc.jcip</groupId>
 			<artifactId>jcip-annotations</artifactId>
 			<version>${jcip-annotations.version}</version>
 		</dependency>
