@@ -1,19 +1,19 @@
 package me.chrisswr1.test.webapp;
 
+import jakarta.servlet.Servlet;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import lombok.Getter;
 import me.chrisswr1.test.App;
 
-import javax.servlet.Servlet;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
  * {@link Servlet}, which handles all {@link HttpServletRequest}s
  * on the root path
  *
- * @version 1.0.0
+ * @version 1.4.0
  * @since 1.0.0
  */
 @WebServlet(

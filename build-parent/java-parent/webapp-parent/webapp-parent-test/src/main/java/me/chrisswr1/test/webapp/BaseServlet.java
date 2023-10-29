@@ -1,18 +1,19 @@
 package me.chrisswr1.test.webapp;
 
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+
 import java.io.IOException;
 
 /**
  * {@link HttpServlet}, which merges the request methods GET and POST
  *
- * @version 1.0.0
+ * @version 1.4.0
  * @since 1.0.0
  */
 public abstract class BaseServlet
-extends HttpServlet {
+	extends HttpServlet {
 	/**
 	 * Handles a request. Independent to the method (GET or POST).
 	 *
@@ -20,10 +21,8 @@ extends HttpServlet {
 	 * @param response the {@link HttpServletResponse},
 	 *                 which will be sent to the client
 	 * @throws IOException if any in- or output {@link Exception} occurred
-	 *
 	 * @see BaseServlet#doGet(HttpServletRequest, HttpServletResponse)
 	 * @see BaseServlet#doPost(HttpServletRequest, HttpServletResponse)
-	 *
 	 * @since 1.0.0
 	 */
 	protected abstract void doRequest(
