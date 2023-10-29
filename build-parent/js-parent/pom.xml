@@ -32,7 +32,7 @@
 		<rxjs.version>7.8.1</rxjs.version>
 		<zonejs.version>0.14.1</zonejs.version>
 		<angular.base.version>16.2</angular.base.version>
-		<angular.version>${angular.base.version}.11</angular.version>
+		<angular.version>${angular.base.version}.12</angular.version>
 		<angular.cli.version>${angular.base.version}.8</angular.cli.version>
 		<npm-typescript.version>5.2.2</npm-typescript.version>
 		<ts-node.version>10.9.1</ts-node.version>
