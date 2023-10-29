@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<!-- project identifier -->
 	<groupId>me.chrisswr1</groupId>
 	<artifactId>general-parent</artifactId>
-	<version>1.2.1-SNAPSHOT</version>
+	<version>2.0.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<!-- project metadata -->
@@ -67,7 +69,7 @@
 		<java.version.prefixed>1.${java.version}</java.version.prefixed>
 		<netbeans.hint.jdkPlatform>JDK_${java.version.prefixed}</netbeans.hint.jdkPlatform>
 		<copy-artifact.dir />
-		<general-parent.version>1.2.0</general-parent.version>
+		<general-parent.version>2.0.0-SNAPSHOT</general-parent.version>
 		<properties.file>build.properties</properties.file>
 		<third-party-properties.filename>THIRD-PARTY.properties</third-party-properties.filename>
 		<third-party-properties.src.path>${project.module-root.basedir}/src/license</third-party-properties.src.path>
@@ -79,7 +81,7 @@
 		<project.site.baseDomain>urelion.world</project.site.baseDomain>
 		<project.site.basePath>docs.${project.site.baseDomain}</project.site.basePath>
 		<project.gitlab.id>25831549</project.gitlab.id>
-		<java.version>8</java.version>
+		<java.version>11</java.version>
 
 		<!-- license definition -->
 		<license.name>Apache</license.name>
@@ -94,24 +96,24 @@
 		<wagon.version>3.5.3</wagon.version>
 
 		<!-- plugin versions -->
-		<plugin.dependency.version>3.5.0</plugin.dependency.version>
-		<plugin.versions.version>2.15.0</plugin.versions.version>
-		<plugin.clean.version>3.2.0</plugin.clean.version>
+		<plugin.dependency.version>3.6.1</plugin.dependency.version>
+		<plugin.versions.version>2.16.1</plugin.versions.version>
+		<plugin.clean.version>3.3.2</plugin.clean.version>
 		<plugin.help.version>3.4.0</plugin.help.version>
 		<plugin.replacer.version>1.5.3</plugin.replacer.version>
-		<plugin.properties.version>1.1.0</plugin.properties.version>
-		<plugin.buildhelper.version>3.3.0</plugin.buildhelper.version>
-		<plugin.license.version>2.0.0</plugin.license.version>
+		<plugin.properties.version>1.2.1</plugin.properties.version>
+		<plugin.buildhelper.version>3.4.0</plugin.buildhelper.version>
+		<plugin.license.version>2.3.0</plugin.license.version>
 		<plugin.resources.version>3.3.1</plugin.resources.version>
 		<plugin.antrun.version>3.1.0</plugin.antrun.version>
 		<plugin.compiler.version>3.11.0</plugin.compiler.version>
-		<plugin.dependency-check.version>8.2.1</plugin.dependency-check.version>
+		<plugin.dependency-check.version>8.4.2</plugin.dependency-check.version>
 		<plugin.jar.version>3.3.0</plugin.jar.version>
-		<plugin.source.version>3.2.1</plugin.source.version>
-		<plugin.gpg.version>3.0.1</plugin.gpg.version>
+		<plugin.source.version>3.3.0</plugin.source.version>
+		<plugin.gpg.version>3.1.0</plugin.gpg.version>
 		<plugin.site.version>3.12.1</plugin.site.version>
-		<plugin.project-info-reports.version>3.4.3</plugin.project-info-reports.version>
-		<plugin.release.version>3.0.0</plugin.release.version>
+		<plugin.project-info-reports.version>3.4.5</plugin.project-info-reports.version>
+		<plugin.release.version>3.0.1</plugin.release.version>
 	</properties>
 
 	<scm>
@@ -668,16 +670,21 @@
 							</goals>
 							<configuration>
 								<target>
-									<taskdef resource="net/sf/antcontrib/antcontrib.properties" classpathref="maven.runtime.classpath" />
+									<taskdef resource="net/sf/antcontrib/antcontrib.properties"
+											 classpathref="maven.runtime.classpath" />
 									<if>
 										<available file="${third-party-properties.target.fullPath}" />
 										<then>
-											<echo message="third-party.properties exists." level="info" />
-											<property name="third-party-properties.target.missing" value="false" />
+											<echo message="third-party.properties exists."
+												  level="info" />
+											<property name="third-party-properties.target.missing"
+													  value="false" />
 										</then>
 										<else>
-											<echo message="third-party.properties missing." level="info" />
-											<property name="third-party-properties.target.missing" value="true" />
+											<echo message="third-party.properties missing."
+												  level="info" />
+											<property name="third-party-properties.target.missing"
+													  value="true" />
 										</else>
 									</if>
 								</target>
@@ -936,7 +943,7 @@
 							<execution>
 								<id>attach-sources</id>
 								<goals>
-									<goal>jar</goal>
+									<goal>jar-no-fork</goal>
 								</goals>
 							</execution>
 						</executions>
@@ -1052,7 +1059,8 @@
 									<target>
 										<mkdir dir="${copy-artifact.dir}" />
 										<copy todir="${copy-artifact.dir}">
-											<fileset dir="${project.build.directory}" includes="${project.build.artifactFileName}" />
+											<fileset dir="${project.build.directory}"
+													 includes="${project.build.artifactFileName}" />
 										</copy>
 									</target>
 								</configuration>
