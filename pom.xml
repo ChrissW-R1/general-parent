@@ -619,6 +619,7 @@
 					<artifactId>dependency-check-maven</artifactId>
 					<version>${plugin.dependency-check.version}</version>
 					<configuration>
+						<nvdApiServerId>nvd.apikey</nvdApiServerId>
 						<pathToCore>${dotnetcore.path}</pathToCore>
 						<yarnAuditAnalyzerEnabled>false</yarnAuditAnalyzerEnabled>
 					</configuration>
