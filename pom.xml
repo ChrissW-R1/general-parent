@@ -5,7 +5,7 @@
 	<!-- project identifier -->
 	<groupId>me.chrisswr1</groupId>
 	<artifactId>general-parent</artifactId>
-	<version>2.1.0</version>
+	<version>2.1.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<!-- project metadata -->
@@ -118,7 +118,7 @@
 		<url>https://gitlab.com/${project.organization.name}/${project.module-root.artifactId}</url>
 		<connection>scm:git:${project.scm.url}.git</connection>
 		<developerConnection>${project.scm.connection}</developerConnection>
-		<tag>2.1.0</tag>
+		<tag>HEAD</tag>
 	</scm>
 
 	<issueManagement>
