@@ -34,13 +34,13 @@
 
 		<!-- dependency versions -->
 		<graalvm.version>23.1.1</graalvm.version>
-		<jetbrains-annotations.version>24.0.1</jetbrains-annotations.version>
+		<jetbrains-annotations.version>24.1.0</jetbrains-annotations.version>
 		<jcip-annotations.version>1.0-1</jcip-annotations.version>
 		<spotbugs.version>4.8.1</spotbugs.version>
 		<lombok.version>1.18.30</lombok.version>
 		<lombok-pg.version>0.11.3</lombok-pg.version>
 		<slf4j.version>2.0.9</slf4j.version>
-		<proguard.annotations.version>7.4.0</proguard.annotations.version>
+		<proguard.annotations.version>7.4.1</proguard.annotations.version>
 		<junit.minor-version>10.1</junit.minor-version>
 		<junit.jupiter.version>5.${junit.minor-version}</junit.jupiter.version>
 		<junit.platform.version>1.${junit.minor-version}</junit.platform.version>
