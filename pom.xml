@@ -7,7 +7,7 @@
 	<!-- project identifier -->
 	<groupId>me.chrisswr1</groupId>
 	<artifactId>general-parent</artifactId>
-	<version>2.0.0-SNAPSHOT</version>
+	<version>2.1.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<!-- project metadata -->
@@ -97,22 +97,22 @@
 
 		<!-- plugin versions -->
 		<plugin.dependency.version>3.6.1</plugin.dependency.version>
-		<plugin.versions.version>2.16.1</plugin.versions.version>
+		<plugin.versions.version>2.16.2</plugin.versions.version>
 		<plugin.clean.version>3.3.2</plugin.clean.version>
 		<plugin.help.version>3.4.0</plugin.help.version>
 		<plugin.replacer.version>1.5.3</plugin.replacer.version>
 		<plugin.properties.version>1.2.1</plugin.properties.version>
-		<plugin.buildhelper.version>3.4.0</plugin.buildhelper.version>
+		<plugin.buildhelper.version>3.5.0</plugin.buildhelper.version>
 		<plugin.license.version>2.3.0</plugin.license.version>
 		<plugin.resources.version>3.3.1</plugin.resources.version>
 		<plugin.antrun.version>3.1.0</plugin.antrun.version>
 		<plugin.compiler.version>3.11.0</plugin.compiler.version>
-		<plugin.dependency-check.version>8.4.2</plugin.dependency-check.version>
+		<plugin.dependency-check.version>9.0.1</plugin.dependency-check.version>
 		<plugin.jar.version>3.3.0</plugin.jar.version>
 		<plugin.source.version>3.3.0</plugin.source.version>
 		<plugin.gpg.version>3.1.0</plugin.gpg.version>
 		<plugin.site.version>3.12.1</plugin.site.version>
-		<plugin.project-info-reports.version>3.4.5</plugin.project-info-reports.version>
+		<plugin.project-info-reports.version>3.5.0</plugin.project-info-reports.version>
 		<plugin.release.version>3.0.1</plugin.release.version>
 	</properties>
 

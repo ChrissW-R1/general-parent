@@ -7,7 +7,7 @@
 	<parent>
 		<groupId>me.chrisswr1</groupId>
 		<artifactId>build-parent</artifactId>
-		<version>2.0.0-SNAPSHOT</version>
+		<version>2.1.0-SNAPSHOT</version>
 	</parent>
 
 	<!-- project identifier -->
@@ -25,28 +25,28 @@
 		<project.module-root.relativedir>${project.parent.relativedir}../</project.module-root.relativedir>
 
 		<!-- dependency versions -->
-		<nodejs.version>21.1.0</nodejs.version>
-		<yarn.version>1.22.19</yarn.version>
-		<yarn-berry.version>4.0.1</yarn-berry.version>
-		<core-js.version>3.33.1</core-js.version>
+		<nodejs.version>21.2.0</nodejs.version>
+		<yarn.version>1.22.21</yarn.version>
+		<yarn-berry.version>4.0.2</yarn-berry.version>
+		<core-js.version>3.33.3</core-js.version>
 		<rxjs.version>7.8.1</rxjs.version>
-		<zonejs.version>0.14.1</zonejs.version>
-		<angular.base.version>16.2</angular.base.version>
-		<angular.version>${angular.base.version}.12</angular.version>
-		<angular.cli.version>${angular.base.version}.8</angular.cli.version>
-		<npm-typescript.version>5.2.2</npm-typescript.version>
+		<zonejs.version>0.14.2</zonejs.version>
+		<angular.base.version>17.0</angular.base.version>
+		<angular.version>${angular.base.version}.4</angular.version>
+		<angular.cli.version>${angular.base.version}.3</angular.cli.version>
+		<npm-typescript.version>5.3.2</npm-typescript.version>
 		<ts-node.version>10.9.1</ts-node.version>
 		<grunt.version>1.6.1</grunt.version>
 		<grunt-cli.version>1.4.3</grunt-cli.version>
 		<grunt-eslint.version>24.3.0</grunt-eslint.version>
 		<grunt-ts.version>5.5.1</grunt-ts.version>
 		<uglify.version>5.2.2</uglify.version>
-		<eslint.version>8.52.0</eslint.version>
-		<angular.eslint.version>16.2.0</angular.eslint.version>
-		<typescript.eslint.version>6.9.0</typescript.eslint.version>
+		<eslint.version>8.54.0</eslint.version>
+		<angular.eslint.version>17.1.0</angular.eslint.version>
+		<typescript.eslint.version>6.12.0</typescript.eslint.version>
 		<eslint.config-prettier.version>9.0.0</eslint.config-prettier.version>
 		<eslint.import.version>2.29.0</eslint.import.version>
-		<eslint.jsdoc.version>46.8.2</eslint.jsdoc.version>
+		<eslint.jsdoc.version>46.9.0</eslint.jsdoc.version>
 		<eslint.prefer-arrow.version>1.2.3</eslint.prefer-arrow.version>
 		<codelyzer.version>6.0.2</codelyzer.version>
 		<eslint.codelyzer.version>0.0.1-alpha.12</eslint.codelyzer.version>
