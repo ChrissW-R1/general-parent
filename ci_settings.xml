@@ -25,7 +25,7 @@
 		</server>
 		<server>
 			<id>nvd.apikey</id>
-			<passphrase>${env.nvd_api_key}</passphrase>
+			<password>${env.nvd_api_key}</password>
 		</server>
 	</servers>
 
