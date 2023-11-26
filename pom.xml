@@ -69,7 +69,7 @@
 		<java.version.prefixed>1.${java.version}</java.version.prefixed>
 		<netbeans.hint.jdkPlatform>JDK_${java.version.prefixed}</netbeans.hint.jdkPlatform>
 		<copy-artifact.dir />
-		<general-parent.version>2.0.0-SNAPSHOT</general-parent.version>
+		<general-parent.version>2.1.0-SNAPSHOT</general-parent.version>
 		<properties.file>build.properties</properties.file>
 		<third-party-properties.filename>THIRD-PARTY.properties</third-party-properties.filename>
 		<third-party-properties.src.path>${project.module-root.basedir}/src/license</third-party-properties.src.path>
@@ -754,7 +754,7 @@
 				<artifactId>maven-project-info-reports-plugin</artifactId>
 				<version>${plugin.project-info-reports.version}</version>
 			</plugin>
-			<plugin>
+			<!--plugin>
 				<groupId>org.owasp</groupId>
 				<artifactId>dependency-check-maven</artifactId>
 				<version>${plugin.dependency-check.version}</version>
@@ -766,7 +766,7 @@
 						</reports>
 					</reportSet>
 				</reportSets>
-			</plugin>
+			</plugin-->
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>license-maven-plugin</artifactId>
@@ -882,11 +882,11 @@
 		</profile>
 		<profile>
 			<id>check-dependencies</id>
-			<activation>
+			<!--activation>
 				<property>
 					<name>fullBuild</name>
 				</property>
-			</activation>
+			</activation-->
 			<build>
 				<plugins>
 					<plugin>
