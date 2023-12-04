@@ -29,7 +29,7 @@ Secondly, set the parent to the project type parent. Example as a Java Project:
 <parent>
 	<groupId>me.chrisswr1</groupId>
 	<artifactId>java-parent</artifactId>
-	<version>2.1.0-SNAPSHOT</version>
+	<version>2.1.1-SNAPSHOT</version>
 </parent>
 ```
 
@@ -49,5 +49,4 @@ The usage of this project for other downstream projects is allowed without any
 restrictions. Any code and software parts are licensed under Apache 2.0. For
 more information see the [license file](LICENSE). The documentation and any
 other non-code parts are licensed under
-the [Creative Commons Attribution 4.0 International License (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/)
-.
+the [Creative Commons Attribution 4.0 International License (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/).
