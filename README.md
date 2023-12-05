@@ -3,7 +3,6 @@
 This project only contains the default properties and settings, which should be
 used in all projects of ChrissW-R1.
 
-
 [![pipeline status](https://gitlab.com/ChrissW-R1/general-parent/badges/main/pipeline.svg)](https://gitlab.com/ChrissW-R1/general-parent/-/commits/main)
 
 ## Usage
