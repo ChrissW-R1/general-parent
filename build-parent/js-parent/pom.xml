@@ -25,16 +25,16 @@
 		<project.module-root.relativedir>${project.parent.relativedir}../</project.module-root.relativedir>
 
 		<!-- dependency versions -->
-		<nodejs.version>21.3.0</nodejs.version>
+		<nodejs.version>21.4.0</nodejs.version>
 		<yarn.version>1.22.21</yarn.version>
 		<yarn-berry.version>4.0.2</yarn-berry.version>
-		<core-js.version>3.33.3</core-js.version>
+		<core-js.version>3.34.0</core-js.version>
 		<rxjs.version>7.8.1</rxjs.version>
 		<zonejs.version>0.14.2</zonejs.version>
 		<angular.base.version>17.0</angular.base.version>
-		<angular.version>${angular.base.version}.5</angular.version>
-		<angular.cli.version>${angular.base.version}.5</angular.cli.version>
-		<npm-typescript.version>5.3.2</npm-typescript.version>
+		<angular.version>${angular.base.version}.6</angular.version>
+		<angular.cli.version>${angular.base.version}.6</angular.cli.version>
+		<npm-typescript.version>5.3.3</npm-typescript.version>
 		<ts-node.version>10.9.1</ts-node.version>
 		<grunt.version>1.6.1</grunt.version>
 		<grunt-cli.version>1.4.3</grunt-cli.version>
