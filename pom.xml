@@ -882,11 +882,11 @@
 		</profile>
 		<profile>
 			<id>check-dependencies</id>
-			<!--activation>
+			<activation>
 				<property>
 					<name>fullBuild</name>
 				</property>
-			</activation-->
+			</activation>
 			<build>
 				<plugins>
 					<plugin>
