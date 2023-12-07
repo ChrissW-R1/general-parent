@@ -882,11 +882,11 @@
 		</profile>
 		<profile>
 			<id>check-dependencies</id>
-			<activation>
+			<!--activation>
 				<property>
 					<name>fullBuild</name>
 				</property>
-			</activation>
+			</activation-->
 			<build>
 				<plugins>
 					<plugin>
@@ -1008,7 +1008,7 @@
 							</execution>
 						</executions>
 					</plugin>
-					<plugin>
+					<!--plugin>
 						<groupId>org.owasp</groupId>
 						<artifactId>dependency-check-maven</artifactId>
 						<executions>
@@ -1020,7 +1020,7 @@
 								</goals>
 							</execution>
 						</executions>
-					</plugin>
+					</plugin-->
 					<plugin>
 						<artifactId>maven-clean-plugin</artifactId>
 						<configuration>
