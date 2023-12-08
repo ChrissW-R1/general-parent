@@ -107,7 +107,7 @@
 									<artifactItem>
 										<groupId>me.chrisswr1</groupId>
 										<artifactId>general-resources</artifactId>
-										<version>2.1.2-SNAPSHOT</version>
+										<version>${general-parent.version}</version>
 										<type>jar</type>
 										<overWrite>true</overWrite>
 										<outputDirectory>${project.basedir}</outputDirectory>
@@ -130,7 +130,7 @@
 									<artifactItem>
 										<groupId>me.chrisswr1</groupId>
 										<artifactId>general-resources</artifactId>
-										<version>2.1.2-SNAPSHOT</version>
+										<version>${general-parent.version}</version>
 										<type>jar</type>
 										<outputDirectory>${project.build.directory}/generated-resources</outputDirectory>
 										<includes>unfiltered-resources/tsconfig.json</includes>
