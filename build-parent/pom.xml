@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
@@ -54,7 +56,7 @@
 						<dependency>
 							<groupId>me.chrisswr1</groupId>
 							<artifactId>general-resources</artifactId>
-							<version>2.1.2-SNAPSHOT</version>
+							<version>${general-parent.version}</version>
 						</dependency>
 					</dependencies>
 					<executions>
@@ -69,7 +71,7 @@
 									<artifactItem>
 										<groupId>me.chrisswr1</groupId>
 										<artifactId>general-resources</artifactId>
-										<version>2.1.1-SNAPSHOT</version>
+										<version>${general-parent.version}</version>
 										<type>jar</type>
 										<overWrite>true</overWrite>
 										<outputDirectory>${project.module-root.basedir}</outputDirectory>
@@ -92,7 +94,7 @@
 									<artifactItem>
 										<groupId>me.chrisswr1</groupId>
 										<artifactId>general-resources</artifactId>
-										<version>2.1.1-SNAPSHOT</version>
+										<version>${general-parent.version}</version>
 										<type>jar</type>
 										<outputDirectory>${project.build.directory}/generated-resources</outputDirectory>
 										<includes>unfiltered-resources/project.properties</includes>
@@ -116,7 +118,8 @@
 							</goals>
 							<configuration>
 								<target>
-									<move file="${project.module-root.basedir}/default.gitignore" tofile="${project.module-root.basedir}/.gitignore" />
+									<move file="${project.module-root.basedir}/default.gitignore"
+										  tofile="${project.module-root.basedir}/.gitignore" />
 								</target>
 							</configuration>
 						</execution>
