@@ -39,7 +39,8 @@
 		"@angular/forms":                    "~${angular.version}",
 		"@angular/platform-browser":         "~${angular.version}",
 		"@angular/platform-browser-dynamic": "~${angular.version}",
-		"@angular/animations":               "~${angular.version}"
+		"@angular/animations":               "~${angular.version}",
+		"generate-cordova-assets":           "~${cordova-assets.version}"
 	},
 	"devDependencies": {
 		"typescript":                              "~${npm-typescript.version}",

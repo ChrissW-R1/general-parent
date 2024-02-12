@@ -34,6 +34,7 @@
 		<angular.base.version>17.1</angular.base.version>
 		<angular.version>${angular.base.version}.3</angular.version>
 		<angular.cli.version>${angular.base.version}.3</angular.cli.version>
+		<cordova-assets.version>2.0.7</cordova-assets.version>
 		<npm-typescript.version>5.3.3</npm-typescript.version>
 		<ts-node.version>10.9.2</ts-node.version>
 		<grunt.version>1.6.1</grunt.version>
