@@ -6,7 +6,7 @@
 	"compilerOptions": {
 		"sourceRoot":             "${project.build.sourceDirectory}",
 		"outDir":                 "${project.build.directory}/generated-sources/ts-compiled",
-		"target":                 "ES3",
+		"target":                 "ES5",
 		"moduleResolution":       "node",
 		"module":                 "commonjs",
 		"sourceMap":              true,
