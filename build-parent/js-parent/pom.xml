@@ -40,7 +40,7 @@
 		<grunt-cli.version>1.4.3</grunt-cli.version>
 		<grunt-eslint.version>24.3.0</grunt-eslint.version>
 		<grunt-ts.version>5.5.1</grunt-ts.version>
-		<uglify.version>5.2.2</uglify.version>
+		<grunt-uglify.version>5.2.2</grunt-uglify.version>
 		<eslint.version>8.56.0</eslint.version>
 		<angular.eslint.version>17.2.1</angular.eslint.version>
 		<typescript.eslint.version>6.21.0</typescript.eslint.version>

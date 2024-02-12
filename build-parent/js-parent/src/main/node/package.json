@@ -48,7 +48,7 @@
 		"grunt-cli":                               "~${grunt-cli.version}",
 		"grunt-eslint":                            "~${grunt-eslint.version}",
 		"grunt-ts":                                "~${grunt-ts.version}",
-		"grunt-contrib-uglify":                    "~${uglify.version}",
+		"grunt-contrib-uglify":                    "~${grunt-uglify.version}",
 		"@angular/cli":                            "~${angular.cli.version}",
 		"@angular/compiler-cli":                   "~${angular.version}",
 		"@angular/language-service":               "~${angular.version}",
