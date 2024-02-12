@@ -4,7 +4,7 @@ module.exports = function(grunt) {
 						 pkg:    grunt.file.readJSON("package.json"),
 						 eslint: {
 							 options: {
-								 configFile: ".eslintrc.json"
+								 overrideConfigFile: ".eslintrc.json"
 							 },
 							 target:  [
 								 "${project.build.sourceDirectory}/**/*.ts"
