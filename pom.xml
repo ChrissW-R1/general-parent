@@ -601,6 +601,7 @@
 								<goal>copy-resources</goal>
 							</goals>
 							<configuration>
+								<outputDirectory>${third-party-properties.target.path}</outputDirectory>
 								<resources>
 									<resource>
 										<directory>${third-party-properties.src.path}</directory>
@@ -610,7 +611,6 @@
 										<filtering>true</filtering>
 									</resource>
 								</resources>
-								<outputDirectory>${third-party-properties.target.path}</outputDirectory>
 							</configuration>
 						</execution>
 					</executions>

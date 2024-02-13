@@ -57,6 +57,13 @@ build.properties
 !**/src/main/**/target/
 !**/src/test/**/target/
 
+#### Gradle
+/build/
+.gradle
+gradle-app.setting
+.gradletasknamecache
+!gradle-wrapper.jar
+
 #### Yarn
 yarn.lock
 
@@ -67,9 +74,16 @@ yarn.lock
 Gruntfile.js
 !**/src/**/Gruntfile.js
 
+#### webpack
+webpack.config.js
+!**/src/**/webpack.config.js
+
 #### Angular
 dist/
 out-tsc/
+
+#### CMake
+cmake-build-debug/
 
 ### Languages
 #### Java
@@ -120,6 +134,7 @@ www/
 #### IntelliJ IDEA
 # Reference: https://intellij-support.jetbrains.com/hc/en-us/articles/206544839
 .idea/
+.idea_modules/
 *.iws
 *.iml
 *.ipr
@@ -153,6 +168,9 @@ gen/
 
 #### AWS Cloud9
 .c9/
+
+#### Atlassian plugins
+atlassian-ide-plugin.xml
 
 #### Safe Software FME
 *.fmw.recover

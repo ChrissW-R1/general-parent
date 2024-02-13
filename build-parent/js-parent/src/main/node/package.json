@@ -39,7 +39,8 @@
 		"@angular/forms":                    "~${angular.version}",
 		"@angular/platform-browser":         "~${angular.version}",
 		"@angular/platform-browser-dynamic": "~${angular.version}",
-		"@angular/animations":               "~${angular.version}"
+		"@angular/animations":               "~${angular.version}",
+		"generate-cordova-assets":           "~${cordova-assets.version}"
 	},
 	"devDependencies": {
 		"typescript":                              "~${npm-typescript.version}",
@@ -48,19 +49,22 @@
 		"grunt-cli":                               "~${grunt-cli.version}",
 		"grunt-eslint":                            "~${grunt-eslint.version}",
 		"grunt-ts":                                "~${grunt-ts.version}",
-		"grunt-contrib-uglify":                    "~${uglify.version}",
+		"grunt-contrib-uglify":                    "~${grunt-uglify.version}",
+		"webpack":                                 "~${webpack.version}",
+		"grunt-webpack":                           "~${grunt-webpack.version}",
 		"@angular/cli":                            "~${angular.cli.version}",
 		"@angular/compiler-cli":                   "~${angular.version}",
 		"@angular/language-service":               "~${angular.version}",
 		"eslint":                                  "~${eslint.version}",
-		"@angular-eslint/eslint-plugin":           "~${angular.eslint.version}",
-		"@typescript-eslint/eslint-plugin":        "~${typescript.eslint.version}",
-		"@typescript-eslint/eslint-plugin-tslint": "~${typescript.eslint.version}",
-		"@typescript-eslint/parser":               "~${typescript.eslint.version}",
 		"eslint-config-prettier":                  "~${eslint.config-prettier.version}",
 		"eslint-plugin-import":                    "~${eslint.import.version}",
 		"eslint-plugin-jsdoc":                     "~${eslint.jsdoc.version}",
 		"eslint-plugin-prefer-arrow":              "~${eslint.prefer-arrow.version}",
+		"@typescript-eslint/eslint-plugin":        "~${typescript.eslint.version}",
+		"@typescript-eslint/eslint-plugin-tslint": "~${typescript.eslint.version}",
+		"@typescript-eslint/parser":               "~${typescript.eslint.version}",
+		"tslint-to-eslint-config":                 "~${tslint-to-eslint.version}",
+		"@angular-eslint/eslint-plugin":           "~${angular.eslint.version}",
 		"codelyzer":                               "~${codelyzer.version}",
 		"eslint-plugin-codelyzer":                 "~${eslint.codelyzer.version}",
 		"mocha":                                   "~${mocha.version}",
@@ -75,6 +79,7 @@
 		"karma-edgium-launcher":                   "~${karma.edgium.version}",
 		"karma-edge-launcher":                     "~${karma.edge.version}",
 		"karma-ie-launcher":                       "~${karma.ie.version}",
-		"karma-mocha-reporter":                    "~${karma.mocha.reporter.version}"
+		"karma-mocha-reporter":                    "~${karma.mocha.reporter.version}",
+		"webpack-dev-server":                      "^${webpack-server.version}"
 	}
 }
