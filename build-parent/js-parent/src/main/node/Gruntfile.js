@@ -1,4 +1,6 @@
-const webpackConfig = require("./webpack.config.js");
+const webpackConfig = require(
+	"${project.module-root.relativedir}/webpack.config.js"
+);
 
 module.exports = function(grunt) {
 	// Project configuration
