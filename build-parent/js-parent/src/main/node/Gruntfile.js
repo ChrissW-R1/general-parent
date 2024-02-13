@@ -1,10 +1,11 @@
+const packageJson   = grunt.file.readJSON("package.json");
 const webpackConfig = require("./webpack.config.js");
 
 module.exports = function(grunt) {
 	// Project configuration
 	grunt.initConfig(
 		{
-			pkg:     grunt.file.readJSON("package.json"),
+			pkg:     packageJson,
 			eslint:  {
 				options: {
 					overrideConfigFile: ".eslintrc.json"
