@@ -8,7 +8,7 @@
 		"outDir":                 "${project.build.directory}/generated-sources/ts-compiled",
 		"target":                 "ES5",
 		"moduleResolution":       "node",
-		"module":                 "commonjs",
+		"module":                 "es2015",
 		"sourceMap":              true,
 		"declaration":            false,
 		"experimentalDecorators": true,
