@@ -174,30 +174,12 @@
 										<includes>
 											<include>package.json</include>
 											<include>Gruntfile.js</include>
-										</includes>
-										<filtering>true</filtering>
-									</resource>
-								</resources>
-								<outputDirectory>${project.basedir}</outputDirectory>
-							</configuration>
-						</execution>
-						<execution>
-							<id>copy-webpack-config</id>
-							<phase>generate-resources</phase>
-							<goals>
-								<goal>copy-resources</goal>
-							</goals>
-							<configuration>
-								<outputDirectory>${project.module-root.relativedir}</outputDirectory>
-								<resources>
-									<resource>
-										<directory>src/main/node</directory>
-										<includes>
 											<include>webpack.config.js</include>
 										</includes>
 										<filtering>true</filtering>
 									</resource>
 								</resources>
+								<outputDirectory>${project.basedir}</outputDirectory>
 							</configuration>
 						</execution>
 					</executions>
