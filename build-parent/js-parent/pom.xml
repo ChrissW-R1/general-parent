@@ -41,9 +41,11 @@
 		<grunt-cli.version>1.4.3</grunt-cli.version>
 		<grunt-eslint.version>24.3.0</grunt-eslint.version>
 		<grunt-ts.version>5.5.1</grunt-ts.version>
+		<grunt-less.version>3.0.0</grunt-less.version>
 		<grunt-uglify.version>5.2.2</grunt-uglify.version>
-		<webpack.version>5.90.1</webpack.version>
+		<grunt-htmlmin.version>3.1.0</grunt-htmlmin.version>
 		<grunt-webpack.version>6.0.0</grunt-webpack.version>
+		<webpack.version>5.90.1</webpack.version>
 		<webpack-cli.version>5.1.4</webpack-cli.version>
 		<webpack-server.version>5.0.0</webpack-server.version>
 		<eslint.version>8.56.0</eslint.version>
