@@ -50,6 +50,8 @@
 		"grunt-eslint":                            "~${grunt-eslint.version}",
 		"grunt-ts":                                "~${grunt-ts.version}",
 		"grunt-contrib-uglify":                    "~${grunt-uglify.version}",
+		"webpack":                                 "~${webpack.version}",
+		"grunt-webpack":                           "~${grunt-webpack.version}",
 		"@angular/cli":                            "~${angular.cli.version}",
 		"@angular/compiler-cli":                   "~${angular.version}",
 		"@angular/language-service":               "~${angular.version}",
@@ -77,6 +79,7 @@
 		"karma-edgium-launcher":                   "~${karma.edgium.version}",
 		"karma-edge-launcher":                     "~${karma.edge.version}",
 		"karma-ie-launcher":                       "~${karma.ie.version}",
-		"karma-mocha-reporter":                    "~${karma.mocha.reporter.version}"
+		"karma-mocha-reporter":                    "~${karma.mocha.reporter.version}",
+		"webpack-dev-server":                      "^${webpack-server.version}"
 	}
 }

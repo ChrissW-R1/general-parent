@@ -42,6 +42,9 @@
 		<grunt-eslint.version>24.3.0</grunt-eslint.version>
 		<grunt-ts.version>5.5.1</grunt-ts.version>
 		<grunt-uglify.version>5.2.2</grunt-uglify.version>
+		<webpack.version>5.90.1</webpack.version>
+		<grunt-webpack.version>6.0.0</grunt-webpack.version>
+		<webpack-server.version>5.0.0</webpack-server.version>
 		<eslint.version>8.56.0</eslint.version>
 		<angular.eslint.version>17.2.1</angular.eslint.version>
 		<eslint.config-prettier.version>9.1.0</eslint.config-prettier.version>
@@ -173,6 +176,25 @@
 									</resource>
 								</resources>
 								<outputDirectory>${project.basedir}</outputDirectory>
+							</configuration>
+						</execution>
+						<execution>
+							<id>copy-webpack-config</id>
+							<phase>generate-resources</phase>
+							<goals>
+								<goal>copy-resources</goal>
+							</goals>
+							<configuration>
+								<outputDirectory>${project.module-root.relativedir}</outputDirectory>
+								<resources>
+									<resource>
+										<directory>src/main/node</directory>
+										<includes>
+											<include>webpack.config.js</include>
+										</includes>
+										<filtering>true</filtering>
+									</resource>
+								</resources>
 							</configuration>
 						</execution>
 					</executions>

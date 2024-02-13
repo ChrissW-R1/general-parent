@@ -1,8 +1,10 @@
+const webpackConfig = require("./webpack.config.js");
+
 module.exports = function(grunt) {
 	// Project configuration
 	grunt.initConfig({
-						 pkg:    grunt.file.readJSON("package.json"),
-						 eslint: {
+						 pkg:     grunt.file.readJSON("package.json"),
+						 eslint:  {
 							 options: {
 								 overrideConfigFile: ".eslintrc.json"
 							 },
@@ -10,7 +12,7 @@ module.exports = function(grunt) {
 								 "${project.build.sourceDirectory}/**/*.ts"
 							 ]
 						 },
-						 ts:     {
+						 ts:      {
 							 options: {
 								 rootDir: "${project.build.sourceDirectory}"
 							 },
@@ -20,7 +22,7 @@ module.exports = function(grunt) {
 								 dest:     "${project.build.directory}/generated-sources/ts-compiled"
 							 }
 						 },
-						 uglify: {
+						 uglify:  {
 							 options: {
 								 sourceMap: true
 							 },
@@ -35,6 +37,9 @@ module.exports = function(grunt) {
 									 }
 								 ]
 							 }
+						 },
+						 webpack: {
+							 myConfig: webpackConfig
 						 }
 					 });
 
@@ -42,11 +47,13 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks("grunt-eslint");
 	grunt.loadNpmTasks("grunt-ts");
 	grunt.loadNpmTasks("grunt-contrib-uglify");
+	grunt.loadNpmTasks('grunt-webpack');
 
 	// Default task(s)
 	grunt.registerTask("default", [
 		"eslint",
 		"ts",
-		"uglify"
+		"uglify",
+		"webpack"
 	]);
 };

@@ -74,6 +74,10 @@ yarn.lock
 Gruntfile.js
 !**/src/**/Gruntfile.js
 
+#### webpack
+webpack.config.js
+!**/src/**/webpack.config.js
+
 #### Angular
 dist/
 out-tsc/
