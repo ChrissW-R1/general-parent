@@ -1,7 +1,8 @@
-const packageJson   = grunt.file.readJSON("package.json");
 const webpackConfig = require("./webpack.config.js");
 
 module.exports = function(grunt) {
+	const packageJson = grunt.file.readJSON("package.json");
+
 	// Project configuration
 	grunt.initConfig(
 		{
