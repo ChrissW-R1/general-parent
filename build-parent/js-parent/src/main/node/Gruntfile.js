@@ -33,17 +33,11 @@ module.exports = function(grunt) {
 						],
 						compress: true
 					},
-					files:   [
-						{
-							expand: true,
-							cws:    "src/main/less",
-							src:    [
-								"*.less"
-							],
-							dest:   "${project.build.directory}/dist/",
-							ext:    ".css"
-						}
-					]
+					files:   {
+						"${project.build.directory}/dist/style/main.css": [
+							"${project.build.sourceDirectory}/../less/**/*.less"
+						]
+					}
 				}
 			},
 			uglify:  {
