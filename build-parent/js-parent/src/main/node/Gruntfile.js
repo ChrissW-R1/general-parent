@@ -25,6 +25,27 @@ module.exports = function(grunt) {
 					dest:     "${project.build.directory}/generated-sources/ts-compiled"
 				}
 			},
+			less:    {
+				main: {
+					options: {
+						paths:    [
+							"src/main/less"
+						],
+						compress: true
+					},
+					files:   [
+						{
+							expand: true,
+							cws:    "src/main/less",
+							src:    [
+								"*.less"
+							],
+							dest:   "${project.build.directory}/dist/css/",
+							ext:    ".css"
+						}
+					]
+				}
+			},
 			uglify:  {
 				options: {
 					sourceMap: true
@@ -37,6 +58,25 @@ module.exports = function(grunt) {
 							src:    "**/*.js",
 							dest:   "${project.build.directory}/generated-sources/uglified",
 							ext:    ".min.js"
+						}
+					]
+				}
+			},
+			htmlmin: {
+				main: {
+					options: {
+						removeComments:     true,
+						collapseWhitespace: true
+					},
+					files:   [
+						{
+							expand: true,
+							cwd:    "src/main/html",
+							src:    [
+								"*.html",
+								"*.htm"
+							],
+							dest:   "${project.build.directory}/dist/"
 						}
 					]
 				}
