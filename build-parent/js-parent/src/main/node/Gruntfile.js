@@ -40,7 +40,7 @@ module.exports = function(grunt) {
 							src:    [
 								"*.less"
 							],
-							dest:   "${project.build.directory}/dist/css/",
+							dest:   "${project.build.directory}/dist/",
 							ext:    ".css"
 						}
 					]
@@ -90,7 +90,9 @@ module.exports = function(grunt) {
 	// Load plugins
 	grunt.loadNpmTasks("grunt-eslint");
 	grunt.loadNpmTasks("grunt-ts");
+	grunt.loadNpmTasks("grunt-contrib-less");
 	grunt.loadNpmTasks("grunt-contrib-uglify");
+	grunt.loadNpmTasks("grunt-contrib-htmlmin");
 	grunt.loadNpmTasks("grunt-webpack");
 
 	// Default task(s)
@@ -99,7 +101,9 @@ module.exports = function(grunt) {
 		[
 			"eslint",
 			"ts",
+			"less",
 			"uglify",
+			"htmlmin",
 			"webpack"
 		]
 	);
