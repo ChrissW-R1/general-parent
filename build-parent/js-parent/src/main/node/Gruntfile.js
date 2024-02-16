@@ -51,7 +51,7 @@ module.exports = function(grunt) {
 							cwd:    "${project.build.directory}/generated-sources/ts-compiled",
 							src:    "**/*.js",
 							dest:   "${project.build.directory}/generated-sources/uglified",
-							ext:    ".min.js"
+							ext:    ".js"
 						}
 					]
 				}
