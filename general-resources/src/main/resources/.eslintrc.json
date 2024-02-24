@@ -68,7 +68,15 @@ Happy linting! 💖
 		"id-match":                                         "error",
 		"import/no-deprecated":                             "warn",
 		"jsdoc/check-alignment":                            "error",
-		"jsdoc/check-indentation":                          "error",
+		"jsdoc/check-indentation":                          [
+			"error",
+			{
+				"excludeTags": [
+					"param",
+					"returns"
+				]
+			}
+		],
 		"jsdoc/no-undefined-types":                         1,
 		"max-classes-per-file":                             [
 			"error",
