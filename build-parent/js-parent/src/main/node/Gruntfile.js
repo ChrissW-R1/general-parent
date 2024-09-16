@@ -9,7 +9,7 @@ module.exports = function(grunt) {
 			pkg:     packageJson,
 			eslint:  {
 				options: {
-					overrideConfigFile: ".eslintrc.json"
+					overrideConfigFile: "eslint.config.js"
 				},
 				target:  [
 					"${project.build.sourceDirectory}/**/*.ts"

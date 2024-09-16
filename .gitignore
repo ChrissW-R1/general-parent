@@ -102,6 +102,8 @@ tslint.json
 !**/src/**/tslint.json
 .eslintrc.json
 !**/src/**/.eslintrc.json
+eslint.config.js
+!**/src/**/eslint.config.js
 
 #### Sass
 .sass-cache/

@@ -30,7 +30,7 @@
 		<yarn-berry.version>4.5.0</yarn-berry.version>
 		<core-js.version>3.38.1</core-js.version>
 		<rxjs.version>7.8.1</rxjs.version>
-		<zonejs.version>0.15.0</zonejs.version>
+		<zonejs.version>0.14.10</zonejs.version>
 		<angular.base.version>18.2</angular.base.version>
 		<angular.version>${angular.base.version}.4</angular.version>
 		<angular.cli.version>${angular.base.version}.4</angular.cli.version>
@@ -54,6 +54,7 @@
 		<eslint.import.version>2.30.0</eslint.import.version>
 		<eslint.jsdoc.version>50.2.3</eslint.jsdoc.version>
 		<eslint.prefer-arrow.version>1.2.3</eslint.prefer-arrow.version>
+		<eslint.compat.version>1.1.1</eslint.compat.version>
 		<typescript.eslint.version>8.6.0</typescript.eslint.version>
 		<typescript.eslint-tslint.version>7.0.2</typescript.eslint-tslint.version>
 		<tslint-to-eslint.version>2.14.3</tslint-to-eslint.version>
@@ -120,7 +121,7 @@
 										<type>jar</type>
 										<overWrite>true</overWrite>
 										<outputDirectory>${project.basedir}</outputDirectory>
-										<includes>resources/.eslintrc.json</includes>
+										<includes>resources/eslint.config.js</includes>
 										<fileMappers>
 											<fileMapper implementation="org.codehaus.plexus.components.io.filemappers.FlattenFileMapper" />
 										</fileMappers>
