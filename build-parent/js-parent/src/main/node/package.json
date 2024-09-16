@@ -65,7 +65,7 @@
 		"eslint-plugin-jsdoc":                     "~${eslint.jsdoc.version}",
 		"eslint-plugin-prefer-arrow":              "~${eslint.prefer-arrow.version}",
 		"@typescript-eslint/eslint-plugin":        "~${typescript.eslint.version}",
-		"@typescript-eslint/eslint-plugin-tslint": "~${typescript.eslint.version}",
+		"@typescript-eslint/eslint-plugin-tslint": "~${typescript.eslint-tslint.version}",
 		"@typescript-eslint/parser":               "~${typescript.eslint.version}",
 		"tslint-to-eslint-config":                 "~${tslint-to-eslint.version}",
 		"@angular-eslint/eslint-plugin":           "~${angular.eslint.version}",
