@@ -26,7 +26,7 @@
 
 		<!-- dependency versions -->
 		<servlet.version>6.0.0</servlet.version>
-		<jersey.version>3.1.5</jersey.version>
+		<jersey.version>3.1.8</jersey.version>
 
 		<!-- plugin versions -->
 		<plugin.war.version>3.4.0</plugin.war.version>
