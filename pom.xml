@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<!-- project identifier -->
@@ -67,7 +69,7 @@
 		<java.version.prefixed>1.${java.version}</java.version.prefixed>
 		<netbeans.hint.jdkPlatform>JDK_${java.version.prefixed}</netbeans.hint.jdkPlatform>
 		<copy-artifact.dir />
-		<general-parent.version>2.1.2</general-parent.version>
+		<general-parent.version>2.1.3-SNAPSHOT</general-parent.version>
 		<properties.file>build.properties</properties.file>
 		<third-party-properties.filename>THIRD-PARTY.properties</third-party-properties.filename>
 		<third-party-properties.src.path>${project.module-root.basedir}/src/license</third-party-properties.src.path>
@@ -94,24 +96,24 @@
 		<wagon.version>3.5.3</wagon.version>
 
 		<!-- plugin versions -->
-		<plugin.dependency.version>3.6.1</plugin.dependency.version>
-		<plugin.versions.version>2.16.2</plugin.versions.version>
-		<plugin.clean.version>3.3.2</plugin.clean.version>
-		<plugin.help.version>3.4.0</plugin.help.version>
+		<plugin.dependency.version>3.8.0</plugin.dependency.version>
+		<plugin.versions.version>2.17.1</plugin.versions.version>
+		<plugin.clean.version>3.4.0</plugin.clean.version>
+		<plugin.help.version>3.5.0</plugin.help.version>
 		<plugin.replacer.version>1.5.3</plugin.replacer.version>
 		<plugin.properties.version>1.2.1</plugin.properties.version>
-		<plugin.buildhelper.version>3.5.0</plugin.buildhelper.version>
-		<plugin.license.version>2.3.0</plugin.license.version>
+		<plugin.buildhelper.version>3.6.0</plugin.buildhelper.version>
+		<plugin.license.version>2.4.0</plugin.license.version>
 		<plugin.resources.version>3.3.1</plugin.resources.version>
 		<plugin.antrun.version>3.1.0</plugin.antrun.version>
-		<plugin.compiler.version>3.11.0</plugin.compiler.version>
-		<plugin.dependency-check.version>9.0.3</plugin.dependency-check.version>
-		<plugin.jar.version>3.3.0</plugin.jar.version>
-		<plugin.source.version>3.3.0</plugin.source.version>
-		<plugin.gpg.version>3.1.0</plugin.gpg.version>
-		<plugin.site.version>3.12.1</plugin.site.version>
-		<plugin.project-info-reports.version>3.5.0</plugin.project-info-reports.version>
-		<plugin.release.version>3.0.1</plugin.release.version>
+		<plugin.compiler.version>3.13.0</plugin.compiler.version>
+		<plugin.dependency-check.version>10.0.4</plugin.dependency-check.version>
+		<plugin.jar.version>3.4.2</plugin.jar.version>
+		<plugin.source.version>3.3.1</plugin.source.version>
+		<plugin.gpg.version>3.2.6</plugin.gpg.version>
+		<plugin.site.version>3.20.0</plugin.site.version>
+		<plugin.project-info-reports.version>3.7.0</plugin.project-info-reports.version>
+		<plugin.release.version>3.1.1</plugin.release.version>
 	</properties>
 
 	<scm>
@@ -226,7 +228,7 @@
 								<includes>
 									<include>dependency-reduced-pom.xml</include>
 									<include>tsconfig.json</include>
-									<include>.eslintrc.json</include>
+									<include>eslint.config.js</include>
 									<include>package.json</include>
 									<include>Gruntfile.js</include>
 								</includes>
@@ -599,6 +601,7 @@
 								<goal>copy-resources</goal>
 							</goals>
 							<configuration>
+								<outputDirectory>${third-party-properties.target.path}</outputDirectory>
 								<resources>
 									<resource>
 										<directory>${third-party-properties.src.path}</directory>
@@ -608,7 +611,6 @@
 										<filtering>true</filtering>
 									</resource>
 								</resources>
-								<outputDirectory>${third-party-properties.target.path}</outputDirectory>
 							</configuration>
 						</execution>
 					</executions>
@@ -670,16 +672,21 @@
 							</goals>
 							<configuration>
 								<target>
-									<taskdef resource="net/sf/antcontrib/antcontrib.properties" classpathref="maven.runtime.classpath" />
+									<taskdef resource="net/sf/antcontrib/antcontrib.properties"
+											 classpathref="maven.runtime.classpath" />
 									<if>
 										<available file="${third-party-properties.target.fullPath}" />
 										<then>
-											<echo message="third-party.properties exists." level="info" />
-											<property name="third-party-properties.target.missing" value="false" />
+											<echo message="third-party.properties exists."
+												  level="info" />
+											<property name="third-party-properties.target.missing"
+													  value="false" />
 										</then>
 										<else>
-											<echo message="third-party.properties missing." level="info" />
-											<property name="third-party-properties.target.missing" value="true" />
+											<echo message="third-party.properties missing."
+												  level="info" />
+											<property name="third-party-properties.target.missing"
+													  value="true" />
 										</else>
 									</if>
 								</target>
@@ -1054,7 +1061,8 @@
 									<target>
 										<mkdir dir="${copy-artifact.dir}" />
 										<copy todir="${copy-artifact.dir}">
-											<fileset dir="${project.build.directory}" includes="${project.build.artifactFileName}" />
+											<fileset dir="${project.build.directory}"
+													 includes="${project.build.artifactFileName}" />
 										</copy>
 									</target>
 								</configuration>
