@@ -24,7 +24,7 @@
 		<!-- technically-based properties -->
 		<project.module-root.relativedir>${project.parent.relativedir}../</project.module-root.relativedir>
 		<java.rootPackage>${project.groupId}.${java.package}</java.rootPackage>
-		<mainClass.localPath />
+		<mainClass.localPath>Main</mainClass.localPath>
 		<mainClass.fullPath>${java.rootPackage}.${mainClass.localPath}</mainClass.fullPath>
 		<java.filteredSource.dir>${project.build.directory}/filtered-sources/java</java.filteredSource.dir>
 
