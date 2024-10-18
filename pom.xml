@@ -473,7 +473,6 @@
 								GNU General Public License (GPL), Version 3.0+ (GPL-3.0-or-later)
 								| GPL-3.0-or-later
 								| GNU General Public License (GPL) version 3.0
-								| GNU Lesser General Public License v3.0
 							</licenseMerge>
 							<licenseMerge>
 								GNU General Public License (GPL) with Classpath exception (CPE), Version 2.0 (GPL-2.0-with-classpath-exception)
@@ -507,6 +506,7 @@
 								GNU Lesser General Public License (LGPL), Version 3.0+ (LGPL-3.0-or-later)
 								| LGPL-3.0-or-later
 								| GNU General Lesser Public License (LGPL) version 3.0
+								| GNU Lesser General Public License v3.0
 							</licenseMerge>
 							<licenseMerge>
 								MIT License (MIT)
