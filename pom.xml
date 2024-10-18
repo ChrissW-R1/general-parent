@@ -384,6 +384,7 @@
 								| Apache License 2.0
 								| Apache License version 2.0
 								| Apache License, 2.0
+								| Apache License, Version 2
 								| Apache License, Version 2.0
 								| The Apache License, Version 2.0
 								| The Apache Software License, Version 2.0
@@ -465,6 +466,7 @@
 								| GPL-2.0-or-later
 								| GPL-2.0
 								| GNU General Public License (GPL) version 2.0
+								| GNU General Public License version 2 (GPLv2)
 								| GNU General Public License, Version 2
 							</licenseMerge>
 							<licenseMerge>
@@ -498,6 +500,7 @@
 								| LGPL-2.1-or-later
 								| GNU General Lesser Public License (LGPL) version 2.1
 								| GNU Lesser General Public License (LGPL)
+								| GNU Lesser General Public License version 2.1 (LGPLv2.1)
 								| Lesser General Public License (LGPL)
 							</licenseMerge>
 							<licenseMerge>
