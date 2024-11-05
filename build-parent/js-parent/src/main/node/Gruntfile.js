@@ -20,7 +20,6 @@ module.exports = function(grunt) {
 					rootDir: "${project.build.sourceDirectory}"
 				},
 				main:    {
-					tsconfig: true,
 					src:      "${project.build.sourceDirectory}/**/*.ts",
 					dest:     "${project.build.directory}/generated-sources/ts-compiled"
 				}
