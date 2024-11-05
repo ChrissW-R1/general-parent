@@ -96,10 +96,10 @@
 		<wagon.version>3.5.3</wagon.version>
 
 		<!-- plugin versions -->
-		<plugin.dependency.version>3.8.0</plugin.dependency.version>
+		<plugin.dependency.version>3.8.1</plugin.dependency.version>
 		<plugin.versions.version>2.17.1</plugin.versions.version>
 		<plugin.clean.version>3.4.0</plugin.clean.version>
-		<plugin.help.version>3.5.0</plugin.help.version>
+		<plugin.help.version>3.5.1</plugin.help.version>
 		<plugin.replacer.version>1.5.3</plugin.replacer.version>
 		<plugin.properties.version>1.2.1</plugin.properties.version>
 		<plugin.buildhelper.version>3.6.0</plugin.buildhelper.version>
@@ -107,12 +107,12 @@
 		<plugin.resources.version>3.3.1</plugin.resources.version>
 		<plugin.antrun.version>3.1.0</plugin.antrun.version>
 		<plugin.compiler.version>3.13.0</plugin.compiler.version>
-		<plugin.dependency-check.version>10.0.4</plugin.dependency-check.version>
+		<plugin.dependency-check.version>11.1.0</plugin.dependency-check.version>
 		<plugin.jar.version>3.4.2</plugin.jar.version>
 		<plugin.source.version>3.3.1</plugin.source.version>
-		<plugin.gpg.version>3.2.6</plugin.gpg.version>
-		<plugin.site.version>3.20.0</plugin.site.version>
-		<plugin.project-info-reports.version>3.7.0</plugin.project-info-reports.version>
+		<plugin.gpg.version>3.2.7</plugin.gpg.version>
+		<plugin.site.version>3.21.0</plugin.site.version>
+		<plugin.project-info-reports.version>3.8.0</plugin.project-info-reports.version>
 		<plugin.release.version>3.1.1</plugin.release.version>
 	</properties>
 

@@ -30,7 +30,7 @@
 		<copyright.notice>© ${project.versionYear} by ${project.organization.name}</copyright.notice>
 
 		<!-- plugin versions -->
-		<plugin.launch4j.version>2.5.1</plugin.launch4j.version>
+		<plugin.launch4j.version>2.5.2</plugin.launch4j.version>
 	</properties>
 
 	<build>
