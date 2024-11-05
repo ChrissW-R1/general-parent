@@ -28,7 +28,7 @@ Secondly, set the parent to the project type parent. Example as a Java Project:
 <parent>
 	<groupId>me.chrisswr1</groupId>
 	<artifactId>java-parent</artifactId>
-	<version>2.2.0-SNAPSHOT</version>
+	<version>2.2.1</version>
 </parent>
 ```
 
