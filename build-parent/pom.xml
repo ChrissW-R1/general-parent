@@ -75,19 +75,7 @@
 										<type>jar</type>
 										<overWrite>true</overWrite>
 										<outputDirectory>${project.module-root.basedir}</outputDirectory>
-										<includes>resources/default.gitignore,resources/.editorconfig,resources/.gitlab-ci.yml</includes>
-										<fileMappers>
-											<fileMapper implementation="org.codehaus.plexus.components.io.filemappers.FlattenFileMapper" />
-										</fileMappers>
-									</artifactItem>
-									<artifactItem>
-										<groupId>me.chrisswr1</groupId>
-										<artifactId>general-resources</artifactId>
-										<version>${general-parent.version}</version>
-										<type>jar</type>
-										<overWrite>true</overWrite>
-										<outputDirectory>${project.module-root.basedir}/.github/workflows</outputDirectory>
-										<includes>resources/maven-build.yml</includes>
+										<includes>resources/default.gitignore,resources/.editorconfig</includes>
 										<fileMappers>
 											<fileMapper implementation="org.codehaus.plexus.components.io.filemappers.FlattenFileMapper" />
 										</fileMappers>
