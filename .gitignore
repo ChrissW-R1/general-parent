@@ -33,7 +33,7 @@ hs_err_pid*
 .github/
 
 #### GitLab
-.gitlab-ci.yml
+general-resources/src/main/resources/.gitlab-ci.yml
 ci_settings.xml
 
 ### Operating Systems

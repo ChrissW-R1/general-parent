@@ -227,6 +227,8 @@
 								<directory>./</directory>
 								<includes>
 									<include>dependency-reduced-pom.xml</include>
+									<include>.github/workflows/maven-build.yml</include>
+									<include>.gitlab-ci.yml</include>
 									<include>tsconfig.json</include>
 									<include>eslint.config.js</include>
 									<include>package.json</include>
