@@ -124,8 +124,8 @@
 	</scm>
 
 	<issueManagement>
-		<url>${project.scm.url}/-/issues</url>
-		<system>GitLab</system>
+		<url>${project.scm.url}/issues</url>
+		<system>GitHub</system>
 	</issueManagement>
 
 	<distributionManagement>
