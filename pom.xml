@@ -132,7 +132,7 @@
 		<repository>
 			<id>project-repo</id>
 			<name>Project Repository</name>
-			<url>https://gitlab.com/api/v4/projects/${project.gitlab.id}/packages/maven</url>
+			<url>https://maven.pkg.github.com/${project.organization.name}/${project.module-root.artifactId}</url>
 		</repository>
 		<site>
 			<id>project-site-repo</id>
@@ -145,19 +145,19 @@
 		<repository>
 			<id>project-repo</id>
 			<name>Project Repository</name>
-			<url>https://gitlab.com/api/v4/projects/${project.gitlab.id}/packages/maven</url>
+			<url>https://maven.pkg.github.com/${project.organization.name}/${project.module-root.artifactId}</url>
 		</repository>
 	</repositories>
 	<pluginRepositories>
 		<pluginRepository>
 			<id>project-repo</id>
 			<name>Project Repository</name>
-			<url>https://gitlab.com/api/v4/projects/${project.gitlab.id}/packages/maven</url>
+			<url>https://maven.pkg.github.com/${project.organization.name}/${project.module-root.artifactId}</url>
 		</pluginRepository>
 		<pluginRepository>
 			<id>general-parent</id>
 			<name>General Parent</name>
-			<url>https://gitlab.com/api/v4/projects/25831549/packages/maven</url>
+			<url>https://maven.pkg.github.com/ChrissW-R1/general-parent</url>
 		</pluginRepository>
 	</pluginRepositories>
 
@@ -227,8 +227,8 @@
 								<directory>./</directory>
 								<includes>
 									<include>dependency-reduced-pom.xml</include>
-									<include>.github/workflows/maven-build.yml</include>
-									<include>.gitlab-ci.yml</include>
+									<!--include>.github/workflows/maven-build.yml</include>
+									<include>.gitlab-ci.yml</include-->
 									<include>tsconfig.json</include>
 									<include>eslint.config.js</include>
 									<include>package.json</include>
