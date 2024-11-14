@@ -3,6 +3,8 @@
 This project only contains the default properties and settings, which should be
 used in all projects of ChrissW-R1.
 
+![build status](https://github.com/ChrissW-R1/general-parent/actions/workflows/maven-build.yml/badge.svg)
+
 ## Usage
 
 To use this in one of your projects, you only have to define some settings in
@@ -15,7 +17,7 @@ First, add the repository:
 	<repository>
 		<id>general-parent</id>
 		<name>General Parent</name>
-		<url>https://gitlab.com/api/v4/projects/25831549/packages/maven</url>
+		<url>https://maven.pkg.github.com/ChrissW-R1/general-parent</url>
 	</repository>
 	...
 </repositories>
@@ -26,7 +28,7 @@ Secondly, set the parent to the project type parent. Example as a Java Project:
 <parent>
 	<groupId>me.chrisswr1</groupId>
 	<artifactId>java-parent</artifactId>
-	<version>1.3.0-SNAPSHOT</version>
+	<version>2.3.1</version>
 </parent>
 ```
 
@@ -46,5 +48,4 @@ The usage of this project for other downstream projects is allowed without any
 restrictions. Any code and software parts are licensed under Apache 2.0. For
 more information see the [license file](LICENSE). The documentation and any
 other non-code parts are licensed under
-the [Creative Commons Attribution 4.0 International License (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/)
-.
+the [Creative Commons Attribution 4.0 International License (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/).

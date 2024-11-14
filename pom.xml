@@ -7,7 +7,7 @@
 	<!-- project identifier -->
 	<groupId>me.chrisswr1</groupId>
 	<artifactId>general-parent</artifactId>
-	<version>1.3.0-SNAPSHOT</version>
+	<version>2.3.2-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<!-- project metadata -->
@@ -69,7 +69,7 @@
 		<java.version.prefixed>1.${java.version}</java.version.prefixed>
 		<netbeans.hint.jdkPlatform>JDK_${java.version.prefixed}</netbeans.hint.jdkPlatform>
 		<copy-artifact.dir />
-		<general-parent.version>1.3.0-SNAPSHOT</general-parent.version>
+		<general-parent.version>2.3.2-SNAPSHOT</general-parent.version>
 		<properties.file>build.properties</properties.file>
 		<third-party-properties.filename>THIRD-PARTY.properties</third-party-properties.filename>
 		<third-party-properties.src.path>${project.module-root.basedir}/src/license</third-party-properties.src.path>
@@ -81,7 +81,7 @@
 		<project.site.baseDomain>urelion.world</project.site.baseDomain>
 		<project.site.basePath>docs.${project.site.baseDomain}</project.site.basePath>
 		<project.gitlab.id>25831549</project.gitlab.id>
-		<java.version>8</java.version>
+		<java.version>11</java.version>
 
 		<!-- license definition -->
 		<license.name>Apache</license.name>
@@ -96,44 +96,43 @@
 		<wagon.version>3.5.3</wagon.version>
 
 		<!-- plugin versions -->
-		<plugin.dependency.version>3.6.0</plugin.dependency.version>
-		<plugin.versions.version>2.16.0</plugin.versions.version>
-		<plugin.clean.version>3.3.1</plugin.clean.version>
-		<plugin.help.version>3.4.0</plugin.help.version>
+		<plugin.dependency.version>3.8.1</plugin.dependency.version>
+		<plugin.versions.version>2.17.1</plugin.versions.version>
+		<plugin.clean.version>3.4.0</plugin.clean.version>
+		<plugin.help.version>3.5.1</plugin.help.version>
 		<plugin.replacer.version>1.5.3</plugin.replacer.version>
-		<plugin.properties.version>1.2.0</plugin.properties.version>
-		<plugin.buildhelper.version>3.4.0</plugin.buildhelper.version>
-		<!-- license-maven-plugin in version 2.0.0 is not compatible with maven-site-plugin -->
-		<plugin.license.version>1.20</plugin.license.version>
+		<plugin.properties.version>1.2.1</plugin.properties.version>
+		<plugin.buildhelper.version>3.6.0</plugin.buildhelper.version>
+		<plugin.license.version>2.4.0</plugin.license.version>
 		<plugin.resources.version>3.3.1</plugin.resources.version>
 		<plugin.antrun.version>3.1.0</plugin.antrun.version>
-		<plugin.compiler.version>3.11.0</plugin.compiler.version>
-		<plugin.dependency-check.version>8.3.1</plugin.dependency-check.version>
-		<plugin.jar.version>3.3.0</plugin.jar.version>
-		<plugin.source.version>3.3.0</plugin.source.version>
-		<plugin.gpg.version>3.1.0</plugin.gpg.version>
-		<plugin.site.version>3.12.1</plugin.site.version>
-		<plugin.project-info-reports.version>3.4.5</plugin.project-info-reports.version>
-		<plugin.release.version>3.0.1</plugin.release.version>
+		<plugin.compiler.version>3.13.0</plugin.compiler.version>
+		<plugin.dependency-check.version>11.1.0</plugin.dependency-check.version>
+		<plugin.jar.version>3.4.2</plugin.jar.version>
+		<plugin.source.version>3.3.1</plugin.source.version>
+		<plugin.gpg.version>3.2.7</plugin.gpg.version>
+		<plugin.site.version>3.21.0</plugin.site.version>
+		<plugin.project-info-reports.version>3.8.0</plugin.project-info-reports.version>
+		<plugin.release.version>3.1.1</plugin.release.version>
 	</properties>
 
 	<scm>
-		<url>https://gitlab.com/${project.organization.name}/${project.module-root.artifactId}</url>
+		<url>https://github.com/${project.organization.name}/${project.module-root.artifactId}</url>
 		<connection>scm:git:${project.scm.url}.git</connection>
 		<developerConnection>${project.scm.connection}</developerConnection>
 		<tag>HEAD</tag>
 	</scm>
 
 	<issueManagement>
-		<url>${project.scm.url}/-/issues</url>
-		<system>GitLab</system>
+		<url>${project.scm.url}/issues</url>
+		<system>GitHub</system>
 	</issueManagement>
 
 	<distributionManagement>
 		<repository>
 			<id>project-repo</id>
 			<name>Project Repository</name>
-			<url>https://gitlab.com/api/v4/projects/${project.gitlab.id}/packages/maven</url>
+			<url>https://maven.pkg.github.com/${project.organization.name}/${project.module-root.artifactId}</url>
 		</repository>
 		<site>
 			<id>project-site-repo</id>
@@ -146,19 +145,19 @@
 		<repository>
 			<id>project-repo</id>
 			<name>Project Repository</name>
-			<url>https://gitlab.com/api/v4/projects/${project.gitlab.id}/packages/maven</url>
+			<url>https://maven.pkg.github.com/${project.organization.name}/${project.module-root.artifactId}</url>
 		</repository>
 	</repositories>
 	<pluginRepositories>
 		<pluginRepository>
 			<id>project-repo</id>
 			<name>Project Repository</name>
-			<url>https://gitlab.com/api/v4/projects/${project.gitlab.id}/packages/maven</url>
+			<url>https://maven.pkg.github.com/${project.organization.name}/${project.module-root.artifactId}</url>
 		</pluginRepository>
 		<pluginRepository>
 			<id>general-parent</id>
 			<name>General Parent</name>
-			<url>https://gitlab.com/api/v4/projects/25831549/packages/maven</url>
+			<url>https://maven.pkg.github.com/ChrissW-R1/general-parent</url>
 		</pluginRepository>
 	</pluginRepositories>
 
@@ -228,8 +227,10 @@
 								<directory>./</directory>
 								<includes>
 									<include>dependency-reduced-pom.xml</include>
+									<!--include>.github/workflows/maven-build.yml</include>
+									<include>.gitlab-ci.yml</include-->
 									<include>tsconfig.json</include>
-									<include>.eslintrc.json</include>
+									<include>eslint.config.js</include>
 									<include>package.json</include>
 									<include>Gruntfile.js</include>
 								</includes>
@@ -385,6 +386,7 @@
 								| Apache License 2.0
 								| Apache License version 2.0
 								| Apache License, 2.0
+								| Apache License, Version 2
 								| Apache License, Version 2.0
 								| The Apache License, Version 2.0
 								| The Apache Software License, Version 2.0
@@ -466,13 +468,13 @@
 								| GPL-2.0-or-later
 								| GPL-2.0
 								| GNU General Public License (GPL) version 2.0
+								| GNU General Public License version 2 (GPLv2)
 								| GNU General Public License, Version 2
 							</licenseMerge>
 							<licenseMerge>
 								GNU General Public License (GPL), Version 3.0+ (GPL-3.0-or-later)
 								| GPL-3.0-or-later
 								| GNU General Public License (GPL) version 3.0
-								| GNU Lesser General Public License v3.0
 							</licenseMerge>
 							<licenseMerge>
 								GNU General Public License (GPL) with Classpath exception (CPE), Version 2.0 (GPL-2.0-with-classpath-exception)
@@ -490,6 +492,7 @@
 								GNU Lesser General Public License (LGPL), Version 2.1 (LGPL-2.1-only)
 								| LGPL-2.1-only
 								| GNU Lesser General Public License, Version 2.1
+								| GNU LESSER GENERAL PUBLIC LICENSE, Version 2.1
 								| LGPL 2.1
 								| LGPLv2
 							</licenseMerge>
@@ -498,12 +501,14 @@
 								| LGPL-2.1-or-later
 								| GNU General Lesser Public License (LGPL) version 2.1
 								| GNU Lesser General Public License (LGPL)
+								| GNU Lesser General Public License version 2.1 (LGPLv2.1)
 								| Lesser General Public License (LGPL)
 							</licenseMerge>
 							<licenseMerge>
 								GNU Lesser General Public License (LGPL), Version 3.0+ (LGPL-3.0-or-later)
 								| LGPL-3.0-or-later
 								| GNU General Lesser Public License (LGPL) version 3.0
+								| GNU Lesser General Public License v3.0
 							</licenseMerge>
 							<licenseMerge>
 								MIT License (MIT)
@@ -601,6 +606,7 @@
 								<goal>copy-resources</goal>
 							</goals>
 							<configuration>
+								<outputDirectory>${third-party-properties.target.path}</outputDirectory>
 								<resources>
 									<resource>
 										<directory>${third-party-properties.src.path}</directory>
@@ -610,7 +616,6 @@
 										<filtering>true</filtering>
 									</resource>
 								</resources>
-								<outputDirectory>${third-party-properties.target.path}</outputDirectory>
 							</configuration>
 						</execution>
 					</executions>
@@ -620,6 +625,7 @@
 					<artifactId>dependency-check-maven</artifactId>
 					<version>${plugin.dependency-check.version}</version>
 					<configuration>
+						<nvdApiServerId>nvd.apikey</nvdApiServerId>
 						<pathToCore>${dotnetcore.path}</pathToCore>
 						<yarnAuditAnalyzerEnabled>false</yarnAuditAnalyzerEnabled>
 					</configuration>
@@ -753,7 +759,7 @@
 				<artifactId>maven-project-info-reports-plugin</artifactId>
 				<version>${plugin.project-info-reports.version}</version>
 			</plugin>
-			<plugin>
+			<!--plugin>
 				<groupId>org.owasp</groupId>
 				<artifactId>dependency-check-maven</artifactId>
 				<version>${plugin.dependency-check.version}</version>
@@ -765,7 +771,7 @@
 						</reports>
 					</reportSet>
 				</reportSets>
-			</plugin>
+			</plugin-->
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>license-maven-plugin</artifactId>
@@ -881,11 +887,11 @@
 		</profile>
 		<profile>
 			<id>check-dependencies</id>
-			<activation>
+			<!--activation>
 				<property>
 					<name>fullBuild</name>
 				</property>
-			</activation>
+			</activation-->
 			<build>
 				<plugins>
 					<plugin>
@@ -944,7 +950,7 @@
 							<execution>
 								<id>attach-sources</id>
 								<goals>
-									<goal>jar</goal>
+									<goal>jar-no-fork</goal>
 								</goals>
 							</execution>
 						</executions>

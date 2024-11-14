@@ -7,7 +7,7 @@
 	<parent>
 		<groupId>me.chrisswr1</groupId>
 		<artifactId>build-parent</artifactId>
-		<version>1.3.0-SNAPSHOT</version>
+		<version>2.3.2-SNAPSHOT</version>
 	</parent>
 
 	<!-- project identifier -->
@@ -24,7 +24,7 @@
 		<!-- technically-based properties -->
 		<project.module-root.relativedir>${project.parent.relativedir}../</project.module-root.relativedir>
 		<java.rootPackage>${project.groupId}.${java.package}</java.rootPackage>
-		<mainClass.localPath />
+		<mainClass.localPath>Main</mainClass.localPath>
 		<mainClass.fullPath>${java.rootPackage}.${mainClass.localPath}</mainClass.fullPath>
 		<java.filteredSource.dir>${project.build.directory}/filtered-sources/java</java.filteredSource.dir>
 
@@ -33,24 +33,25 @@
 		<obfuscate>true</obfuscate>
 
 		<!-- dependency versions -->
-		<graalvm.version>23.0.1</graalvm.version>
-		<jetbrains-annotations.version>24.0.1</jetbrains-annotations.version>
-		<lombok.version>1.18.28</lombok.version>
+		<graalvm.version>24.1.1</graalvm.version>
+		<jetbrains-annotations.version>26.0.1</jetbrains-annotations.version>
+		<jcip-annotations.version>1.0-1</jcip-annotations.version>
+		<spotbugs.version>4.8.6</spotbugs.version>
+		<lombok.version>1.18.34</lombok.version>
 		<lombok-pg.version>0.11.3</lombok-pg.version>
-		<slf4j.version>2.0.7</slf4j.version>
-		<proguard.annotations.version>7.3.2</proguard.annotations.version>
-		<junit.minor-version>10.0</junit.minor-version>
+		<slf4j.version>2.0.16</slf4j.version>
+		<proguard.annotations.version>7.6.0</proguard.annotations.version>
+		<junit.minor-version>11.3</junit.minor-version>
 		<junit.jupiter.version>5.${junit.minor-version}</junit.jupiter.version>
 		<junit.platform.version>1.${junit.minor-version}</junit.platform.version>
-		<junit.platform.surefire.version>1.3.2</junit.platform.surefire.version>
-		<mockito.version>5.4.0</mockito.version>
+		<mockito.version>5.14.2</mockito.version>
 
 		<!-- plugin versions -->
-		<plugin.proguard.version>2.6.0</plugin.proguard.version>
-		<plugin.spotbugs.version>4.7.3.5</plugin.spotbugs.version>
-		<plugin.surefire.version>3.1.2</plugin.surefire.version>
-		<plugin.shade.version>3.5.0</plugin.shade.version>
-		<plugin.javadoc.version>3.5.0</plugin.javadoc.version>
+		<plugin.proguard.version>2.6.1</plugin.proguard.version>
+		<plugin.spotbugs.version>${spotbugs.version}.5</plugin.spotbugs.version>
+		<plugin.surefire.version>3.5.2</plugin.surefire.version>
+		<plugin.shade.version>3.6.0</plugin.shade.version>
+		<plugin.javadoc.version>3.11.1</plugin.javadoc.version>
 
 		<!-- JavaDoc URLs -->
 		<lombok.javadoc-url>https://projectlombok.org/api</lombok.javadoc-url>
@@ -75,6 +76,16 @@
 		</dependency>
 
 		<!-- default dependencies -->
+		<dependency>
+			<groupId>com.github.stephenc.jcip</groupId>
+			<artifactId>jcip-annotations</artifactId>
+			<version>${jcip-annotations.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.github.spotbugs</groupId>
+			<artifactId>spotbugs-annotations</artifactId>
+			<version>${spotbugs.version}</version>
+		</dependency>
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
