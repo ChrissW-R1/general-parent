@@ -6,25 +6,34 @@
 
 	<parent>
 		<groupId>me.chrisswr1</groupId>
-		<artifactId>java-parent</artifactId>
+		<artifactId>webapp-parent</artifactId>
 		<version>2.3.2-SNAPSHOT</version>
 	</parent>
 
 	<!-- project identifier -->
-	<artifactId>java-parent-test</artifactId>
+	<artifactId>webapp-parent-test</artifactId>
+	<packaging>war</packaging>
 
 	<!-- project metadata -->
-	<name>Java Test</name>
+	<name>Web App Test</name>
 	<description>
-		Test for Java Parent
+		Test for Web App Parent
 	</description>
 
 	<properties>
 		<!-- technically-based properties -->
-		<project.module-root.relativedir>${project.parent.relativedir}../../</project.module-root.relativedir>
+		<project.module-root.relativedir>${project.parent.relativedir}../../../</project.module-root.relativedir>
 
 		<!-- project-specific properties -->
 		<java.package>test</java.package>
-		<mainClass.localPath>App</mainClass.localPath>
+		<mainClass.localPath>MainServlet</mainClass.localPath>
 	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>java-parent-test</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+	</dependencies>
 </project>

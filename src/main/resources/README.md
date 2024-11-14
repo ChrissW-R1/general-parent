@@ -15,7 +15,7 @@ First, add the repository:
 <repositories>
 	...
 	<repository>
-		<id>general-parent</id>
+		<id>${project.module-root.artifactId}</id>
 		<name>General Parent</name>
 		<url>https://maven.pkg.github.com/ChrissW-R1/general-parent</url>
 	</repository>
@@ -26,9 +26,9 @@ First, add the repository:
 Secondly, set the parent to the project type parent. Example as a Java Project:
 ```XML
 <parent>
-	<groupId>me.chrisswr1</groupId>
+	<groupId>${project.groupId}</groupId>
 	<artifactId>java-parent</artifactId>
-	<version>2.3.1</version>
+	<version>${project.version}</version>
 </parent>
 ```
 

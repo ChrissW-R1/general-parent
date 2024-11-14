@@ -7,13 +7,14 @@
 	<!-- project identifier -->
 	<groupId>me.chrisswr1</groupId>
 	<artifactId>general-parent</artifactId>
-	<version>1.0.0-SNAPSHOT</version>
+	<version>2.3.2-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<!-- project metadata -->
 	<name>General Parent</name>
 	<description>
-		This project only contains the default properties and settings, which should be used in all projects of ChrissW-R1.
+		This project only contains the default properties and settings,
+		which should be used in all projects of ChrissW-R1.
 	</description>
 	<url>${project.site.baseUrl}/${project.site.urlPath}</url>
 	<inceptionYear>2018</inceptionYear>
@@ -53,6 +54,7 @@
 
 	<properties>
 		<!-- technically-based properties -->
+		<project.build.artifactFileName>${project.build.finalName}.${project.packaging}</project.build.artifactFileName>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.scm.id>project-repo</project.scm.id>
 		<project.parent.relativedir />
@@ -62,11 +64,12 @@
 		<project.module-root.basedir>${basedir}/${project.module-root.relativedir}</project.module-root.basedir>
 		<project.site.urlPath>${project.groupId}/${project.module-root.artifactId}/${project.version}</project.site.urlPath>
 		<project.site.baseUrl>https://${project.site.basePath}</project.site.baseUrl>
-		<project.site.deploy.baseUrl>ftp://${project.site.basePath}</project.site.deploy.baseUrl>
+		<project.site.deploy.baseUrl>ftps://${project.site.baseDomain}</project.site.deploy.baseUrl>
 		<project.site.deploy.url>${project.site.deploy.baseUrl}/${project.site.urlPath}</project.site.deploy.url>
 		<java.version.prefixed>1.${java.version}</java.version.prefixed>
 		<netbeans.hint.jdkPlatform>JDK_${java.version.prefixed}</netbeans.hint.jdkPlatform>
-		<general-parent.version>1.0.0-SNAPSHOT</general-parent.version>
+		<copy-artifact.dir />
+		<general-parent.version>2.3.2-SNAPSHOT</general-parent.version>
 		<properties.file>build.properties</properties.file>
 		<third-party-properties.filename>THIRD-PARTY.properties</third-party-properties.filename>
 		<third-party-properties.src.path>${project.module-root.basedir}/src/license</third-party-properties.src.path>
@@ -75,9 +78,10 @@
 		<third-party-properties.target.fullPath>${third-party-properties.target.path}/${third-party-properties.filename}</third-party-properties.target.fullPath>
 
 		<!-- project-specific properties -->
-		<project.site.basePath>docs.urelion.world</project.site.basePath>
+		<project.site.baseDomain>urelion.world</project.site.baseDomain>
+		<project.site.basePath>docs.${project.site.baseDomain}</project.site.basePath>
 		<project.gitlab.id>25831549</project.gitlab.id>
-		<java.version>8</java.version>
+		<java.version>11</java.version>
 
 		<!-- license definition -->
 		<license.name>Apache</license.name>
@@ -88,44 +92,47 @@
 		<license.signature>${license.name} License (${license.abbr}), Version ${license.version} (${license.id})</license.signature>
 
 		<!-- dependency versions -->
-		<ant.version>1.8.1</ant.version>
 		<ant-contrib.version>1.0b3</ant-contrib.version>
-		<wagon.version>3.4.3</wagon.version>
+		<wagon.version>3.5.3</wagon.version>
 
 		<!-- plugin versions -->
-		<plugin.dependency.version>3.2.0</plugin.dependency.version>
-		<plugin.clean.version>3.1.0</plugin.clean.version>
+		<plugin.dependency.version>3.8.1</plugin.dependency.version>
+		<plugin.versions.version>2.17.1</plugin.versions.version>
+		<plugin.clean.version>3.4.0</plugin.clean.version>
+		<plugin.help.version>3.5.1</plugin.help.version>
 		<plugin.replacer.version>1.5.3</plugin.replacer.version>
-		<plugin.properties.version>1.0.0</plugin.properties.version>
-		<plugin.buildhelper.version>3.2.0</plugin.buildhelper.version>
-		<plugin.license.version>2.0.0</plugin.license.version>
-		<plugin.resources.version>3.2.0</plugin.resources.version>
-		<plugin.antrun.version>3.0.0</plugin.antrun.version>
-		<plugin.compiler.version>3.8.1</plugin.compiler.version>
-		<plugin.jar.version>3.2.0</plugin.jar.version>
-		<plugin.source.version>3.2.1</plugin.source.version>
-		<plugin.gpg.version>3.0.1</plugin.gpg.version>
-		<plugin.site.version>3.9.1</plugin.site.version>
-		<plugin.project-info-reports.version>3.1.2</plugin.project-info-reports.version>
-		<plugin.release.version>2.5.3</plugin.release.version>
+		<plugin.properties.version>1.2.1</plugin.properties.version>
+		<plugin.buildhelper.version>3.6.0</plugin.buildhelper.version>
+		<plugin.license.version>2.4.0</plugin.license.version>
+		<plugin.resources.version>3.3.1</plugin.resources.version>
+		<plugin.antrun.version>3.1.0</plugin.antrun.version>
+		<plugin.compiler.version>3.13.0</plugin.compiler.version>
+		<plugin.dependency-check.version>11.1.0</plugin.dependency-check.version>
+		<plugin.jar.version>3.4.2</plugin.jar.version>
+		<plugin.source.version>3.3.1</plugin.source.version>
+		<plugin.gpg.version>3.2.7</plugin.gpg.version>
+		<plugin.site.version>3.21.0</plugin.site.version>
+		<plugin.project-info-reports.version>3.8.0</plugin.project-info-reports.version>
+		<plugin.release.version>3.1.1</plugin.release.version>
 	</properties>
 
 	<scm>
-		<url>https://gitlab.com/${project.organization.name}/${project.module-root.artifactId}</url>
+		<url>https://github.com/${project.organization.name}/${project.module-root.artifactId}</url>
 		<connection>scm:git:${project.scm.url}.git</connection>
 		<developerConnection>${project.scm.connection}</developerConnection>
+		<tag>HEAD</tag>
 	</scm>
 
 	<issueManagement>
-		<url>${project.scm.url}/-/issues</url>
-		<system>GitLab</system>
+		<url>${project.scm.url}/issues</url>
+		<system>GitHub</system>
 	</issueManagement>
 
 	<distributionManagement>
 		<repository>
 			<id>project-repo</id>
 			<name>Project Repository</name>
-			<url>https://gitlab.com/api/v4/projects/${project.gitlab.id}/packages/maven</url>
+			<url>https://maven.pkg.github.com/${project.organization.name}/${project.module-root.artifactId}</url>
 		</repository>
 		<site>
 			<id>project-site-repo</id>
@@ -138,40 +145,21 @@
 		<repository>
 			<id>project-repo</id>
 			<name>Project Repository</name>
-			<url>https://gitlab.com/api/v4/projects/${project.gitlab.id}/packages/maven</url>
+			<url>https://maven.pkg.github.com/${project.organization.name}/${project.module-root.artifactId}</url>
 		</repository>
 	</repositories>
 	<pluginRepositories>
 		<pluginRepository>
 			<id>project-repo</id>
 			<name>Project Repository</name>
-			<url>https://gitlab.com/api/v4/projects/${project.gitlab.id}/packages/maven</url>
+			<url>https://maven.pkg.github.com/${project.organization.name}/${project.module-root.artifactId}</url>
 		</pluginRepository>
 		<pluginRepository>
 			<id>general-parent</id>
 			<name>General Parent</name>
-			<url>https://gitlab.com/api/v4/projects/25831549/packages/maven</url>
+			<url>https://maven.pkg.github.com/ChrissW-R1/general-parent</url>
 		</pluginRepository>
 	</pluginRepositories>
-
-	<dependencies>
-		<dependency>
-			<groupId>ant-contrib</groupId>
-			<artifactId>ant-contrib</artifactId>
-			<version>${ant-contrib.version}</version>
-			<exclusions>
-				<exclusion>
-					<groupId>ant</groupId>
-					<artifactId>ant</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.ant</groupId>
-			<artifactId>ant-nodeps</artifactId>
-			<version>${ant.version}</version>
-		</dependency>
-	</dependencies>
 
 	<build>
 		<extensions>
@@ -217,6 +205,20 @@
 					<version>${plugin.dependency.version}</version>
 				</plugin>
 				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>versions-maven-plugin</artifactId>
+					<version>${plugin.versions.version}</version>
+					<executions>
+						<execution>
+							<id>display-updates</id>
+							<goals>
+								<goal>display-property-updates</goal>
+							</goals>
+							<phase>validate</phase>
+						</execution>
+					</executions>
+				</plugin>
+				<plugin>
 					<artifactId>maven-clean-plugin</artifactId>
 					<version>${plugin.clean.version}</version>
 					<configuration>
@@ -225,14 +227,20 @@
 								<directory>./</directory>
 								<includes>
 									<include>dependency-reduced-pom.xml</include>
+									<!--include>.github/workflows/maven-build.yml</include>
+									<include>.gitlab-ci.yml</include-->
 									<include>tsconfig.json</include>
-									<include>.eslintrc.json</include>
+									<include>eslint.config.js</include>
 									<include>package.json</include>
 									<include>Gruntfile.js</include>
 								</includes>
 							</fileset>
 						</filesets>
 					</configuration>
+				</plugin>
+				<plugin>
+					<artifactId>maven-help-plugin</artifactId>
+					<version>${plugin.help.version}</version>
 				</plugin>
 				<plugin>
 					<groupId>com.google.code.maven-replacer-plugin</groupId>
@@ -249,8 +257,8 @@
 								<file>pom.xml</file>
 								<replacements>
 									<replacement>
-										<token>&lt;general-parent.version>(.*)&lt;/general-parent.version></token>
-										<value>&lt;general-parent.version>${project.version}&lt;/general-parent.version></value>
+										<token>&lt;general-parent.version&gt;(.*)&lt;/general-parent.version&gt;</token>
+										<value>&lt;general-parent.version&gt;${project.version}&lt;/general-parent.version&gt;</value>
 									</replacement>
 								</replacements>
 							</configuration>
@@ -282,11 +290,45 @@
 					<version>${plugin.buildhelper.version}</version>
 					<executions>
 						<execution>
+							<id>parse-version</id>
+							<goals>
+								<goal>parse-version</goal>
+							</goals>
+							<phase>initialize</phase>
+						</execution>
+						<execution>
+							<id>base-version-property</id>
+							<goals>
+								<goal>regex-property</goal>
+							</goals>
+							<phase>initialize</phase>
+							<configuration>
+								<name>project.baseVersion</name>
+								<value>${project.version}</value>
+								<regex>(\d+(\.\d+)*)(.*)</regex>
+								<replacement>$1</replacement>
+							</configuration>
+						</execution>
+						<execution>
+							<id>java-qualified-version-property</id>
+							<goals>
+								<goal>regex-property</goal>
+							</goals>
+							<phase>validate</phase>
+							<configuration>
+								<name>java.version.qualified</name>
+								<value>${java.version}</value>
+								<regex>^([1-9]|10)$</regex>
+								<replacement>${java.version.prefixed}</replacement>
+								<failIfNoMatch>false</failIfNoMatch>
+							</configuration>
+						</execution>
+						<execution>
 							<id>timestamp-property</id>
 							<goals>
 								<goal>timestamp-property</goal>
 							</goals>
-							<phase>validate</phase>
+							<phase>initialize</phase>
 							<configuration>
 								<name>project.versionYear</name>
 								<pattern>yyyy</pattern>
@@ -334,6 +376,7 @@
 								Apache License (ASL), Version 1.1 (Apache-1.1)
 								| Apache-1.1
 								| The Apache Software License, Version 1.1
+								| http://ant-contrib.sourceforge.net/tasks/LICENSE.txt
 							</licenseMerge>
 							<licenseMerge>
 								Apache License (ASL), Version 2.0 (Apache-2.0)
@@ -343,6 +386,7 @@
 								| Apache License 2.0
 								| Apache License version 2.0
 								| Apache License, 2.0
+								| Apache License, Version 2
 								| Apache License, Version 2.0
 								| The Apache License, Version 2.0
 								| The Apache Software License, Version 2.0
@@ -424,19 +468,20 @@
 								| GPL-2.0-or-later
 								| GPL-2.0
 								| GNU General Public License (GPL) version 2.0
+								| GNU General Public License version 2 (GPLv2)
 								| GNU General Public License, Version 2
 							</licenseMerge>
 							<licenseMerge>
 								GNU General Public License (GPL), Version 3.0+ (GPL-3.0-or-later)
 								| GPL-3.0-or-later
 								| GNU General Public License (GPL) version 3.0
-								| GNU Lesser General Public License v3.0
 							</licenseMerge>
 							<licenseMerge>
 								GNU General Public License (GPL) with Classpath exception (CPE), Version 2.0 (GPL-2.0-with-classpath-exception)
 								| GPL-2.0-with-classpath-exception
 								| GPL2 w/ CPE
 								| The GNU General Public License (GPL), Version 2, With Classpath Exception
+								| GNU General Public License, version 2, with the Classpath Exception
 							</licenseMerge>
 							<licenseMerge>
 								Java Distribution License (JDL), Version 1.1.x (JDL-1.1.x)
@@ -447,6 +492,7 @@
 								GNU Lesser General Public License (LGPL), Version 2.1 (LGPL-2.1-only)
 								| LGPL-2.1-only
 								| GNU Lesser General Public License, Version 2.1
+								| GNU LESSER GENERAL PUBLIC LICENSE, Version 2.1
 								| LGPL 2.1
 								| LGPLv2
 							</licenseMerge>
@@ -455,22 +501,25 @@
 								| LGPL-2.1-or-later
 								| GNU General Lesser Public License (LGPL) version 2.1
 								| GNU Lesser General Public License (LGPL)
+								| GNU Lesser General Public License version 2.1 (LGPLv2.1)
 								| Lesser General Public License (LGPL)
 							</licenseMerge>
 							<licenseMerge>
 								GNU Lesser General Public License (LGPL), Version 3.0+ (LGPL-3.0-or-later)
 								| LGPL-3.0-or-later
 								| GNU General Lesser Public License (LGPL) version 3.0
+								| GNU Lesser General Public License v3.0
 							</licenseMerge>
 							<licenseMerge>
 								MIT License (MIT)
 								| MIT
-								| jQuery license
 								| MIT License
 								| MIT license
 								| MIT-License
 								| The MIT License
+								| The MIT License (MIT)
 								| The MIT License(MIT)
+								| jQuery license
 							</licenseMerge>
 							<licenseMerge>
 								Mozilla Public License (MPL), Version 1.1 (MPL-1.1)
@@ -486,6 +535,11 @@
 								Public Domain (PD)
 								| PD
 								| Public Domain
+							</licenseMerge>
+							<licenseMerge>
+								Universal Permissive License (UPL), Version 1.0 (UPL-1.0)
+								| UPL-1.0
+								| Universal Permissive License, Version 1.0
 							</licenseMerge>
 							<licenseMerge>
 								W3C Software Notice and License (W3C)
@@ -507,15 +561,14 @@
 								| Modified BSD 3-Clause License
 							</licenseMerge>
 						</licenseMerges>
+						<failOnMissing>false</failOnMissing>
 					</configuration>
 					<executions>
 						<execution>
-							<id>add-licenses</id>
+							<id>update-license</id>
 							<phase>generate-resources</phase>
 							<goals>
 								<goal>update-project-license</goal>
-								<goal>aggregate-add-third-party</goal>
-								<goal>download-licenses</goal>
 							</goals>
 						</execution>
 					</executions>
@@ -528,12 +581,32 @@
 					</configuration>
 					<executions>
 						<execution>
+							<id>copy-readme</id>
+							<phase>process-resources</phase>
+							<goals>
+								<goal>copy-resources</goal>
+							</goals>
+							<configuration>
+								<outputDirectory>${project.module-root.basedir}</outputDirectory>
+								<resources>
+									<resource>
+										<directory>${project.module-root.basedir}/src/main/resources</directory>
+										<includes>
+											<include>README.md</include>
+										</includes>
+										<filtering>true</filtering>
+									</resource>
+								</resources>
+							</configuration>
+						</execution>
+						<execution>
 							<id>third-party-filtering</id>
 							<phase>pre-site</phase>
 							<goals>
 								<goal>copy-resources</goal>
 							</goals>
 							<configuration>
+								<outputDirectory>${third-party-properties.target.path}</outputDirectory>
 								<resources>
 									<resource>
 										<directory>${third-party-properties.src.path}</directory>
@@ -543,10 +616,19 @@
 										<filtering>true</filtering>
 									</resource>
 								</resources>
-								<outputDirectory>${third-party-properties.target.path}</outputDirectory>
 							</configuration>
 						</execution>
 					</executions>
+				</plugin>
+				<plugin>
+					<groupId>org.owasp</groupId>
+					<artifactId>dependency-check-maven</artifactId>
+					<version>${plugin.dependency-check.version}</version>
+					<configuration>
+						<nvdApiServerId>nvd.apikey</nvdApiServerId>
+						<pathToCore>${dotnetcore.path}</pathToCore>
+						<yarnAuditAnalyzerEnabled>false</yarnAuditAnalyzerEnabled>
+					</configuration>
 				</plugin>
 				<plugin>
 					<artifactId>maven-jar-plugin</artifactId>
@@ -573,19 +655,20 @@
 				<plugin>
 					<artifactId>maven-antrun-plugin</artifactId>
 					<version>${plugin.antrun.version}</version>
+					<dependencies>
+						<dependency>
+							<groupId>ant-contrib</groupId>
+							<artifactId>ant-contrib</artifactId>
+							<version>${ant-contrib.version}</version>
+							<exclusions>
+								<exclusion>
+									<groupId>ant</groupId>
+									<artifactId>ant</artifactId>
+								</exclusion>
+							</exclusions>
+						</dependency>
+					</dependencies>
 					<executions>
-						<execution>
-							<id>echo-properties</id>
-							<phase>validate</phase>
-							<goals>
-								<goal>run</goal>
-							</goals>
-							<configuration>
-								<target>
-									<echoproperties />
-								</target>
-							</configuration>
-						</execution>
 						<execution>
 							<id>check-third-party-properties</id>
 							<phase>site</phase>
@@ -633,11 +716,18 @@
 					<version>${plugin.release.version}</version>
 					<configuration>
 						<autoVersionSubmodules>true</autoVersionSubmodules>
+						<tagNameFormat>@{project.version}</tagNameFormat>
+						<scmCommentPrefix>[maven-release-plugin] [skip ci]</scmCommentPrefix>
+						<arguments>-Dexecutable -DfullBuild</arguments>
 					</configuration>
 				</plugin>
 			</plugins>
 		</pluginManagement>
 		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>versions-maven-plugin</artifactId>
+			</plugin>
 			<plugin>
 				<groupId>com.google.code.maven-replacer-plugin</groupId>
 				<artifactId>replacer</artifactId>
@@ -669,10 +759,31 @@
 				<artifactId>maven-project-info-reports-plugin</artifactId>
 				<version>${plugin.project-info-reports.version}</version>
 			</plugin>
+			<!--plugin>
+				<groupId>org.owasp</groupId>
+				<artifactId>dependency-check-maven</artifactId>
+				<version>${plugin.dependency-check.version}</version>
+				<reportSets>
+					<reportSet>
+						<id>aggregate-dependency-check</id>
+						<reports>
+							<report>aggregate</report>
+						</reports>
+					</reportSet>
+				</reportSets>
+			</plugin-->
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>license-maven-plugin</artifactId>
 				<version>${plugin.license.version}</version>
+				<reportSets>
+					<reportSet>
+						<id>third-party-report</id>
+						<reports>
+							<report>third-party-report</report>
+						</reports>
+					</reportSet>
+				</reportSets>
 			</plugin>
 		</plugins>
 	</reporting>
@@ -695,6 +806,136 @@
 			</build>
 		</profile>
 		<profile>
+			<id>echo-properties</id>
+			<activation>
+				<property>
+					<name>fullBuild</name>
+				</property>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<artifactId>maven-antrun-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>echo-properties</id>
+								<phase>generate-sources</phase>
+								<goals>
+									<goal>run</goal>
+								</goals>
+								<configuration>
+									<target>
+										<echoproperties />
+									</target>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile>
+			<id>show-active-profiles</id>
+			<activation>
+				<property>
+					<name>fullBuild</name>
+				</property>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<artifactId>maven-help-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>show-active-profiles</id>
+								<phase>validate</phase>
+								<goals>
+									<goal>active-profiles</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile>
+			<id>effective-pom</id>
+			<activation>
+				<property>
+					<name>fullBuild</name>
+				</property>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<artifactId>maven-help-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>generate-effective-pom</id>
+								<phase>generate-sources</phase>
+								<goals>
+									<goal>effective-pom</goal>
+								</goals>
+								<configuration>
+									<output>${project.build.directory}/${project.build.finalName}-effective.pom</output>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile>
+			<id>check-dependencies</id>
+			<!--activation>
+				<property>
+					<name>fullBuild</name>
+				</property>
+			</activation-->
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.owasp</groupId>
+						<artifactId>dependency-check-maven</artifactId>
+						<executions>
+							<execution>
+								<id>check-dependencies</id>
+								<goals>
+									<goal>check</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile>
+			<id>add-licenses</id>
+			<activation>
+				<property>
+					<name>fullBuild</name>
+				</property>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>license-maven-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>add-licenses</id>
+								<phase>generate-resources</phase>
+								<goals>
+									<goal>add-third-party</goal>
+									<goal>download-licenses</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile>
 			<id>attach-docs-and-sources</id>
 			<activation>
 				<property>
@@ -709,7 +950,7 @@
 							<execution>
 								<id>attach-sources</id>
 								<goals>
-									<goal>jar</goal>
+									<goal>jar-no-fork</goal>
 								</goals>
 							</execution>
 						</executions>
@@ -773,6 +1014,19 @@
 						</executions>
 					</plugin>
 					<plugin>
+						<groupId>org.owasp</groupId>
+						<artifactId>dependency-check-maven</artifactId>
+						<executions>
+							<execution>
+								<id>clean-nvd-copy</id>
+								<phase>pre-clean</phase>
+								<goals>
+									<goal>purge</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
 						<artifactId>maven-clean-plugin</artifactId>
 						<configuration>
 							<filesets combine.children="append">
@@ -791,6 +1045,34 @@
 						<configuration>
 							<cleanLicensesOutputDirectory>true</cleanLicensesOutputDirectory>
 						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile>
+			<id>copy-artifact</id>
+			<build>
+				<plugins>
+					<plugin>
+						<artifactId>maven-antrun-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>copy-artifact</id>
+								<phase>install</phase>
+								<goals>
+									<goal>run</goal>
+								</goals>
+								<configuration>
+									<target>
+										<mkdir dir="${copy-artifact.dir}" />
+										<copy todir="${copy-artifact.dir}">
+											<fileset dir="${project.build.directory}"
+													 includes="${project.build.artifactFileName}" />
+										</copy>
+									</target>
+								</configuration>
+							</execution>
+						</executions>
 					</plugin>
 				</plugins>
 			</build>
