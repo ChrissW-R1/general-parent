@@ -33,7 +33,7 @@
 		<obfuscate>true</obfuscate>
 
 		<!-- dependency versions -->
-		<graalvm.version>24.2.0</graalvm.version>
+		<graalvm.version>24.2.1</graalvm.version>
 		<jetbrains-annotations.version>26.0.2</jetbrains-annotations.version>
 		<jcip-annotations.version>1.0-1</jcip-annotations.version>
 		<spotbugs.version>4.9.3</spotbugs.version>
@@ -41,10 +41,10 @@
 		<lombok-pg.version>0.11.3</lombok-pg.version>
 		<slf4j.version>2.0.17</slf4j.version>
 		<proguard.annotations.version>7.7.0</proguard.annotations.version>
-		<junit.minor-version>12.1</junit.minor-version>
+		<junit.minor-version>13.1</junit.minor-version>
 		<junit.jupiter.version>5.${junit.minor-version}</junit.jupiter.version>
 		<junit.platform.version>1.${junit.minor-version}</junit.platform.version>
-		<mockito.version>5.17.0</mockito.version>
+		<mockito.version>5.18.0</mockito.version>
 
 		<!-- plugin versions -->
 		<plugin.proguard.version>2.7.0</plugin.proguard.version>
