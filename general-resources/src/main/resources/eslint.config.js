@@ -19,6 +19,12 @@ const compat     = new FlatCompat({
 	allConfig:         js.configs.all
 });
 
+function stripGlobalKeys(obj) {
+	return Object.fromEntries(
+		Object.entries(obj).map(([key, value]) => [key.trim(), value])
+	);
+}
+
 export default [
 	...compat.extends(
 		"plugin:@typescript-eslint/recommended",
@@ -35,8 +41,8 @@ export default [
 
 		languageOptions: {
 			globals: {
-				...globals.browser,
-				...globals.node,
+				...stripGlobalKeys(globals.browser),
+				...stripGlobalKeys(globals.node),
 			},
 
 			parser:      tsParser,

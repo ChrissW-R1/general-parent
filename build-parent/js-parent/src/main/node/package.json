@@ -21,6 +21,7 @@
 			"url":   "http://ChrissW-R1.me"
 		}
 	],
+	"type":            "module",
 	"repository":      {
 		"type": "git",
 		"url":  "git+${project.scm.url}.git"
