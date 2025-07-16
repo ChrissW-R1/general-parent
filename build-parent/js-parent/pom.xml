@@ -173,7 +173,9 @@
 										<includes>
 											<include>package.json</include>
 											<include>Gruntfile.js</include>
+											<include>Gruntfile.cjs</include>
 											<include>webpack.config.js</include>
+											<include>webpack.config.cjs</include>
 										</includes>
 										<filtering>true</filtering>
 									</resource>

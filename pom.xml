@@ -236,6 +236,9 @@
 									<include>eslint.config.js</include>
 									<include>package.json</include>
 									<include>Gruntfile.js</include>
+									<include>Gruntfile.cjs</include>
+									<include>webpack.config.js</include>
+									<include>webpack.config.cjs</include>
 								</includes>
 							</fileset>
 						</filesets>

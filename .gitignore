@@ -80,10 +80,14 @@ yarn.lock
 .tscache
 Gruntfile.js
 !**/src/**/Gruntfile.js
+Gruntfile.cjs
+!**/src/**/Gruntfile.cjs
 
 #### webpack
 webpack.config.js
 !**/src/**/webpack.config.js
+webpack.config.cjs
+!**/src/**/webpack.config.cjs
 
 #### Angular
 dist/
