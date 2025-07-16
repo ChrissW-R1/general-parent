@@ -31,7 +31,6 @@
 		<obfuscate>true</obfuscate>
 
 		<!-- dependency versions -->
-		<graalvm.version>24.2.1</graalvm.version>
 		<jetbrains-annotations.version>26.0.2</jetbrains-annotations.version>
 		<jcip-annotations.version>1.0-1</jcip-annotations.version>
 		<spotbugs.version>4.9.3</spotbugs.version>
@@ -60,12 +59,6 @@
 
 	<dependencies>
 		<!-- provided dependencies -->
-		<dependency>
-			<groupId>org.graalvm.compiler</groupId>
-			<artifactId>compiler</artifactId>
-			<version>${graalvm.version}</version>
-			<scope>provided</scope>
-		</dependency>
 		<dependency>
 			<groupId>org.jetbrains</groupId>
 			<artifactId>annotations</artifactId>
