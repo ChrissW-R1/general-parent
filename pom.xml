@@ -92,8 +92,7 @@
 		<license.abbr>ASL</license.abbr>
 		<license.id>${license.name}-${license.version}</license.id>
 		<license.url>http://www.apache.org/licenses/LICENSE-${license.version}.txt</license.url>
-		<license.signature>${license.name} License (${license.abbr}), Version ${license.version} (${license.id})
-		</license.signature>
+		<license.signature>${license.name} License (${license.abbr}), Version ${license.version} (${license.id})</license.signature>
 
 		<!-- dependency versions -->
 		<ant-contrib.version>1.0b3</ant-contrib.version>
@@ -107,14 +106,14 @@
 		<plugin.replacer.version>1.5.3</plugin.replacer.version>
 		<plugin.properties.version>1.2.1</plugin.properties.version>
 		<plugin.buildhelper.version>3.6.1</plugin.buildhelper.version>
-		<plugin.license.version>2.5.0</plugin.license.version>
+		<plugin.license.version>2.6.0</plugin.license.version>
 		<plugin.resources.version>3.3.1</plugin.resources.version>
 		<plugin.antrun.version>3.1.0</plugin.antrun.version>
 		<plugin.compiler.version>3.14.0</plugin.compiler.version>
 		<plugin.dependency-check.version>12.1.3</plugin.dependency-check.version>
 		<plugin.jar.version>3.4.2</plugin.jar.version>
 		<plugin.source.version>3.3.1</plugin.source.version>
-		<plugin.gpg.version>3.2.7</plugin.gpg.version>
+		<plugin.gpg.version>3.2.8</plugin.gpg.version>
 		<plugin.site.version>3.21.0</plugin.site.version>
 		<plugin.project-info-reports.version>3.9.0</plugin.project-info-reports.version>
 		<plugin.release.version>3.1.1</plugin.release.version>
