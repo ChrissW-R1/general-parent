@@ -66,36 +66,43 @@
 			<scope>provided</scope>
 		</dependency>
 
-		<!-- default dependencies -->
+		<!-- build-only dependencies -->
 		<dependency>
 			<groupId>com.github.stephenc.jcip</groupId>
 			<artifactId>jcip-annotations</artifactId>
 			<version>${jcip-annotations.version}</version>
+			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>com.github.spotbugs</groupId>
 			<artifactId>spotbugs-annotations</artifactId>
 			<version>${spotbugs.version}</version>
+			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 			<version>${lombok.version}</version>
+			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>com.github.peichhorn</groupId>
 			<artifactId>lombok-pg</artifactId>
 			<version>${lombok-pg.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-api</artifactId>
-			<version>${slf4j.version}</version>
+			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>com.guardsquare</groupId>
 			<artifactId>proguard-annotations</artifactId>
 			<version>${proguard.annotations.version}</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<!-- default dependencies -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>${slf4j.version}</version>
 		</dependency>
 
 		<!-- test dependencies -->
