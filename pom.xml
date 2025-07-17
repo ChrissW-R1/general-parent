@@ -709,14 +709,6 @@
 				<plugin>
 					<artifactId>maven-gpg-plugin</artifactId>
 					<version>${plugin.gpg.version}</version>
-					<executions>
-						<execution>
-							<id>sign-artifacts</id>
-							<goals>
-								<goal>sign</goal>
-							</goals>
-						</execution>
-					</executions>
 				</plugin>
 				<plugin>
 					<artifactId>maven-release-plugin</artifactId>
@@ -1018,6 +1010,58 @@
 			</build>
 		</profile>
 		<profile>
+			<id>hash-artifacts</id>
+			<activation>
+				<property>
+					<name>fullBuild</name>
+				</property>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<artifactId>maven-antrun-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>hash-artifacts</id>
+								<phase>install</phase>
+								<goals>
+									<goal>run</goal>
+								</goals>
+								<configuration>
+									<target>
+										<checksum todir="${project.build.directory}"
+												  algorithm="SHA-512"
+												  fileext=".sha512">
+											<fileset dir="${project.build.directory}">
+												<include name="*"/>
+												<exclude name="**/*.asc"/>
+												<exclude name="**/*.md5"/>
+												<exclude name="**/*.sha1"/>
+												<exclude name="**/*.sha256"/>
+												<exclude name="**/*.sha512"/>
+											</fileset>
+										</checksum>
+										<checksum todir="${project.build.directory}"
+												  algorithm="SHA-256"
+												  fileext=".sha256">
+											<fileset dir="${project.build.directory}">
+												<include name="*"/>
+												<exclude name="**/*.asc"/>
+												<exclude name="**/*.md5"/>
+												<exclude name="**/*.sha1"/>
+												<exclude name="**/*.sha256"/>
+												<exclude name="**/*.sha512"/>
+											</fileset>
+										</checksum>
+									</target>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile>
 			<id>sign-artifacts</id>
 			<activation>
 				<property>
@@ -1028,6 +1072,14 @@
 				<plugins>
 					<plugin>
 						<artifactId>maven-gpg-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>sign-artifacts</id>
+								<goals>
+									<goal>sign</goal>
+								</goals>
+							</execution>
+						</executions>
 					</plugin>
 				</plugins>
 			</build>
