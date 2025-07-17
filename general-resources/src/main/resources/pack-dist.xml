@@ -23,6 +23,9 @@
 		<fileSet>
 			<directory>${project.build.directory}/dependencies</directory>
 			<outputDirectory>lib</outputDirectory>
+			<includes>
+				<include>**/*</include>
+			</includes>
 		</fileSet>
 		<!-- documentation -->
 		<fileSet>

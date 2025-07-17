@@ -196,4 +196,6 @@ atlassian-ide-plugin.xml
 *.fmw.recover
 
 ### Project specific
+pack-dist.xml
+!**/src/main/resources/pack-dist.xml
 default.gitignore
