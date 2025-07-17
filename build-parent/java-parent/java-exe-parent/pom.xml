@@ -101,7 +101,7 @@
 						<executions>
 							<execution>
 								<id>attach-exe</id>
-								<phase>verify</phase>
+								<phase>pre-integration-test</phase>
 								<goals>
 									<goal>attach-artifact</goal>
 								</goals>

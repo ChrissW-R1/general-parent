@@ -951,7 +951,7 @@
 						<executions>
 							<execution>
 								<id>generate-sbom</id>
-								<phase>verify</phase>
+								<phase>prepare-package</phase>
 								<goals>
 									<goal>makeAggregateBom</goal>
 								</goals>
@@ -1025,7 +1025,7 @@
 						<executions>
 							<execution>
 								<id>hash-artifacts</id>
-								<phase>install</phase>
+								<phase>post-integration-test</phase>
 								<goals>
 									<goal>run</goal>
 								</goals>
