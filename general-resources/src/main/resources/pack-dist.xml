@@ -13,9 +13,7 @@
 			<directory>${project.build.directory}</directory>
 			<outputDirectory>/</outputDirectory>
 			<includes>
-				<include>${project.build.finalName}.jar</include>
-				<include>${project.build.finalName}.war</include>
-				<include>${project.build.finalName}.ear</include>
+				<include>${project.build.finalName}.${project.packaging}</include>
 				<include>${project.build.finalName}.exe</include>
 			</includes>
 		</fileSet>
