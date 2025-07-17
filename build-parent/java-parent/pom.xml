@@ -518,7 +518,7 @@
 											<type>jar</type>
 											<overWrite>true</overWrite>
 											<outputDirectory>${project.basedir}/src/assembly</outputDirectory>
-											<includes>resources/pack-dist.xml</includes>
+											<includes>unfiltered-resources/pack-dist.xml</includes>
 											<fileMappers>
 												<fileMapper
 													implementation="org.codehaus.plexus.components.io.filemappers.FlattenFileMapper"/>
