@@ -641,18 +641,6 @@
 					<groupId>org.cyclonedx</groupId>
 					<artifactId>cyclonedx-maven-plugin</artifactId>
 					<version>${plugin.cyclonedx.version}</version>
-					<executions>
-						<execution>
-							<id>generate-sbom</id>
-							<phase>verify</phase>
-							<goals>
-								<goal>makeAggregateBom</goal>
-							</goals>
-							<configuration>
-								<outputName>${project.build.finalName}-sbom</outputName>
-							</configuration>
-						</execution>
-					</executions>
 				</plugin>
 				<plugin>
 					<artifactId>maven-jar-plugin</artifactId>
@@ -966,6 +954,18 @@
 					<plugin>
 						<groupId>org.cyclonedx</groupId>
 						<artifactId>cyclonedx-maven-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>generate-sbom</id>
+								<phase>verify</phase>
+								<goals>
+									<goal>makeAggregateBom</goal>
+								</goals>
+								<configuration>
+									<outputName>${project.build.finalName}-sbom</outputName>
+								</configuration>
+							</execution>
+						</executions>
 					</plugin>
 				</plugins>
 			</build>
