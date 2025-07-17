@@ -643,10 +643,14 @@
 					<version>${plugin.cyclonedx.version}</version>
 					<executions>
 						<execution>
+							<id>generate-sbom</id>
 							<phase>verify</phase>
 							<goals>
 								<goal>makeAggregateBom</goal>
 							</goals>
+							<configuration>
+								<outputName>${project.build.finalName}-sbom</outputName>
+							</configuration>
 						</execution>
 					</executions>
 				</plugin>
