@@ -42,15 +42,6 @@
 						<withDev>false</withDev>
 						<withOptimisedAutoloader>true</withOptimisedAutoloader>
 					</configuration>
-					<executions>
-						<execution>
-							<id>composer-install</id>
-							<phase>process-resources</phase>
-							<goals>
-								<goal>install</goal>
-							</goals>
-						</execution>
-					</executions>
 				</plugin>
 			</plugins>
 		</pluginManagement>
@@ -58,7 +49,7 @@
 
 	<profiles>
 		<profile>
-			<id>composer</id>
+			<id>compose</id>
 			<activation>
 				<file>
 					<exists>${composer.config.file}</exists>
@@ -69,6 +60,15 @@
 					<plugin>
 						<groupId>uk.co.codezen</groupId>
 						<artifactId>composer-maven-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>composer-install</id>
+								<phase>process-resources</phase>
+								<goals>
+									<goal>install</goal>
+								</goals>
+							</execution>
+						</executions>
 					</plugin>
 				</plugins>
 			</build>

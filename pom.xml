@@ -74,9 +74,11 @@
 		<properties.file>build.properties</properties.file>
 		<third-party-properties.filename>THIRD-PARTY.properties</third-party-properties.filename>
 		<third-party-properties.src.path>${project.module-root.basedir}/src/license</third-party-properties.src.path>
-		<third-party-properties.src.fullPath>${third-party-properties.src.path}/${third-party-properties.filename}
+		<third-party-properties.src.fullPath>
+			${third-party-properties.src.path}/${third-party-properties.filename}
 		</third-party-properties.src.fullPath>
-		<third-party-properties.target.path>${project.build.directory}/generated-resources
+		<third-party-properties.target.path>
+			${project.build.directory}/generated-resources
 		</third-party-properties.target.path>
 		<third-party-properties.target.fullPath>
 			${third-party-properties.target.path}/${third-party-properties.filename}
@@ -214,15 +216,6 @@
 					<groupId>org.codehaus.mojo</groupId>
 					<artifactId>versions-maven-plugin</artifactId>
 					<version>${plugin.versions.version}</version>
-					<executions>
-						<execution>
-							<id>display-updates</id>
-							<goals>
-								<goal>display-property-updates</goal>
-							</goals>
-							<phase>validate</phase>
-						</execution>
-					</executions>
 				</plugin>
 				<plugin>
 					<artifactId>maven-clean-plugin</artifactId>
@@ -300,17 +293,17 @@
 					<executions>
 						<execution>
 							<id>parse-version</id>
+							<phase>initialize</phase>
 							<goals>
 								<goal>parse-version</goal>
 							</goals>
-							<phase>initialize</phase>
 						</execution>
 						<execution>
 							<id>base-version-property</id>
+							<phase>initialize</phase>
 							<goals>
 								<goal>regex-property</goal>
 							</goals>
-							<phase>initialize</phase>
 							<configuration>
 								<name>project.baseVersion</name>
 								<value>${project.version}</value>
@@ -320,10 +313,10 @@
 						</execution>
 						<execution>
 							<id>java-qualified-version-property</id>
+							<phase>validate</phase>
 							<goals>
 								<goal>regex-property</goal>
 							</goals>
-							<phase>validate</phase>
 							<configuration>
 								<name>java.version.qualified</name>
 								<value>${java.version}</value>
@@ -334,31 +327,14 @@
 						</execution>
 						<execution>
 							<id>timestamp-property</id>
+							<phase>initialize</phase>
 							<goals>
 								<goal>timestamp-property</goal>
 							</goals>
-							<phase>initialize</phase>
 							<configuration>
 								<name>project.versionYear</name>
 								<pattern>yyyy</pattern>
 								<locale>en,US</locale>
-							</configuration>
-						</execution>
-						<execution>
-							<id>attach-third-party-properties</id>
-							<phase>post-site</phase>
-							<goals>
-								<goal>attach-artifact</goal>
-							</goals>
-							<configuration>
-								<artifacts>
-									<artifact>
-										<file>${third-party-properties.target.fullPath}</file>
-										<type>properties</type>
-										<classifier>third-party</classifier>
-									</artifact>
-								</artifacts>
-								<skipAttach>${third-party-properties.target.missing}</skipAttach>
 							</configuration>
 						</execution>
 					</executions>
@@ -572,15 +548,6 @@
 						</licenseMerges>
 						<failOnMissing>false</failOnMissing>
 					</configuration>
-					<executions>
-						<execution>
-							<id>update-license</id>
-							<phase>generate-resources</phase>
-							<goals>
-								<goal>update-project-license</goal>
-							</goals>
-						</execution>
-					</executions>
 				</plugin>
 				<plugin>
 					<artifactId>maven-resources-plugin</artifactId>
@@ -588,46 +555,6 @@
 					<configuration>
 						<escapeString>\</escapeString>
 					</configuration>
-					<executions>
-						<execution>
-							<id>copy-readme</id>
-							<phase>process-resources</phase>
-							<goals>
-								<goal>copy-resources</goal>
-							</goals>
-							<configuration>
-								<outputDirectory>${project.module-root.basedir}</outputDirectory>
-								<resources>
-									<resource>
-										<directory>${project.module-root.basedir}/src/main/resources</directory>
-										<includes>
-											<include>README.md</include>
-										</includes>
-										<filtering>true</filtering>
-									</resource>
-								</resources>
-							</configuration>
-						</execution>
-						<execution>
-							<id>third-party-filtering</id>
-							<phase>pre-site</phase>
-							<goals>
-								<goal>copy-resources</goal>
-							</goals>
-							<configuration>
-								<outputDirectory>${third-party-properties.target.path}</outputDirectory>
-								<resources>
-									<resource>
-										<directory>${third-party-properties.src.path}</directory>
-										<includes>
-											<include>${third-party-properties.filename}</include>
-										</includes>
-										<filtering>true</filtering>
-									</resource>
-								</resources>
-							</configuration>
-						</execution>
-					</executions>
 				</plugin>
 				<plugin>
 					<groupId>org.owasp</groupId>
@@ -726,10 +653,6 @@
 		</pluginManagement>
 		<plugins>
 			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>versions-maven-plugin</artifactId>
-			</plugin>
-			<plugin>
 				<groupId>com.google.code.maven-replacer-plugin</groupId>
 				<artifactId>replacer</artifactId>
 			</plugin>
@@ -738,11 +661,28 @@
 				<artifactId>build-helper-maven-plugin</artifactId>
 			</plugin>
 			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>license-maven-plugin</artifactId>
-			</plugin>
-			<plugin>
 				<artifactId>maven-resources-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>copy-readme</id>
+						<phase>process-resources</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${project.module-root.basedir}</outputDirectory>
+							<resources>
+								<resource>
+									<directory>${project.module-root.basedir}/src/main/resources</directory>
+									<includes>
+										<include>README.md</include>
+									</includes>
+									<filtering>true</filtering>
+								</resource>
+							</resources>
+						</configuration>
+					</execution>
+				</executions>
 			</plugin>
 			<plugin>
 				<artifactId>maven-antrun-plugin</artifactId>
@@ -836,7 +776,7 @@
 			</build>
 		</profile>
 		<profile>
-			<id>show-active-profiles</id>
+			<id>echo-active-profiles</id>
 			<activation>
 				<property>
 					<name>fullBuild</name>
@@ -852,6 +792,31 @@
 								<phase>validate</phase>
 								<goals>
 									<goal>active-profiles</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile>
+			<id>echo-updates</id>
+			<activation>
+				<property>
+					<name>fullBuild</name>
+				</property>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>versions-maven-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>display-updates</id>
+								<phase>validate</phase>
+								<goals>
+									<goal>display-property-updates</goal>
 								</goals>
 							</execution>
 						</executions>
@@ -924,12 +889,66 @@
 						<artifactId>license-maven-plugin</artifactId>
 						<executions>
 							<execution>
+								<id>update-license</id>
+								<phase>generate-resources</phase>
+								<goals>
+									<goal>update-project-license</goal>
+								</goals>
+							</execution>
+							<execution>
 								<id>add-licenses</id>
 								<phase>generate-resources</phase>
 								<goals>
 									<goal>add-third-party</goal>
 									<goal>download-licenses</goal>
 								</goals>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<artifactId>maven-resources-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>third-party-filtering</id>
+								<phase>pre-site</phase>
+								<goals>
+									<goal>copy-resources</goal>
+								</goals>
+								<configuration>
+									<outputDirectory>${third-party-properties.target.path}</outputDirectory>
+									<resources>
+										<resource>
+											<directory>${third-party-properties.src.path}</directory>
+											<includes>
+												<include>${third-party-properties.filename}</include>
+											</includes>
+											<filtering>true</filtering>
+										</resource>
+									</resources>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>build-helper-maven-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>attach-third-party-properties</id>
+								<phase>post-site</phase>
+								<goals>
+									<goal>attach-artifact</goal>
+								</goals>
+								<configuration>
+									<artifacts>
+										<artifact>
+											<file>${third-party-properties.target.fullPath}</file>
+											<type>properties</type>
+											<classifier>third-party</classifier>
+										</artifact>
+									</artifacts>
+									<skipAttach>${third-party-properties.target.missing}</skipAttach>
+								</configuration>
 							</execution>
 						</executions>
 					</plugin>
@@ -1012,6 +1031,29 @@
 			</build>
 		</profile>
 		<profile>
+			<id>sign-artifacts</id>
+			<activation>
+				<property>
+					<name>fullBuild</name>
+				</property>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<artifactId>maven-gpg-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>sign-artifacts</id>
+								<goals>
+									<goal>sign</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile>
 			<id>hash-artifacts</id>
 			<activation>
 				<property>
@@ -1057,29 +1099,6 @@
 										</checksum>
 									</target>
 								</configuration>
-							</execution>
-						</executions>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
-		<profile>
-			<id>sign-artifacts</id>
-			<activation>
-				<property>
-					<name>fullBuild</name>
-				</property>
-			</activation>
-			<build>
-				<plugins>
-					<plugin>
-						<artifactId>maven-gpg-plugin</artifactId>
-						<executions>
-							<execution>
-								<id>sign-artifacts</id>
-								<goals>
-									<goal>sign</goal>
-								</goals>
 							</execution>
 						</executions>
 					</plugin>

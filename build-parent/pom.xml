@@ -59,53 +59,6 @@
 							<version>2.5.0-SNAPSHOT</version>
 						</dependency>
 					</dependencies>
-					<executions>
-						<execution>
-							<id>unpack-common-project-files</id>
-							<phase>initialize</phase>
-							<goals>
-								<goal>unpack</goal>
-							</goals>
-							<configuration>
-								<artifactItems>
-									<artifactItem>
-										<groupId>me.chrisswr1</groupId>
-										<artifactId>general-resources</artifactId>
-										<version>${general-parent.version}</version>
-										<type>jar</type>
-										<overWrite>true</overWrite>
-										<outputDirectory>${project.module-root.basedir}</outputDirectory>
-										<includes>resources/default.gitignore,resources/.editorconfig</includes>
-										<fileMappers>
-											<fileMapper implementation="org.codehaus.plexus.components.io.filemappers.FlattenFileMapper" />
-										</fileMappers>
-									</artifactItem>
-								</artifactItems>
-							</configuration>
-						</execution>
-						<execution>
-							<id>unpack-common-resources</id>
-							<phase>generate-resources</phase>
-							<goals>
-								<goal>unpack</goal>
-							</goals>
-							<configuration>
-								<artifactItems>
-									<artifactItem>
-										<groupId>me.chrisswr1</groupId>
-										<artifactId>general-resources</artifactId>
-										<version>${general-parent.version}</version>
-										<type>jar</type>
-										<outputDirectory>${project.build.directory}/generated-resources</outputDirectory>
-										<includes>unfiltered-resources/project.properties</includes>
-										<fileMappers>
-											<fileMapper implementation="org.codehaus.plexus.components.io.filemappers.FlattenFileMapper" />
-										</fileMappers>
-									</artifactItem>
-								</artifactItems>
-							</configuration>
-						</execution>
-					</executions>
 				</plugin>
 				<plugin>
 					<artifactId>maven-antrun-plugin</artifactId>
@@ -147,11 +100,76 @@
 				<groupId>nl.praegus</groupId>
 				<artifactId>jetspeed-unpack-maven-plugin</artifactId>
 			</plugin-->
-			<plugin>
-				<artifactId>maven-dependency-plugin</artifactId>
-			</plugin>
 		</plugins>
 	</build>
+
+	<profiles>
+		<profile>
+			<id>unpack-common-resources</id>
+			<activation>
+				<property>
+					<name>fullBuild</name>
+				</property>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<artifactId>maven-dependency-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>unpack-common-project-files</id>
+								<phase>initialize</phase>
+								<goals>
+									<goal>unpack</goal>
+								</goals>
+								<configuration>
+									<artifactItems>
+										<artifactItem>
+											<groupId>me.chrisswr1</groupId>
+											<artifactId>general-resources</artifactId>
+											<version>${general-parent.version}</version>
+											<type>jar</type>
+											<overWrite>true</overWrite>
+											<outputDirectory>${project.module-root.basedir}</outputDirectory>
+											<includes>resources/default.gitignore,resources/.editorconfig</includes>
+											<fileMappers>
+												<fileMapper
+													implementation="org.codehaus.plexus.components.io.filemappers.FlattenFileMapper"/>
+											</fileMappers>
+										</artifactItem>
+									</artifactItems>
+								</configuration>
+							</execution>
+							<execution>
+								<id>unpack-common-resources</id>
+								<phase>generate-resources</phase>
+								<goals>
+									<goal>unpack</goal>
+								</goals>
+								<configuration>
+									<artifactItems>
+										<artifactItem>
+											<groupId>me.chrisswr1</groupId>
+											<artifactId>general-resources</artifactId>
+											<version>${general-parent.version}</version>
+											<type>jar</type>
+											<outputDirectory>${project.build.directory}/generated-resources
+											</outputDirectory>
+											<includes>unfiltered-resources/project.properties</includes>
+											<fileMappers>
+												<fileMapper
+													implementation="org.codehaus.plexus.components.io.filemappers.FlattenFileMapper"/>
+											</fileMappers>
+										</artifactItem>
+									</artifactItems>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
 
 	<modules>
 		<module>java-parent</module>

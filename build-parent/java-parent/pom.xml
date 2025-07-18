@@ -181,15 +181,6 @@
 						<xmlOutput>true</xmlOutput>
 						<spotbugsXmlOutputDirectory>${project.build.directory}/spotbugs</spotbugsXmlOutputDirectory>
 					</configuration>
-					<executions>
-						<execution>
-							<id>analyze-compile</id>
-							<phase>compile</phase>
-							<goals>
-								<goal>check</goal>
-							</goals>
-						</execution>
-					</executions>
 				</plugin>
 				<plugin>
 					<artifactId>maven-surefire-plugin</artifactId>
@@ -199,14 +190,6 @@
 					<groupId>com.github.wvengen</groupId>
 					<artifactId>proguard-maven-plugin</artifactId>
 					<version>${plugin.proguard.version}</version>
-					<executions>
-						<execution>
-							<phase>package</phase>
-							<goals>
-								<goal>proguard</goal>
-							</goals>
-						</execution>
-					</executions>
 					<configuration>
 						<injarNotExistsSkip>true</injarNotExistsSkip>
 						<obfuscate>${obfuscate}</obfuscate>
@@ -281,12 +264,6 @@
 				</plugin>
 			</plugins>
 		</pluginManagement>
-		<plugins>
-			<plugin>
-				<groupId>com.github.spotbugs</groupId>
-				<artifactId>spotbugs-maven-plugin</artifactId>
-			</plugin>
-		</plugins>
 	</build>
 
 	<reporting>
@@ -393,6 +370,31 @@
 			</build>
 		</profile>
 		<profile>
+			<id>code-analysis</id>
+			<activation>
+				<property>
+					<name>fullBuild</name>
+				</property>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>com.github.spotbugs</groupId>
+						<artifactId>spotbugs-maven-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>analyze-compile</id>
+								<phase>compile</phase>
+								<goals>
+									<goal>check</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile>
 			<id>obfuscate</id>
 			<activation>
 				<file>
@@ -408,6 +410,14 @@
 					<plugin>
 						<groupId>com.github.wvengen</groupId>
 						<artifactId>proguard-maven-plugin</artifactId>
+						<executions>
+							<execution>
+								<phase>package</phase>
+								<goals>
+									<goal>proguard</goal>
+								</goals>
+							</execution>
+						</executions>
 					</plugin>
 				</plugins>
 			</build>

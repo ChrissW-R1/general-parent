@@ -103,91 +103,6 @@
 		<pluginManagement>
 			<plugins>
 				<plugin>
-					<artifactId>maven-dependency-plugin</artifactId>
-					<executions>
-						<execution>
-							<id>unpack-js-project-files</id>
-							<phase>initialize</phase>
-							<goals>
-								<goal>unpack</goal>
-							</goals>
-							<configuration>
-								<artifactItems>
-									<artifactItem>
-										<groupId>me.chrisswr1</groupId>
-										<artifactId>general-resources</artifactId>
-										<version>${general-parent.version}</version>
-										<type>jar</type>
-										<overWrite>true</overWrite>
-										<outputDirectory>${project.basedir}</outputDirectory>
-										<includes>resources/eslint.config.js</includes>
-										<fileMappers>
-											<fileMapper implementation="org.codehaus.plexus.components.io.filemappers.FlattenFileMapper" />
-										</fileMappers>
-									</artifactItem>
-								</artifactItems>
-							</configuration>
-						</execution>
-						<execution>
-							<id>unpack-unfiltered-js-project-files</id>
-							<phase>initialize</phase>
-							<goals>
-								<goal>unpack</goal>
-							</goals>
-							<configuration>
-								<artifactItems>
-									<artifactItem>
-										<groupId>me.chrisswr1</groupId>
-										<artifactId>general-resources</artifactId>
-										<version>${general-parent.version}</version>
-										<type>jar</type>
-										<outputDirectory>${project.build.directory}/generated-resources</outputDirectory>
-										<includes>unfiltered-resources/tsconfig.json</includes>
-										<fileMappers>
-											<fileMapper implementation="org.codehaus.plexus.components.io.filemappers.FlattenFileMapper" />
-										</fileMappers>
-									</artifactItem>
-								</artifactItems>
-							</configuration>
-						</execution>
-					</executions>
-				</plugin>
-				<plugin>
-					<artifactId>maven-resources-plugin</artifactId>
-					<executions>
-						<execution>
-							<id>generate-js-project-files</id>
-							<phase>generate-sources</phase>
-							<goals>
-								<goal>copy-resources</goal>
-							</goals>
-							<configuration>
-								<resources>
-									<resource>
-										<directory>${project.build.directory}/generated-resources</directory>
-										<includes>
-											<include>tsconfig.json</include>
-										</includes>
-										<filtering>true</filtering>
-									</resource>
-									<resource>
-										<directory>src/main/node</directory>
-										<includes>
-											<include>package.json</include>
-											<include>Gruntfile.js</include>
-											<include>Gruntfile.cjs</include>
-											<include>webpack.config.js</include>
-											<include>webpack.config.cjs</include>
-										</includes>
-										<filtering>true</filtering>
-									</resource>
-								</resources>
-								<outputDirectory>${project.basedir}</outputDirectory>
-							</configuration>
-						</execution>
-					</executions>
-				</plugin>
-				<plugin>
 					<groupId>com.github.eirslett</groupId>
 					<artifactId>frontend-maven-plugin</artifactId>
 					<version>${plugin.frontend.version}</version>
@@ -196,26 +111,6 @@
 						<nodeVersion>v${nodejs.version}</nodeVersion>
 						<yarnVersion>v${yarn.version}</yarnVersion>
 					</configuration>
-					<executions>
-						<execution>
-							<id>install-nodejs</id>
-							<goals>
-								<goal>install-node-and-yarn</goal>
-							</goals>
-						</execution>
-						<execution>
-							<id>yarn-install</id>
-							<goals>
-								<goal>yarn</goal>
-							</goals>
-						</execution>
-						<execution>
-							<id>grunt-build</id>
-							<goals>
-								<goal>grunt</goal>
-							</goals>
-						</execution>
-					</executions>
 				</plugin>
 			</plugins>
 		</pluginManagement>
@@ -223,7 +118,130 @@
 			<plugin>
 				<groupId>com.github.eirslett</groupId>
 				<artifactId>frontend-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>install-nodejs</id>
+						<goals>
+							<goal>install-node-and-yarn</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>yarn-install</id>
+						<goals>
+							<goal>yarn</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>grunt-build</id>
+						<goals>
+							<goal>grunt</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>
+
+	<profiles>
+		<profile>
+			<id>prepare-js-project-files</id>
+			<activation>
+				<property>
+					<name>fullBuild</name>
+				</property>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<artifactId>maven-dependency-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>unpack-js-project-files</id>
+								<phase>initialize</phase>
+								<goals>
+									<goal>unpack</goal>
+								</goals>
+								<configuration>
+									<artifactItems>
+										<artifactItem>
+											<groupId>me.chrisswr1</groupId>
+											<artifactId>general-resources</artifactId>
+											<version>${general-parent.version}</version>
+											<type>jar</type>
+											<overWrite>true</overWrite>
+											<outputDirectory>${project.basedir}</outputDirectory>
+											<includes>resources/eslint.config.js</includes>
+											<fileMappers>
+												<fileMapper
+													implementation="org.codehaus.plexus.components.io.filemappers.FlattenFileMapper"/>
+											</fileMappers>
+										</artifactItem>
+									</artifactItems>
+								</configuration>
+							</execution>
+							<execution>
+								<id>unpack-unfiltered-js-project-files</id>
+								<phase>initialize</phase>
+								<goals>
+									<goal>unpack</goal>
+								</goals>
+								<configuration>
+									<artifactItems>
+										<artifactItem>
+											<groupId>me.chrisswr1</groupId>
+											<artifactId>general-resources</artifactId>
+											<version>${general-parent.version}</version>
+											<type>jar</type>
+											<outputDirectory>${project.build.directory}/generated-resources
+											</outputDirectory>
+											<includes>unfiltered-resources/tsconfig.json</includes>
+											<fileMappers>
+												<fileMapper
+													implementation="org.codehaus.plexus.components.io.filemappers.FlattenFileMapper"/>
+											</fileMappers>
+										</artifactItem>
+									</artifactItems>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<artifactId>maven-resources-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>generate-js-project-files</id>
+								<phase>generate-sources</phase>
+								<goals>
+									<goal>copy-resources</goal>
+								</goals>
+								<configuration>
+									<resources>
+										<resource>
+											<directory>${project.build.directory}/generated-resources</directory>
+											<includes>
+												<include>tsconfig.json</include>
+											</includes>
+											<filtering>true</filtering>
+										</resource>
+										<resource>
+											<directory>src/main/node</directory>
+											<includes>
+												<include>package.json</include>
+												<include>Gruntfile.js</include>
+												<include>Gruntfile.cjs</include>
+												<include>webpack.config.js</include>
+												<include>webpack.config.cjs</include>
+											</includes>
+											<filtering>true</filtering>
+										</resource>
+									</resources>
+									<outputDirectory>${project.basedir}</outputDirectory>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
 </project>

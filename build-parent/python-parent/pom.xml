@@ -31,22 +31,12 @@
 			<plugins>
 				<plugin>
 					<artifactId>maven-assembly-plugin</artifactId>
-					<version>${plugin.assembly.version}</version>
 					<configuration>
 						<descriptors>
 							<descriptor>${assembly.config.file}</descriptor>
 						</descriptors>
 						<appendAssemblyId>false</appendAssemblyId>
 					</configuration>
-					<executions>
-						<execution>
-							<id>assemble</id>
-							<phase>package</phase>
-							<goals>
-								<goal>single</goal>
-							</goals>
-						</execution>
-					</executions>
 				</plugin>
 			</plugins>
 		</pluginManagement>
@@ -64,6 +54,15 @@
 				<plugins>
 					<plugin>
 						<artifactId>maven-assembly-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>assemble</id>
+								<phase>package</phase>
+								<goals>
+									<goal>single</goal>
+								</goals>
+							</execution>
+						</executions>
 					</plugin>
 				</plugins>
 			</build>
