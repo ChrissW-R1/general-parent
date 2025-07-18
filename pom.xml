@@ -103,6 +103,7 @@
 		<wagon.version>3.5.3</wagon.version>
 
 		<!-- plugin versions -->
+		<plugin.takari-lifecycle.version>2.3.2</plugin.takari-lifecycle.version>
 		<plugin.dependency.version>3.8.1</plugin.dependency.version>
 		<plugin.versions.version>2.18.0</plugin.versions.version>
 		<plugin.clean.version>3.5.0</plugin.clean.version>
@@ -208,6 +209,11 @@
 		</resources>
 		<pluginManagement>
 			<plugins>
+				<plugin>
+					<groupId>io.takari.maven.plugins</groupId>
+					<artifactId>takari-lifecycle-plugin</artifactId>
+					<version>${plugin.takari-lifecycle.version}</version>
+				</plugin>
 				<plugin>
 					<artifactId>maven-dependency-plugin</artifactId>
 					<version>${plugin.dependency.version}</version>
@@ -652,6 +658,10 @@
 			</plugins>
 		</pluginManagement>
 		<plugins>
+			<plugin>
+				<groupId>io.takari.maven.plugins</groupId>
+				<artifactId>takari-lifecycle-plugin</artifactId>
+			</plugin>
 			<plugin>
 				<groupId>com.google.code.maven-replacer-plugin</groupId>
 				<artifactId>replacer</artifactId>
