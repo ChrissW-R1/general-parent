@@ -186,18 +186,6 @@
 									</includes>
 									<filtering>true</filtering>
 								</resource>
-							</resources>
-							<outputDirectory>${project.basedir}</outputDirectory>
-						</configuration>
-					</execution>
-					<execution>
-						<id>generate-js-project-files</id>
-						<phase>generate-sources</phase>
-						<goals>
-							<goal>copy-resources</goal>
-						</goals>
-						<configuration>
-							<resources>
 								<resource>
 									<directory>src/main/node</directory>
 									<includes>
