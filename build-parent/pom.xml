@@ -61,35 +61,6 @@
 					</dependencies>
 				</plugin>
 				<plugin>
-					<artifactId>maven-antrun-plugin</artifactId>
-					<executions>
-						<execution>
-							<id>move-gitignore</id>
-							<phase>process-resources</phase>
-							<goals>
-								<goal>run</goal>
-							</goals>
-							<configuration>
-								<target>
-									<move file="${project.module-root.basedir}/default.gitignore" tofile="${project.module-root.basedir}/.gitignore" />
-								</target>
-							</configuration>
-						</execution>
-						<execution>
-							<id>delete-gitignore</id>
-							<phase>package</phase>
-							<goals>
-								<goal>run</goal>
-							</goals>
-							<configuration>
-								<target>
-									<delete file="${project.module-root.basedir}/default.gitignore" />
-								</target>
-							</configuration>
-						</execution>
-					</executions>
-				</plugin>
-				<plugin>
 					<artifactId>maven-assembly-plugin</artifactId>
 					<version>${plugin.assembly.version}</version>
 				</plugin>
@@ -162,6 +133,36 @@
 											</fileMappers>
 										</artifactItem>
 									</artifactItems>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<artifactId>maven-antrun-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>move-gitignore</id>
+								<phase>process-resources</phase>
+								<goals>
+									<goal>run</goal>
+								</goals>
+								<configuration>
+									<target>
+										<move file="${project.module-root.basedir}/default.gitignore"
+											  tofile="${project.module-root.basedir}/.gitignore"/>
+									</target>
+								</configuration>
+							</execution>
+							<execution>
+								<id>delete-gitignore</id>
+								<phase>package</phase>
+								<goals>
+									<goal>run</goal>
+								</goals>
+								<configuration>
+									<target>
+										<delete file="${project.module-root.basedir}/default.gitignore"/>
+									</target>
 								</configuration>
 							</execution>
 						</executions>
