@@ -37,6 +37,7 @@
 				<directory>src/main/resources</directory>
 				<excludes>
 					<exclude>project.properties</exclude>
+					<exclude>lrgrwrks.txt</exclude>
 					<exclude>pack-dist.xml</exclude>
 					<exclude>package.json</exclude>
 					<exclude>tsconfig.json</exclude>
@@ -48,6 +49,7 @@
 				<directory>src/main/resources</directory>
 				<includes>
 					<include>project.properties</include>
+					<include>lrgrwrks.txt</include>
 					<include>pack-dist.xml</include>
 					<include>package.json</include>
 					<include>tsconfig.json</include>

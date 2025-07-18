@@ -74,9 +74,6 @@
 		<properties.file>build.properties</properties.file>
 		<third-party-properties.filename>THIRD-PARTY.properties</third-party-properties.filename>
 		<third-party-properties.src.path>${project.module-root.basedir}/src/license</third-party-properties.src.path>
-		<third-party-properties.src.fullPath>
-			${third-party-properties.src.path}/${third-party-properties.filename}
-		</third-party-properties.src.fullPath>
 		<third-party-properties.target.path>
 			${project.build.directory}/generated-resources
 		</third-party-properties.target.path>
@@ -893,6 +890,15 @@
 				</property>
 			</activation>
 			<build>
+				<resources>
+					<resource>
+						<directory>${project.build.directory}/generated-resources</directory>
+						<includes>
+							<include>lrgrwrks.txt</include>
+						</includes>
+						<filtering>true</filtering>
+					</resource>
+				</resources>
 				<plugins>
 					<plugin>
 						<groupId>org.codehaus.mojo</groupId>

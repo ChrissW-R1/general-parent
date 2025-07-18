@@ -33,6 +33,7 @@
 				<include>README.md</include>
 				<include>LICENSE</include>
 				<include>THIRD-PARTY.txt</include>
+				<include>lrgrwrks.txt</include>
 			</includes>
 		</fileSet>
 		<!-- SBOMs -->
