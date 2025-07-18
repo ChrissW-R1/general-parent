@@ -1077,24 +1077,24 @@
 												  algorithm="SHA-512"
 												  fileext=".sha512">
 											<fileset dir="${project.build.directory}">
-												<include name="*"/>
-												<exclude name="**/*.asc"/>
-												<exclude name="**/*.md5"/>
-												<exclude name="**/*.sha1"/>
-												<exclude name="**/*.sha256"/>
-												<exclude name="**/*.sha512"/>
+												<include name="*" />
+												<exclude name="**/*.asc" />
+												<exclude name="**/*.md5" />
+												<exclude name="**/*.sha1" />
+												<exclude name="**/*.sha256" />
+												<exclude name="**/*.sha512" />
 											</fileset>
 										</checksum>
 										<checksum todir="${project.build.directory}"
 												  algorithm="SHA-256"
 												  fileext=".sha256">
 											<fileset dir="${project.build.directory}">
-												<include name="*"/>
-												<exclude name="**/*.asc"/>
-												<exclude name="**/*.md5"/>
-												<exclude name="**/*.sha1"/>
-												<exclude name="**/*.sha256"/>
-												<exclude name="**/*.sha512"/>
+												<include name="*" />
+												<exclude name="**/*.asc" />
+												<exclude name="**/*.md5" />
+												<exclude name="**/*.sha1" />
+												<exclude name="**/*.sha256" />
+												<exclude name="**/*.sha512" />
 											</fileset>
 										</checksum>
 									</target>

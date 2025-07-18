@@ -531,7 +531,7 @@
 											<includes>unfiltered-resources/pack-dist.xml</includes>
 											<fileMappers>
 												<fileMapper
-													implementation="org.codehaus.plexus.components.io.filemappers.FlattenFileMapper"/>
+													implementation="org.codehaus.plexus.components.io.filemappers.FlattenFileMapper" />
 											</fileMappers>
 										</artifactItem>
 									</artifactItems>
