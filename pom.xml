@@ -21,7 +21,7 @@
 
 	<organization>
 		<name>ChrissW-R1</name>
-		<url>http://ChrissW-R1.me</url>
+		<url>https://ChrissW-R1.me</url>
 	</organization>
 
 	<licenses>
@@ -37,7 +37,7 @@
 			<id>ChrissW-R1</id>
 			<name>ChrissW-R1</name>
 			<email>contact@ChrissW-R1.me</email>
-			<url>http://ChrissW-R1.me</url>
+			<url>https://ChrissW-R1.me</url>
 			<timezone>Europe/Berlin</timezone>
 			<roles>
 				<role>manager</role>

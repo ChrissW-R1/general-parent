@@ -8,7 +8,7 @@ tmp/
 #### Logging
 *.log
 
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+# virtual machine crash logs, see https://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 replay_pid*
 
@@ -75,7 +75,7 @@ gradle-app.setting
 yarn.lock
 
 #### Grunt
-# intermediate storage (http://gruntjs.com/creating-plugins#storing-task-files)
+# intermediate storage (https://gruntjs.com/creating-plugins#storing-task-files)
 .grunt
 .tscache
 Gruntfile.js
