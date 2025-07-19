@@ -36,6 +36,14 @@
 				<include>lrgrwrks.txt</include>
 			</includes>
 		</fileSet>
+		<!-- third-party licenses -->
+		<fileSet>
+			<directory>${project.build.directory}/generated-resources/spdx-licenses</directory>
+			<outputDirectory>license</outputDirectory>
+			<includes>
+				<include>**/*</include>
+			</includes>
+		</fileSet>
 		<!-- SBOMs -->
 		<fileSet>
 			<directory>${project.build.directory}</directory>

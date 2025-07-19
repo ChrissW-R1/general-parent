@@ -62,7 +62,8 @@
 		<project.module-root.artifactId>general-parent</project.module-root.artifactId>
 		<project.module-root.relativedir>${project.parent.relativedir}</project.module-root.relativedir>
 		<project.module-root.basedir>${basedir}/${project.module-root.relativedir}</project.module-root.basedir>
-		<project.site.urlPath>${project.groupId}/${project.module-root.artifactId}/${project.version}
+		<project.site.urlPath>
+			${project.groupId}/${project.module-root.artifactId}/${project.version}
 		</project.site.urlPath>
 		<project.site.baseUrl>https://${project.site.basePath}</project.site.baseUrl>
 		<project.site.deploy.baseUrl>ftps://${project.site.baseDomain}</project.site.deploy.baseUrl>
@@ -92,7 +93,7 @@
 		<license.version>2.0</license.version>
 		<license.abbr>ASL</license.abbr>
 		<license.id>${license.name}-${license.version}</license.id>
-		<license.url>http://www.apache.org/licenses/LICENSE-${license.version}.txt</license.url>
+		<license.url>https://raw.githubusercontent.com/spdx/license-list-data/main/text/${license.id}.txt</license.url>
 		<license.signature>${license.name} License (${license.abbr}), Version ${license.version} (${license.id})</license.signature>
 
 		<!-- dependency versions -->
@@ -917,6 +918,20 @@
 								<goals>
 									<goal>add-third-party</goal>
 									<goal>download-licenses</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<groupId>me.chrisswr1</groupId>
+						<artifactId>spdx-license-fetch-plugin</artifactId>
+						<version>1.0.0-SNAPSHOT</version>
+						<executions>
+							<execution>
+								<id>download-spdx-licenses</id>
+								<phase>process-resources</phase>
+								<goals>
+									<goal>fetch-spdx-licenses</goal>
 								</goals>
 							</execution>
 						</executions>
