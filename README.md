@@ -26,7 +26,7 @@ First, add the repository:
 Secondly, set the parent to the project type parent. Example as a Java Project:
 ```XML
 <parent>
-	<groupId>me.chrisswr1</groupId>
+	<groupId>me.chrissw-r1</groupId>
 	<artifactId>java-parent</artifactId>
 	<version>2.5.0-SNAPSHOT</version>
 </parent>
