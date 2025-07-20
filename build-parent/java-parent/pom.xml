@@ -505,14 +505,13 @@
 		</profile>
 		<profile>
 			<id>attach-docs-and-sources</id>
+			<activation>
+				<property>
+					<name>fullBuild</name>
+				</property>
+			</activation>
 			<build>
 				<plugins>
-					<plugin>
-						<artifactId>maven-source-plugin</artifactId>
-						<configuration>
-							<attach>false</attach>
-						</configuration>
-					</plugin>
 					<plugin>
 						<artifactId>maven-javadoc-plugin</artifactId>
 						<executions>
