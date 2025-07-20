@@ -110,6 +110,7 @@
 		<plugin.properties.version>1.2.1</plugin.properties.version>
 		<plugin.buildhelper.version>3.6.1</plugin.buildhelper.version>
 		<plugin.license.version>2.6.0</plugin.license.version>
+		<plugin.spdx-license-fetch.version>1.0.0-SNAPSHOT</plugin.spdx-license-fetch.version>
 		<plugin.resources.version>3.3.1</plugin.resources.version>
 		<plugin.antrun.version>3.1.0</plugin.antrun.version>
 		<plugin.compiler.version>3.14.0</plugin.compiler.version>
@@ -559,6 +560,11 @@
 					</configuration>
 				</plugin>
 				<plugin>
+					<groupId>me.chrissw-r1</groupId>
+					<artifactId>spdx-license-fetch-plugin</artifactId>
+					<version>${plugin.spdx-license-fetch.version}</version>
+				</plugin>
+				<plugin>
 					<artifactId>maven-resources-plugin</artifactId>
 					<version>${plugin.resources.version}</version>
 					<configuration>
@@ -930,7 +936,6 @@
 					<plugin>
 						<groupId>me.chrissw-r1</groupId>
 						<artifactId>spdx-license-fetch-plugin</artifactId>
-						<version>1.0.0-SNAPSHOT</version>
 						<executions>
 							<execution>
 								<id>download-spdx-licenses</id>
