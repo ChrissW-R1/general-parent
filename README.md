@@ -32,16 +32,6 @@ Secondly, set the parent to the project type parent. Example as a Java Project:
 </parent>
 ```
 
-Last but not least a property have to be overridden by your POM to set all path
-in project correctly:
-```XML
-<properties>
-	...
-	<project.module-root.relativedir>./</project.module-root.relativedir>
-	...
-</properties>
-```
-
 ## License
 
 The usage of this project for other downstream projects is allowed without any

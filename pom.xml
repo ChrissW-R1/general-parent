@@ -60,7 +60,6 @@
 		<project.parent.relativedir />
 		<project.parent.basedir>${basedir}/${project.parent.relativedir}</project.parent.basedir>
 		<project.module-root.artifactId>general-parent</project.module-root.artifactId>
-		<project.module-root.relativedir>${project.parent.relativedir}</project.module-root.relativedir>
 		<project.module-root.basedir>${project.basedir}/${project.module-root.relativedir}</project.module-root.basedir>
 		<project.site.urlPath>
 			${project.groupId}/${project.module-root.artifactId}/${project.version}

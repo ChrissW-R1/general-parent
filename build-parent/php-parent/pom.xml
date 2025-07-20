@@ -22,7 +22,6 @@
 
 	<properties>
 		<!-- technically-based properties -->
-		<project.module-root.relativedir>${project.parent.relativedir}../</project.module-root.relativedir>
 		<composer.config.file>src/main/php/composer.json</composer.config.file>
 
 		<!-- plugin versions -->

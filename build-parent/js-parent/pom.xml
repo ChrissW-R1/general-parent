@@ -21,9 +21,6 @@
 	</description>
 
 	<properties>
-		<!-- technically-based properties -->
-		<project.module-root.relativedir>${project.parent.relativedir}../</project.module-root.relativedir>
-
 		<!-- dependency versions -->
 		<nodejs.version>24.4.1</nodejs.version>
 		<yarn.version>1.22.22</yarn.version>
