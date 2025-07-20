@@ -168,9 +168,9 @@
 			<url>https://maven.pkg.github.com/ChrissW-R1/general-parent</url>
 		</pluginRepository>
 		<pluginRepository>
-			<id>spdx-license-fetch-plugin</id>
+			<id>spdx-license-fetch-maven-plugin</id>
 			<name>SPDX License Fetch Plugin</name>
-			<url>https://maven.pkg.github.com/ChrissW-R1/spdx-license-fetch-plugin</url>
+			<url>https://maven.pkg.github.com/ChrissW-R1/spdx-license-fetch-maven-plugin</url>
 		</pluginRepository>
 	</pluginRepositories>
 
@@ -561,7 +561,7 @@
 				</plugin>
 				<plugin>
 					<groupId>me.chrissw-r1</groupId>
-					<artifactId>spdx-license-fetch-plugin</artifactId>
+					<artifactId>spdx-license-fetch-maven-plugin</artifactId>
 					<version>${plugin.spdx-license-fetch.version}</version>
 				</plugin>
 				<plugin>
@@ -935,7 +935,7 @@
 					</plugin>
 					<plugin>
 						<groupId>me.chrissw-r1</groupId>
-						<artifactId>spdx-license-fetch-plugin</artifactId>
+						<artifactId>spdx-license-fetch-maven-plugin</artifactId>
 						<executions>
 							<execution>
 								<id>download-spdx-licenses</id>
