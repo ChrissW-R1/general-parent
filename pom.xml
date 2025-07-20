@@ -58,8 +58,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.scm.id>project-repo</project.scm.id>
 		<project.parent.relativedir />
-		<project.parent.basedir>${basedir}/${project.parent.relativedir}</project.parent.basedir>
-		<project.module-root.artifactId>general-parent</project.module-root.artifactId>
+		<project.parent.basedir>${project.basedir}/${project.parent.relativedir}</project.parent.basedir>
 		<project.module-root.basedir>${project.basedir}/${project.module-root.relativedir}</project.module-root.basedir>
 		<project.site.urlPath>
 			${project.groupId}/${project.module-root.artifactId}/${project.version}
