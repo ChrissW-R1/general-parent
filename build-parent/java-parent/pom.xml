@@ -23,9 +23,9 @@
 	<properties>
 		<!-- technically-based properties -->
 		<project.module-root.relativedir>${project.parent.relativedir}../</project.module-root.relativedir>
-		<java.rootPackage>${project.groupId}.${java.package}</java.rootPackage>
+		<java.rootPackage.raw>${project.groupId}.${java.package}</java.rootPackage.raw>
 		<mainClass.localPath>Main</mainClass.localPath>
-		<mainClass.fullPath>${java.rootPackage}.${mainClass.localPath}</mainClass.fullPath>
+		<mainClass.fullPath>${java.rootPackage.cleaned}.${mainClass.localPath}</mainClass.fullPath>
 		<java.filteredSource.dir>${project.build.directory}/filtered-sources/java</java.filteredSource.dir>
 
 		<!-- project-specific properties -->
@@ -163,6 +163,82 @@
 		<pluginManagement>
 			<plugins>
 				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>build-helper-maven-plugin</artifactId>
+					<executions>
+						<execution>
+							<id>sanitize-rootpackage-step1</id>
+							<phase>initialize</phase>
+							<goals>
+								<goal>regex-property</goal>
+							</goals>
+							<configuration>
+								<name>java.rootPackage.step1</name>
+								<value>${java.rootPackage.raw}</value>
+								<regex>[^\w\.]</regex>
+								<replacement />
+								<failIfNoMatch>false</failIfNoMatch>
+							</configuration>
+						</execution>
+						<execution>
+							<id>sanitize-rootpackage-step2</id>
+							<phase>initialize</phase>
+							<goals>
+								<goal>regex-property</goal>
+							</goals>
+							<configuration>
+								<name>java.rootPackage.step2</name>
+								<value>${java.rootPackage.step1}</value>
+								<regex>\.{2,}</regex>
+								<replacement>.</replacement>
+								<failIfNoMatch>false</failIfNoMatch>
+							</configuration>
+						</execution>
+						<execution>
+							<id>sanitize-rootpackage-step3a</id>
+							<phase>initialize</phase>
+							<goals>
+								<goal>regex-property</goal>
+							</goals>
+							<configuration>
+								<name>java.rootPackage.step3a</name>
+								<value>${java.rootPackage.step2}</value>
+								<regex>[^a-zA-Z\d]+$</regex>
+								<replacement>x</replacement>
+								<failIfNoMatch>false</failIfNoMatch>
+							</configuration>
+						</execution>
+						<execution>
+							<id>sanitize-rootpackage-step3b</id>
+							<phase>initialize</phase>
+							<goals>
+								<goal>regex-property</goal>
+							</goals>
+							<configuration>
+								<name>java.rootPackage.step3b</name>
+								<value>${java.rootPackage.step3a}</value>
+								<regex>^[^a-z]</regex>
+								<replacement>x</replacement>
+								<failIfNoMatch>false</failIfNoMatch>
+							</configuration>
+						</execution>
+						<execution>
+							<id>sanitize-rootpackage-finalstep</id>
+							<phase>initialize</phase>
+							<goals>
+								<goal>regex-property</goal>
+							</goals>
+							<configuration>
+								<name>java.rootPackage.cleaned</name>
+								<value>${java.rootPackage.step3b}</value>
+								<regex>\.[^a-z]</regex>
+								<replacement>.x</replacement>
+								<failIfNoMatch>false</failIfNoMatch>
+							</configuration>
+						</execution>
+					</executions>
+				</plugin>
+				<plugin>
 					<artifactId>maven-compiler-plugin</artifactId>
 					<version>${plugin.compiler.version}</version>
 					<configuration>
@@ -264,6 +340,12 @@
 				</plugin>
 			</plugins>
 		</pluginManagement>
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>build-helper-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
 	</build>
 
 	<reporting>
