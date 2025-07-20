@@ -384,8 +384,8 @@
 							<licenseMerge>
 								Apache License (ASL), Version 2.0 (Apache-2.0)
 								| Apache-2.0
-								| Apache 2.0
 								| Apache 2
+								| Apache 2.0
 								| Apache License 2.0
 								| Apache License version 2.0
 								| Apache License, 2.0
@@ -442,9 +442,9 @@
 							<licenseMerge>
 								Eclipse Public License (EPL), Version 2.0 (EPL-2.0)
 								| EPL-2.0
-								| Eclipse Public License v2.0
-								| Eclipse Public License - v 2.0
 								| EPL 2.0
+								| Eclipse Public License - v 2.0
+								| Eclipse Public License v2.0
 								| Eclipse Public License, Version 2.0
 							</licenseMerge>
 							<licenseMerge>
@@ -470,10 +470,10 @@
 							<licenseMerge>
 								GNU General Public License (GPL), Version 2.0+ (GPL-2.0-or-later)
 								| GPL-2.0-or-later
-								| GPL-2.0
 								| GNU General Public License (GPL) version 2.0
 								| GNU General Public License version 2 (GPLv2)
 								| GNU General Public License, Version 2
+								| GPL-2.0
 							</licenseMerge>
 							<licenseMerge>
 								GNU General Public License (GPL), Version 3.0+ (GPL-3.0-or-later)
@@ -483,9 +483,9 @@
 							<licenseMerge>
 								GNU General Public License (GPL) with Classpath exception (CPE), Version 2.0 (GPL-2.0-with-classpath-exception)
 								| GPL-2.0-with-classpath-exception
+								| GNU General Public License, version 2, with the Classpath Exception
 								| GPL2 w/ CPE
 								| The GNU General Public License (GPL), Version 2, With Classpath Exception
-								| GNU General Public License, version 2, with the Classpath Exception
 							</licenseMerge>
 							<licenseMerge>
 								Java Distribution License (JDL), Version 1.1.x (JDL-1.1.x)
@@ -495,8 +495,8 @@
 							<licenseMerge>
 								GNU Lesser General Public License (LGPL), Version 2.1 (LGPL-2.1-only)
 								| LGPL-2.1-only
-								| GNU Lesser General Public License, Version 2.1
 								| GNU LESSER GENERAL PUBLIC LICENSE, Version 2.1
+								| GNU Lesser General Public License, Version 2.1
 								| LGPL 2.1
 								| LGPLv2
 							</licenseMerge>
