@@ -956,7 +956,6 @@
 						<executions>
 							<execution>
 								<id>download-spdx-licenses</id>
-								<phase>process-resources</phase>
 								<goals>
 									<goal>fetch-spdx-licenses</goal>
 								</goals>
