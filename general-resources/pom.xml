@@ -64,7 +64,7 @@
 				</includes>
 			</resource>
 			<resource>
-				<directory>${project.module-root.basedir}</directory>
+				<directory>../</directory>
 				<includes>
 					<include>.gitignore</include>
 					<include>build.sample.properties</include>
