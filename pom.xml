@@ -166,6 +166,11 @@
 			<name>General Parent</name>
 			<url>https://maven.pkg.github.com/ChrissW-R1/general-parent</url>
 		</pluginRepository>
+		<pluginRepository>
+			<id>spdx-license-fetch-plugin</id>
+			<name>SPDX License Fetch Plugin</name>
+			<url>https://maven.pkg.github.com/ChrissW-R1/spdx-license-fetch-plugin</url>
+		</pluginRepository>
 	</pluginRepositories>
 
 	<build>
