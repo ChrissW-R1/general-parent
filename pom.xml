@@ -900,6 +900,50 @@
 							</execution>
 						</executions>
 					</plugin>
+					<plugin>
+						<groupId>com.google.code.maven-replacer-plugin</groupId>
+						<artifactId>replacer</artifactId>
+						<executions>
+							<execution>
+								<id>remove-wrong-qualifier-property</id>
+								<phase>process-sources</phase>
+								<goals>
+									<goal>replace</goal>
+								</goals>
+								<configuration>
+									<file>${effective-pom.path}</file>
+									<replacements>
+										<replacement>
+											<token>
+												&lt;parsedVersion.qualifier\?&gt;(.*)&lt;/parsedVersion.qualifier\?&gt;
+											</token>
+										</replacement>
+									</replacements>
+								</configuration>
+							</execution>
+							<execution>
+								<id>remove-duplicated-xml-declaration</id>
+								<phase>process-sources</phase>
+								<goals>
+									<goal>replace</goal>
+								</goals>
+								<configuration>
+									<file>${effective-pom.path}</file>
+									<replacements>
+										<replacement>
+											<token>
+												((.*)&lt;\?xml version="1.0" encoding="UTF-8"\?&gt;(.*))&lt;\?xml version="1.0" encoding="UTF-8"\?&gt;(.*)
+											</token>
+											<value>$1$4</value>
+										</replacement>
+									</replacements>
+									<regexFlags>
+										<regexFlag>DOTALL</regexFlag>
+									</regexFlags>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
 				</plugins>
 			</build>
 		</profile>
