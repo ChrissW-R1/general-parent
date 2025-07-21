@@ -68,6 +68,7 @@
 		<java.version.prefixed>1.${java.version}</java.version.prefixed>
 		<netbeans.hint.jdkPlatform>JDK_${java.version.prefixed}</netbeans.hint.jdkPlatform>
 		<copy-artifact.dir />
+		<effective-pom.path>${project.build.directory}/${project.build.finalName}-effective.pom</effective-pom.path>
 		<general-parent.version>2.5.0-SNAPSHOT</general-parent.version>
 		<properties.file>build.properties</properties.file>
 		<third-party-properties.filename>THIRD-PARTY.properties</third-party-properties.filename>
@@ -114,6 +115,7 @@
 		<plugin.compiler.version>3.14.0</plugin.compiler.version>
 		<plugin.dependency-check.version>12.1.3</plugin.dependency-check.version>
 		<plugin.cyclonedx.version>2.9.1</plugin.cyclonedx.version>
+		<plugin.deploy-pom.version>1.0.0-SNAPSHOT</plugin.deploy-pom.version>
 		<plugin.jar.version>3.4.2</plugin.jar.version>
 		<plugin.source.version>3.3.1</plugin.source.version>
 		<plugin.gpg.version>3.2.8</plugin.gpg.version>
@@ -174,6 +176,11 @@
 			<id>spdx-license-fetch-maven-plugin</id>
 			<name>SPDX License Fetch Maven Plugin</name>
 			<url>https://maven.pkg.github.com/ChrissW-R1/spdx-license-fetch-maven-plugin</url>
+		</pluginRepository>
+		<pluginRepository>
+			<id>deploy-pom-maven-plugin</id>
+			<name>Deploy POM Maven Plugin</name>
+			<url>https://maven.pkg.github.com/ChrissW-R1/deploy-pom-maven-plugin</url>
 		</pluginRepository>
 	</pluginRepositories>
 
@@ -596,6 +603,11 @@
 					<version>${plugin.cyclonedx.version}</version>
 				</plugin>
 				<plugin>
+					<groupId>me.chrissw-r1</groupId>
+					<artifactId>deploy-pom-maven-plugin</artifactId>
+					<version>${plugin.deploy-pom.version}</version>
+				</plugin>
+				<plugin>
 					<artifactId>maven-jar-plugin</artifactId>
 					<version>${plugin.jar.version}</version>
 					<configuration>
@@ -883,7 +895,7 @@
 									<goal>effective-pom</goal>
 								</goals>
 								<configuration>
-									<output>${project.build.directory}/${project.build.finalName}-effective.pom</output>
+									<output>${effective-pom.path}</output>
 								</configuration>
 							</execution>
 						</executions>
@@ -1010,6 +1022,30 @@
 									</artifacts>
 									<skipAttach>${third-party-properties.target.missing}</skipAttach>
 								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile>
+			<id>modify-deploy-pom</id>
+			<activation>
+				<property>
+					<name>fullBuild</name>
+				</property>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>me.chrissw-r1</groupId>
+						<artifactId>deploy-pom-maven-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>modify-deploy-pom</id>
+								<goals>
+									<goal>copy-from-effective</goal>
+								</goals>
 							</execution>
 						</executions>
 					</plugin>
