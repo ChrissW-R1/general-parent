@@ -1082,6 +1082,29 @@
 			<build>
 				<plugins>
 					<plugin>
+						<artifactId>maven-resources-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>copy-project-pom</id>
+								<phase>generate-sources</phase>
+								<goals>
+									<goal>copy-resources</goal>
+								</goals>
+								<configuration>
+									<outputDirectory>${project.build.directory}/generated-resources</outputDirectory>
+									<resources>
+										<resource>
+											<directory>${project.basedir}</directory>
+											<includes>
+												<include>pom.xml</include>
+											</includes>
+										</resource>
+									</resources>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
 						<groupId>me.chrissw-r1</groupId>
 						<artifactId>deploy-pom-maven-plugin</artifactId>
 						<executions>
@@ -1092,6 +1115,12 @@
 								</goals>
 							</execution>
 						</executions>
+					</plugin>
+					<plugin>
+						<artifactId>maven-install-plugin</artifactId>
+						<configuration>
+							<pomFile>${project.build.directory}/generated-resources/pom.xml</pomFile>
+						</configuration>
 					</plugin>
 				</plugins>
 			</build>
