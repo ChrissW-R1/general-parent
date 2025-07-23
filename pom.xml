@@ -92,7 +92,9 @@
 		<license.abbr>ASL</license.abbr>
 		<license.id>${license.name}-${license.version}</license.id>
 		<license.url>https://raw.githubusercontent.com/spdx/license-list-data/main/text/${license.id}.txt</license.url>
-		<license.signature>${license.name} License (${license.abbr}), Version ${license.version} (${license.id})</license.signature>
+		<license.signature>
+			${license.name} License (${license.abbr}), Version ${license.version} (${license.id})
+		</license.signature>
 
 		<!-- dependency versions -->
 		<ant-contrib.version>1.0b3</ant-contrib.version>
@@ -119,7 +121,6 @@
 		<plugin.jar.version>3.4.2</plugin.jar.version>
 		<plugin.source.version>3.3.1</plugin.source.version>
 		<plugin.gpg.version>3.2.8</plugin.gpg.version>
-		<plugin.install.version>3.1.4</plugin.install.version>
 		<plugin.site.version>3.21.0</plugin.site.version>
 		<plugin.project-info-reports.version>3.9.0</plugin.project-info-reports.version>
 		<plugin.release.version>3.1.1</plugin.release.version>
@@ -655,7 +656,8 @@
 							</goals>
 							<configuration>
 								<target>
-									<taskdef resource="net/sf/antcontrib/antcontrib.properties" classpathref="maven.runtime.classpath" />
+									<taskdef resource="net/sf/antcontrib/antcontrib.properties"
+											 classpathref="maven.runtime.classpath" />
 									<if>
 										<available file="${third-party-properties.target.fullPath}" />
 										<then>
@@ -675,10 +677,6 @@
 				<plugin>
 					<artifactId>maven-gpg-plugin</artifactId>
 					<version>${plugin.gpg.version}</version>
-				</plugin>
-				<plugin>
-					<artifactId>maven-install-plugin</artifactId>
-					<version>${plugin.install.version}</version>
 				</plugin>
 				<plugin>
 					<artifactId>maven-release-plugin</artifactId>
@@ -1121,12 +1119,6 @@
 							</execution>
 						</executions>
 					</plugin>
-					<plugin>
-						<artifactId>maven-install-plugin</artifactId>
-						<configuration>
-							<pomFile>${project.build.directory}/generated-resources/pom.xml</pomFile>
-						</configuration>
-					</plugin>
 				</plugins>
 			</build>
 		</profile>
@@ -1349,7 +1341,8 @@
 									<target>
 										<mkdir dir="${copy-artifact.dir}" />
 										<copy todir="${copy-artifact.dir}">
-											<fileset dir="${project.build.directory}" includes="${project.build.artifactFileName}" />
+											<fileset dir="${project.build.directory}"
+													 includes="${project.build.artifactFileName}" />
 										</copy>
 									</target>
 								</configuration>

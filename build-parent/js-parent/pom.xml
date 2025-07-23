@@ -132,8 +132,7 @@
 									<outputDirectory>${project.basedir}</outputDirectory>
 									<includes>resources/eslint.config.js</includes>
 									<fileMappers>
-										<fileMapper
-											implementation="org.codehaus.plexus.components.io.filemappers.FlattenFileMapper" />
+										<fileMapper implementation="org.codehaus.plexus.components.io.filemappers.FlattenFileMapper" />
 									</fileMappers>
 								</artifactItem>
 							</artifactItems>
@@ -156,8 +155,7 @@
 									</outputDirectory>
 									<includes>unfiltered-resources/tsconfig.json</includes>
 									<fileMappers>
-										<fileMapper
-											implementation="org.codehaus.plexus.components.io.filemappers.FlattenFileMapper" />
+										<fileMapper implementation="org.codehaus.plexus.components.io.filemappers.FlattenFileMapper" />
 									</fileMappers>
 								</artifactItem>
 							</artifactItems>

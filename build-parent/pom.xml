@@ -98,8 +98,7 @@
 											<outputDirectory>${project.module-root.basedir}</outputDirectory>
 											<includes>resources/default.gitignore,resources/.editorconfig</includes>
 											<fileMappers>
-												<fileMapper
-													implementation="org.codehaus.plexus.components.io.filemappers.FlattenFileMapper" />
+												<fileMapper implementation="org.codehaus.plexus.components.io.filemappers.FlattenFileMapper" />
 											</fileMappers>
 										</artifactItem>
 									</artifactItems>
@@ -125,8 +124,7 @@
 												unfiltered-resources/project.properties,unfiltered-resources/lrgrwrks.txt
 											</includes>
 											<fileMappers>
-												<fileMapper
-													implementation="org.codehaus.plexus.components.io.filemappers.FlattenFileMapper" />
+												<fileMapper implementation="org.codehaus.plexus.components.io.filemappers.FlattenFileMapper" />
 											</fileMappers>
 										</artifactItem>
 									</artifactItems>
