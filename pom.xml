@@ -1107,7 +1107,7 @@
 							</execution>
 							<execution>
 								<id>restore-pom</id>
-								<phase>deploy</phase>
+								<phase>install</phase>
 								<goals>
 									<goal>copy-resources</goal>
 								</goals>
