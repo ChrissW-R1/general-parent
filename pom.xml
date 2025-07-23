@@ -57,7 +57,7 @@
 		<project.build.artifactFileName>${project.build.finalName}.${project.packaging}</project.build.artifactFileName>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.scm.id>project-repo</project.scm.id>
-		<project.parent.relativedir />
+		<project.parent.relativedir/>
 		<project.parent.basedir>${project.basedir}/${project.parent.relativedir}</project.parent.basedir>
 		<project.site.urlPath>
 			${project.groupId}/${project.module-root.artifactId}/${project.version}
@@ -67,7 +67,7 @@
 		<project.site.deploy.url>${project.site.deploy.baseUrl}/${project.site.urlPath}</project.site.deploy.url>
 		<java.version.prefixed>1.${java.version}</java.version.prefixed>
 		<netbeans.hint.jdkPlatform>JDK_${java.version.prefixed}</netbeans.hint.jdkPlatform>
-		<copy-artifact.dir />
+		<copy-artifact.dir/>
 		<effective-pom.path>${project.build.directory}/${project.build.finalName}-effective.pom</effective-pom.path>
 		<general-parent.version>2.5.0-SNAPSHOT</general-parent.version>
 		<properties.file>build.properties</properties.file>
@@ -1088,16 +1088,34 @@
 						<artifactId>maven-resources-plugin</artifactId>
 						<executions>
 							<execution>
-								<id>copy-project-pom</id>
-								<phase>generate-sources</phase>
+								<id>backup-pom</id>
+								<phase>validate</phase>
 								<goals>
 									<goal>copy-resources</goal>
 								</goals>
 								<configuration>
-									<outputDirectory>${project.build.directory}/generated-resources</outputDirectory>
+									<outputDirectory>${project.build.directory}/backup-resources</outputDirectory>
 									<resources>
 										<resource>
 											<directory>${project.basedir}</directory>
+											<includes>
+												<include>pom.xml</include>
+											</includes>
+										</resource>
+									</resources>
+								</configuration>
+							</execution>
+							<execution>
+								<id>restore-pom</id>
+								<phase>deploy</phase>
+								<goals>
+									<goal>copy-resources</goal>
+								</goals>
+								<configuration>
+									<outputDirectory>${project.basedir}</outputDirectory>
+									<resources>
+										<resource>
+											<directory>${project.build.directory}/backup-resources</directory>
 											<includes>
 												<include>pom.xml</include>
 											</includes>
