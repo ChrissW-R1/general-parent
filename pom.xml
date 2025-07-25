@@ -1135,6 +1135,9 @@
 								<goals>
 									<goal>copy-from-effective</goal>
 								</goals>
+								<configuration>
+									<resolveProperties>true</resolveProperties>
+								</configuration>
 							</execution>
 						</executions>
 					</plugin>
