@@ -1131,12 +1131,54 @@
 						<artifactId>deploy-pom-maven-plugin</artifactId>
 						<executions>
 							<execution>
-								<id>modify-deploy-pom</id>
+								<id>add-defaults</id>
+								<goals>
+									<goal>add-defaults</goal>
+								</goals>
+								<configuration>
+									<nodes>
+										<node>
+											<xpath>url</xpath>
+											<defaultValue>
+												$${project.site.baseUrl}/$${project.site.urlPath}
+											</defaultValue>
+										</node>
+										<node>
+											<xpath>licenses</xpath>
+											<defaultValue>
+												&lt;license&gt;
+													&lt;name&gt;$${license.signature}&lt;/name&gt;
+													&lt;url&gt;$${license.url}&lt;/url&gt;
+													&lt;distribution&gt;repo&lt;/distribution&gt;
+												&lt;/license&gt;
+											</defaultValue>
+										</node>
+									</nodes>
+								</configuration>
+							</execution>
+							<execution>
+								<id>copy-from-effective</id>
 								<goals>
 									<goal>copy-from-effective</goal>
 								</goals>
 								<configuration>
-									<resolveProperties>true</resolveProperties>
+									<nodes>
+										<node>
+											<xpath>url</xpath>
+											<copyFromEffective>true</copyFromEffective>
+											<resolveProperties>true</resolveProperties>
+										</node>
+										<node>
+											<xpath>licenses</xpath>
+											<copyFromEffective>true</copyFromEffective>
+											<resolveProperties>true</resolveProperties>
+										</node>
+										<node>
+											<xpath>developers</xpath>
+											<copyFromEffective>true</copyFromEffective>
+											<resolveProperties>true</resolveProperties>
+										</node>
+									</nodes>
 								</configuration>
 							</execution>
 						</executions>
