@@ -747,6 +747,31 @@
 				</executions>
 			</plugin>
 			<plugin>
+				<groupId>me.chrissw-r1</groupId>
+				<artifactId>deploy-pom-maven-plugin</artifactId>
+				<configuration>
+					<developers>
+						<developer>
+							<id>ChrissW-R1</id>
+							<name>ChrissW-R1</name>
+							<email>contact@ChrissW-R1.me</email>
+							<url>https://ChrissW-R1.me</url>
+							<timezone>Europe/Berlin</timezone>
+							<roles>
+								<role>manager</role>
+								<role>architect</role>
+								<role>developer</role>
+							</roles>
+							<properties>
+								<picUrl>
+									https://www.gravatar.com/avatar/625826a28e0cb12855ef6f5d169f8b67
+								</picUrl>
+							</properties>
+						</developer>
+					</developers>
+				</configuration>
+			</plugin>
+			<plugin>
 				<artifactId>maven-antrun-plugin</artifactId>
 			</plugin>
 		</plugins>
@@ -1138,7 +1163,7 @@
 						<artifactId>deploy-pom-maven-plugin</artifactId>
 						<executions>
 							<execution>
-								<id>add-defaults</id>
+								<id>add-defaults-default</id>
 								<goals>
 									<goal>add-defaults</goal>
 								</goals>
@@ -1163,6 +1188,13 @@
 										</developer>
 									</developers>
 								</configuration>
+							</execution>
+							<execution>
+								<id>add-defaults-site</id>
+								<phase>pre-site</phase>
+								<goals>
+									<goal>add-defaults</goal>
+								</goals>
 							</execution>
 							<execution>
 								<id>copy-from-effective</id>
