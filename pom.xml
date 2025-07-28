@@ -700,7 +700,14 @@
 				<artifactId>multi-module-maven-plugin</artifactId>
 				<executions>
 					<execution>
-						<id>multi-module-properties</id>
+						<id>multi-module-properties-default</id>
+						<goals>
+							<goal>module-root-properties</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>multi-module-properties-site</id>
+						<phase>pre-site</phase>
 						<goals>
 							<goal>module-root-properties</goal>
 						</goals>
