@@ -55,6 +55,7 @@
 	<properties>
 		<!-- technically-based properties -->
 		<project.build.artifactFileName>${project.build.finalName}.${project.packaging}</project.build.artifactFileName>
+		<project.build.artifactFullPath>${project.build.directory}/${project.build.artifactFileName}</project.build.artifactFullPath>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.scm.id>project-repo</project.scm.id>
 		<project.parent.relativedir/>
