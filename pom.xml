@@ -169,21 +169,6 @@
 			<name>General Parent</name>
 			<url>https://maven.pkg.github.com/ChrissW-R1/general-parent</url>
 		</pluginRepository>
-		<pluginRepository>
-			<id>multi-module-maven-plugin</id>
-			<name>Multi-Module Maven Plugin</name>
-			<url>https://maven.pkg.github.com/ChrissW-R1/multi-module-maven-plugin</url>
-		</pluginRepository>
-		<pluginRepository>
-			<id>spdx-license-fetch-maven-plugin</id>
-			<name>SPDX License Fetch Maven Plugin</name>
-			<url>https://maven.pkg.github.com/ChrissW-R1/spdx-license-fetch-maven-plugin</url>
-		</pluginRepository>
-		<pluginRepository>
-			<id>deploy-pom-maven-plugin</id>
-			<name>Deploy POM Maven Plugin</name>
-			<url>https://maven.pkg.github.com/ChrissW-R1/deploy-pom-maven-plugin</url>
-		</pluginRepository>
 	</pluginRepositories>
 
 	<build>
