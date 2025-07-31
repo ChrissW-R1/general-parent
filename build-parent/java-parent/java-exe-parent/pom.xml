@@ -67,9 +67,7 @@
 								</goals>
 								<configuration>
 									<outfile>${project.build.directory}/${project.build.finalName}.exe</outfile>
-									<jar>
-										${project.build.directory}/${project.build.finalName}-jar-with-dependencies.jar
-									</jar>
+									<jar>${project.build.directory}/${project.build.finalName}-jar-with-dependencies.jar</jar>
 									<classPath>
 										<mainClass>${mainClass.fullPath}</mainClass>
 									</classPath>

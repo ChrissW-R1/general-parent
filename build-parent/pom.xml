@@ -117,12 +117,8 @@
 											<artifactId>general-resources</artifactId>
 											<version>${general-parent.version}</version>
 											<type>jar</type>
-											<outputDirectory>
-												${project.build.directory}/generated-resources
-											</outputDirectory>
-											<includes>
-												unfiltered-resources/project.properties,unfiltered-resources/lrgrwrks.txt
-											</includes>
+											<outputDirectory>${project.build.directory}/generated-resources</outputDirectory>
+											<includes>unfiltered-resources/project.properties,unfiltered-resources/lrgrwrks.txt</includes>
 											<fileMappers>
 												<fileMapper implementation="org.codehaus.plexus.components.io.filemappers.FlattenFileMapper" />
 											</fileMappers>
@@ -252,8 +248,7 @@
 											<outputDirectory>${project.basedir}/src/assembly</outputDirectory>
 											<includes>unfiltered-resources/pack-dist.xml</includes>
 											<fileMappers>
-												<fileMapper
-													implementation="org.codehaus.plexus.components.io.filemappers.FlattenFileMapper"/>
+												<fileMapper implementation="org.codehaus.plexus.components.io.filemappers.FlattenFileMapper" />
 											</fileMappers>
 										</artifactItem>
 									</artifactItems>

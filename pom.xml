@@ -62,9 +62,7 @@
 		<project.scm.id>project-repo</project.scm.id>
 		<project.parent.relativedir/>
 		<project.parent.basedir>${project.basedir}/${project.parent.relativedir}</project.parent.basedir>
-		<project.site.urlPath>
-			${project.groupId}/${project.module-root.artifactId}/${project.version}
-		</project.site.urlPath>
+		<project.site.urlPath>${project.groupId}/${project.module-root.artifactId}/${project.version}</project.site.urlPath>
 		<project.site.baseUrl>https://${project.site.basePath}</project.site.baseUrl>
 		<project.site.deploy.baseUrl>ftps://${project.site.baseDomain}</project.site.deploy.baseUrl>
 		<project.site.deploy.url>${project.site.deploy.baseUrl}/${project.site.urlPath}</project.site.deploy.url>
@@ -76,12 +74,8 @@
 		<properties.file>build.properties</properties.file>
 		<third-party-properties.filename>THIRD-PARTY.properties</third-party-properties.filename>
 		<third-party-properties.src.path>${project.module-root.basedir}/src/license</third-party-properties.src.path>
-		<third-party-properties.target.path>
-			${project.build.directory}/generated-resources
-		</third-party-properties.target.path>
-		<third-party-properties.target.fullPath>
-			${third-party-properties.target.path}/${third-party-properties.filename}
-		</third-party-properties.target.fullPath>
+		<third-party-properties.target.path>${project.build.directory}/generated-resources</third-party-properties.target.path>
+		<third-party-properties.target.fullPath>${third-party-properties.target.path}/${third-party-properties.filename}</third-party-properties.target.fullPath>
 
 		<!-- project-specific properties -->
 		<project.site.baseDomain>urelion.world</project.site.baseDomain>
@@ -95,9 +89,7 @@
 		<license.abbr>ASL</license.abbr>
 		<license.id>${license.name}-${license.version}</license.id>
 		<license.url>https://raw.githubusercontent.com/spdx/license-list-data/main/text/${license.id}.txt</license.url>
-		<license.signature>
-			${license.name} License (${license.abbr}), Version ${license.version} (${license.id})
-		</license.signature>
+		<license.signature>${license.name} License (${license.abbr}), Version ${license.version} (${license.id})</license.signature>
 
 		<!-- dependency versions -->
 		<ant-contrib.version>1.0b3</ant-contrib.version>
@@ -143,10 +135,15 @@
 
 	<distributionManagement>
 		<repository>
+			<id>ossrh</id>
+			<name>Maven Central</name>
+			<url>https://ossrh-staging-api.central.sonatype.com/service/local/staging/deploy/maven2/</url>
+		</repository>
+		<snapshotRepository>
 			<id>project-repo</id>
 			<name>Project Repository</name>
 			<url>https://maven.pkg.github.com/${project.organization.name}/${project.module-root.artifactId}</url>
-		</repository>
+		</snapshotRepository>
 		<site>
 			<id>project-site-repo</id>
 			<name>Project's Site - Repository</name>
@@ -653,12 +650,16 @@
 									<if>
 										<available file="${third-party-properties.target.fullPath}" />
 										<then>
-											<echo message="third-party.properties exists." level="info" />
-											<property name="third-party-properties.target.missing" value="false" />
+											<echo message="third-party.properties exists."
+												  level="info" />
+											<property name="third-party-properties.target.missing"
+													  value="false" />
 										</then>
 										<else>
-											<echo message="third-party.properties missing." level="info" />
-											<property name="third-party-properties.target.missing" value="true" />
+											<echo message="third-party.properties missing."
+												  level="info" />
+											<property name="third-party-properties.target.missing"
+													  value="true" />
 										</else>
 									</if>
 								</target>
