@@ -40,10 +40,7 @@ extends HttpServlet {
 		final @Nullable HttpServletRequest request,
 		final @Nullable HttpServletResponse response
 	) throws IOException {
-		BaseServlet.log.trace(
-			"Handle GET request: {}",
-			request.getRequestURI()
-		);
+		BaseServlet.log.trace("Handling GET request.");
 		this.doRequest(request, response);
 	}
 
@@ -52,10 +49,7 @@ extends HttpServlet {
 		final @Nullable HttpServletRequest request,
 		final @Nullable HttpServletResponse response
 	) throws IOException {
-		BaseServlet.log.trace(
-			"Handle POST request: {}",
-			request.getRequestURI()
-		);
+		BaseServlet.log.trace("Handling POST request.");
 		this.doRequest(request, response);
 	}
 }

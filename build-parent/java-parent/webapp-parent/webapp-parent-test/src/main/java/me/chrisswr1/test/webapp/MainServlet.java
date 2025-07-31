@@ -38,6 +38,14 @@ extends BaseServlet {
 		final @Nullable HttpServletRequest request,
 		final @Nullable HttpServletResponse response
 	) throws IOException {
+		if (request == null || response == null) {
+			MainServlet.log.warn(
+				"Request or response isn't initialized!" +
+				" Cancel handling request."
+			);
+			return;
+		}
+
 		MainServlet.log.trace("Handling request: {}", request.getRequestURI());
 		response.getWriter().println(App.helloWorld());
 	}
