@@ -199,6 +199,40 @@
 			<build>
 				<plugins>
 					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>build-helper-maven-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>set-dist-artifact-extension</id>
+								<phase>validate</phase>
+								<goals>
+									<goal>regex-property</goal>
+								</goals>
+								<configuration>
+									<name>project.build.artifact.extension</name>
+									<value>${project.packaging}</value>
+									<regex>^(?!pom$).+$</regex>
+									<replacement>zip</replacement>
+									<failIfNoMatch>false</failIfNoMatch>
+								</configuration>
+							</execution>
+							<execution>
+								<id>set-dist-artifact-filename</id>
+								<phase>validate</phase>
+								<goals>
+									<goal>regex-property</goal>
+								</goals>
+								<configuration>
+									<name>project.build.artifact.fileName</name>
+									<value>${project.build.artifact.fileName}</value>
+									<regex>\.(?!pom$)[^.]+$</regex>
+									<replacement>-dist.zip</replacement>
+									<failIfNoMatch>false</failIfNoMatch>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
 						<artifactId>maven-dependency-plugin</artifactId>
 						<executions>
 							<execution>

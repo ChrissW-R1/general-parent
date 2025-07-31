@@ -54,8 +54,10 @@
 
 	<properties>
 		<!-- technically-based properties -->
-		<project.build.artifactFileName>${project.build.finalName}.${project.packaging}</project.build.artifactFileName>
-		<project.build.artifactFullPath>${project.build.directory}/${project.build.artifactFileName}</project.build.artifactFullPath>
+		<project.build.artifact.extension>${project.packaging}</project.build.artifact.extension>
+		<project.build.artifact.fileName>
+			${project.build.finalName}.${project.build.artifact.extension}
+		</project.build.artifact.fileName>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.scm.id>project-repo</project.scm.id>
 		<project.parent.relativedir/>
@@ -1436,7 +1438,7 @@
 										<mkdir dir="${copy-artifact.dir}" />
 										<copy todir="${copy-artifact.dir}">
 											<fileset dir="${project.build.directory}"
-													 includes="${project.build.artifactFileName}" />
+													 includes="${project.build.artifact.fileName}" />
 										</copy>
 									</target>
 								</configuration>
