@@ -22,6 +22,7 @@
 
 	<properties>
 		<!-- technically-based properties -->
+		<project.module-root.relativedir>${project.parent.relativedir}../</project.module-root.relativedir>
 		<java.rootPackage.raw>${project.groupId}.${java.package}</java.rootPackage.raw>
 		<mainClass.localPath>Main</mainClass.localPath>
 		<mainClass.fullPath>${java.rootPackage.cleaned}.${mainClass.localPath}</mainClass.fullPath>

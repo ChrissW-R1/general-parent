@@ -32,6 +32,17 @@ Secondly, set the parent to the project type parent. Example as a Java Project:
 </parent>
 ```
 
+Last but not least some technical properties have to be overridden by your POM
+to set all derived properties correctly:
+```XML
+<properties>
+	...
+	<project.module-root.artifactId>{your-top-project-artifactId}</project.module-root.artifactId>
+	<project.module-root.relativedir>./</project.module-root.relativedir>
+	...
+</properties>
+```
+
 ## License
 
 The usage of this project for other downstream projects is allowed without any
