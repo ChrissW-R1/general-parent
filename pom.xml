@@ -785,7 +785,7 @@
 				<artifactId>maven-project-info-reports-plugin</artifactId>
 				<version>${plugin.project-info-reports.version}</version>
 			</plugin>
-			<!--plugin>
+			<plugin>
 				<groupId>org.owasp</groupId>
 				<artifactId>dependency-check-maven</artifactId>
 				<version>${plugin.dependency-check.version}</version>
@@ -797,7 +797,7 @@
 						</reports>
 					</reportSet>
 				</reportSets>
-			</plugin-->
+			</plugin>
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>license-maven-plugin</artifactId>
@@ -982,11 +982,11 @@
 		</profile>
 		<profile>
 			<id>check-dependencies</id>
-			<!--activation>
+			<activation>
 				<property>
 					<name>fullBuild</name>
 				</property>
-			</activation-->
+			</activation>
 			<build>
 				<plugins>
 					<plugin>
