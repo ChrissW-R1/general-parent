@@ -22,7 +22,7 @@ jobs:
             # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
             -   name: Git Checkout
                 uses: actions/checkout@v4
-            -   name: Setup git user
+            -   name: Setup Git user
                 run:  |
                       git config --global user.name "ChrissW-R1"
                       git config --global user.email "contact@ChrissW-R1.me"
@@ -36,6 +36,7 @@ jobs:
                     settings-path:   ${{ github.workspace }} # location for the settings.xml file
                     gpg-passphrase:  'gpg_passphrase'
                     gpg-private-key: ${{ secrets.GPG_PRIVATE_KEY }}
+
             -   name: Build with Maven
                 run:  mvn -B clean deploy site-deploy -e -DfullBuild -Ddistribution -Dexecutable -s ci_settings.xml --file pom.xml
                 env:

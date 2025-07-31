@@ -119,6 +119,7 @@
 		<plugin.site.version>3.21.0</plugin.site.version>
 		<plugin.project-info-reports.version>3.9.0</plugin.project-info-reports.version>
 		<plugin.release.version>3.1.1</plugin.release.version>
+		<plugin.central-publish.version>0.8.0</plugin.central-publish.version>
 	</properties>
 
 	<scm>
@@ -135,15 +136,10 @@
 
 	<distributionManagement>
 		<repository>
-			<id>ossrh</id>
-			<name>Maven Central</name>
-			<url>https://ossrh-staging-api.central.sonatype.com/service/local/staging/deploy/maven2/</url>
-		</repository>
-		<snapshotRepository>
 			<id>project-repo</id>
 			<name>Project Repository</name>
 			<url>https://maven.pkg.github.com/${project.organization.name}/${project.module-root.artifactId}</url>
-		</snapshotRepository>
+		</repository>
 		<site>
 			<id>project-site-repo</id>
 			<name>Project's Site - Repository</name>
@@ -679,6 +675,15 @@
 						<tagNameFormat>@{project.version}</tagNameFormat>
 						<scmCommentPrefix>[maven-release-plugin] [skip ci]</scmCommentPrefix>
 						<arguments>-Dexecutable -DfullBuild</arguments>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.sonatype.central</groupId>
+					<artifactId>central-publishing-maven-plugin</artifactId>
+					<version>${plugin.central-publish.version}</version>
+					<extensions>true</extensions>
+					<configuration>
+						<publishingServerId>central</publishingServerId>
 					</configuration>
 				</plugin>
 			</plugins>

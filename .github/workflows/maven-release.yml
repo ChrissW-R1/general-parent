@@ -22,7 +22,7 @@ jobs:
             # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
             -   name: Git Checkout
                 uses: actions/checkout@v4
-            -   name: Setup git user
+            -   name: Setup Git user
                 run:  |
                       git config --global user.name "ChrissW-R1"
                       git config --global user.email "contact@ChrissW-R1.me"
@@ -36,6 +36,7 @@ jobs:
                     settings-path:   ${{ github.workspace }} # location for the settings.xml file
                     gpg-passphrase:  'gpg_passphrase'
                     gpg-private-key: ${{ secrets.GPG_PRIVATE_KEY }}
+
             -   name: Build with Maven
                 run:  mvn -B clean release:prepare release:perform -e -DfullBuild -Ddistribution -Dexecutable -s ci_settings.xml --file pom.xml -Dusername=${ci_git_user} -Dpassword=${GITHUB_TOKEN}
                 env:
@@ -46,11 +47,12 @@ jobs:
                     gpg_keyid:                ${{ secrets.GPG_KEYID }}
                     gpg_passphrase:           ${{ secrets.GPG_PASSPHRASE }}
                     mvnsiteuploader_password: ${{ secrets.MVNSITEUPLOADER_PASSWORD }}
+                    mvn_central_user:         ${{ secrets.MVN_CENTRAL_USER }}
+                    mvn_central_token:        ${{ secrets.MVN_CENTRAL_TOKEN }}
 
             -   id:   get_tag
                 name: Get latest tag
                 run:  echo "tag_name=$(git describe --tags --abbrev=0)" >> "$GITHUB_OUTPUT"
-
             -   id:   artifact_info
                 name: Get artifact file path from Maven
                 run:  |
@@ -81,7 +83,6 @@ jobs:
                     release_name: Release ${{ steps.get_tag.outputs.tag_name }}
                     draft:        false
                     prerelease:   false
-
             -   name: Upload JAR Artifact
                 uses: actions/upload-release-asset@v1
                 env:
