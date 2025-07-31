@@ -40,7 +40,7 @@
 		<lombok-pg.version>0.11.3</lombok-pg.version>
 		<proguard.annotations.version>7.7.0</proguard.annotations.version>
 		<slf4j.version>2.0.17</slf4j.version>
-		<junit.minor-version>13.3</junit.minor-version>
+		<junit.minor-version>13.4</junit.minor-version>
 		<junit.jupiter.version>5.${junit.minor-version}</junit.jupiter.version>
 		<junit.platform.version>1.${junit.minor-version}</junit.platform.version>
 		<mockito.version>5.18.0</mockito.version>
