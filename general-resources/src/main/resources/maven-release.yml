@@ -20,16 +20,13 @@ jobs:
         # Steps represent a sequence of tasks that will be executed as part of the job
         steps:
             # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-            -
-                name: Git Checkout
+            -   name: Git Checkout
                 uses: actions/checkout@v4
-            -
-                name: Setup git user
+            -   name: Setup git user
                 run:  |
                       git config --global user.name "ChrissW-R1"
                       git config --global user.email "contact@ChrissW-R1.me"
-            -
-                name: Setup JDK ${java.version}
+            -   name: Setup JDK ${java.version}
                 uses: actions/setup-java@v4
                 with:
                     distribution:    'temurin'
@@ -39,8 +36,7 @@ jobs:
                     settings-path:   ${{ github.workspace }} # location for the settings.xml file
                     gpg-passphrase:  'gpg_passphrase'
                     gpg-private-key: ${{ secrets.GPG_PRIVATE_KEY }}
-            -
-                name: Build with Maven
+            -   name: Build with Maven
                 run:  mvn -B clean release:prepare release:perform -e -DfullBuild -Ddistribution -Dexecutable -s ci_settings.xml --file pom.xml -Dusername=${ci_git_user} -Dpassword=${GITHUB_TOKEN}
                 env:
                     GITHUB_TOKEN:             ${{ secrets.GITHUB_TOKEN }}
@@ -51,47 +47,47 @@ jobs:
                     gpg_passphrase:           ${{ secrets.GPG_PASSPHRASE }}
                     mvnsiteuploader_password: ${{ secrets.MVNSITEUPLOADER_PASSWORD }}
 
-            - id: get_tag
-              name: Get latest tag
-              run: echo "tag_name=$(git describe --tags --abbrev=0)" >> "$GITHUB_OUTPUT"
+            -   id:   get_tag
+                name: Get latest tag
+                run:  echo "tag_name=$(git describe --tags --abbrev=0)" >> "$GITHUB_OUTPUT"
 
-            - id: artifact_info
-              name: Get artifact file path from Maven
-              run: |
-                  echo "Resolving Maven artifact info..."
+            -   id:   artifact_info
+                name: Get artifact file path from Maven
+                run:  |
+                      echo "Resolving Maven artifact info..."
 
-                  FILENAME=$(mvn initialize help:evaluate -Dexpression="project.build.artifact.fileName" -Ddistribution -q -DforceStdout)
-                  DIRECTORY=$(mvn initialize help:evaluate -Dexpression="project.build.directory" -Ddistribution -q -DforceStdout)
-                  EXTENSION=$(mvn initialize help:evaluate -Dexpression="project.build.artifact.extension" -Ddistribution -q -DforceStdout)
+                      FILENAME=$(mvn initialize help:evaluate -Dexpression="project.build.artifact.fileName" -Ddistribution -q -DforceStdout)
+                      DIRECTORY=$(mvn initialize help:evaluate -Dexpression="project.build.directory" -Ddistribution -q -DforceStdout)
+                      EXTENSION=$(mvn initialize help:evaluate -Dexpression="project.build.artifact.extension" -Ddistribution -q -DforceStdout)
 
-                  # MIME type mapping
-                  case "$EXTENSION" in
-                    pom)           MIME="text/xml" ;;
-                    zip)           MIME="application/zip" ;;
-                    *)             MIME="application/java-archive" ;; # Fallback
-                  esac
+                      # MIME type mapping
+                      case "$EXTENSION" in
+                        pom)           MIME="text/xml" ;;
+                        zip)           MIME="application/zip" ;;
+                        *)             MIME="application/java-archive" ;; # Fallback
+                      esac
 
-                  echo "filename=$FILENAME" >> "$GITHUB_OUTPUT"
-                  echo "directory=$DIRECTORY" >> "$GITHUB_OUTPUT"
-                  echo "mime=$MIME" >> "$GITHUB_OUTPUT"
+                      echo "filename=$FILENAME" >> "$GITHUB_OUTPUT"
+                      echo "directory=$DIRECTORY" >> "$GITHUB_OUTPUT"
+                      echo "mime=$MIME" >> "$GITHUB_OUTPUT"
 
-            - id: create_release
-              name: Create GitHub Release
-              uses: actions/create-release@v1
-              env:
-                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-              with:
-                  tag_name: ${{ steps.get_tag.outputs.tag_name }}
-                  release_name: Release ${{ steps.get_tag.outputs.tag_name }}
-                  draft: false
-                  prerelease: false
+            -   id:   create_release
+                name: Create GitHub Release
+                uses: actions/create-release@v1
+                env:
+                    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                with:
+                    tag_name:     ${{ steps.get_tag.outputs.tag_name }}
+                    release_name: Release ${{ steps.get_tag.outputs.tag_name }}
+                    draft:        false
+                    prerelease:   false
 
-            - name: Upload JAR Artifact
-              uses: actions/upload-release-asset@v1
-              env:
-                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-              with:
-                  upload_url: ${{ steps.create_release.outputs.upload_url }}
-                  asset_path: ${{ steps.artifact_info.outputs.directory }}/${{ steps.artifact_info.outputs.filename }}
-                  asset_name: ${{ steps.artifact_info.outputs.filename }}
-                  asset_content_type: ${{ steps.artifact_info.outputs.mime }}
+            -   name: Upload JAR Artifact
+                uses: actions/upload-release-asset@v1
+                env:
+                    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                with:
+                    upload_url:         ${{ steps.create_release.outputs.upload_url }}
+                    asset_path:         ${{ steps.artifact_info.outputs.directory }}/${{ steps.artifact_info.outputs.filename }}
+                    asset_name:         ${{ steps.artifact_info.outputs.filename }}
+                    asset_content_type: ${{ steps.artifact_info.outputs.mime }}
