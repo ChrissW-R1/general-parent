@@ -580,7 +580,7 @@
 					<configuration>
 						<nvdApiServerId>nvd.apikey</nvdApiServerId>
 						<pathToCore>${dotnetcore.path}</pathToCore>
-						<yarnAuditAnalyzerEnabled>false</yarnAuditAnalyzerEnabled>
+						<nodeAuditAnalyzerEnabled>false</nodeAuditAnalyzerEnabled>
 					</configuration>
 				</plugin>
 				<plugin>
