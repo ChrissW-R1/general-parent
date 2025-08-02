@@ -1143,6 +1143,9 @@
 					<plugin>
 						<groupId>org.codehaus.mojo</groupId>
 						<artifactId>flatten-maven-plugin</artifactId>
+						<configuration>
+							<flattenMode>bom</flattenMode>
+						</configuration>
 						<executions>
 							<execution>
 								<id>flatten-pom</id>
