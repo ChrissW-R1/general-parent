@@ -111,7 +111,7 @@
 		<plugin.compiler.version>3.14.0</plugin.compiler.version>
 		<plugin.dependency-check.version>12.1.3</plugin.dependency-check.version>
 		<plugin.cyclonedx.version>2.9.1</plugin.cyclonedx.version>
-		<plugin.deploy-pom.version>1.0.1</plugin.deploy-pom.version>
+		<plugin.deploy-pom.version>1.1.0-SNAPSHOT</plugin.deploy-pom.version>
 		<plugin.jar.version>3.4.2</plugin.jar.version>
 		<plugin.source.version>3.3.1</plugin.source.version>
 		<plugin.gpg.version>3.2.8</plugin.gpg.version>
@@ -1113,75 +1113,33 @@
 			<build>
 				<plugins>
 					<plugin>
-						<artifactId>maven-resources-plugin</artifactId>
-						<executions>
-							<execution>
-								<id>backup-pom</id>
-								<phase>validate</phase>
-								<goals>
-									<goal>copy-resources</goal>
-								</goals>
-								<configuration>
-									<outputDirectory>${project.build.directory}/backup-resources</outputDirectory>
-									<resources>
-										<resource>
-											<directory>${project.basedir}</directory>
-											<includes>
-												<include>pom.xml</include>
-											</includes>
-										</resource>
-									</resources>
-								</configuration>
-							</execution>
-							<execution>
-								<id>restore-pom</id>
-								<phase>install</phase>
-								<goals>
-									<goal>copy-resources</goal>
-								</goals>
-								<configuration>
-									<outputDirectory>${project.basedir}</outputDirectory>
-									<resources>
-										<resource>
-											<directory>${project.build.directory}/backup-resources</directory>
-											<includes>
-												<include>pom.xml</include>
-											</includes>
-										</resource>
-									</resources>
-									<overwrite>true</overwrite>
-								</configuration>
-							</execution>
-						</executions>
-					</plugin>
-					<plugin>
 						<groupId>me.chrissw-r1</groupId>
 						<artifactId>deploy-pom-maven-plugin</artifactId>
+						<configuration>
+							<defaultDevelopers>
+								<developer>
+									<id>ChrissW-R1</id>
+									<name>ChrissW-R1</name>
+									<email>contact@ChrissW-R1.me</email>
+									<url>https://ChrissW-R1.me</url>
+									<timezone>Europe/Berlin</timezone>
+									<roles>
+										<role>manager</role>
+										<role>architect</role>
+										<role>developer</role>
+									</roles>
+									<properties>
+										<picUrl>https://www.gravatar.com/avatar/625826a28e0cb12855ef6f5d169f8b67</picUrl>
+									</properties>
+								</developer>
+							</defaultDevelopers>
+						</configuration>
 						<executions>
 							<execution>
 								<id>add-defaults-default</id>
 								<goals>
 									<goal>add-defaults</goal>
 								</goals>
-								<configuration>
-									<developers>
-										<developer>
-											<id>ChrissW-R1</id>
-											<name>ChrissW-R1</name>
-											<email>contact@ChrissW-R1.me</email>
-											<url>https://ChrissW-R1.me</url>
-											<timezone>Europe/Berlin</timezone>
-											<roles>
-												<role>manager</role>
-												<role>architect</role>
-												<role>developer</role>
-											</roles>
-											<properties>
-												<picUrl>https://www.gravatar.com/avatar/625826a28e0cb12855ef6f5d169f8b67</picUrl>
-											</properties>
-										</developer>
-									</developers>
-								</configuration>
 							</execution>
 							<execution>
 								<id>add-defaults-site</id>
@@ -1196,23 +1154,9 @@
 									<goal>copy-from-effective</goal>
 								</goals>
 								<configuration>
-									<nodes>
-										<node>
-											<xpath>url</xpath>
-											<copyFromEffective>true</copyFromEffective>
-											<resolveProperties>true</resolveProperties>
-										</node>
-										<node>
-											<xpath>licenses</xpath>
-											<copyFromEffective>true</copyFromEffective>
-											<resolveProperties>true</resolveProperties>
-										</node>
-										<node>
-											<xpath>developers</xpath>
-											<copyFromEffective>true</copyFromEffective>
-											<resolveProperties>true</resolveProperties>
-										</node>
-									</nodes>
+									<copyEffectiveUrl>true</copyEffectiveUrl>
+									<copyEffectiveLicenses>true</copyEffectiveLicenses>>
+									<copyEffectiveDevelopers>true</copyEffectiveDevelopers>
 								</configuration>
 							</execution>
 						</executions>
