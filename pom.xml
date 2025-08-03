@@ -581,6 +581,7 @@
 						<nvdApiServerId>nvd.apikey</nvdApiServerId>
 						<pathToCore>${dotnetcore.path}</pathToCore>
 						<nodeAuditAnalyzerEnabled>false</nodeAuditAnalyzerEnabled>
+						<yarnAuditAnalyzerEnabled>false</yarnAuditAnalyzerEnabled>
 					</configuration>
 				</plugin>
 				<plugin>
