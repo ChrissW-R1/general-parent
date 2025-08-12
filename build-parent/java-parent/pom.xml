@@ -588,5 +588,6 @@
 		<module>java-parent-test</module>
 		<module>webapp-parent</module>
 		<module>java-exe-parent</module>
+		<module>maven-plugin-parent</module>
 	</modules>
 </project>
