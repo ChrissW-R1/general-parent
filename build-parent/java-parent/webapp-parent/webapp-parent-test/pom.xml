@@ -50,6 +50,12 @@
 						<links combine.children="append">
 							<link>${java-parent.javadoc-url}</link>
 						</links>
+						<offlineLinks>
+							<offlineLink>
+								<url>${java-parent.javadoc-url}</url>
+								<location>${project.basedir}/../../java-parent-test/target/reports/apidocs</location>
+							</offlineLink>
+						</offlineLinks>
 					</configuration>
 				</plugin>
 			</plugins>
