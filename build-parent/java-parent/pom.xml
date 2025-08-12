@@ -375,6 +375,13 @@
 						<link>${mockito.javadoc-url}</link>
 					</links>
 				</configuration>
+				<reportSets>
+					<reportSet>
+						<reports>
+							<report>javadoc</report>
+						</reports>
+					</reportSet>
+				</reportSets>
 			</plugin>
 		</plugins>
 	</reporting>
