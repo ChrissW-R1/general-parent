@@ -15,7 +15,7 @@ import java.io.IOException;
  * {@link Servlet}, which handles all {@link HttpServletRequest}s
  * on the root path
  *
- * @version 2.5.0
+ * @version 3.0.0
  * @since 1.0.0
  */
 @Slf4j
@@ -40,8 +40,8 @@ extends BaseServlet {
 	) throws IOException {
 		if (request == null || response == null) {
 			MainServlet.log.warn(
-				"Request or response isn't initialized!" +
-				" Cancel handling request."
+				"Request or response isn't initialized! " +
+				"Cancel handling request."
 			);
 			return;
 		}

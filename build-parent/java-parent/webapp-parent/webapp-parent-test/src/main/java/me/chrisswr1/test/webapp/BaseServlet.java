@@ -11,7 +11,7 @@ import java.io.IOException;
 /**
  * {@link HttpServlet}, which merges the request methods GET and POST
  *
- * @version 2.5.0
+ * @version 3.0.0
  * @since 1.0.0
  */
 @Slf4j
