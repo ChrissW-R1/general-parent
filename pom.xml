@@ -237,6 +237,7 @@
 								<directory>./</directory>
 								<includes>
 									<include>dependency-reduced-pom.xml</include>
+									<include>${project.build.finalName}-deploy.pom</include>
 									<!--include>.github/workflows/maven-build.yml</include>
 									<include>.gitlab-ci.yml</include-->
 									<include>tsconfig.json</include>
