@@ -54,7 +54,9 @@
 		<!-- technically-based properties -->
 		<project.build.artifact.extension>${project.packaging}</project.build.artifact.extension>
 		<project.build.artifact.fileName>${project.build.finalName}.${project.build.artifact.extension}</project.build.artifact.fileName>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.fileEncoding>UTF-8</project.fileEncoding>
+		<project.build.sourceEncoding>${project.fileEncoding}</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>${project.fileEncoding}</project.reporting.outputEncoding>
 		<project.scm.id>project-repo</project.scm.id>
 		<project.parent.relativedir />
 		<project.module-root.artifactId>general-parent</project.module-root.artifactId>
