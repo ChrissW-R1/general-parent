@@ -53,6 +53,9 @@
 		<plugin.javadoc.version>3.11.2</plugin.javadoc.version>
 
 		<!-- JavaDoc URLs -->
+		<jetbrains-annotations.javadoc-url>https://javadoc.io/doc/org.jetbrains/annotations/${jetbrains-annotations.version}</jetbrains-annotations.javadoc-url>
+		<jcip-annotations.javadoc-url>https://javadoc.io/doc/com.google.code.findbugs/annotations/latest</jcip-annotations.javadoc-url>
+		<spotbugs.javadoc-url>https://javadoc.io/doc/com.github.spotbugs/spotbugs-annotations/${spotbugs.version}</spotbugs.javadoc-url>
 		<lombok.javadoc-url>https://projectlombok.org/api</lombok.javadoc-url>
 		<slf4j.javadoc-url>https://www.slf4j.org/apidocs</slf4j.javadoc-url>
 		<junit.platform.javadoc-url>https://junit.org/junit5/docs/current/api</junit.platform.javadoc-url>
@@ -331,6 +334,9 @@
 						<keywords>true</keywords>
 						<serialwarn>true</serialwarn>
 						<links>
+							<link>${jetbrains-annotations.javadoc-url}</link>
+							<link>${jcip-annotations.javadoc-url}</link>
+							<link>${spotbugs.javadoc-url}</link>
 							<link>${lombok.javadoc-url}</link>
 							<link>${slf4j.javadoc-url}</link>
 							<link>${junit.platform.javadoc-url}</link>

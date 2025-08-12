@@ -23,6 +23,11 @@
 
 		<!-- plugin versions -->
 		<plugin.plugin.version>3.15.1</plugin.plugin.version>
+
+		<!-- JavaDoc URLs -->
+		<maven.javadoc-url>https://maven.apache.org/ref/${maven.version}/maven-core/apidocs</maven.javadoc-url>
+		<maven.plugin.javadoc-url>https://javadoc.io/doc/org.apache.maven/maven-plugin-api/${maven.version}</maven.plugin.javadoc-url>
+		<maven.plugin-annotations.javadoc-url>https://javadoc.io/doc/org.apache.maven.plugin-tools/maven-plugin-annotations/${plugin.plugin.version}</maven.plugin-annotations.javadoc-url>
 	</properties>
 
 	<dependencies>
@@ -75,6 +80,16 @@
 					<version>${plugin.plugin.version}</version>
 					<configuration>
 						<goalPrefix>${goalPrefix}</goalPrefix>
+					</configuration>
+				</plugin>
+				<plugin>
+					<artifactId>maven-javadoc-plugin</artifactId>
+					<configuration>
+						<links combine.children="append">
+							<link>${maven.javadoc-url}</link>
+							<link>${maven.plugin.javadoc-url}</link>
+							<link>${maven.plugin-annotations.javadoc-url}</link>
+						</links>
 					</configuration>
 				</plugin>
 				<plugin>

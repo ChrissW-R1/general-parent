@@ -27,6 +27,9 @@
 		<java.package>test.exe</java.package>
 		<mainClass.localPath>WrappedApp</mainClass.localPath>
 		<headerType>console</headerType>
+
+		<!-- JavaDoc URLs -->
+		<java-parent.javadoc-url>https://docs.urelion.world/me.chrisswr1/general-parent/${project.version}/build-parent/java-parent/testapidocs</java-parent.javadoc-url>
 	</properties>
 
 	<dependencies>
@@ -37,4 +40,19 @@
 			<version>${project.version}</version>
 		</dependency>
 	</dependencies>
+
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<artifactId>maven-javadoc-plugin</artifactId>
+					<configuration>
+						<links combine.children="append">
+							<link>${java-parent.javadoc-url}</link>
+						</links>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
 </project>
