@@ -105,7 +105,9 @@
 				<configuration>
 					<links combine.children="append">
 						<link>${servlet.javadoc-url}</link>
-						<link>${jersey.javadoc-url}</link>
+						<link>${jersey.server.javadoc-url}</link>
+						<link>${jersey.container.javadoc-url}</link>
+						<link>${jersey.hk2.javadoc-url}</link>
 					</links>
 				</configuration>
 			</plugin>

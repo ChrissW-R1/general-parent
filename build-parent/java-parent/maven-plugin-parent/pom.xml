@@ -149,4 +149,19 @@
 			</plugin>
 		</plugins>
 	</build>
+
+	<reporting>
+		<plugins>
+			<plugin>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<configuration>
+					<links combine.children="append">
+						<link>${maven.javadoc-url}</link>
+						<link>${maven.plugin.javadoc-url}</link>
+						<link>${maven.plugin-annotations.javadoc-url}</link>
+					</links>
+				</configuration>
+			</plugin>
+		</plugins>
+	</reporting>
 </project>

@@ -366,6 +366,9 @@
 				<version>${plugin.javadoc.version}</version>
 				<configuration>
 					<links>
+						<link>${jetbrains-annotations.javadoc-url}</link>
+						<link>${jcip-annotations.javadoc-url}</link>
+						<link>${spotbugs.javadoc-url}</link>
 						<link>${lombok.javadoc-url}</link>
 						<link>${slf4j.javadoc-url}</link>
 						<link>${junit.platform.javadoc-url}</link>
