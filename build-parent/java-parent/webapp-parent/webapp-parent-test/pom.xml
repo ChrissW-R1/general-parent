@@ -29,7 +29,7 @@
 		<mainClass.localPath>MainServlet</mainClass.localPath>
 
 		<!-- JavaDoc URLs -->
-		<java-parent.javadoc-url>${project.site.baseUrl}/${project.site.urlPath}/build-parent/java-parent/apidocs</java-parent.javadoc-url>
+		<java-parent.javadoc-url>${project.site.baseUrl}/${project.site.urlPath}/build-parent/java-parent/java-parent-test/apidocs</java-parent.javadoc-url>
 	</properties>
 
 	<dependencies>
