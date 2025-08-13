@@ -32,10 +32,10 @@
 		<plugin.war.version>3.4.0</plugin.war.version>
 
 		<!-- JavaDoc URLs -->
-		<servlet.javadoc-url>https://javadoc.io/doc/jakarta.servlet/jakarta.servlet-api/${servlet.version}</servlet.javadoc-url>
-		<jersey.server.javadoc-url>https://javadoc.io/doc/org.glassfish.jersey.core/jersey-server/${jersey.version}</jersey.server.javadoc-url>
-		<jersey.container.javadoc-url>https://javadoc.io/doc/org.glassfish.jersey.containers/jersey-container-servlet/${jersey.version}</jersey.container.javadoc-url>
-		<jersey.hk2.javadoc-url>https://javadoc.io/doc/org.glassfish.jersey.inject/jersey-hk2/${jersey.version}</jersey.hk2.javadoc-url>
+		<servlet.javadoc.url>https://javadoc.io/doc/jakarta.servlet/jakarta.servlet-api/${servlet.version}</servlet.javadoc.url>
+		<jersey.server.javadoc.url>https://javadoc.io/doc/org.glassfish.jersey.core/jersey-server/${jersey.version}</jersey.server.javadoc.url>
+		<jersey.container.javadoc.url>https://javadoc.io/doc/org.glassfish.jersey.containers/jersey-container-servlet/${jersey.version}</jersey.container.javadoc.url>
+		<jersey.hk2.javadoc.url>https://javadoc.io/doc/org.glassfish.jersey.inject/jersey-hk2/${jersey.version}</jersey.hk2.javadoc.url>
 	</properties>
 
 	<dependencies>
@@ -87,10 +87,10 @@
 					<artifactId>maven-javadoc-plugin</artifactId>
 					<configuration>
 						<links combine.children="append">
-							<link>${servlet.javadoc-url}</link>
-							<link>${jersey.server.javadoc-url}</link>
-							<link>${jersey.container.javadoc-url}</link>
-							<link>${jersey.hk2.javadoc-url}</link>
+							<link>${servlet.javadoc.url}</link>
+							<link>${jersey.server.javadoc.url}</link>
+							<link>${jersey.container.javadoc.url}</link>
+							<link>${jersey.hk2.javadoc.url}</link>
 						</links>
 					</configuration>
 				</plugin>
@@ -104,10 +104,10 @@
 				<artifactId>maven-javadoc-plugin</artifactId>
 				<configuration>
 					<links combine.children="append">
-						<link>${servlet.javadoc-url}</link>
-						<link>${jersey.server.javadoc-url}</link>
-						<link>${jersey.container.javadoc-url}</link>
-						<link>${jersey.hk2.javadoc-url}</link>
+						<link>${servlet.javadoc.url}</link>
+						<link>${jersey.server.javadoc.url}</link>
+						<link>${jersey.container.javadoc.url}</link>
+						<link>${jersey.hk2.javadoc.url}</link>
 					</links>
 				</configuration>
 			</plugin>

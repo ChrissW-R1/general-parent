@@ -29,8 +29,8 @@
 		<headerType>console</headerType>
 
 		<!-- JavaDoc URLs -->
-		<java-parent.javadoc-url>${project.site.baseUrl}/${project.site.urlPath}/build-parent/java-parent/java-parent-test/apidocs</java-parent.javadoc-url>
-		<java-parent.javadoc-offline-path>${project.basedir}/../../java-parent-test/target/reports/apidocs</java-parent.javadoc-offline-path>
+		<java-parent.javadoc.url>${project.site.baseUrl}/${project.site.urlPath}/build-parent/java-parent/java-parent-test/apidocs</java-parent.javadoc.url>
+		<java-parent.javadoc.offlinePath>${project.basedir}/../../java-parent-test/target/reports/apidocs</java-parent.javadoc.offlinePath>
 	</properties>
 
 	<dependencies>
@@ -50,8 +50,8 @@
 					<configuration>
 						<offlineLinks>
 							<offlineLink>
-								<url>${java-parent.javadoc-url}</url>
-								<location>${java-parent.javadoc-offline-path}</location>
+								<url>${java-parent.javadoc.url}</url>
+								<location>${java-parent.javadoc.offlinePath}</location>
 							</offlineLink>
 						</offlineLinks>
 					</configuration>
@@ -67,8 +67,8 @@
 				<configuration>
 					<offlineLinks>
 						<offlineLink>
-							<url>${java-parent.javadoc-url}</url>
-							<location>${java-parent.javadoc-offline-path}</location>
+							<url>${java-parent.javadoc.url}</url>
+							<location>${java-parent.javadoc.offlinePath}</location>
 						</offlineLink>
 					</offlineLinks>
 				</configuration>
