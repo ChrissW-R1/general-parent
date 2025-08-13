@@ -30,6 +30,7 @@
 
 		<!-- JavaDoc URLs -->
 		<java-parent.javadoc-url>${project.site.baseUrl}/${project.site.urlPath}/build-parent/java-parent/java-parent-test/apidocs</java-parent.javadoc-url>
+		<java-parent.javadoc-offline-path>${project.basedir}/../../java-parent-test/target/reports/apidocs</java-parent.javadoc-offline-path>
 	</properties>
 
 	<dependencies>
@@ -47,13 +48,10 @@
 				<plugin>
 					<artifactId>maven-javadoc-plugin</artifactId>
 					<configuration>
-						<links combine.children="append">
-							<link>${java-parent.javadoc-url}</link>
-						</links>
 						<offlineLinks>
 							<offlineLink>
 								<url>${java-parent.javadoc-url}</url>
-								<location>${project.basedir}/../../java-parent-test/target/reports/apidocs</location>
+								<location>${java-parent.javadoc-offline-path}</location>
 							</offlineLink>
 						</offlineLinks>
 					</configuration>
@@ -67,13 +65,10 @@
 			<plugin>
 				<artifactId>maven-javadoc-plugin</artifactId>
 				<configuration>
-					<links combine.children="append">
-						<link>${java-parent.javadoc-url}</link>
-					</links>
 					<offlineLinks>
 						<offlineLink>
 							<url>${java-parent.javadoc-url}</url>
-							<location>${project.basedir}/../../java-parent-test/target/reports/apidocs</location>
+							<location>${java-parent.javadoc-offline-path}</location>
 						</offlineLink>
 					</offlineLinks>
 				</configuration>
