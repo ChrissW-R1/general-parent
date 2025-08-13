@@ -29,7 +29,7 @@
 		<mainClass.localPath>MainServlet</mainClass.localPath>
 
 		<!-- JavaDoc URLs -->
-		<java-parent.javadoc-url>https://docs.urelion.world/me.chrisswr1/general-parent/${project.version}/build-parent/java-parent/apidocs</java-parent.javadoc-url>
+		<java-parent.javadoc-url>${project.site.baseUrl}/${project.site.urlPath}/build-parent/java-parent/apidocs</java-parent.javadoc-url>
 	</properties>
 
 	<dependencies>
@@ -41,7 +41,7 @@
 		</dependency>
 	</dependencies>
 
-	<!--build>
+	<build>
 		<pluginManagement>
 			<plugins>
 				<plugin>
@@ -79,5 +79,5 @@
 				</configuration>
 			</plugin>
 		</plugins>
-	</reporting-->
+	</reporting>
 </project>
