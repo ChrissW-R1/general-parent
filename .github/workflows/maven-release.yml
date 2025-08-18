@@ -53,26 +53,6 @@ jobs:
             -   id:   get_tag
                 name: Get latest tag
                 run:  echo "tag_name=$(git describe --tags --abbrev=0)" >> "$GITHUB_OUTPUT"
-            -   id:   artifact_info
-                name: Get artifact file path from Maven
-                run:  |
-                      echo "Resolving Maven artifact info..."
-
-                      FILENAME=$(mvn initialize help:evaluate -Dexpression="project.build.artifact.fileName" -Ddistribution -q -DforceStdout)
-                      DIRECTORY=$(mvn initialize help:evaluate -Dexpression="project.build.directory" -Ddistribution -q -DforceStdout)
-                      EXTENSION=$(mvn initialize help:evaluate -Dexpression="project.build.artifact.extension" -Ddistribution -q -DforceStdout)
-
-                      # MIME type mapping
-                      case "$EXTENSION" in
-                        pom)           MIME="text/xml" ;;
-                        zip)           MIME="application/zip" ;;
-                        *)             MIME="application/java-archive" ;; # Fallback
-                      esac
-
-                      echo "filename=$FILENAME" >> "$GITHUB_OUTPUT"
-                      echo "directory=$DIRECTORY" >> "$GITHUB_OUTPUT"
-                      echo "mime=$MIME" >> "$GITHUB_OUTPUT"
-
             -   id:   create_release
                 name: Create GitHub Release
                 uses: actions/create-release@v1
@@ -83,12 +63,36 @@ jobs:
                     release_name: Release ${{ steps.get_tag.outputs.tag_name }}
                     draft:        false
                     prerelease:   false
-            -   name: Upload JAR Artifact
-                uses: actions/upload-release-asset@v1
+            -   name:  Upload artifacts to GitHub Release
                 env:
                     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-                with:
-                    upload_url:         ${{ steps.create_release.outputs.upload_url }}
-                    asset_path:         ${{ steps.artifact_info.outputs.directory }}/${{ steps.artifact_info.outputs.filename }}
-                    asset_name:         ${{ steps.artifact_info.outputs.filename }}
-                    asset_content_type: ${{ steps.artifact_info.outputs.mime }}
+                shell: bash
+                run:   |
+                       set -euo pipefail
+
+                       TAG="${GITHUB_REF_NAME}"
+
+                       while IFS= read -r MOD || [[ -n "$MOD" ]]; do
+                         [[ -z "${MOD//[$'\t\r\n ']/}" ]] && continue
+                         [[ "${MOD:0:1}" == "#" ]] && continue
+
+                         echo "::group::Module: $MOD"
+
+                         DIRECTORY=$(mvn initialize help:evaluate -Dexpression="project.build.directory" -Ddistribution -q -DforceStdout -pl "$MOD")
+                         FILENAME=$(mvn initialize help:evaluate -Dexpression="project.build.artifact.fileName" -Ddistribution -q -DforceStdout -pl "$MOD")
+                         FINAL_NAME=$(mvn initialize help:evaluate -Dexpression="project.build.finalName" -Ddistribution -q -DforceStdout -pl "$MOD")
+
+                         ARTIFACT_PATH=${DIRECTORY}/${FILENAME}
+                         echo "Uploading: $ARTIFACT_PATH"
+                         gh release upload "$TAG" "$ARTIFACT_PATH" --clobber
+
+                         for CLASSIFIER in sources javadoc; do
+                           ADDITIONAL_ARTIFACT="${DIRECTORY}/${FINAL_NAME}-${CLASSIFIER}.jar"
+                           if [[ -f "$ADDITIONAL_ARTIFACT" ]]; then
+                             echo "Uploading: $ADDITIONAL_ARTIFACT"
+                             gh release upload "$TAG" "$ADDITIONAL_ARTIFACT" --clobber
+                           fi
+                         done
+
+                         echo "::endgroup::"
+                       done < modules-list.txt
