@@ -71,6 +71,7 @@ jobs:
                        set -euo pipefail
 
                        TAG="${{ steps.get_tag.outputs.tag_name }}"
+                       BUILD_DIR=$(mvn initialize help:evaluate -Dexpression="project.build.directory" -Ddistribution -q -DforceStdout)
 
                        while IFS= read -r MODULE || [[ -n "$MODULE" ]]; do
                          [[ -z "${MODULE//[$'\t\r\n ']/}" ]] && continue
@@ -78,16 +79,20 @@ jobs:
 
                          echo "::group::Module: $MODULE"
 
-                         DIRECTORY=$(mvn initialize help:evaluate -Dexpression="project.build.directory" -Ddistribution -q -DforceStdout -pl "$MODULE")
+                         if (${MODULE} == "__ROOT__"); then
+                           MODULE=""
+                         fi
+
+                         BUILD_DIR=$(mvn initialize help:evaluate -Dexpression="project.build.directory" -Ddistribution -q -DforceStdout -pl "$MODULE")
                          FILENAME=$(mvn initialize help:evaluate -Dexpression="project.build.artifact.fileName" -Ddistribution -q -DforceStdout -pl "$MODULE")
                          FINAL_NAME=$(mvn initialize help:evaluate -Dexpression="project.build.finalName" -Ddistribution -q -DforceStdout -pl "$MODULE")
 
-                         ARTIFACT_PATH=${DIRECTORY}/${FILENAME}
+                         ARTIFACT_PATH=${BUILD_DIR}/${FILENAME}
                          echo "Uploading: $ARTIFACT_PATH"
                          gh release upload "$TAG" "$ARTIFACT_PATH" --clobber
 
                          for CLASSIFIER in sources javadoc; do
-                           ARTIFACT_PATH="${DIRECTORY}/${FINAL_NAME}-${CLASSIFIER}.jar"
+                           ARTIFACT_PATH="${BUILD_DIR}/${FINAL_NAME}-${CLASSIFIER}.jar"
                            if [[ -f "$ARTIFACT_PATH" ]]; then
                              echo "Uploading: $ARTIFACT_PATH"
                              gh release upload "$TAG" "$ARTIFACT_PATH" --clobber
@@ -95,4 +100,4 @@ jobs:
                          done
 
                          echo "::endgroup::"
-                       done < modules-list.txt
+                       done < <(echo "__ROOT__"; cat "$BUILD_DIR/modules-list.txt")
