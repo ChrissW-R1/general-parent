@@ -106,6 +106,7 @@
 		<plugin.replacer.version>1.5.3</plugin.replacer.version>
 		<plugin.properties.version>1.2.1</plugin.properties.version>
 		<plugin.buildhelper.version>3.6.1</plugin.buildhelper.version>
+		<plugin.buildplan.version>2.2.2</plugin.buildplan.version>
 		<plugin.license.version>2.6.0</plugin.license.version>
 		<plugin.spdx-license-fetch.version>1.0.0</plugin.spdx-license-fetch.version>
 		<plugin.resources.version>3.3.1</plugin.resources.version>
@@ -353,6 +354,11 @@
 							</configuration>
 						</execution>
 					</executions>
+				</plugin>
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>buildplan-maven-plugin</artifactId>
+					<version>${plugin.buildplan.version}</version>
 				</plugin>
 				<plugin>
 					<groupId>org.codehaus.mojo</groupId>
@@ -823,36 +829,7 @@
 			</build>
 		</profile>
 		<profile>
-			<id>echo-properties</id>
-			<activation>
-				<property>
-					<name>fullBuild</name>
-				</property>
-			</activation>
-			<build>
-				<plugins>
-					<plugin>
-						<artifactId>maven-antrun-plugin</artifactId>
-						<executions>
-							<execution>
-								<id>echo-properties</id>
-								<phase>generate-sources</phase>
-								<goals>
-									<goal>run</goal>
-								</goals>
-								<configuration>
-									<target>
-										<echoproperties />
-									</target>
-								</configuration>
-							</execution>
-						</executions>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
-		<profile>
-			<id>echo-active-profiles</id>
+			<id>echo-build-parameters</id>
 			<activation>
 				<property>
 					<name>fullBuild</name>
@@ -869,6 +846,39 @@
 								<goals>
 									<goal>active-profiles</goal>
 								</goals>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>buildplan-maven-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>echo-phases</id>
+								<phase>generate-sources</phase>
+								<goals>
+									<goal>list-phase</goal>
+								</goals>
+								<configuration>
+									<showLifecycles>true</showLifecycles>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<artifactId>maven-antrun-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>echo-properties</id>
+								<phase>generate-sources</phase>
+								<goals>
+									<goal>run</goal>
+								</goals>
+								<configuration>
+									<target>
+										<echoproperties />
+									</target>
+								</configuration>
 							</execution>
 						</executions>
 					</plugin>
