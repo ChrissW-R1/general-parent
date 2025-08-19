@@ -87,10 +87,10 @@ jobs:
                          gh release upload "$TAG" "$ARTIFACT_PATH" --clobber
 
                          for CLASSIFIER in sources javadoc; do
-                           ADDITIONAL_ARTIFACT="${DIRECTORY}/${FINAL_NAME}-${CLASSIFIER}.jar"
-                           if [[ -f "$ADDITIONAL_ARTIFACT" ]]; then
-                             echo "Uploading: $ADDITIONAL_ARTIFACT"
-                             gh release upload "$TAG" "$ADDITIONAL_ARTIFACT" --clobber
+                           ARTIFACT_PATH="${DIRECTORY}/${FINAL_NAME}-${CLASSIFIER}.jar"
+                           if [[ -f "$ARTIFACT_PATH" ]]; then
+                             echo "Uploading: $ARTIFACT_PATH"
+                             gh release upload "$TAG" "$ARTIFACT_PATH" --clobber
                            fi
                          done
 
