@@ -120,6 +120,7 @@
 		<plugin.site.version>3.21.0</plugin.site.version>
 		<plugin.project-info-reports.version>3.9.0</plugin.project-info-reports.version>
 		<plugin.release.version>3.1.1</plugin.release.version>
+		<plugin.deploy.version>3.1.4</plugin.deploy.version>
 		<plugin.central-publish.version>0.8.0</plugin.central-publish.version>
 	</properties>
 
@@ -680,6 +681,10 @@
 						<scmCommentPrefix>[maven-release-plugin] [skip ci]</scmCommentPrefix>
 						<arguments>-Dexecutable -DfullBuild</arguments>
 					</configuration>
+				</plugin>
+				<plugin>
+					<artifactId>maven-deploy-plugin</artifactId>
+					<version>${plugin.deploy.version}</version>
 				</plugin>
 				<plugin>
 					<groupId>org.sonatype.central</groupId>
@@ -1367,6 +1372,18 @@
 			<id>central-deploy</id>
 			<build>
 				<plugins>
+					<plugin>
+						<artifactId>maven-deploy-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>default-deploy</id>
+								<phase>deploy</phase>
+								<goals>
+									<goal>deploy</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
 					<plugin>
 						<groupId>org.sonatype.central</groupId>
 						<artifactId>central-publishing-maven-plugin</artifactId>
