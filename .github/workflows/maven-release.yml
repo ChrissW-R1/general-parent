@@ -70,7 +70,7 @@ jobs:
                 run:   |
                        set -euo pipefail
 
-                       TAG="${GITHUB_REF_NAME}"
+                       TAG="${{ steps.get_tag.outputs.tag_name }}"
 
                        while IFS= read -r MODULE || [[ -n "$MODULE" ]]; do
                          [[ -z "${MODULE//[$'\t\r\n ']/}" ]] && continue
