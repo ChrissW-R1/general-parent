@@ -71,7 +71,7 @@ jobs:
                        set -euo pipefail
 
                        TAG="${{ steps.get_tag.outputs.tag_name }}"
-                       BUILD_DIR=$(mvn initialize help:evaluate -Dexpression="project.build.directory" -Ddistribution -q -DforceStdout)
+                       ROOT_BUILD_DIR=$(mvn initialize help:evaluate -Dexpression="project.build.directory" -Ddistribution -q -DforceStdout)
 
                        while IFS= read -r MODULE || [[ -n "$MODULE" ]]; do
                          [[ -z "${MODULE//[$'\t\r\n ']/}" ]] && continue
@@ -79,7 +79,7 @@ jobs:
 
                          echo "::group::Module: $MODULE"
 
-                         if (${MODULE} == "__ROOT__"); then
+                         if ("${MODULE}" == "__ROOT__"); then
                            MODULE=""
                          fi
 
@@ -89,15 +89,15 @@ jobs:
 
                          ARTIFACT_PATH=${BUILD_DIR}/${FILENAME}
                          echo "Uploading: $ARTIFACT_PATH"
-                         gh release upload "$TAG" "$ARTIFACT_PATH" --clobber
+                         gh release upload "$TAG" "$ARTIFACT_PATH" --clobber || echo "Upload of $ARTIFACT_PATH failed!"
 
                          for CLASSIFIER in sources javadoc; do
                            ARTIFACT_PATH="${BUILD_DIR}/${FINAL_NAME}-${CLASSIFIER}.jar"
                            if [[ -f "$ARTIFACT_PATH" ]]; then
                              echo "Uploading: $ARTIFACT_PATH"
-                             gh release upload "$TAG" "$ARTIFACT_PATH" --clobber
+                             gh release upload "$TAG" "$ARTIFACT_PATH" --clobber || echo "Upload of $ARTIFACT_PATH failed!"
                            fi
                          done
 
                          echo "::endgroup::"
-                       done < <(echo "__ROOT__"; cat "$BUILD_DIR/modules-list.txt")
+                       done < <(echo "__ROOT__"; cat "$ROOT_BUILD_DIR/modules-list.txt")
