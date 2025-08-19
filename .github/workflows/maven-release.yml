@@ -6,9 +6,9 @@ name: Maven - Release Build
 on:
     # Triggers the workflow on push or pull request events but only for version branches
     push:
-        branches: ["version/release/*"]
+        branches: [ "version/release/*" ]
     pull_request:
-        branches: ["version/release/*"]
+        branches: [ "version/release/*" ]
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -72,15 +72,15 @@ jobs:
 
                        TAG="${GITHUB_REF_NAME}"
 
-                       while IFS= read -r MOD || [[ -n "$MOD" ]]; do
-                         [[ -z "${MOD//[$'\t\r\n ']/}" ]] && continue
-                         [[ "${MOD:0:1}" == "#" ]] && continue
+                       while IFS= read -r MODULE || [[ -n "$MODULE" ]]; do
+                         [[ -z "${MODULE//[$'\t\r\n ']/}" ]] && continue
+                         [[ "${MODULE:0:1}" == "#" ]] && continue
 
-                         echo "::group::Module: $MOD"
+                         echo "::group::Module: $MODULE"
 
-                         DIRECTORY=$(mvn initialize help:evaluate -Dexpression="project.build.directory" -Ddistribution -q -DforceStdout -pl "$MOD")
-                         FILENAME=$(mvn initialize help:evaluate -Dexpression="project.build.artifact.fileName" -Ddistribution -q -DforceStdout -pl "$MOD")
-                         FINAL_NAME=$(mvn initialize help:evaluate -Dexpression="project.build.finalName" -Ddistribution -q -DforceStdout -pl "$MOD")
+                         DIRECTORY=$(mvn initialize help:evaluate -Dexpression="project.build.directory" -Ddistribution -q -DforceStdout -pl "$MODULE")
+                         FILENAME=$(mvn initialize help:evaluate -Dexpression="project.build.artifact.fileName" -Ddistribution -q -DforceStdout -pl "$MODULE")
+                         FINAL_NAME=$(mvn initialize help:evaluate -Dexpression="project.build.finalName" -Ddistribution -q -DforceStdout -pl "$MODULE")
 
                          ARTIFACT_PATH=${DIRECTORY}/${FILENAME}
                          echo "Uploading: $ARTIFACT_PATH"
