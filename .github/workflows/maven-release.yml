@@ -86,7 +86,7 @@ jobs:
 
                          echo "::group::Module: $MODULE"
 
-                         if ("${MODULE}" == "__ROOT__"); then
+                         if [[ "${MODULE}" == "__ROOT__" ]]; then
                            MODULE=""
                          fi
 
