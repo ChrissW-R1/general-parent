@@ -19,6 +19,11 @@
 			<password>${env.mvnsiteuploader_password}</password>
 		</server>
 		<server>
+			<id>general-parent</id>
+			<username>${env.GITHUB_ACTOR}</username>
+			<password>${env.GITHUB_TOKEN}</password>
+		</server>
+		<server>
 			<id>gpg.passphrase</id>
 			<passphrase>${env.gpg_passphrase}</passphrase>
 		</server>
