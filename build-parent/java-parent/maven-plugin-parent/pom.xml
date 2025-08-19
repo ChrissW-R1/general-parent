@@ -14,6 +14,12 @@
 	<artifactId>maven-plugin-parent</artifactId>
 	<packaging>pom</packaging>
 
+	<!-- project metadata -->
+	<name>Maven Plugin Parent</name>
+	<description>
+		Parent of all Maven plugins by ChrissW-R1
+	</description>
+
 	<properties>
 		<!-- technically-based properties -->
 		<project.module-root.relativedir>${project.parent.relativedir}../../</project.module-root.relativedir>
