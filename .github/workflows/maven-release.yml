@@ -87,7 +87,7 @@ jobs:
                 run:               |
                                    mvn -B \
                                    deploy \
-                                   -s ../ci_settings.xml \
+                                   -s ../../ci_settings.xml \
                                    -DskipTests -DretryFailedDeploymentCount=3
             -   name:              Publish to Maven Central
                 working-directory: target/checkout
@@ -104,7 +104,7 @@ jobs:
                 run:               |
                                    mvn -B \
                                    deploy \
-                                   -s ../ci_settings.xml \
+                                   -s ../../ci_settings.xml \
                                    -DskipTests \
                                    -Dcentral.publish=true
             -   name:  Upload artifacts to GitHub Release
