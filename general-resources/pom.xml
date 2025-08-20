@@ -73,6 +73,11 @@
 				<targetPath>resources</targetPath>
 				<filtering>false</filtering>
 			</resource>
+			<resource>
+				<directory>../.github/workflows/</directory>
+				<targetPath>unfiltered-resources</targetPath>
+				<filtering>false</filtering>
+			</resource>
 		</resources>
 		<pluginManagement>
 			<plugins>
