@@ -80,6 +80,8 @@ jobs:
 
                        TAG="${{ steps.get_tag.outputs.tag_name }}"
                        ROOT_BUILD_DIR=$(mvn initialize help:evaluate -Dexpression="project.build.directory" -Ddistribution -q -DforceStdout)
+                       CHECKOUT_DIR="$ROOT_BUILD_DIR/checkout"
+                       CHECKOUT_BUILD_DIR="$(mvn initialize help:evaluate -f "$CHECKOUT_DIR/pom.xml" -Dexpression=project.build.directory -Ddistribution -q -DforceStdout)"
 
                        while IFS= read -r MODULE || [[ -n "$MODULE" ]]; do
                          [[ -z "${MODULE//[$'\t\r\n ']/}" ]] && continue
@@ -108,4 +110,4 @@ jobs:
                          done
 
                          echo "::endgroup::"
-                       done < <(echo "__ROOT__"; cat "$ROOT_BUILD_DIR/modules-list.txt")
+                       done < <(echo "__ROOT__"; cat "$CHECKOUT_BUILD_DIR/modules-list.txt")
