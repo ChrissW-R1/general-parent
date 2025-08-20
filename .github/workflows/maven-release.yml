@@ -38,15 +38,6 @@ jobs:
                     gpg-private-key: ${{ secrets.GPG_PRIVATE_KEY }}
 
             -   name: Build with Maven
-                run:  |
-                      mvn -B \
-                      clean release:prepare release:perform \
-                      -e \
-                      -DfullBuild -Ddistribution -Dexecutable \
-                      -Darguments="-s ci_settings.xml -P central-deploy" \
-                      -s ci_settings.xml --file pom.xml \
-                      -P central-deploy \
-                      -Dusername=${ci_git_user} -Dpassword=${GITHUB_TOKEN}
                 env:
                     GITHUB_TOKEN:             ${{ secrets.GITHUB_TOKEN }}
                     ci_git_user:              ${{ env.CI_GIT_USER }}
@@ -57,6 +48,15 @@ jobs:
                     mvnsiteuploader_password: ${{ secrets.MVNSITEUPLOADER_PASSWORD }}
                     mvn_central_user:         ${{ secrets.MVN_CENTRAL_USER }}
                     mvn_central_token:        ${{ secrets.MVN_CENTRAL_TOKEN }}
+                run:  |
+                      mvn -B \
+                      clean release:prepare release:perform \
+                      -e \
+                      -DfullBuild -Ddistribution -Dexecutable \
+                      -Darguments="-s ci_settings.xml -P central-deploy" \
+                      -s ci_settings.xml --file pom.xml \
+                      -P central-deploy \
+                      -Dusername=${ci_git_user} -Dpassword=${GITHUB_TOKEN}
 
             -   id:   get_tag
                 name: Get latest tag
