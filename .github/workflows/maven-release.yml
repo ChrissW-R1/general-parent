@@ -52,9 +52,9 @@ jobs:
                       mvn -B \
                       clean release:prepare release:perform \
                       -e \
-                      -DfullBuild -Ddistribution -Dexecutable \
-                      -Darguments="-s ci_settings.xml -P central-deploy" \
                       -s ci_settings.xml --file pom.xml \
+                      -Darguments="-s ci_settings.xml -P central-deploy" \
+                      -DfullBuild -Ddistribution -Dexecutable \
                       -P central-deploy \
                       -Dusername=${ci_git_user} -Dpassword=${GITHUB_TOKEN}
 
@@ -89,9 +89,9 @@ jobs:
                                    deploy \
                                    -e \
                                    -s ../../ci_settings.xml \
+                                   -DskipTests -Dcentral.publish=true \
                                    -DfullBuild \
-                                   -DskipTests \
-                                   -Dcentral.publish=true
+                                   -P central-deploy
             -   name:  Upload artifacts to GitHub Release
                 env:
                     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
