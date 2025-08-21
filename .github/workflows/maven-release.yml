@@ -100,10 +100,14 @@ jobs:
                        set -euo pipefail
 
                        TAG="${{ steps.get_tag.outputs.tag_name }}"
+                       echo "Upload to GitHub release: $TAG"
+
+                       echo "::group::Prepare modules list"
                        ROOT_BUILD_DIR=$(mvn initialize help:evaluate -Dexpression="project.build.directory" -Ddistribution -q -DforceStdout)
                        MODULES_LIST_FILENAME="modules-list.txt"
                        MODULES_LIST="$ROOT_BUILD_DIR/$MODULES_LIST_FILENAME"
-                       if ! [[ -f "$ROOT_BUILD_DIR/$MODULES_LIST" ]]; then
+                       if ! [[ -f "$MODULES_LIST" ]]; then
+                         echo "No modules list found in root build directory: $ROOT_BUILD_DIR! Try checkout directory."
                          CHECKOUT_DIR="$ROOT_BUILD_DIR/checkout"
                          CHECKOUT_BUILD_DIR="$(mvn initialize help:evaluate -f "$CHECKOUT_DIR/pom.xml" -Dexpression=project.build.directory -Ddistribution -q -DforceStdout)"
                          MODULES_LIST="$CHECKOUT_BUILD_DIR/$MODULES_LIST_FILENAME"
@@ -119,6 +123,7 @@ jobs:
                             echo "No modules list found at: $MODULES_LIST"
                             echo "Using only default module: __ROOT__"
                        fi
+                       echo "::endgroup::"
 
                        for MODULE in "${MODULES[@]}"; do
                          [[ -z "${MODULE//[$'\t\r\n ']/}" ]] && continue
