@@ -72,7 +72,26 @@ jobs:
                     draft:        false
                     prerelease:   false
 
-            -   name:              Maven Deployment
+            -   name:              Maven Default Deployment
+                working-directory: target/checkout
+                env:
+                    GITHUB_TOKEN:             ${{ secrets.GITHUB_TOKEN }}
+                    ci_git_user:              ${{ env.CI_GIT_USER }}
+                    nvd_api_key:              ${{ secrets.NVD_API_KEY }}
+                    gpg_key:                  ${{ secrets.GPG_PRIVATE_KEY }}
+                    gpg_keyid:                ${{ secrets.GPG_KEYID }}
+                    gpg_passphrase:           ${{ secrets.GPG_PASSPHRASE }}
+                    mvnsiteuploader_password: ${{ secrets.MVNSITEUPLOADER_PASSWORD }}
+                    mvn_central_user:         ${{ secrets.MVN_CENTRAL_USER }}
+                    mvn_central_token:        ${{ secrets.MVN_CENTRAL_TOKEN }}
+                run:               |
+                                   mvn -B \
+                                   deploy \
+                                   -e \
+                                   -s ../../ci_settings.xml \
+                                   -DskipTests -Dcentral.publish=true \
+                                   -DfullBuild
+            -   name:              Maven Central Deployment
                 working-directory: target/checkout
                 env:
                     GITHUB_TOKEN:             ${{ secrets.GITHUB_TOKEN }}
