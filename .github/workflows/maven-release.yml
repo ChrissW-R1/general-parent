@@ -87,7 +87,9 @@ jobs:
                 run:               |
                                    mvn -B \
                                    deploy \
+                                   -e \
                                    -s ../../ci_settings.xml \
+                                   -DfullBuild \
                                    -DskipTests \
                                    -Dcentral.publish=true
             -   name:  Upload artifacts to GitHub Release
