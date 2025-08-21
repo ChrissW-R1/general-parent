@@ -104,7 +104,15 @@ jobs:
                        CHECKOUT_DIR="$ROOT_BUILD_DIR/checkout"
                        CHECKOUT_BUILD_DIR="$(mvn initialize help:evaluate -f "$CHECKOUT_DIR/pom.xml" -Dexpression=project.build.directory -Ddistribution -q -DforceStdout)"
 
-                       while IFS= read -r MODULE || [[ -n "$MODULE" ]]; do
+                       MODULES_LIST="$CHECKOUT_BUILD_DIR/modules-list.txt"
+                       MODULES=( "__ROOT__" )
+                       if [[ -f "$MODULES_LIST" ]]; then
+                         while IFS= read -r MODULE || [[ -n "$MODULE" ]]; do
+                           MODULES+=("$MODULE")
+                         done < "$MODULES_LIST"
+                       fi
+
+                       for MODULE in "${MODULES[@]}"; do
                          [[ -z "${MODULE//[$'\t\r\n ']/}" ]] && continue
                          [[ "${MODULE:0:1}" == "#" ]] && continue
 
@@ -131,4 +139,4 @@ jobs:
                          done
 
                          echo "::endgroup::"
-                       done < <(echo "__ROOT__"; cat "$CHECKOUT_BUILD_DIR/modules-list.txt")
+                       done
