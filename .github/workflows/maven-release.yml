@@ -89,7 +89,7 @@ jobs:
                                    deploy \
                                    -e \
                                    -s ../../ci_settings.xml \
-                                   -DskipTests -Dcentral.publish=true \
+                                   -DskipTests \
                                    -DfullBuild
             -   name:              Maven Central Deployment
                 working-directory: target/checkout
@@ -108,7 +108,7 @@ jobs:
                                    deploy \
                                    -e \
                                    -s ../../ci_settings.xml \
-                                   -DskipTests -Dcentral.publish=true \
+                                   -DskipTests \
                                    -DfullBuild \
                                    -P central-deploy
             -   name:  Upload artifacts to GitHub Release
