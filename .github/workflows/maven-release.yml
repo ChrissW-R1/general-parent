@@ -101,15 +101,23 @@ jobs:
 
                        TAG="${{ steps.get_tag.outputs.tag_name }}"
                        ROOT_BUILD_DIR=$(mvn initialize help:evaluate -Dexpression="project.build.directory" -Ddistribution -q -DforceStdout)
-                       CHECKOUT_DIR="$ROOT_BUILD_DIR/checkout"
-                       CHECKOUT_BUILD_DIR="$(mvn initialize help:evaluate -f "$CHECKOUT_DIR/pom.xml" -Dexpression=project.build.directory -Ddistribution -q -DforceStdout)"
+                       MODULES_LIST_FILENAME="modules-list.txt"
+                       MODULES_LIST="$ROOT_BUILD_DIR/$MODULES_LIST_FILENAME"
+                       if ! [[ -f "$ROOT_BUILD_DIR/$MODULES_LIST" ]]; then
+                         CHECKOUT_DIR="$ROOT_BUILD_DIR/checkout"
+                         CHECKOUT_BUILD_DIR="$(mvn initialize help:evaluate -f "$CHECKOUT_DIR/pom.xml" -Dexpression=project.build.directory -Ddistribution -q -DforceStdout)"
+                         MODULES_LIST="$CHECKOUT_BUILD_DIR/$MODULES_LIST_FILENAME"
+                       fi
 
-                       MODULES_LIST="$CHECKOUT_BUILD_DIR/modules-list.txt"
                        MODULES=( "__ROOT__" )
                        if [[ -f "$MODULES_LIST" ]]; then
+                         echo "Reading modules from: $MODULES_LIST"
                          while IFS= read -r MODULE || [[ -n "$MODULE" ]]; do
                            MODULES+=("$MODULE")
                          done < "$MODULES_LIST"
+                       else
+                            echo "No modules list found at: $MODULES_LIST"
+                            echo "Using only default module: __ROOT__"
                        fi
 
                        for MODULE in "${MODULES[@]}"; do
