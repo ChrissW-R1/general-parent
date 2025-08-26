@@ -40,7 +40,7 @@ jobs:
             -   name: Build with Maven
                 env:
                     GITHUB_TOKEN:             ${{ secrets.GITHUB_TOKEN }}
-                    ci_git_user:              ${{ env.CI_GIT_USER }}
+                    ci_git_user:              ${{ vars.CI_GIT_USER }}
                     nvd_api_key:              ${{ secrets.NVD_API_KEY }}
                     gpg_key:                  ${{ secrets.GPG_PRIVATE_KEY }}
                     gpg_keyid:                ${{ secrets.GPG_KEYID }}
@@ -76,7 +76,7 @@ jobs:
                 working-directory: target/checkout
                 env:
                     GITHUB_TOKEN:             ${{ secrets.GITHUB_TOKEN }}
-                    ci_git_user:              ${{ env.CI_GIT_USER }}
+                    ci_git_user:              ${{ vars.CI_GIT_USER }}
                     nvd_api_key:              ${{ secrets.NVD_API_KEY }}
                     gpg_key:                  ${{ secrets.GPG_PRIVATE_KEY }}
                     gpg_keyid:                ${{ secrets.GPG_KEYID }}
@@ -95,7 +95,7 @@ jobs:
                 working-directory: target/checkout
                 env:
                     GITHUB_TOKEN:             ${{ secrets.GITHUB_TOKEN }}
-                    ci_git_user:              ${{ env.CI_GIT_USER }}
+                    ci_git_user:              ${{ vars.CI_GIT_USER }}
                     nvd_api_key:              ${{ secrets.NVD_API_KEY }}
                     gpg_key:                  ${{ secrets.GPG_PRIVATE_KEY }}
                     gpg_keyid:                ${{ secrets.GPG_KEYID }}
