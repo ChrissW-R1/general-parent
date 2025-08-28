@@ -113,7 +113,15 @@ jobs:
                                    -P central-deploy
             -   name:  Upload artifacts to GitHub Release
                 env:
-                    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                    GITHUB_TOKEN:             ${{ secrets.GITHUB_TOKEN }}
+                    ci_git_user:              ${{ vars.CI_GIT_USER }}
+                    nvd_api_key:              ${{ secrets.NVD_API_KEY }}
+                    gpg_key:                  ${{ secrets.GPG_PRIVATE_KEY }}
+                    gpg_keyid:                ${{ secrets.GPG_KEYID }}
+                    gpg_passphrase:           ${{ secrets.GPG_PASSPHRASE }}
+                    mvnsiteuploader_password: ${{ secrets.MVNSITEUPLOADER_PASSWORD }}
+                    mvn_central_user:         ${{ secrets.MVN_CENTRAL_USER }}
+                    mvn_central_token:        ${{ secrets.MVN_CENTRAL_TOKEN }}
                 shell: bash
                 run:   |
                        set -euo pipefail
@@ -123,13 +131,13 @@ jobs:
                        echo "Upload to GitHub release: $TAG"
 
                        echo "::group::Prepare modules list"
-                       ROOT_BUILD_DIR=$(mvn initialize help:evaluate -Dexpression="project.build.directory" -Ddistribution -q -DforceStdout)
+                       ROOT_BUILD_DIR=$(mvn -B initialize help:evaluate -e -s ci_settings.xml -Dexpression="project.build.directory" -Ddistribution -q -DforceStdout)
                        MODULES_LIST_FILENAME="modules-list.txt"
                        MODULES_LIST="$ROOT_BUILD_DIR/$MODULES_LIST_FILENAME"
                        if ! [[ -f "$MODULES_LIST" ]]; then
                          echo "No modules list found in root build directory: $ROOT_BUILD_DIR! Try checkout directory."
                          CHECKOUT_DIR="$ROOT_BUILD_DIR/checkout"
-                         CHECKOUT_BUILD_DIR="$(mvn initialize help:evaluate -f "$CHECKOUT_DIR/pom.xml" -Dexpression=project.build.directory -Ddistribution -q -DforceStdout)"
+                         CHECKOUT_BUILD_DIR="$(mvn -B initialize help:evaluate -e -s ci_settings.xml -f "$CHECKOUT_DIR/pom.xml" -Dexpression=project.build.directory -Ddistribution -q -DforceStdout)"
                          MODULES_LIST="$CHECKOUT_BUILD_DIR/$MODULES_LIST_FILENAME"
                        fi
 
@@ -155,9 +163,9 @@ jobs:
                            MODULE=""
                          fi
 
-                         BUILD_DIR=$(mvn initialize help:evaluate -Dexpression="project.build.directory" -Ddistribution -q -DforceStdout -pl "$MODULE")
-                         FILENAME=$(mvn initialize help:evaluate -Dexpression="project.build.artifact.fileName" -Ddistribution -q -DforceStdout -pl "$MODULE")
-                         FINAL_NAME=$(mvn initialize help:evaluate -Dexpression="project.build.finalName" -Ddistribution -q -DforceStdout -pl "$MODULE")
+                         BUILD_DIR=$(mvn -B initialize help:evaluate -e -s ci_settings.xml -Dexpression="project.build.directory" -Ddistribution -q -DforceStdout -pl "$MODULE")
+                         FILENAME=$(mvn -B initialize help:evaluate -e -s ci_settings.xml -Dexpression="project.build.artifact.fileName" -Ddistribution -q -DforceStdout -pl "$MODULE")
+                         FINAL_NAME=$(mvn -B initialize help:evaluate -e -s ci_settings.xml -Dexpression="project.build.finalName" -Ddistribution -q -DforceStdout -pl "$MODULE")
 
                          ARTIFACT_PATH=${BUILD_DIR}/${FILENAME}
                          echo "Uploading: $ARTIFACT_PATH"
