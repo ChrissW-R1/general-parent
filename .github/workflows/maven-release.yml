@@ -51,7 +51,7 @@ jobs:
                 run:  |
                       mvn -B \
                       clean release:prepare release:perform \
-                      -e \
+                      -e -X \
                       -s ci_settings.xml --file pom.xml \
                       -Darguments="-s ci_settings.xml -P central-deploy" \
                       -DfullBuild -Ddistribution -Dexecutable \
@@ -106,7 +106,7 @@ jobs:
                 run:               |
                                    mvn -B \
                                    deploy \
-                                   -e \
+                                   -e -X \
                                    -s ../../ci_settings.xml \
                                    -DskipTests \
                                    -DfullBuild \
@@ -126,7 +126,7 @@ jobs:
                 run:               |
                                    mvn -B \
                                    org.sonatype.central:central-publishing-maven-plugin:0.8.0:publish \
-                                   -e \
+                                   -e -X \
                                    -s ../../ci_settings.xml \
                                    -DskipTests
             -   name:  Upload artifacts to GitHub Release
