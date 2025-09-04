@@ -111,24 +111,6 @@ jobs:
                                    -DskipTests \
                                    -DfullBuild \
                                    -P central-deploy
-            -   name:              Maven Central Deployment - Test 2
-                working-directory: target/checkout
-                env:
-                    GITHUB_TOKEN:             ${{ secrets.GITHUB_TOKEN }}
-                    ci_git_user:              ${{ vars.CI_GIT_USER }}
-                    nvd_api_key:              ${{ secrets.NVD_API_KEY }}
-                    gpg_key:                  ${{ secrets.GPG_PRIVATE_KEY }}
-                    gpg_keyid:                ${{ secrets.GPG_KEYID }}
-                    gpg_passphrase:           ${{ secrets.GPG_PASSPHRASE }}
-                    mvnsiteuploader_password: ${{ secrets.MVNSITEUPLOADER_PASSWORD }}
-                    mvn_central_user:         ${{ secrets.MVN_CENTRAL_USER }}
-                    mvn_central_token:        ${{ secrets.MVN_CENTRAL_TOKEN }}
-                run:               |
-                                   mvn -B \
-                                   org.sonatype.central:central-publishing-maven-plugin:0.8.0:publish \
-                                   -e -X \
-                                   -s ../../ci_settings.xml \
-                                   -DskipTests
             -   name:  Upload artifacts to GitHub Release
                 env:
                     GITHUB_TOKEN:             ${{ secrets.GITHUB_TOKEN }}
