@@ -23,6 +23,7 @@
 	<properties>
 		<!-- technically-based properties -->
 		<project.parent.relativedir>../</project.parent.relativedir>
+		<general-resources.skipUnpack>false</general-resources.skipUnpack>
 
 		<!-- plugin versions -->
 		<plugin.assembly.version>3.7.1</plugin.assembly.version>
@@ -88,6 +89,7 @@
 									<goal>unpack</goal>
 								</goals>
 								<configuration>
+									<skip>${general-resources.skipUnpack}</skip>
 									<artifactItems>
 										<artifactItem>
 											<groupId>me.chrissw-r1</groupId>
@@ -111,6 +113,7 @@
 									<goal>unpack</goal>
 								</goals>
 								<configuration>
+									<skip>${general-resources.skipUnpack}</skip>
 									<artifactItems>
 										<artifactItem>
 											<groupId>me.chrissw-r1</groupId>

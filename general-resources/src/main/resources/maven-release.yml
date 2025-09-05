@@ -55,6 +55,7 @@ jobs:
                       -s ci_settings.xml --file pom.xml \
                       -Darguments="-s ci_settings.xml" \
                       -DfullBuild -Ddistribution -Dexecutable \
+                      -Dgeneral-resources.skipUnpack=true \
                       -Dusername=${ci_git_user} -Dpassword=${GITHUB_TOKEN}
             -   name: Release with Maven
                 env:
