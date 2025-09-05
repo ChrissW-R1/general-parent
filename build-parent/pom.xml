@@ -289,10 +289,10 @@
 		</profile>
 	</profiles>
 
-	<modules>
+	<!--modules>
 		<module>java-parent</module>
 		<module>js-parent</module>
 		<module>php-parent</module>
 		<module>python-parent</module>
-	</modules>
+	</modules-->
 </project>
