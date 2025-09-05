@@ -50,7 +50,7 @@
 						<dependency>
 							<groupId>me.chrissw-r1</groupId>
 							<artifactId>general-resources</artifactId>
-							<version>3.0.8-SNAPSHOT</version>
+							<version>${general-parent.version}</version>
 						</dependency>
 					</dependencies>
 				</plugin>
