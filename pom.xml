@@ -1375,8 +1375,8 @@
 		</profile>
 	</profiles>
 
-	<modules>
+	<!--modules>
 		<module>general-resources</module>
 		<module>build-parent</module>
-	</modules>
+	</modules-->
 </project>
