@@ -204,9 +204,22 @@ jobs:
                       -e \
                       -s ci_settings.xml \
                       -DfullBuild -Ddistribution -Dexecutable
-            -   name: Commit & push release changes
+            -   name:  Derive version and branches
+                id:    derive
                 env:
                     BRANCH: ${{ github.event_name == 'pull_request' && github.base_ref || github.ref_name }}
+                shell: bash
+                run:   |
+                       set -euo pipefail
+
+                       RELEASE_BRANCH="$BRANCH"
+                       VERSION="${RELEASE_BRANCH##*/}"
+                       echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+                       echo "release_branch=$RELEASE_BRANCH" >> "$GITHUB_OUTPUT"
+                       echo "version_branch=version/$VERSION" >> "$GITHUB_OUTPUT"
+            -   name: Commit & push release changes
+                env:
+                    BRANCH: ${{ steps.derive.outputs.release_branch }}
                 run:  |
                       if git status --porcelain | grep .; then
                         git add -A
@@ -216,3 +229,31 @@ jobs:
                       else
                         echo "No changes to commit."
                       fi
+            -   name: Create Pull Request to version branch
+                env:
+                    GITHUB_TOKEN:   ${{ secrets.GITHUB_TOKEN }}
+                    TAG:            ${{ steps.get_tag.outputs.tag_name }}
+                    VERSION_BRANCH: ${{ steps.derive.outputs.version_branch }}
+                    RELEASE_BRANCH: ${{ steps.derive.outputs.release_branch }}
+                run:  |
+                      set -euo pipefail
+
+                      gh pr create \
+                        --title "Release $TAG → $VERSION_BRANCH" \
+                        --body "Automated PR from release branch." \
+                        --base "$VERSION_BRANCH" \
+                        --head "$RELEASE_BRANCH" \
+                      || echo "PR may already exist."
+            -   name: Create Pull Request to main branch
+                env:
+                    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                    TAG:          ${{ steps.get_tag.outputs.tag_name }}
+                run:  |
+                      set -euo pipefail
+
+                      gh pr create \
+                        --title "Merge tag $TAG into main" \
+                        --body "Automated PR to merge the release tag $TAG into main." \
+                        --base main \
+                        --head "merge-tag-$TAG" \
+                      || echo "PR may already exist."
