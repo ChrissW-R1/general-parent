@@ -204,9 +204,9 @@ jobs:
                       -e \
                       -s ci_settings.xml \
                       -DfullBuild -Ddistribution -Dexecutable
-            -   name: Commit & push changes
+            -   name: Commit & push release changes
                 env:
-                    BRANCH: ${{ github.head_ref || github.ref_name }}
+                    BRANCH: ${{ github.event_name == 'pull_request' && github.base_ref || github.ref_name }}
                 run:  |
                       if git status --porcelain | grep .; then
                         git add -A
