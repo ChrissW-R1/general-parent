@@ -5,7 +5,7 @@
 	<!-- project identifier -->
 	<groupId>me.chrissw-r1</groupId>
 	<artifactId>general-parent</artifactId>
-	<version>3.0.12-SNAPSHOT</version>
+	<version>3.0.13-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<!-- project metadata -->
@@ -262,7 +262,7 @@
 					<artifactId>replacer</artifactId>
 					<version>${plugin.replacer.version}</version>
 					<executions>
-						<execution>
+						<!--execution>
 							<id>set-general-parent-version</id>
 							<phase>generate-resources</phase>
 							<goals>
@@ -277,7 +277,7 @@
 									</replacement>
 								</replacements>
 							</configuration>
-						</execution>
+						</execution-->
 					</executions>
 				</plugin>
 				<plugin>
@@ -1376,7 +1376,7 @@
 	</profiles>
 
 	<modules>
-		<module>general-resources</module>
-		<!--module>build-parent</module-->
+		<!--module>general-resources</module-->
+		<module>build-parent</module>
 	</modules>
 </project>
