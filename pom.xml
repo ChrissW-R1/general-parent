@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<!-- project identifier -->
@@ -648,16 +650,21 @@
 							</goals>
 							<configuration>
 								<target>
-									<taskdef resource="net/sf/antcontrib/antcontrib.properties" classpathref="maven.runtime.classpath" />
+									<taskdef resource="net/sf/antcontrib/antcontrib.properties"
+											 classpathref="maven.runtime.classpath" />
 									<if>
 										<available file="${third-party-properties.target.fullPath}" />
 										<then>
-											<echo message="third-party.properties exists." level="info" />
-											<property name="third-party-properties.target.missing" value="false" />
+											<echo message="third-party.properties exists."
+												  level="info" />
+											<property name="third-party-properties.target.missing"
+													  value="false" />
 										</then>
 										<else>
-											<echo message="third-party.properties missing." level="info" />
-											<property name="third-party-properties.target.missing" value="true" />
+											<echo message="third-party.properties missing."
+												  level="info" />
+											<property name="third-party-properties.target.missing"
+													  value="true" />
 										</else>
 									</if>
 								</target>
@@ -1255,7 +1262,9 @@
 								</goals>
 								<configuration>
 									<target>
-										<checksum todir="${project.build.directory}" algorithm="SHA-512" fileext=".sha512">
+										<checksum todir="${project.build.directory}"
+												  algorithm="SHA-512"
+												  fileext=".sha512">
 											<fileset dir="${project.build.directory}">
 												<include name="*" />
 												<exclude name="**/*.asc" />
@@ -1265,7 +1274,9 @@
 												<exclude name="**/*.sha512" />
 											</fileset>
 										</checksum>
-										<checksum todir="${project.build.directory}" algorithm="SHA-256" fileext=".sha256">
+										<checksum todir="${project.build.directory}"
+												  algorithm="SHA-256"
+												  fileext=".sha256">
 											<fileset dir="${project.build.directory}">
 												<include name="*" />
 												<exclude name="**/*.asc" />
@@ -1352,7 +1363,8 @@
 									<target>
 										<mkdir dir="${copy-artifact.dir}" />
 										<copy todir="${copy-artifact.dir}">
-											<fileset dir="${project.build.directory}" includes="${project.build.artifact.fileName}" />
+											<fileset dir="${project.build.directory}"
+													 includes="${project.build.artifact.fileName}" />
 										</copy>
 									</target>
 								</configuration>
