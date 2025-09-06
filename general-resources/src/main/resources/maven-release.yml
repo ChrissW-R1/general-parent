@@ -261,12 +261,14 @@ jobs:
                       fi
 
                       if git merge --no-ff --no-edit --no-commit "refs/tags/$TAG"; then
+                        echo "$TAG merged."
                         if git diff --quiet --cached; then
-                          echo "Nothing to merge: main already contains $TAG"
+                          echo "Nothing to commit."
                           git merge --abort || true
                           conflict=false
                           changed=false
                         else
+                          echo "Committing merge."
                           git commit -m "[Git Release Build] [skip ci] Merge tag $TAG into main"
                           conflict=false
                           changed=true
@@ -278,6 +280,7 @@ jobs:
                         changed=false
                       fi
 
-                      if [[ "${changed}" == "true" && "${conflict}" == "false" ]]; then
+                      if [[ "${conflict}" == "false" ]]; then
+                        echo "Pushing to main."
                         git push origin HEAD:main
                       fi
