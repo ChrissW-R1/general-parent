@@ -10,6 +10,12 @@ on:
     pull_request:
         branches: ["version/release/*"]
 
+# Allows to push, create PRs and upload to Maven repository with the GITHUB_TOKEN
+permissions:
+    contents:      write
+    packages:      write
+    pull-requests: write
+
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
     # This workflow contains a single job called "build"
@@ -24,8 +30,8 @@ jobs:
                 uses: actions/checkout@v4
             -   name: Setup Git user
                 run:  |
-                      git config --global user.name "ChrissW-R1"
-                      git config --global user.email "contact@ChrissW-R1.me"
+                      git config --global user.name  "github-actions[bot]"
+                      git config --global user.email "github-actions[bot]@users.noreply.github.com"
             -   name: Setup JDK 11
                 uses: actions/setup-java@v4
                 with:
@@ -111,7 +117,7 @@ jobs:
                                    -s ../../ci_settings.xml \
                                    -DskipTests \
                                    -DfullBuild
-            -   name:  Upload artifacts to GitHub Release
+            -   name:              Upload artifacts to GitHub Release
                 working-directory: target/checkout
                 env:
                     GITHUB_TOKEN:             ${{ secrets.GITHUB_TOKEN }}
@@ -123,58 +129,133 @@ jobs:
                     mvnsiteuploader_password: ${{ secrets.MVNSITEUPLOADER_PASSWORD }}
                     mvn_central_user:         ${{ secrets.MVN_CENTRAL_USER }}
                     mvn_central_token:        ${{ secrets.MVN_CENTRAL_TOKEN }}
+                shell:             bash
+                run:               |
+                                   set -euo pipefail
+
+                                   TAG="${{ steps.get_tag.outputs.tag_name }}"
+                                   echo "Upload to GitHub release: $TAG"
+
+                                   SETTINGS_FILE="../../ci_settings.xml"
+
+                                   echo "::group::Prepare modules list"
+                                   ROOT_BUILD_DIR=$(mvn -B initialize help:evaluate -e -s $SETTINGS_FILE -Dexpression="project.build.directory" -Ddistribution -q -DforceStdout)
+                                   MODULES_LIST_FILENAME="modules-list.txt"
+                                   MODULES_LIST="$ROOT_BUILD_DIR/$MODULES_LIST_FILENAME"
+
+                                   MODULES=( "__ROOT__" )
+                                   if [[ -f "$MODULES_LIST" ]]; then
+                                     echo "Reading modules from: $MODULES_LIST"
+                                     while IFS= read -r MODULE || [[ -n "$MODULE" ]]; do
+                                       MODULES+=("$MODULE")
+                                     done < "$MODULES_LIST"
+                                   else
+                                        echo "No modules list found at: $MODULES_LIST"
+                                        echo "Using only default module: __ROOT__"
+                                   fi
+                                   echo "::endgroup::"
+
+                                   for MODULE in "${MODULES[@]}"; do
+                                     [[ -z "${MODULE//[$'\t\r\n ']/}" ]] && continue
+                                     [[ "${MODULE:0:1}" == "#" ]] && continue
+
+                                     echo "::group::Module: $MODULE"
+
+                                     if [[ "${MODULE}" == "__ROOT__" ]]; then
+                                       MODULE=""
+                                     fi
+
+                                     BUILD_DIR=$(mvn -B initialize help:evaluate -e -s $SETTINGS_FILE -Dexpression="project.build.directory" -Ddistribution -q -DforceStdout -pl "$MODULE")
+                                     FILENAME=$(mvn -B initialize help:evaluate -e -s $SETTINGS_FILE -Dexpression="project.build.artifact.fileName" -Ddistribution -q -DforceStdout -pl "$MODULE")
+                                     FINAL_NAME=$(mvn -B initialize help:evaluate -e -s $SETTINGS_FILE -Dexpression="project.build.finalName" -Ddistribution -q -DforceStdout -pl "$MODULE")
+
+                                     ARTIFACT_PATH=${BUILD_DIR}/${FILENAME}
+                                     echo "Uploading: $ARTIFACT_PATH"
+                                     gh release upload "$TAG" "$ARTIFACT_PATH" --clobber || echo "Upload of $ARTIFACT_PATH failed!"
+
+                                     for CLASSIFIER in sources javadoc; do
+                                       ARTIFACT_PATH="${BUILD_DIR}/${FINAL_NAME}-${CLASSIFIER}.jar"
+                                       if [[ -f "$ARTIFACT_PATH" ]]; then
+                                         echo "Uploading: $ARTIFACT_PATH"
+                                         gh release upload "$TAG" "$ARTIFACT_PATH" --clobber || echo "Upload of $ARTIFACT_PATH failed!"
+                                       fi
+                                     done
+
+                                     echo "::endgroup::"
+                                   done
+
+            -   name: Git Checkout Release Tag
+                uses: actions/checkout@v4
+                with:
+                    ref:         '${{ steps.get_tag.outputs.tag_name }}'
+                    fetch-depth: 0
+            -   name: Build Release for Git Repository
+                env:
+                    GITHUB_TOKEN:             ${{ secrets.GITHUB_TOKEN }}
+                    ci_git_user:              ${{ vars.CI_GIT_USER }}
+                    nvd_api_key:              ${{ secrets.NVD_API_KEY }}
+                    gpg_key:                  ${{ secrets.GPG_PRIVATE_KEY }}
+                    gpg_keyid:                ${{ secrets.GPG_KEYID }}
+                    gpg_passphrase:           ${{ secrets.GPG_PASSPHRASE }}
+                    mvnsiteuploader_password: ${{ secrets.MVNSITEUPLOADER_PASSWORD }}
+                    mvn_central_user:         ${{ secrets.MVN_CENTRAL_USER }}
+                    mvn_central_token:        ${{ secrets.MVN_CENTRAL_TOKEN }}
+                run:  |
+                      mvn -B \
+                      clean site install \
+                      -e \
+                      -s ci_settings.xml \
+                      -DfullBuild -Ddistribution -Dexecutable
+            -   name:  Derive version and branches
+                id:    derive
+                env:
+                    BRANCH: ${{ github.event_name == 'pull_request' && github.base_ref || github.ref_name }}
                 shell: bash
                 run:   |
                        set -euo pipefail
-                       set -x
 
-                       TAG="${{ steps.get_tag.outputs.tag_name }}"
-                       echo "Upload to GitHub release: $TAG"
+                       RELEASE_BRANCH="$BRANCH"
+                       VERSION="${RELEASE_BRANCH##*/}"
+                       echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+                       echo "release_branch=$RELEASE_BRANCH" >> "$GITHUB_OUTPUT"
+                       echo "version_branch=version/$VERSION" >> "$GITHUB_OUTPUT"
+            -   name: Commit & push release changes
+                env:
+                    BRANCH: ${{ steps.derive.outputs.release_branch }}
+                run:  |
+                      if git status --porcelain | grep .; then
+                        git add -A
+                        git commit -m "[Git Release Build] [skip ci] apply build updates"
+                        git pull --rebase origin "$BRANCH" || true
+                        git push origin HEAD:"$BRANCH"
+                      else
+                        echo "No changes to commit."
+                      fi
+            -   name: Create Pull Request to version branch
+                env:
+                    GITHUB_TOKEN:   ${{ secrets.GITHUB_TOKEN }}
+                    TAG:            ${{ steps.get_tag.outputs.tag_name }}
+                    VERSION_BRANCH: ${{ steps.derive.outputs.version_branch }}
+                    RELEASE_BRANCH: ${{ steps.derive.outputs.release_branch }}
+                run:  |
+                      set -euo pipefail
 
-                       SETTINGS_FILE="../../ci_settings.xml"
+                      gh pr create \
+                        --title "Release $TAG → $VERSION_BRANCH" \
+                        --body "Automated PR from release branch." \
+                        --base "$VERSION_BRANCH" \
+                        --head "$RELEASE_BRANCH" \
+                      || echo "PR may already exist."
+            -   name: Create Pull Request to main branch
+                env:
+                    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                    TAG:          ${{ steps.get_tag.outputs.tag_name }}
+                run:  |
+                      set -euo pipefail
 
-                       echo "::group::Prepare modules list"
-                       ROOT_BUILD_DIR=$(mvn -B initialize help:evaluate -e -s $SETTINGS_FILE -Dexpression="project.build.directory" -Ddistribution -q -DforceStdout)
-                       MODULES_LIST_FILENAME="modules-list.txt"
-                       MODULES_LIST="$ROOT_BUILD_DIR/$MODULES_LIST_FILENAME"
-
-                       MODULES=( "__ROOT__" )
-                       if [[ -f "$MODULES_LIST" ]]; then
-                         echo "Reading modules from: $MODULES_LIST"
-                         while IFS= read -r MODULE || [[ -n "$MODULE" ]]; do
-                           MODULES+=("$MODULE")
-                         done < "$MODULES_LIST"
-                       else
-                            echo "No modules list found at: $MODULES_LIST"
-                            echo "Using only default module: __ROOT__"
-                       fi
-                       echo "::endgroup::"
-
-                       for MODULE in "${MODULES[@]}"; do
-                         [[ -z "${MODULE//[$'\t\r\n ']/}" ]] && continue
-                         [[ "${MODULE:0:1}" == "#" ]] && continue
-
-                         echo "::group::Module: $MODULE"
-
-                         if [[ "${MODULE}" == "__ROOT__" ]]; then
-                           MODULE=""
-                         fi
-
-                         BUILD_DIR=$(mvn -B initialize help:evaluate -e -s $SETTINGS_FILE -Dexpression="project.build.directory" -Ddistribution -q -DforceStdout -pl "$MODULE")
-                         FILENAME=$(mvn -B initialize help:evaluate -e -s $SETTINGS_FILE -Dexpression="project.build.artifact.fileName" -Ddistribution -q -DforceStdout -pl "$MODULE")
-                         FINAL_NAME=$(mvn -B initialize help:evaluate -e -s $SETTINGS_FILE -Dexpression="project.build.finalName" -Ddistribution -q -DforceStdout -pl "$MODULE")
-
-                         ARTIFACT_PATH=${BUILD_DIR}/${FILENAME}
-                         echo "Uploading: $ARTIFACT_PATH"
-                         gh release upload "$TAG" "$ARTIFACT_PATH" --clobber || echo "Upload of $ARTIFACT_PATH failed!"
-
-                         for CLASSIFIER in sources javadoc; do
-                           ARTIFACT_PATH="${BUILD_DIR}/${FINAL_NAME}-${CLASSIFIER}.jar"
-                           if [[ -f "$ARTIFACT_PATH" ]]; then
-                             echo "Uploading: $ARTIFACT_PATH"
-                             gh release upload "$TAG" "$ARTIFACT_PATH" --clobber || echo "Upload of $ARTIFACT_PATH failed!"
-                           fi
-                         done
-
-                         echo "::endgroup::"
-                       done
+                      gh pr create \
+                        --title "Merge tag $TAG into main" \
+                        --body "Automated PR to merge the release tag $TAG into main." \
+                        --base main \
+                        --head "merge-tag-$TAG" \
+                      || echo "PR may already exist."

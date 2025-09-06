@@ -1,3 +1,9 @@
+> [!CAUTION]
+> Don't use the version `3.0.x` for projects!
+> This version is only for developing and testing
+> the release process with GitHub Actions.
+> The next stable release will be version `3.1.x`.
+
 # General Parent
 
 This project only contains the default properties and settings, which should be
