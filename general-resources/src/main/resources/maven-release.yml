@@ -10,9 +10,11 @@ on:
     pull_request:
         branches: ["version/release/*"]
 
-# Allows to push with the GITHUB_TOKEN
+# Allows to push, create PRs and upload to Maven repository with the GITHUB_TOKEN
 permissions:
-    contents: write
+    contents:      write
+    packages:      write
+    pull-requests: write
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
