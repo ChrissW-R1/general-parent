@@ -185,7 +185,8 @@ jobs:
             -   name: Git Checkout Release Tag
                 uses: actions/checkout@v4
                 with:
-                    ref: '${{ steps.get_tag.outputs.tag_name }}'
+                    ref:         '${{ steps.get_tag.outputs.tag_name }}'
+                    fetch-depth: 0
             -   name: Build Release for Git Repository
                 env:
                     GITHUB_TOKEN:             ${{ secrets.GITHUB_TOKEN }}
