@@ -246,16 +246,38 @@ jobs:
                         --base "$VERSION_BRANCH" \
                         --head "$RELEASE_BRANCH" \
                       || echo "PR may already exist."
-            -   name: Create Pull Request to main branch
+            -   name: Merge tag into main
                 env:
                     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
                     TAG:          ${{ steps.get_tag.outputs.tag_name }}
                 run:  |
                       set -euo pipefail
+                      git fetch --tags --force
 
-                      gh pr create \
-                        --title "Merge tag $TAG into main" \
-                        --body "Automated PR to merge the release tag $TAG into main." \
-                        --base main \
-                        --head "merge-tag-$TAG" \
-                      || echo "PR may already exist."
+                      if ! git rev-parse "refs/tags/$TAG" >/dev/null 2>&1; then
+                        echo "::error::Tag $TAG not found"
+                        conflict=false
+                        changed=false
+                      fi
+
+                      if git merge --no-ff --no-edit --no-commit "refs/tags/$TAG"; then
+                        if git diff --quiet --cached; then
+                          echo "Nothing to merge: main already contains $TAG"
+                          git merge --abort || true
+                          conflict=false
+                          changed=false
+                        else
+                          git commit -m "[Git Release Build] [skip ci] Merge tag $TAG into main"
+                          conflict=false
+                          changed=true
+                        fi
+                      else
+                        echo "::warning::Merge requires manual resolution; aborting merge."
+                        git merge --abort || true
+                        conflict=true
+                        changed=false
+                      fi
+
+                      if [[ "${changed}" == "true" && "${conflict}" == "false" ]]; then
+                        git push origin HEAD:main
+                      fi
