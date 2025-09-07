@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
 		<groupId>me.chrissw-r1</groupId>
 		<artifactId>general-parent</artifactId>
-		<version>3.0.13-SNAPSHOT</version>
+		<version>3.0.14-SNAPSHOT</version>
 	</parent>
 
 	<!-- project identifier -->
@@ -51,7 +49,7 @@
 						<dependency>
 							<groupId>me.chrissw-r1</groupId>
 							<artifactId>general-resources</artifactId>
-							<version>3.0.13-SNAPSHOT</version>
+							<version>3.0.14-SNAPSHOT</version>
 						</dependency>
 					</dependencies>
 				</plugin>
@@ -166,8 +164,7 @@
 								</goals>
 								<configuration>
 									<target>
-										<move file="${project.module-root.basedir}/default.gitignore"
-											  tofile="${project.module-root.basedir}/.gitignore" />
+										<move file="${project.module-root.basedir}/default.gitignore" tofile="${project.module-root.basedir}/.gitignore" />
 									</target>
 								</configuration>
 							</execution>
