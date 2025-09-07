@@ -124,7 +124,9 @@
 		<plugin.central-publish.version>0.8.0</plugin.central-publish.version>
 	</properties>
 
-	<scm>
+	<scm child.scm.url.inherit.append.path="false"
+		 child.scm.connection.inherit.append.path="false"
+		 child.scm.developerConnection.inherit.append.path="false">
 		<url>https://github.com/${project.organization.name}/${project.module-root.artifactId}</url>
 		<connection>scm:git:${project.scm.url}.git</connection>
 		<developerConnection>${project.scm.connection}</developerConnection>
