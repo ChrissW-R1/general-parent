@@ -625,7 +625,6 @@
 					<plugins>
 						<plugin>
 							<artifactId>maven-javadoc-plugin</artifactId>
-							<version>${plugin.javadoc.version}</version>
 							<configuration>
 								<failOnError>false</failOnError>
 							</configuration>
