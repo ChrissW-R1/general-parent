@@ -273,6 +273,7 @@
 
 							<!-- keep Java language specific objects -->
 							<option>-keepclassmembers class * implements java.io.Serializable { static final long serialVersionUID; }</option>
+							<option>-keep class module-info</option>
 
 							<!-- keep JPA specific objects -->
 							<option>-keep @jakarta.persistence.Embeddable public class *</option>
