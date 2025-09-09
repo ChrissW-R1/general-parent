@@ -329,8 +329,6 @@
 						<additionalOptions>
 							<additionalOption>--module-path</additionalOption>
 							<additionalOption>${module.path}</additionalOption>
-							<additionalOption>--add-modules</additionalOption>
-							<additionalOption>ALL-MODULE-PATH</additionalOption>
 						</additionalOptions>
 						<links>
 							<link>${jetbrains-annotations.javadoc.url}</link>
