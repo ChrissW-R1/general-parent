@@ -358,7 +358,6 @@
 							<goal>build-classpath</goal>
 						</goals>
 						<configuration>
-							<includeScope>provided</includeScope>
 							<outputProperty>module.path</outputProperty>
 						</configuration>
 					</execution>
