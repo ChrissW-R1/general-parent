@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
@@ -35,7 +37,6 @@
 		<jcip-annotations.version>1.0-1</jcip-annotations.version>
 		<spotbugs.version>4.9.3</spotbugs.version>
 		<lombok.version>1.18.38</lombok.version>
-		<lombok-pg.version>0.11.3</lombok-pg.version>
 		<proguard.annotations.version>7.7.0</proguard.annotations.version>
 		<slf4j.version>2.0.17</slf4j.version>
 		<junit.minor-version>13.4</junit.minor-version>
@@ -86,12 +87,6 @@
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 			<version>${lombok.version}</version>
-			<scope>provided</scope>
-		</dependency>
-		<dependency>
-			<groupId>com.github.peichhorn</groupId>
-			<artifactId>lombok-pg</artifactId>
-			<version>${lombok-pg.version}</version>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
