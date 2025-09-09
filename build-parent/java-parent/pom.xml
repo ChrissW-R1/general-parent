@@ -328,7 +328,7 @@
 						<serialwarn>true</serialwarn>
 						<additionalOptions>
 							<additionalOption>--module-path</additionalOption>
-							<additionalOption>${javadoc.module.path}</additionalOption>
+							<additionalOption>${module.path}</additionalOption>
 							<additionalOption>--add-modules</additionalOption>
 							<additionalOption>ALL-MODULE-PATH</additionalOption>
 						</additionalOptions>
@@ -354,14 +354,14 @@
 				<artifactId>maven-dependency-plugin</artifactId>
 				<executions>
 					<execution>
-						<id>javadoc-modulepath</id>
+						<id>export-module-path</id>
 						<phase>generate-sources</phase>
 						<goals>
 							<goal>build-classpath</goal>
 						</goals>
 						<configuration>
 							<includeScope>provided</includeScope>
-							<outputProperty>javadoc.module.path</outputProperty>
+							<outputProperty>module.path</outputProperty>
 						</configuration>
 					</execution>
 				</executions>
