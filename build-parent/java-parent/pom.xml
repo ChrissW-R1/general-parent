@@ -618,6 +618,22 @@
 				</plugins>
 			</build>
 		</profile>
+		<profile>
+			<id>no-failure-on-javadoc-error</id>
+			<build>
+				<pluginManagement>
+					<plugins>
+						<plugin>
+							<artifactId>maven-javadoc-plugin</artifactId>
+							<version>${plugin.javadoc.version}</version>
+							<configuration>
+								<failOnError>false</failOnError>
+							</configuration>
+						</plugin>
+					</plugins>
+				</pluginManagement>
+			</build>
+		</profile>
 	</profiles>
 
 	<modules>
