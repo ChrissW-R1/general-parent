@@ -688,6 +688,7 @@
 						<autoVersionSubmodules>true</autoVersionSubmodules>
 						<tagNameFormat>@{project.version}</tagNameFormat>
 						<scmCommentPrefix>[maven-release-plugin] [skip ci]</scmCommentPrefix>
+						<preparationGoals>clean install</preparationGoals>
 						<arguments>-Dexecutable -DfullBuild</arguments>
 					</configuration>
 				</plugin>
