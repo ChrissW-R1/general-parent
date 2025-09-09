@@ -224,7 +224,9 @@ export default [
 			"@typescript-eslint/no-explicit-any":         "off",
 			"@typescript-eslint/no-non-null-assertion":   "error",
 			"@typescript-eslint/no-parameter-properties": "off",
-			"@typescript-eslint/no-unused-expressions":   "error",
+			"@typescript-eslint/no-unused-expressions":   [
+				"error", {}
+			],
 			"@typescript-eslint/prefer-for-of":           "error",
 			"@typescript-eslint/prefer-function-type":    "error",
 
