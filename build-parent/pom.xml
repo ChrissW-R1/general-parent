@@ -29,6 +29,16 @@
 		<plugin.assembly.version>3.7.1</plugin.assembly.version>
 	</properties>
 
+	<dependencies>
+		<!-- provided dependencies -->
+		<dependency>
+			<groupId>me.chrissw-r1</groupId>
+			<artifactId>general-resources</artifactId>
+			<version>3.0.15-SNAPSHOT</version>
+			<scope>provided</scope>
+		</dependency>
+	</dependencies>
+
 	<build>
 		<resources>
 			<resource>
