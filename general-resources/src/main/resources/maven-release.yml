@@ -43,7 +43,7 @@ jobs:
                     gpg-passphrase:  'gpg_passphrase'
                     gpg-private-key: ${{ secrets.GPG_PRIVATE_KEY }}
 
-            -   name: Prepare release with Maven
+            -   name: Release with Maven
                 env:
                     GITHUB_TOKEN:             ${{ secrets.GITHUB_TOKEN }}
                     ci_git_user:              ${{ vars.CI_GIT_USER }}
