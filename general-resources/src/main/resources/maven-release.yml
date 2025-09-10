@@ -56,27 +56,7 @@ jobs:
                     mvn_central_token:        ${{ secrets.MVN_CENTRAL_TOKEN }}
                 run:  |
                       mvn -B \
-                      clean release:prepare \
-                      -e \
-                      -s ci_settings.xml --file pom.xml \
-                      -Darguments="-s ci_settings.xml" \
-                      -DfullBuild -Ddistribution -Dexecutable \
-                      -Dgeneral-resources.skipUnpack=true \
-                      -Dusername=${ci_git_user} -Dpassword=${GITHUB_TOKEN}
-            -   name: Release with Maven
-                env:
-                    GITHUB_TOKEN:             ${{ secrets.GITHUB_TOKEN }}
-                    ci_git_user:              ${{ vars.CI_GIT_USER }}
-                    nvd_api_key:              ${{ secrets.NVD_API_KEY }}
-                    gpg_key:                  ${{ secrets.GPG_PRIVATE_KEY }}
-                    gpg_keyid:                ${{ secrets.GPG_KEYID }}
-                    gpg_passphrase:           ${{ secrets.GPG_PASSPHRASE }}
-                    mvnsiteuploader_password: ${{ secrets.MVNSITEUPLOADER_PASSWORD }}
-                    mvn_central_user:         ${{ secrets.MVN_CENTRAL_USER }}
-                    mvn_central_token:        ${{ secrets.MVN_CENTRAL_TOKEN }}
-                run:  |
-                      mvn -B \
-                      release:perform \
+                      clean release:prepare release:perform \
                       -e \
                       -s ci_settings.xml --file pom.xml \
                       -Darguments="-s ci_settings.xml -P central-deploy" \
@@ -189,23 +169,6 @@ jobs:
                 with:
                     ref:         '${{ steps.get_tag.outputs.tag_name }}'
                     fetch-depth: 0
-            -   name: Build Release for Git Repository
-                env:
-                    GITHUB_TOKEN:             ${{ secrets.GITHUB_TOKEN }}
-                    ci_git_user:              ${{ vars.CI_GIT_USER }}
-                    nvd_api_key:              ${{ secrets.NVD_API_KEY }}
-                    gpg_key:                  ${{ secrets.GPG_PRIVATE_KEY }}
-                    gpg_keyid:                ${{ secrets.GPG_KEYID }}
-                    gpg_passphrase:           ${{ secrets.GPG_PASSPHRASE }}
-                    mvnsiteuploader_password: ${{ secrets.MVNSITEUPLOADER_PASSWORD }}
-                    mvn_central_user:         ${{ secrets.MVN_CENTRAL_USER }}
-                    mvn_central_token:        ${{ secrets.MVN_CENTRAL_TOKEN }}
-                run:  |
-                      mvn -B \
-                      clean site install \
-                      -e \
-                      -s ci_settings.xml \
-                      -DfullBuild -Ddistribution -Dexecutable
             -   name:  Derive version and branches
                 id:    derive
                 env:
@@ -219,18 +182,6 @@ jobs:
                        echo "version=$VERSION" >> "$GITHUB_OUTPUT"
                        echo "release_branch=$RELEASE_BRANCH" >> "$GITHUB_OUTPUT"
                        echo "version_branch=version/$VERSION" >> "$GITHUB_OUTPUT"
-            -   name: Commit & push release changes
-                env:
-                    BRANCH: ${{ steps.derive.outputs.release_branch }}
-                run:  |
-                      if git status --porcelain | grep .; then
-                        git add -A
-                        git commit -m "[Git Release Build] [skip ci] apply build updates"
-                        git pull --rebase origin "$BRANCH" || true
-                        git push origin HEAD:"$BRANCH"
-                      else
-                        echo "No changes to commit."
-                      fi
             -   name: Create Pull Request to version branch
                 env:
                     GITHUB_TOKEN:   ${{ secrets.GITHUB_TOKEN }}
