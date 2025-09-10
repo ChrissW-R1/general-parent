@@ -164,11 +164,6 @@ jobs:
                                      echo "::endgroup::"
                                    done
 
-            -   name: Git Checkout Release Tag
-                uses: actions/checkout@v4
-                with:
-                    ref:         '${{ steps.get_tag.outputs.tag_name }}'
-                    fetch-depth: 0
             -   name:  Derive version and branches
                 id:    derive
                 env:
@@ -203,35 +198,29 @@ jobs:
                     TAG:          ${{ steps.get_tag.outputs.tag_name }}
                 run:  |
                       set -euo pipefail
+
+                      echo "Fetch tag $TAG"
                       git fetch --tags --force
+                      echo "Switch to main branch"
+                      git switch -C main --track origin/main
+                      git reset --hard origin/main
 
                       if ! git rev-parse "refs/tags/$TAG" >/dev/null 2>&1; then
-                        echo "::error::Tag $TAG not found"
-                        conflict=false
-                        changed=false
+                        echo "::error::Tag $TAG not found!"
+                        exit 1
                       fi
 
-                      if git merge --no-ff --no-edit --no-commit "refs/tags/$TAG"; then
-                        echo "$TAG merged."
-                        if git diff --quiet --cached; then
-                          echo "Nothing to commit."
-                          git merge --abort || true
-                          conflict=false
-                          changed=false
-                        else
-                          echo "Committing merge."
-                          git commit -m "[Git Release Build] [skip ci] Merge tag $TAG into main"
-                          conflict=false
-                          changed=true
-                        fi
+                      if git merge-base --is-ancestor HEAD "refs/tags/$TAG"; then
+                        echo "::notice::The main branch already contains the tag $TAG."
+                        exit 0
                       else
-                        echo "::warning::Merge requires manual resolution; aborting merge."
-                        git merge --abort || true
-                        conflict=true
-                        changed=false
-                      fi
-
-                      if [[ "${conflict}" == "false" ]]; then
-                        echo "Pushing to main."
-                        git push origin HEAD:main
+                        if git merge --ff-only --no-edit --no-commit "refs/tags/$TAG"; then
+                          echo "Tag $TAG merged to main branch."
+                          git push origin HEAD:main
+                          echo "Pushed changes to main branch."
+                          exit 0
+                        else
+                          echo "::error::The tag $TAG couldn't be merged into the main branch!"
+                          exit 1
+                        fi
                       fi
