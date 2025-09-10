@@ -671,7 +671,7 @@
 						<autoVersionSubmodules>true</autoVersionSubmodules>
 						<tagNameFormat>@{project.version}</tagNameFormat>
 						<scmCommentPrefix>[maven-release-plugin] [skip ci]</scmCommentPrefix>
-						<preparationGoals>clean install scm:add@stage-release-changes</preparationGoals>
+						<preparationGoals>clean install</preparationGoals>
 						<preparationProfiles>stage-release-changes</preparationProfiles>
 						<arguments>-Dexecutable -DfullBuild</arguments>
 					</configuration>
@@ -1405,6 +1405,7 @@
 						<executions>
 							<execution>
 								<id>stage-release-changes</id>
+								<phase>verify</phase>
 								<goals>
 									<goal>add</goal>
 								</goals>
