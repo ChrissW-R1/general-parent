@@ -53,5 +53,5 @@ jobs:
                       mvn -B \
                       clean deploy site-deploy \
                       -e \
-                      -DfullBuild -Ddistribution -Dexecutable \
-                      -s ci_settings.xml --file pom.xml
+                      -s ci_settings.xml --file pom.xml \
+                      -DfullBuild -Ddistribution -Dexecutable

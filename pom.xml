@@ -268,24 +268,6 @@
 					<groupId>com.google.code.maven-replacer-plugin</groupId>
 					<artifactId>replacer</artifactId>
 					<version>${plugin.replacer.version}</version>
-					<executions>
-						<execution>
-							<id>set-general-parent-version</id>
-							<phase>generate-resources</phase>
-							<goals>
-								<goal>replace</goal>
-							</goals>
-							<configuration>
-								<file>pom.xml</file>
-								<replacements>
-									<replacement>
-										<token>&lt;general-parent.version&gt;(.*)&lt;/general-parent.version&gt;</token>
-										<value>&lt;general-parent.version&gt;${project.version}&lt;/general-parent.version&gt;</value>
-									</replacement>
-								</replacements>
-							</configuration>
-						</execution>
-					</executions>
 				</plugin>
 				<plugin>
 					<groupId>org.codehaus.mojo</groupId>
@@ -741,10 +723,6 @@
 						</goals>
 					</execution>
 				</executions>
-			</plugin>
-			<plugin>
-				<groupId>com.google.code.maven-replacer-plugin</groupId>
-				<artifactId>replacer</artifactId>
 			</plugin>
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
@@ -1354,6 +1332,56 @@
 						<configuration>
 							<cleanLicensesOutputDirectory>true</cleanLicensesOutputDirectory>
 						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile>
+			<id>set-general-parent-version</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>properties-maven-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>set-general-parent-version</id>
+								<phase>initialize</phase>
+								<goals>
+									<goal>set-property</goal>
+								</goals>
+								<configuration>
+									<properties>
+										<property>
+											<name>general-parent.version</name>
+											<value>${project.version}</value>
+										</property>
+									</properties>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<groupId>com.google.code.maven-replacer-plugin</groupId>
+						<artifactId>replacer</artifactId>
+						<executions>
+							<execution>
+								<id>set-general-parent-version</id>
+								<phase>generate-resources</phase>
+								<goals>
+									<goal>replace</goal>
+								</goals>
+								<configuration>
+									<file>pom.xml</file>
+									<replacements>
+										<replacement>
+											<token>&lt;general-parent.version&gt;(.*)&lt;/general-parent.version&gt;</token>
+											<value>&lt;general-parent.version&gt;${project.version}&lt;/general-parent.version&gt;</value>
+										</replacement>
+									</replacements>
+								</configuration>
+							</execution>
+						</executions>
 					</plugin>
 				</plugins>
 			</build>

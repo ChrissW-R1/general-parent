@@ -192,7 +192,7 @@ jobs:
                         --base "$VERSION_BRANCH" \
                         --head "$RELEASE_BRANCH" \
                       || echo "PR may already exist."
-            -   name: Merge tag into main
+            -   name: Merge tag into main branch
                 env:
                     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
                     TAG:          ${{ steps.get_tag.outputs.tag_name }}
