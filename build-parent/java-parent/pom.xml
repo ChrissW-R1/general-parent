@@ -327,10 +327,6 @@
 						<source>${java.version}</source>
 						<keywords>true</keywords>
 						<serialwarn>true</serialwarn>
-						<additionalOptions>
-							<additionalOption>--module-path</additionalOption>
-							<additionalOption>${module.path}</additionalOption>
-						</additionalOptions>
 						<links>
 							<link>${jetbrains-annotations.javadoc.url}</link>
 							<link>${jcip-annotations.javadoc.url}</link>
