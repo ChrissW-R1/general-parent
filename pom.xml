@@ -1387,7 +1387,7 @@
 									<goal>add</goal>
 								</goals>
 								<configuration>
-									<includes>README.md</includes>
+									<includes>pom.xml,README.md</includes>
 									<pushChanges>false</pushChanges>
 								</configuration>
 							</execution>
