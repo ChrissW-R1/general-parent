@@ -1388,7 +1388,7 @@
 									<goal>add</goal>
 								</goals>
 								<configuration>
-									<includes>${project.module-root.relativedir}README.md</includes>
+									<includes>README.md</includes>
 									<pushChanges>false</pushChanges>
 								</configuration>
 							</execution>
