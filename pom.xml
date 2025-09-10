@@ -1399,6 +1399,7 @@
 									<goal>add</goal>
 								</goals>
 								<configuration>
+									<includes>README.md</includes>
 									<pushChanges>false</pushChanges>
 								</configuration>
 							</execution>
