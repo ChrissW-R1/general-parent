@@ -1365,33 +1365,11 @@
 							</execution>
 						</executions>
 					</plugin>
-				</plugins>
-			</build>
-		</profile>
-		<profile>
-			<id>copy-artifact</id>
-			<build>
-				<plugins>
 					<plugin>
-						<artifactId>maven-antrun-plugin</artifactId>
-						<executions>
-							<execution>
-								<id>copy-artifact</id>
-								<phase>install</phase>
-								<goals>
-									<goal>run</goal>
-								</goals>
-								<configuration>
-									<target>
-										<mkdir dir="${copy-artifact.dir}" />
-										<copy todir="${copy-artifact.dir}">
-											<fileset dir="${project.build.directory}"
-													 includes="${project.build.artifact.fileName}" />
-										</copy>
-									</target>
-								</configuration>
-							</execution>
-						</executions>
+						<artifactId>maven-release-plugin</artifactId>
+						<configuration>
+							<preparationProfiles>set-general-parent-version stage-release-changes</preparationProfiles>
+						</configuration>
 					</plugin>
 				</plugins>
 			</build>
@@ -1426,6 +1404,34 @@
 					<plugin>
 						<groupId>org.sonatype.central</groupId>
 						<artifactId>central-publishing-maven-plugin</artifactId>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile>
+			<id>copy-artifact</id>
+			<build>
+				<plugins>
+					<plugin>
+						<artifactId>maven-antrun-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>copy-artifact</id>
+								<phase>install</phase>
+								<goals>
+									<goal>run</goal>
+								</goals>
+								<configuration>
+									<target>
+										<mkdir dir="${copy-artifact.dir}" />
+										<copy todir="${copy-artifact.dir}">
+											<fileset dir="${project.build.directory}"
+													 includes="${project.build.artifact.fileName}" />
+										</copy>
+									</target>
+								</configuration>
+							</execution>
+						</executions>
 					</plugin>
 				</plugins>
 			</build>
