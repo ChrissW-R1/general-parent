@@ -1386,7 +1386,7 @@
 									<goal>add</goal>
 								</goals>
 								<configuration>
-									<includes>pom.xml,README.md</includes>
+									<includes>pom.xml,.gitignore,LICENSE,README.md</includes>
 									<pushChanges>false</pushChanges>
 								</configuration>
 							</execution>
