@@ -1368,7 +1368,7 @@
 					<plugin>
 						<artifactId>maven-release-plugin</artifactId>
 						<configuration>
-							<preparationProfiles>set-general-parent-version stage-release-changes</preparationProfiles>
+							<preparationProfiles>set-general-parent-version,stage-release-changes</preparationProfiles>
 						</configuration>
 					</plugin>
 				</plugins>
