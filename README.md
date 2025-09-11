@@ -16,25 +16,12 @@ used in all projects of ChrissW-R1.
 To use this in one of your projects, you only have to define some settings in
 your POM:
 
-First, add the repository:
-```XML
-<repositories>
-	...
-	<repository>
-		<id>general-parent</id>
-		<name>General Parent</name>
-		<url>https://maven.pkg.github.com/ChrissW-R1/general-parent</url>
-	</repository>
-	...
-</repositories>
-```
-
-Secondly, set the parent to the project type parent. Example as a Java Project:
+At First, set the parent to the project type parent. Example as a Java Project:
 ```XML
 <parent>
 	<groupId>me.chrissw-r1</groupId>
 	<artifactId>java-parent</artifactId>
-	<version>3.0.15-SNAPSHOT</version>
+	<version>3.0.15</version>
 </parent>
 ```
 
@@ -43,7 +30,6 @@ to set all derived properties correctly:
 ```XML
 <properties>
 	...
-	<project.module-root.artifactId>{your-top-project-artifactId}</project.module-root.artifactId>
 	<project.module-root.relativedir>./</project.module-root.relativedir>
 	...
 </properties>
