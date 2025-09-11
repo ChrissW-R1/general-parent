@@ -31,6 +31,7 @@ to set all derived properties correctly:
 <properties>
 	...
 	<project.module-root.relativedir>./</project.module-root.relativedir>
+	<project.module-root.artifactId>{your-top-project-artifactId}</project.module-root.artifactId>
 	...
 </properties>
 ```
