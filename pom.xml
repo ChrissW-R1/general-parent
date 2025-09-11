@@ -818,7 +818,7 @@
 			<id>echo-build-parameters</id>
 			<activation>
 				<property>
-					<name>fullBuild</name>
+					<name>debug</name>
 				</property>
 			</activation>
 			<build>
@@ -875,7 +875,7 @@
 			<id>echo-updates</id>
 			<activation>
 				<property>
-					<name>fullBuild</name>
+					<name>debug</name>
 				</property>
 			</activation>
 			<build>
@@ -934,9 +934,7 @@
 									<file>${effective-pom.path}</file>
 									<replacements>
 										<replacement>
-											<token>
-												&lt;parsedVersion.qualifier\?&gt;(.*)&lt;/parsedVersion.qualifier\?&gt;
-											</token>
+											<token>&lt;parsedVersion.qualifier\?&gt;(.*)&lt;/parsedVersion.qualifier\?&gt;</token>
 										</replacement>
 									</replacements>
 								</configuration>
@@ -951,9 +949,7 @@
 									<file>${effective-pom.path}</file>
 									<replacements>
 										<replacement>
-											<token>
-												((.*)&lt;\?xml version="1.0" encoding="UTF-8"\?&gt;(.*))&lt;\?xml version="1.0" encoding="UTF-8"\?&gt;(.*)
-											</token>
+											<token>((.*)&lt;\?xml version="1.0" encoding="UTF-8"\?&gt;(.*))&lt;\?xml version="1.0" encoding="UTF-8"\?&gt;(.*)</token>
 											<value>$1$4</value>
 										</replacement>
 									</replacements>
