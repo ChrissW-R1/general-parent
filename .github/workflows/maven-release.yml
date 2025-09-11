@@ -57,7 +57,7 @@ jobs:
                 run:  |
                       mvn -B \
                       clean release:prepare release:perform \
-                      -e \
+                      -e -X \
                       -s ci_settings.xml --file pom.xml \
                       -Darguments="-s ci_settings.xml -P central-deploy" \
                       -DfullBuild -Ddistribution -Dexecutable \
