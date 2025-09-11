@@ -53,27 +53,28 @@
 
 	<properties>
 		<!-- technically-based properties -->
-		<project.build.artifact.extension>${project.packaging}</project.build.artifact.extension>
-		<project.build.artifact.fileName>${project.build.finalName}.${project.build.artifact.extension}</project.build.artifact.fileName>
 		<project.fileEncoding>UTF-8</project.fileEncoding>
 		<project.build.sourceEncoding>${project.fileEncoding}</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>${project.fileEncoding}</project.reporting.outputEncoding>
-		<project.scm.id>project-repo</project.scm.id>
 		<project.parent.relativedir />
+		<project.parent.basedir>${project.basedir}/${project.parent.relativedir}</project.parent.basedir>
 		<project.module-root.artifactId>general-parent</project.module-root.artifactId>
 		<project.module-root.relativedir>${project.parent.relativedir}</project.module-root.relativedir>
-		<project.module-root.basedir>${basedir}/${project.module-root.relativedir}</project.module-root.basedir>
-		<project.parent.basedir>${project.basedir}/${project.parent.relativedir}</project.parent.basedir>
+		<project.module-root.basedir>${project.basedir}/${project.module-root.relativedir}</project.module-root.basedir>
+		<project.build.artifact.extension>${project.packaging}</project.build.artifact.extension>
+		<project.build.artifact.fileName>${project.build.finalName}.${project.build.artifact.extension}</project.build.artifact.fileName>
+		<project.scm.id>project-repo</project.scm.id>
 		<project.site.urlPath>${project.groupId}/${project.module-root.artifactId}/${project.version}</project.site.urlPath>
 		<project.site.baseUrl>https://${project.site.basePath}</project.site.baseUrl>
 		<project.site.deploy.baseUrl>ftps://${project.site.baseDomain}</project.site.deploy.baseUrl>
 		<project.site.deploy.url>${project.site.deploy.baseUrl}/${project.site.urlPath}</project.site.deploy.url>
+		<properties.file>build.properties</properties.file>
+		<semver.regex>(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)(?:[-+]([0-9A-Za-z][0-9A-Za-z-+\.]+))?</semver.regex>
 		<java.version.prefixed>1.${java.version}</java.version.prefixed>
 		<netbeans.hint.jdkPlatform>JDK_${java.version.prefixed}</netbeans.hint.jdkPlatform>
 		<copy-artifact.dir />
 		<effective-pom.path>${project.build.directory}/${project.build.finalName}-effective.pom</effective-pom.path>
 		<general-parent.version>3.0.15</general-parent.version>
-		<properties.file>build.properties</properties.file>
 		<third-party-properties.filename>THIRD-PARTY.properties</third-party-properties.filename>
 		<third-party-properties.src.path>${project.module-root.basedir}/src/license</third-party-properties.src.path>
 		<third-party-properties.target.path>${project.build.directory}/generated-resources</third-party-properties.target.path>
@@ -1338,7 +1339,7 @@
 		<profile>
 			<id>set-general-parent-version</id>
 			<properties>
-				<general-parent.version>3.0.15</general-parent.version>
+				<general-parent.version>${project.version}</general-parent.version>
 			</properties>
 			<build>
 				<plugins>
@@ -1356,7 +1357,7 @@
 									<file>pom.xml</file>
 									<replacements>
 										<replacement>
-											<token>&lt;general-parent.version&gt;(.*)&lt;/general-parent.version&gt;</token>
+											<token>&lt;general-parent.version&gt;${semver.regex}&lt;/general-parent.version&gt;</token>
 											<value>&lt;general-parent.version&gt;${project.version}&lt;/general-parent.version&gt;</value>
 										</replacement>
 									</replacements>
