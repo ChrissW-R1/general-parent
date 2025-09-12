@@ -7,7 +7,7 @@
 	<parent>
 		<groupId>me.chrissw-r1</groupId>
 		<artifactId>build-parent</artifactId>
-		<version>3.0.18-SNAPSHOT</version>
+		<version>3.0.19-SNAPSHOT</version>
 	</parent>
 
 	<!-- project identifier -->
@@ -52,24 +52,17 @@
 		<plugin.javadoc.version>3.11.3</plugin.javadoc.version>
 
 		<!-- JavaDoc URLs -->
-		<jetbrains-annotations.javadoc.url>https://javadoc.io/doc/org.jetbrains/annotations/${jetbrains-annotations.version}</jetbrains-annotations.javadoc.url>
 		<jcip-annotations.javadoc.url>https://javadoc.io/doc/com.google.code.findbugs/annotations/latest</jcip-annotations.javadoc.url>
 		<spotbugs.javadoc.url>https://javadoc.io/doc/com.github.spotbugs/spotbugs-annotations/${spotbugs.version}</spotbugs.javadoc.url>
 		<lombok.javadoc.url>https://projectlombok.org/api</lombok.javadoc.url>
-		<slf4j.javadoc.url>https://www.slf4j.org/apidocs</slf4j.javadoc.url>
-		<junit.platform.javadoc.url>https://junit.org/junit5/docs/current/api</junit.platform.javadoc.url>
-		<mockito.javadoc.url>https://static.javadoc.io/org.mockito/mockito-core/${mockito.version}</mockito.javadoc.url>
+		<proguard.annotations.javadoc.url>https://javadoc.io/doc/com.guardsquare/proguard-annotations/${proguard.annotations.version}</proguard.annotations.javadoc.url>
+		<jetbrains-annotations.javadoc.url>https://javadoc.io/doc/org.jetbrains/annotations/${jetbrains-annotations.version}</jetbrains-annotations.javadoc.url>
+		<slf4j.javadoc.url>https://slf4j.org/apidocs</slf4j.javadoc.url>
+		<junit.platform.javadoc.url>https://junit.org/junit5/docs/${junit.jupiter.version}/api</junit.platform.javadoc.url>
+		<mockito.javadoc.url>https://javadoc.io/doc/org.mockito/mockito-core/${mockito.version}</mockito.javadoc.url>
 	</properties>
 
 	<dependencies>
-		<!-- provided dependencies -->
-		<dependency>
-			<groupId>org.jetbrains</groupId>
-			<artifactId>annotations</artifactId>
-			<version>${jetbrains-annotations.version}</version>
-			<scope>provided</scope>
-		</dependency>
-
 		<!-- build-only dependencies -->
 		<dependency>
 			<groupId>com.github.stephenc.jcip</groupId>
@@ -93,6 +86,14 @@
 			<groupId>com.guardsquare</groupId>
 			<artifactId>proguard-annotations</artifactId>
 			<version>${proguard.annotations.version}</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<!-- provided dependencies -->
+		<dependency>
+			<groupId>org.jetbrains</groupId>
+			<artifactId>annotations</artifactId>
+			<version>${jetbrains-annotations.version}</version>
 			<scope>provided</scope>
 		</dependency>
 
@@ -328,10 +329,11 @@
 						<keywords>true</keywords>
 						<serialwarn>true</serialwarn>
 						<links>
-							<link>${jetbrains-annotations.javadoc.url}</link>
 							<link>${jcip-annotations.javadoc.url}</link>
 							<link>${spotbugs.javadoc.url}</link>
 							<link>${lombok.javadoc.url}</link>
+							<link>${proguard.annotations.javadoc.url}</link>
+							<link>${jetbrains-annotations.javadoc.url}</link>
 							<link>${slf4j.javadoc.url}</link>
 							<link>${junit.platform.javadoc.url}</link>
 							<link>${mockito.javadoc.url}</link>
@@ -375,10 +377,11 @@
 				<version>${plugin.javadoc.version}</version>
 				<configuration>
 					<links>
-						<link>${jetbrains-annotations.javadoc.url}</link>
 						<link>${jcip-annotations.javadoc.url}</link>
 						<link>${spotbugs.javadoc.url}</link>
 						<link>${lombok.javadoc.url}</link>
+						<link>${proguard.annotations.javadoc.url}</link>
+						<link>${jetbrains-annotations.javadoc.url}</link>
 						<link>${slf4j.javadoc.url}</link>
 						<link>${junit.platform.javadoc.url}</link>
 						<link>${mockito.javadoc.url}</link>

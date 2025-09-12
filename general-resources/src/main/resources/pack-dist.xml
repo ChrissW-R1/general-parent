@@ -39,7 +39,7 @@
 		<!-- third-party licenses -->
 		<fileSet>
 			<directory>${project.build.directory}/generated-resources/spdx-licenses</directory>
-			<outputDirectory>license</outputDirectory>
+			<outputDirectory>licenses</outputDirectory>
 			<includes>
 				<include>**/*</include>
 			</includes>
