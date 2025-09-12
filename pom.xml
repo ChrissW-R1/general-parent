@@ -674,7 +674,7 @@
 						<scmCommentPrefix>[maven-release-plugin] [skip ci]</scmCommentPrefix>
 						<preparationGoals>clean install scm:add@stage-release-changes</preparationGoals>
 						<preparationProfiles>stage-release-changes</preparationProfiles>
-						<arguments>-Dexecutable -DfullBuild</arguments>
+						<arguments>-DfullBuild -Ddistribution -Dexecutable</arguments>
 					</configuration>
 				</plugin>
 				<plugin>
