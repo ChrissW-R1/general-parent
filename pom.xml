@@ -5,7 +5,7 @@
 	<!-- project identifier -->
 	<groupId>me.chrissw-r1</groupId>
 	<artifactId>general-parent</artifactId>
-	<version>3.0.21-SNAPSHOT</version>
+	<version>3.0.22-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<!-- project metadata -->
@@ -71,7 +71,7 @@
 		<netbeans.hint.jdkPlatform>JDK_${java.version.prefixed}</netbeans.hint.jdkPlatform>
 		<copy-artifact.dir />
 		<effective-pom.path>${project.build.directory}/${project.build.finalName}-effective.pom</effective-pom.path>
-		<general-parent.version>3.0.20</general-parent.version>
+		<general-parent.version>3.0.21</general-parent.version>
 		<third-party-properties.filename>THIRD-PARTY.properties</third-party-properties.filename>
 		<third-party-properties.src.path>${project.module-root.basedir}/src/license</third-party-properties.src.path>
 		<third-party-properties.target.path>${project.build.directory}/generated-resources</third-party-properties.target.path>
@@ -121,7 +121,6 @@
 		<plugin.project-info-reports.version>3.9.0</plugin.project-info-reports.version>
 		<plugin.release.version>3.1.1</plugin.release.version>
 		<plugin.scm.version>2.1.0</plugin.scm.version>
-		<plugin.deploy.version>3.1.4</plugin.deploy.version>
 		<plugin.central-publish.version>0.8.0</plugin.central-publish.version>
 	</properties>
 
@@ -671,10 +670,6 @@
 				<plugin>
 					<artifactId>maven-scm-plugin</artifactId>
 					<version>${plugin.scm.version}</version>
-				</plugin>
-				<plugin>
-					<artifactId>maven-deploy-plugin</artifactId>
-					<version>${plugin.deploy.version}</version>
 				</plugin>
 				<plugin>
 					<groupId>org.sonatype.central</groupId>
@@ -1377,25 +1372,6 @@
 									<includes>pom.xml,.gitignore,LICENSE,README.md</includes>
 									<pushChanges>false</pushChanges>
 								</configuration>
-							</execution>
-						</executions>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
-		<profile>
-			<id>default-deploy</id>
-			<build>
-				<plugins>
-					<plugin>
-						<artifactId>maven-deploy-plugin</artifactId>
-						<executions>
-							<execution>
-								<id>default-deploy</id>
-								<phase>deploy</phase>
-								<goals>
-									<goal>deploy</goal>
-								</goals>
 							</execution>
 						</executions>
 					</plugin>
