@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
@@ -54,9 +56,10 @@
 		<jcip-annotations.javadoc.url>https://javadoc.io/doc/com.google.code.findbugs/annotations/latest</jcip-annotations.javadoc.url>
 		<spotbugs.javadoc.url>https://javadoc.io/doc/com.github.spotbugs/spotbugs-annotations/${spotbugs.version}</spotbugs.javadoc.url>
 		<lombok.javadoc.url>https://projectlombok.org/api</lombok.javadoc.url>
-		<slf4j.javadoc.url>https://www.slf4j.org/apidocs</slf4j.javadoc.url>
-		<junit.platform.javadoc.url>https://junit.org/junit5/docs/current/api</junit.platform.javadoc.url>
-		<mockito.javadoc.url>https://static.javadoc.io/org.mockito/mockito-core/${mockito.version}</mockito.javadoc.url>
+		<proguard.annotations.javadoc.url>https://javadoc.io/doc/com.guardsquare/proguard-annotations/${proguard.annotations.version}</proguard.annotations.javadoc.url>
+		<slf4j.javadoc.url>https://slf4j.org/apidocs</slf4j.javadoc.url>
+		<junit.platform.javadoc.url>https://junit.org/junit5/docs/${junit.jupiter.version}/api</junit.platform.javadoc.url>
+		<mockito.javadoc.url>https://javadoc.io/doc/org.mockito/mockito-core/${mockito.version}</mockito.javadoc.url>
 	</properties>
 
 	<dependencies>
@@ -330,6 +333,7 @@
 							<link>${jcip-annotations.javadoc.url}</link>
 							<link>${spotbugs.javadoc.url}</link>
 							<link>${lombok.javadoc.url}</link>
+							<link>${proguard.annotations.javadoc.url}</link>
 							<link>${slf4j.javadoc.url}</link>
 							<link>${junit.platform.javadoc.url}</link>
 							<link>${mockito.javadoc.url}</link>
@@ -377,6 +381,7 @@
 						<link>${jcip-annotations.javadoc.url}</link>
 						<link>${spotbugs.javadoc.url}</link>
 						<link>${lombok.javadoc.url}</link>
+						<link>${proguard.annotations.javadoc.url}</link>
 						<link>${slf4j.javadoc.url}</link>
 						<link>${junit.platform.javadoc.url}</link>
 						<link>${mockito.javadoc.url}</link>
