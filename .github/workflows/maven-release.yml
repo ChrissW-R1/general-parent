@@ -215,9 +215,6 @@ jobs:
                                    fi
 
                                    if git merge-base --is-ancestor HEAD "refs/tags/$TAG"; then
-                                     echo "::error::No fast-forward possible (diverged or unrelated histories)."
-                                     exit 1
-                                   else
                                      if git merge --ff-only --no-edit --no-commit "refs/tags/$TAG"; then
                                        echo "Tag $TAG merged to main branch."
                                        git push origin HEAD:main
@@ -227,4 +224,7 @@ jobs:
                                        echo "::error::The tag $TAG couldn't be merged into the main branch!"
                                        exit 1
                                      fi
+                                   else
+                                     echo "::error::No fast-forward possible (diverged or unrelated histories)."
+                                     exit 1
                                    fi
