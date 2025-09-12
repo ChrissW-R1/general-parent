@@ -26,16 +26,19 @@ jobs:
         # Steps represent a sequence of tasks that will be executed as part of the job
         steps:
             # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-            -   name: Git Checkout
+            -   id:   checkout
+                name: Git Checkout
                 uses: actions/checkout@v5
                 with:
                     fetch-depth: 0
                     fetch-tags:  true
-            -   name: Setup Git user
+            -   id:   setup_git
+                name: Setup Git user
                 run:  |
                       git config --global user.name  "github-actions[bot]"
                       git config --global user.email "github-actions[bot]@users.noreply.github.com"
-            -   name: Setup JDK 11
+            -   id:   setup_java
+                name: Setup JDK 11
                 uses: actions/setup-java@v5
                 with:
                     distribution:    'temurin'
@@ -46,7 +49,8 @@ jobs:
                     gpg-passphrase:  'gpg_passphrase'
                     gpg-private-key: ${{ secrets.GPG_PRIVATE_KEY }}
 
-            -   name: Release with Maven
+            -   id:   maven_release
+                name: Release with Maven
                 env:
                     GITHUB_TOKEN:             ${{ secrets.GITHUB_TOKEN }}
                     ci_git_user:              ${{ vars.CI_GIT_USER }}
@@ -70,18 +74,18 @@ jobs:
             -   id:   get_tag
                 name: Get latest tag
                 run:  echo "tag_name=$(git describe --tags --abbrev=0)" >> "$GITHUB_OUTPUT"
-            -   id:   create_release
+            -   id:   github_release
                 name: Create GitHub Release
-                uses: actions/create-release@v1
+                uses: elgohr/Github-Release-Action@v5
                 env:
-                    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                    GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
                 with:
-                    tag_name:     ${{ steps.get_tag.outputs.tag_name }}
-                    release_name: ${{ steps.get_tag.outputs.tag_name }}
-                    draft:        false
-                    prerelease:   false
+                    title:      ${{ steps.get_tag.outputs.tag_name }}
+                    tag:        ${{ steps.get_tag.outputs.tag_name }}
+                    prerelease: false
 
-            -   name:              Maven Default Deployment
+            -   id:                maven_deploy
+                name:              Maven Default Deployment
                 working-directory: target/checkout
                 env:
                     GITHUB_TOKEN:             ${{ secrets.GITHUB_TOKEN }}
@@ -100,7 +104,8 @@ jobs:
                                    -s ../../ci_settings.xml \
                                    -DskipTests \
                                    -DfullBuild
-            -   name:              Upload artifacts to GitHub Release
+            -   id:                github_upload
+                name:              Upload artifacts to GitHub Release
                 working-directory: target/checkout
                 env:
                     GITHUB_TOKEN:             ${{ secrets.GITHUB_TOKEN }}
@@ -159,8 +164,8 @@ jobs:
                                      echo "::endgroup::"
                                    done
 
-            -   name:  Derive version and branches
-                id:    derive
+            -   id:    derive_branches
+                name:  Derive version and branches
                 env:
                     BRANCH: ${{ github.event_name == 'pull_request' && github.base_ref || github.ref_name }}
                 shell: bash
@@ -172,12 +177,13 @@ jobs:
                        echo "version=$VERSION" >> "$GITHUB_OUTPUT"
                        echo "release_branch=$RELEASE_BRANCH" >> "$GITHUB_OUTPUT"
                        echo "version_branch=version/$VERSION" >> "$GITHUB_OUTPUT"
-            -   name: Create Pull Request to version branch
+            -   id:   pull_request
+                name: Create Pull Request to version branch
                 env:
                     GITHUB_TOKEN:   ${{ secrets.GITHUB_TOKEN }}
                     TAG:            ${{ steps.get_tag.outputs.tag_name }}
-                    VERSION_BRANCH: ${{ steps.derive.outputs.version_branch }}
-                    RELEASE_BRANCH: ${{ steps.derive.outputs.release_branch }}
+                    VERSION_BRANCH: ${{ steps.derive_branches.outputs.version_branch }}
+                    RELEASE_BRANCH: ${{ steps.derive_branches.outputs.release_branch }}
                 run:  |
                       set -euo pipefail
 
@@ -187,7 +193,8 @@ jobs:
                         --base "$VERSION_BRANCH" \
                         --head "$RELEASE_BRANCH" \
                       || echo "PR may already exist."
-            -   name:              Merge tag into main branch
+            -   id:                merge_main
+                name:              Merge tag into main branch
                 continue-on-error: true
                 env:
                     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
