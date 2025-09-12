@@ -156,14 +156,6 @@ jobs:
                                      echo "Uploading: $ARTIFACT_PATH"
                                      gh release upload "$TAG" "$ARTIFACT_PATH" --clobber || echo "Upload of $ARTIFACT_PATH failed!"
 
-                                     for CLASSIFIER in sources javadoc; do
-                                       ARTIFACT_PATH="${BUILD_DIR}/${FINAL_NAME}-${CLASSIFIER}.jar"
-                                       if [[ -f "$ARTIFACT_PATH" ]]; then
-                                         echo "Uploading: $ARTIFACT_PATH"
-                                         gh release upload "$TAG" "$ARTIFACT_PATH" --clobber || echo "Upload of $ARTIFACT_PATH failed!"
-                                       fi
-                                     done
-
                                      echo "::endgroup::"
                                    done
 
