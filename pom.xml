@@ -5,7 +5,7 @@
 	<!-- project identifier -->
 	<groupId>me.chrissw-r1</groupId>
 	<artifactId>general-parent</artifactId>
-	<version>3.0.19-SNAPSHOT</version>
+	<version>3.0.20-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<!-- project metadata -->
@@ -43,7 +43,7 @@
 				<role>developer</role>
 			</roles>
 			<properties>
-				<picUrl>https://www.gravatar.com/avatar/625826a28e0cb12855ef6f5d169f8b67</picUrl>
+				<picUrl>https://gravatar.com/avatar/625826a28e0cb12855ef6f5d169f8b67</picUrl>
 			</properties>
 		</developer>
 	</developers>
@@ -71,7 +71,7 @@
 		<netbeans.hint.jdkPlatform>JDK_${java.version.prefixed}</netbeans.hint.jdkPlatform>
 		<copy-artifact.dir />
 		<effective-pom.path>${project.build.directory}/${project.build.finalName}-effective.pom</effective-pom.path>
-		<general-parent.version>3.0.18</general-parent.version>
+		<general-parent.version>3.0.19</general-parent.version>
 		<third-party-properties.filename>THIRD-PARTY.properties</third-party-properties.filename>
 		<third-party-properties.src.path>${project.module-root.basedir}/src/license</third-party-properties.src.path>
 		<third-party-properties.target.path>${project.build.directory}/generated-resources</third-party-properties.target.path>
@@ -1372,6 +1372,24 @@
 									<includes>pom.xml,.gitignore,LICENSE,README.md</includes>
 									<pushChanges>false</pushChanges>
 								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile>
+			<id>default-deploy</id>
+			<build>
+				<plugins>
+					<plugin>
+						<artifactId>maven-deploy-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>default-deploy</id>
+								<goals>
+									<goal>deploy</goal>
+								</goals>
 							</execution>
 						</executions>
 					</plugin>

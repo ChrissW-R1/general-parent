@@ -66,9 +66,9 @@ jobs:
                       clean release:prepare release:perform \
                       -e \
                       -s ci_settings.xml --file pom.xml \
-                      -Darguments="-s ci_settings.xml -P central-deploy" \
+                      -Darguments="-s ci_settings.xml -P default-deploy,central-deploy" \
                       -DfullBuild -Ddistribution -Dexecutable \
-                      -P central-deploy \
+                      -P default-deploy,central-deploy \
                       -Dusername=${ci_git_user} -Dpassword=${GITHUB_TOKEN}
 
             -   id:   get_tag
@@ -84,26 +84,6 @@ jobs:
                     tag:        ${{ steps.get_tag.outputs.tag_name }}
                     prerelease: false
 
-            -   id:                maven_deploy
-                name:              Maven Default Deployment
-                working-directory: target/checkout
-                env:
-                    GITHUB_TOKEN:             ${{ secrets.GITHUB_TOKEN }}
-                    ci_git_user:              ${{ vars.CI_GIT_USER }}
-                    nvd_api_key:              ${{ secrets.NVD_API_KEY }}
-                    gpg_key:                  ${{ secrets.GPG_PRIVATE_KEY }}
-                    gpg_keyid:                ${{ secrets.GPG_KEYID }}
-                    gpg_passphrase:           ${{ secrets.GPG_PASSPHRASE }}
-                    mvnsiteuploader_password: ${{ secrets.MVNSITEUPLOADER_PASSWORD }}
-                    mvn_central_user:         ${{ secrets.MVN_CENTRAL_USER }}
-                    mvn_central_token:        ${{ secrets.MVN_CENTRAL_TOKEN }}
-                run:               |
-                                   mvn -B \
-                                   deploy \
-                                   -e \
-                                   -s ../../ci_settings.xml \
-                                   -DskipTests \
-                                   -DfullBuild
             -   id:                github_upload
                 name:              Upload artifacts to GitHub Release
                 working-directory: target/checkout
