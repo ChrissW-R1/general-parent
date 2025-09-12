@@ -1393,6 +1393,24 @@
 			</build>
 		</profile>
 		<profile>
+			<id>default-deploy</id>
+			<build>
+				<plugins>
+					<plugin>
+						<artifactId>maven-deploy-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>default-deploy</id>
+								<goals>
+									<goal>deploy</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile>
 			<id>central-deploy</id>
 			<build>
 				<plugins>
