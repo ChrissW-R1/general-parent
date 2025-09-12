@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" child.project.url.inherit.append.path="false">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+		 child.project.url.inherit.append.path="false">
 	<modelVersion>4.0.0</modelVersion>
 
 	<!-- project identifier -->
@@ -121,11 +124,12 @@
 		<plugin.project-info-reports.version>3.9.0</plugin.project-info-reports.version>
 		<plugin.release.version>3.1.1</plugin.release.version>
 		<plugin.scm.version>2.1.0</plugin.scm.version>
-		<plugin.deploy.version>3.1.4</plugin.deploy.version>
 		<plugin.central-publish.version>0.8.0</plugin.central-publish.version>
 	</properties>
 
-	<scm child.scm.url.inherit.append.path="false" child.scm.connection.inherit.append.path="false" child.scm.developerConnection.inherit.append.path="false">
+	<scm child.scm.url.inherit.append.path="false"
+		 child.scm.connection.inherit.append.path="false"
+		 child.scm.developerConnection.inherit.append.path="false">
 		<url>https://github.com/${project.organization.name}/${project.module-root.artifactId}</url>
 		<connection>scm:git:${project.scm.url}.git</connection>
 		<developerConnection>${project.scm.connection}</developerConnection>
@@ -634,16 +638,21 @@
 							</goals>
 							<configuration>
 								<target>
-									<taskdef resource="net/sf/antcontrib/antcontrib.properties" classpathref="maven.runtime.classpath" />
+									<taskdef resource="net/sf/antcontrib/antcontrib.properties"
+											 classpathref="maven.runtime.classpath" />
 									<if>
 										<available file="${third-party-properties.target.fullPath}" />
 										<then>
-											<echo message="third-party.properties exists." level="info" />
-											<property name="third-party-properties.target.missing" value="false" />
+											<echo message="third-party.properties exists."
+												  level="info" />
+											<property name="third-party-properties.target.missing"
+													  value="false" />
 										</then>
 										<else>
-											<echo message="third-party.properties missing." level="info" />
-											<property name="third-party-properties.target.missing" value="true" />
+											<echo message="third-party.properties missing."
+												  level="info" />
+											<property name="third-party-properties.target.missing"
+													  value="true" />
 										</else>
 									</if>
 								</target>
@@ -671,10 +680,6 @@
 				<plugin>
 					<artifactId>maven-scm-plugin</artifactId>
 					<version>${plugin.scm.version}</version>
-				</plugin>
-				<plugin>
-					<artifactId>maven-deploy-plugin</artifactId>
-					<version>${plugin.deploy.version}</version>
 				</plugin>
 				<plugin>
 					<groupId>org.sonatype.central</groupId>
@@ -1243,7 +1248,9 @@
 								</goals>
 								<configuration>
 									<target>
-										<checksum todir="${project.build.directory}" algorithm="SHA-512" fileext=".sha512">
+										<checksum todir="${project.build.directory}"
+												  algorithm="SHA-512"
+												  fileext=".sha512">
 											<fileset dir="${project.build.directory}">
 												<include name="*" />
 												<exclude name="**/*.asc" />
@@ -1253,7 +1260,9 @@
 												<exclude name="**/*.sha512" />
 											</fileset>
 										</checksum>
-										<checksum todir="${project.build.directory}" algorithm="SHA-256" fileext=".sha256">
+										<checksum todir="${project.build.directory}"
+												  algorithm="SHA-256"
+												  fileext=".sha256">
 											<fileset dir="${project.build.directory}">
 												<include name="*" />
 												<exclude name="**/*.asc" />
@@ -1384,25 +1393,6 @@
 			</build>
 		</profile>
 		<profile>
-			<id>default-deploy</id>
-			<build>
-				<plugins>
-					<plugin>
-						<artifactId>maven-deploy-plugin</artifactId>
-						<executions>
-							<execution>
-								<id>default-deploy</id>
-								<phase>deploy</phase>
-								<goals>
-									<goal>deploy</goal>
-								</goals>
-							</execution>
-						</executions>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
-		<profile>
 			<id>central-deploy</id>
 			<build>
 				<plugins>
@@ -1430,7 +1420,8 @@
 									<target>
 										<mkdir dir="${copy-artifact.dir}" />
 										<copy todir="${copy-artifact.dir}">
-											<fileset dir="${project.build.directory}" includes="${project.build.artifact.fileName}" />
+											<fileset dir="${project.build.directory}"
+													 includes="${project.build.artifact.fileName}" />
 										</copy>
 									</target>
 								</configuration>
