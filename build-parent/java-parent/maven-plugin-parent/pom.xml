@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>me.chrissw-r1</groupId>
+		<artifactId>java-parent</artifactId>
+		<version>3.0.22-SNAPSHOT</version>
+	</parent>
+
+	<!-- project identifier -->
+	<artifactId>maven-plugin-parent</artifactId>
+	<packaging>pom</packaging>
+
+	<!-- project metadata -->
+	<name>Maven Plugin Parent</name>
+	<description>
+		Parent of all Maven plugins by ChrissW-R1
+	</description>
+
+	<properties>
+		<!-- technically-based properties -->
+		<project.module-root.relativedir>${project.parent.relativedir}../../</project.module-root.relativedir>
+
+		<!-- dependency versions -->
+		<maven.version>3.9.11</maven.version>
+
+		<!-- plugin versions -->
+		<plugin.plugin.version>3.15.1</plugin.plugin.version>
+
+		<!-- JavaDoc URLs -->
+		<maven.javadoc.url>https://maven.apache.org/ref/${maven.version}/maven-core/apidocs</maven.javadoc.url>
+		<maven.plugin.javadoc.url>https://javadoc.io/doc/org.apache.maven/maven-plugin-api/${maven.version}</maven.plugin.javadoc.url>
+		<maven.plugin-annotations.javadoc.url>https://javadoc.io/doc/org.apache.maven.plugin-tools/maven-plugin-annotations/${plugin.plugin.version}</maven.plugin-annotations.javadoc.url>
+	</properties>
+
+	<dependencies>
+		<!-- provided dependencies -->
+		<dependency>
+			<groupId>org.apache.maven</groupId>
+			<artifactId>maven-core</artifactId>
+			<version>${maven.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.maven</groupId>
+			<artifactId>maven-plugin-api</artifactId>
+			<version>${maven.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.maven.plugin-tools</groupId>
+			<artifactId>maven-plugin-annotations</artifactId>
+			<version>${plugin.plugin.version}</version>
+			<scope>provided</scope>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>build-helper-maven-plugin</artifactId>
+					<executions>
+						<execution>
+							<id>generate-goal-prefix</id>
+							<phase>initialize</phase>
+							<goals>
+								<goal>regex-property</goal>
+							</goals>
+							<configuration>
+								<name>goalPrefix</name>
+								<value>${project.artifactId}</value>
+								<regex>-maven-plugin$</regex>
+								<replacement />
+								<failIfNoMatch>false</failIfNoMatch>
+							</configuration>
+						</execution>
+					</executions>
+				</plugin>
+				<plugin>
+					<artifactId>maven-plugin-plugin</artifactId>
+					<version>${plugin.plugin.version}</version>
+					<configuration>
+						<goalPrefix>${goalPrefix}</goalPrefix>
+					</configuration>
+				</plugin>
+				<plugin>
+					<artifactId>maven-javadoc-plugin</artifactId>
+					<configuration>
+						<links combine.children="append">
+							<link>${maven.javadoc.url}</link>
+							<link>${maven.plugin.javadoc.url}</link>
+							<link>${maven.plugin-annotations.javadoc.url}</link>
+						</links>
+					</configuration>
+				</plugin>
+				<plugin>
+					<artifactId>maven-antrun-plugin</artifactId>
+					<executions>
+						<execution>
+							<id>restore-plugin-definition</id>
+							<phase>pre-integration-test</phase>
+							<goals>
+								<goal>run</goal>
+							</goals>
+							<configuration>
+								<target>
+									<exec executable="jar">
+										<arg value="uf" />
+										<arg value="${project.build.directory}/${project.build.finalName}.jar" />
+										<arg value="-C" />
+										<arg value="${project.build.outputDirectory}" />
+										<arg value="META-INF/maven/plugin.xml" />
+									</exec>
+								</target>
+							</configuration>
+						</execution>
+						<execution>
+							<id>restore-plugin-help</id>
+							<phase>pre-integration-test</phase>
+							<goals>
+								<goal>run</goal>
+							</goals>
+							<configuration>
+								<target>
+									<exec executable="jar">
+										<arg value="uf" />
+										<arg value="${project.build.directory}/${project.build.finalName}.jar" />
+										<arg value="-C" />
+										<arg value="${project.build.outputDirectory}" />
+										<arg value="META-INF/maven/${project.groupId}/${project.artifactId}/plugin-help.xml" />
+									</exec>
+								</target>
+							</configuration>
+						</execution>
+					</executions>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+		<plugins>
+			<plugin>
+				<artifactId>maven-plugin-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>default-descriptor</id>
+						<goals>
+							<goal>descriptor</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
+	<reporting>
+		<plugins>
+			<plugin>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<configuration>
+					<links combine.children="append">
+						<link>${maven.javadoc.url}</link>
+						<link>${maven.plugin.javadoc.url}</link>
+						<link>${maven.plugin-annotations.javadoc.url}</link>
+					</links>
+				</configuration>
+			</plugin>
+		</plugins>
+	</reporting>
+</project>

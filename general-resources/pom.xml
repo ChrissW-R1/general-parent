@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<groupId>me.chrisswr1</groupId>
+		<groupId>me.chrissw-r1</groupId>
 		<artifactId>general-parent</artifactId>
-		<version>2.3.2-SNAPSHOT</version>
+		<version>3.0.22-SNAPSHOT</version>
 	</parent>
 
 	<!-- project identifier -->
@@ -30,6 +28,7 @@
 				<directory>src/main/resources</directory>
 				<includes>
 					<include>project.properties</include>
+					<include>lrgrwrks.txt</include>
 				</includes>
 				<filtering>true</filtering>
 			</resource>
@@ -37,6 +36,8 @@
 				<directory>src/main/resources</directory>
 				<excludes>
 					<exclude>project.properties</exclude>
+					<exclude>lrgrwrks.txt</exclude>
+					<exclude>pack-dist.xml</exclude>
 					<exclude>package.json</exclude>
 					<exclude>tsconfig.json</exclude>
 				</excludes>
@@ -47,6 +48,8 @@
 				<directory>src/main/resources</directory>
 				<includes>
 					<include>project.properties</include>
+					<include>lrgrwrks.txt</include>
+					<include>pack-dist.xml</include>
 					<include>package.json</include>
 					<include>tsconfig.json</include>
 				</includes>
@@ -60,12 +63,17 @@
 				</includes>
 			</resource>
 			<resource>
-				<directory>${project.module-root.basedir}</directory>
+				<directory>../</directory>
 				<includes>
 					<include>.gitignore</include>
 					<include>build.sample.properties</include>
 				</includes>
 				<targetPath>resources</targetPath>
+				<filtering>false</filtering>
+			</resource>
+			<resource>
+				<directory>../.github/workflows/</directory>
+				<targetPath>unfiltered-resources</targetPath>
 				<filtering>false</filtering>
 			</resource>
 		</resources>
@@ -88,8 +96,7 @@
 							</goals>
 							<configuration>
 								<target>
-									<move file="${project.build.outputDirectory}/resources/.gitignore"
-										  tofile="${project.build.outputDirectory}/resources/default.gitignore" />
+									<move file="${project.build.outputDirectory}/resources/.gitignore" tofile="${project.build.outputDirectory}/resources/default.gitignore" />
 								</target>
 							</configuration>
 						</execution>

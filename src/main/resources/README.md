@@ -1,3 +1,9 @@
+> [!CAUTION]
+> Don't use the version `3.0.x` for projects!
+> This version is only for developing and testing
+> the release process with GitHub Actions.
+> The next stable release will be version `3.1.x`.
+
 # General Parent
 
 This project only contains the default properties and settings, which should be
@@ -10,20 +16,7 @@ used in all projects of ChrissW-R1.
 To use this in one of your projects, you only have to define some settings in
 your POM:
 
-First, add the repository:
-```XML
-<repositories>
-	...
-	<repository>
-		<id>${project.module-root.artifactId}</id>
-		<name>General Parent</name>
-		<url>https://maven.pkg.github.com/ChrissW-R1/general-parent</url>
-	</repository>
-	...
-</repositories>
-```
-
-Secondly, set the parent to the project type parent. Example as a Java Project:
+At First, set the parent to the project type parent. Example as a Java Project:
 ```XML
 <parent>
 	<groupId>${project.groupId}</groupId>
@@ -32,12 +25,13 @@ Secondly, set the parent to the project type parent. Example as a Java Project:
 </parent>
 ```
 
-Last but not least a property have to be overridden by your POM to set all path
-in project correctly:
+Last but not least some technical properties have to be overridden by your POM
+to set all derived properties correctly:
 ```XML
 <properties>
 	...
 	<project.module-root.relativedir>./</project.module-root.relativedir>
+	<project.module-root.artifactId>{your-top-project-artifactId}</project.module-root.artifactId>
 	...
 </properties>
 ```

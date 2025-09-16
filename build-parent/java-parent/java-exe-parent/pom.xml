@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<groupId>me.chrisswr1</groupId>
+		<groupId>me.chrissw-r1</groupId>
 		<artifactId>java-parent</artifactId>
-		<version>2.3.2-SNAPSHOT</version>
+		<version>3.0.22-SNAPSHOT</version>
 	</parent>
 
 	<!-- project identifier -->
@@ -30,7 +28,7 @@
 		<copyright.notice>© ${project.versionYear} by ${project.organization.name}</copyright.notice>
 
 		<!-- plugin versions -->
-		<plugin.launch4j.version>2.5.2</plugin.launch4j.version>
+		<plugin.launch4j.version>2.6.0</plugin.launch4j.version>
 	</properties>
 
 	<build>
@@ -40,39 +38,6 @@
 					<groupId>com.akathist.maven.plugins.launch4j</groupId>
 					<artifactId>launch4j-maven-plugin</artifactId>
 					<version>${plugin.launch4j.version}</version>
-					<executions>
-						<execution>
-							<id>launch4j</id>
-							<phase>pre-integration-test</phase>
-							<goals>
-								<goal>launch4j</goal>
-							</goals>
-							<configuration>
-								<outfile>${project.build.directory}/${project.build.finalName}.exe</outfile>
-								<jar>${project.build.directory}/${project.build.finalName}-jar-with-dependencies.jar</jar>
-								<classPath>
-									<mainClass>${mainClass.fullPath}</mainClass>
-								</classPath>
-								<jre>
-									<path>${java.home}</path>
-									<minVersion>${java.version.prefixed}</minVersion>
-								</jre>
-								<headerType>${headerType}</headerType>
-								<versionInfo>
-									<productName>${project.name}</productName>
-									<productVersion>${fileVersion}</productVersion>
-									<txtProductVersion>${project.version}</txtProductVersion>
-									<internalName>${project.artifactId}</internalName>
-									<companyName>${project.organization.name}</companyName>
-									<copyright>${copyright.notice}</copyright>
-									<fileVersion>${fileVersion}</fileVersion>
-									<txtFileVersion>${project.version}</txtFileVersion>
-									<originalFilename>${project.build.finalName}.exe</originalFilename>
-									<fileDescription>${project.description}</fileDescription>
-								</versionInfo>
-							</configuration>
-						</execution>
-					</executions>
 				</plugin>
 			</plugins>
 		</pluginManagement>
@@ -94,6 +59,39 @@
 					<plugin>
 						<groupId>com.akathist.maven.plugins.launch4j</groupId>
 						<artifactId>launch4j-maven-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>launch4j</id>
+								<phase>pre-integration-test</phase>
+								<goals>
+									<goal>launch4j</goal>
+								</goals>
+								<configuration>
+									<outfile>${project.build.directory}/${project.build.finalName}.exe</outfile>
+									<jar>${project.build.directory}/${project.build.finalName}-jar-with-dependencies.jar</jar>
+									<classPath>
+										<mainClass>${mainClass.fullPath}</mainClass>
+									</classPath>
+									<jre>
+										<path>${java.home}</path>
+										<minVersion>${java.version.prefixed}</minVersion>
+									</jre>
+									<headerType>${headerType}</headerType>
+									<versionInfo>
+										<productName>${project.name}</productName>
+										<productVersion>${fileVersion}</productVersion>
+										<txtProductVersion>${project.version}</txtProductVersion>
+										<internalName>${project.artifactId}</internalName>
+										<companyName>${project.organization.name}</companyName>
+										<copyright>${copyright.notice}</copyright>
+										<fileVersion>${fileVersion}</fileVersion>
+										<txtFileVersion>${project.version}</txtFileVersion>
+										<originalFilename>${project.build.finalName}.exe</originalFilename>
+										<fileDescription>${project.description}</fileDescription>
+									</versionInfo>
+								</configuration>
+							</execution>
+						</executions>
 					</plugin>
 					<plugin>
 						<groupId>org.codehaus.mojo</groupId>
@@ -101,7 +99,7 @@
 						<executions>
 							<execution>
 								<id>attach-exe</id>
-								<phase>verify</phase>
+								<phase>pre-integration-test</phase>
 								<goals>
 									<goal>attach-artifact</goal>
 								</goals>

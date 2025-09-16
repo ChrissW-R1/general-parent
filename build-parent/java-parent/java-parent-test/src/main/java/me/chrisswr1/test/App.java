@@ -1,11 +1,16 @@
 package me.chrisswr1.test;
 
+import lombok.extern.slf4j.Slf4j;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+
 /**
  * simple main class
  *
- * @version 1.0.0
+ * @version 3.0.0
  * @since 1.0.0
  */
+@Slf4j
 public class App {
 	/**
 	 * simple main method
@@ -14,8 +19,10 @@ public class App {
 	 *
 	 * @since 1.0.0
 	 */
-	public static void main(String[] args) {
-		System.out.println(App.helloWorld());
+	public static void main(final @Nullable String[] args) {
+		final @NotNull String helloWorld = App.helloWorld();
+		App.log.debug("Printing '{}'", helloWorld);
+		System.out.println(helloWorld);
 	}
 
 	/**
@@ -25,7 +32,9 @@ public class App {
 	 *
 	 * @since 1.0.0
 	 */
-	public static String helloWorld() {
-		return "Hello World!";
+	public static @NotNull String helloWorld() {
+		final @NotNull String helloWorld = "Hello World!";
+		App.log.trace("Returning '{}'", helloWorld);
+		return helloWorld;
 	}
 }

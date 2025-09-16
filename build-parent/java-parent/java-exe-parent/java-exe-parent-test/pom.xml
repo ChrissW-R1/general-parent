@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<groupId>me.chrisswr1</groupId>
+		<groupId>me.chrissw-r1</groupId>
 		<artifactId>java-exe-parent</artifactId>
-		<version>2.3.2-SNAPSHOT</version>
+		<version>3.0.22-SNAPSHOT</version>
 	</parent>
 
 	<!-- project identifier -->
@@ -27,13 +25,52 @@
 		<java.package>test.exe</java.package>
 		<mainClass.localPath>WrappedApp</mainClass.localPath>
 		<headerType>console</headerType>
+
+		<!-- JavaDoc URLs -->
+		<java-parent.javadoc.url>${project.site.baseUrl}/${project.site.urlPath}/build-parent/java-parent/java-parent-test/apidocs</java-parent.javadoc.url>
+		<java-parent.javadoc.offlinePath>${project.basedir}/../../java-parent-test/target/reports/apidocs</java-parent.javadoc.offlinePath>
 	</properties>
 
 	<dependencies>
+		<!-- default dependencies -->
 		<dependency>
 			<groupId>${project.groupId}</groupId>
 			<artifactId>java-parent-test</artifactId>
 			<version>${project.version}</version>
 		</dependency>
 	</dependencies>
+
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<artifactId>maven-javadoc-plugin</artifactId>
+					<configuration>
+						<offlineLinks>
+							<offlineLink>
+								<url>${java-parent.javadoc.url}</url>
+								<location>${java-parent.javadoc.offlinePath}</location>
+							</offlineLink>
+						</offlineLinks>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+
+	<reporting>
+		<plugins>
+			<plugin>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<configuration>
+					<offlineLinks>
+						<offlineLink>
+							<url>${java-parent.javadoc.url}</url>
+							<location>${java-parent.javadoc.offlinePath}</location>
+						</offlineLink>
+					</offlineLinks>
+				</configuration>
+			</plugin>
+		</plugins>
+	</reporting>
 </project>

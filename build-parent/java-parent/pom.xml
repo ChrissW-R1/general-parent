@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<groupId>me.chrisswr1</groupId>
+		<groupId>me.chrissw-r1</groupId>
 		<artifactId>build-parent</artifactId>
-		<version>2.3.2-SNAPSHOT</version>
+		<version>3.0.22-SNAPSHOT</version>
 	</parent>
 
 	<!-- project identifier -->
@@ -23,9 +21,9 @@
 	<properties>
 		<!-- technically-based properties -->
 		<project.module-root.relativedir>${project.parent.relativedir}../</project.module-root.relativedir>
-		<java.rootPackage>${project.groupId}.${java.package}</java.rootPackage>
+		<java.rootPackage.raw>${project.groupId}.${java.package}</java.rootPackage.raw>
 		<mainClass.localPath>Main</mainClass.localPath>
-		<mainClass.fullPath>${java.rootPackage}.${mainClass.localPath}</mainClass.fullPath>
+		<mainClass.fullPath>${java.rootPackage.cleaned}.${mainClass.localPath}</mainClass.fullPath>
 		<java.filteredSource.dir>${project.build.directory}/filtered-sources/java</java.filteredSource.dir>
 
 		<!-- project-specific properties -->
@@ -33,41 +31,63 @@
 		<obfuscate>true</obfuscate>
 
 		<!-- dependency versions -->
-		<graalvm.version>24.1.1</graalvm.version>
-		<jetbrains-annotations.version>26.0.1</jetbrains-annotations.version>
+		<jetbrains-annotations.version>26.0.2-1</jetbrains-annotations.version>
 		<jcip-annotations.version>1.0-1</jcip-annotations.version>
-		<spotbugs.version>4.8.6</spotbugs.version>
-		<lombok.version>1.18.34</lombok.version>
-		<lombok-pg.version>0.11.3</lombok-pg.version>
-		<slf4j.version>2.0.16</slf4j.version>
-		<proguard.annotations.version>7.6.0</proguard.annotations.version>
-		<junit.minor-version>11.3</junit.minor-version>
+		<spotbugs.version>4.9.4</spotbugs.version>
+		<lombok.version>1.18.40</lombok.version>
+		<proguard.annotations.version>7.7.0</proguard.annotations.version>
+		<slf4j.version>2.0.17</slf4j.version>
+		<junit.minor-version>13.4</junit.minor-version>
 		<junit.jupiter.version>5.${junit.minor-version}</junit.jupiter.version>
 		<junit.platform.version>1.${junit.minor-version}</junit.platform.version>
-		<mockito.version>5.14.2</mockito.version>
+		<mockito.version>5.19.0</mockito.version>
 
 		<!-- plugin versions -->
-		<plugin.proguard.version>2.6.1</plugin.proguard.version>
-		<plugin.spotbugs.version>${spotbugs.version}.5</plugin.spotbugs.version>
-		<plugin.surefire.version>3.5.2</plugin.surefire.version>
+		<plugin.proguard.version>2.7.0</plugin.proguard.version>
+		<plugin.spotbugs.version>${spotbugs.version}.2</plugin.spotbugs.version>
+		<plugin.surefire.version>3.5.3</plugin.surefire.version>
 		<plugin.shade.version>3.6.0</plugin.shade.version>
-		<plugin.javadoc.version>3.11.1</plugin.javadoc.version>
+		<plugin.javadoc.version>3.11.3</plugin.javadoc.version>
 
 		<!-- JavaDoc URLs -->
-		<lombok.javadoc-url>https://projectlombok.org/api</lombok.javadoc-url>
-		<slf4j.javadoc-url>http://www.slf4j.org/apidocs</slf4j.javadoc-url>
-		<junit.platform.javadoc-url>https://junit.org/junit5/docs/current/api</junit.platform.javadoc-url>
-		<mockito.javadoc-url>https://static.javadoc.io/org.mockito/mockito-core/${mockito.version}</mockito.javadoc-url>
+		<jcip-annotations.javadoc.url>https://javadoc.io/doc/com.google.code.findbugs/annotations/latest</jcip-annotations.javadoc.url>
+		<spotbugs.javadoc.url>https://javadoc.io/doc/com.github.spotbugs/spotbugs-annotations/${spotbugs.version}</spotbugs.javadoc.url>
+		<lombok.javadoc.url>https://projectlombok.org/api</lombok.javadoc.url>
+		<proguard.annotations.javadoc.url>https://javadoc.io/doc/com.guardsquare/proguard-annotations/${proguard.annotations.version}</proguard.annotations.javadoc.url>
+		<jetbrains-annotations.javadoc.url>https://javadoc.io/doc/org.jetbrains/annotations/${jetbrains-annotations.version}</jetbrains-annotations.javadoc.url>
+		<slf4j.javadoc.url>https://slf4j.org/apidocs</slf4j.javadoc.url>
+		<junit.platform.javadoc.url>https://junit.org/junit5/docs/${junit.jupiter.version}/api</junit.platform.javadoc.url>
+		<mockito.javadoc.url>https://javadoc.io/doc/org.mockito/mockito-core/${mockito.version}</mockito.javadoc.url>
 	</properties>
 
 	<dependencies>
-		<!-- provided dependencies -->
+		<!-- build-only dependencies -->
 		<dependency>
-			<groupId>org.graalvm.compiler</groupId>
-			<artifactId>compiler</artifactId>
-			<version>${graalvm.version}</version>
+			<groupId>com.github.stephenc.jcip</groupId>
+			<artifactId>jcip-annotations</artifactId>
+			<version>${jcip-annotations.version}</version>
 			<scope>provided</scope>
 		</dependency>
+		<dependency>
+			<groupId>com.github.spotbugs</groupId>
+			<artifactId>spotbugs-annotations</artifactId>
+			<version>${spotbugs.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>${lombok.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.guardsquare</groupId>
+			<artifactId>proguard-annotations</artifactId>
+			<version>${proguard.annotations.version}</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<!-- provided dependencies -->
 		<dependency>
 			<groupId>org.jetbrains</groupId>
 			<artifactId>annotations</artifactId>
@@ -77,34 +97,9 @@
 
 		<!-- default dependencies -->
 		<dependency>
-			<groupId>com.github.stephenc.jcip</groupId>
-			<artifactId>jcip-annotations</artifactId>
-			<version>${jcip-annotations.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>com.github.spotbugs</groupId>
-			<artifactId>spotbugs-annotations</artifactId>
-			<version>${spotbugs.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.projectlombok</groupId>
-			<artifactId>lombok</artifactId>
-			<version>${lombok.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>com.github.peichhorn</groupId>
-			<artifactId>lombok-pg</artifactId>
-			<version>${lombok-pg.version}</version>
-		</dependency>
-		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
 			<version>${slf4j.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>com.guardsquare</groupId>
-			<artifactId>proguard-annotations</artifactId>
-			<version>${proguard.annotations.version}</version>
 		</dependency>
 
 		<!-- test dependencies -->
@@ -163,6 +158,82 @@
 		<pluginManagement>
 			<plugins>
 				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>build-helper-maven-plugin</artifactId>
+					<executions>
+						<execution>
+							<id>sanitize-rootpackage-step1</id>
+							<phase>initialize</phase>
+							<goals>
+								<goal>regex-property</goal>
+							</goals>
+							<configuration>
+								<name>java.rootPackage.step1</name>
+								<value>${java.rootPackage.raw}</value>
+								<regex>[^\w\.]</regex>
+								<replacement />
+								<failIfNoMatch>false</failIfNoMatch>
+							</configuration>
+						</execution>
+						<execution>
+							<id>sanitize-rootpackage-step2</id>
+							<phase>initialize</phase>
+							<goals>
+								<goal>regex-property</goal>
+							</goals>
+							<configuration>
+								<name>java.rootPackage.step2</name>
+								<value>${java.rootPackage.step1}</value>
+								<regex>\.{2,}</regex>
+								<replacement>.</replacement>
+								<failIfNoMatch>false</failIfNoMatch>
+							</configuration>
+						</execution>
+						<execution>
+							<id>sanitize-rootpackage-step3a</id>
+							<phase>initialize</phase>
+							<goals>
+								<goal>regex-property</goal>
+							</goals>
+							<configuration>
+								<name>java.rootPackage.step3a</name>
+								<value>${java.rootPackage.step2}</value>
+								<regex>[^a-zA-Z\d]+$</regex>
+								<replacement>x</replacement>
+								<failIfNoMatch>false</failIfNoMatch>
+							</configuration>
+						</execution>
+						<execution>
+							<id>sanitize-rootpackage-step3b</id>
+							<phase>initialize</phase>
+							<goals>
+								<goal>regex-property</goal>
+							</goals>
+							<configuration>
+								<name>java.rootPackage.step3b</name>
+								<value>${java.rootPackage.step3a}</value>
+								<regex>^[^a-z]</regex>
+								<replacement>x</replacement>
+								<failIfNoMatch>false</failIfNoMatch>
+							</configuration>
+						</execution>
+						<execution>
+							<id>sanitize-rootpackage-finalstep</id>
+							<phase>initialize</phase>
+							<goals>
+								<goal>regex-property</goal>
+							</goals>
+							<configuration>
+								<name>java.rootPackage.cleaned</name>
+								<value>${java.rootPackage.step3b}</value>
+								<regex>\.[^a-z]</regex>
+								<replacement>.x</replacement>
+								<failIfNoMatch>false</failIfNoMatch>
+							</configuration>
+						</execution>
+					</executions>
+				</plugin>
+				<plugin>
 					<artifactId>maven-compiler-plugin</artifactId>
 					<version>${plugin.compiler.version}</version>
 					<configuration>
@@ -181,15 +252,6 @@
 						<xmlOutput>true</xmlOutput>
 						<spotbugsXmlOutputDirectory>${project.build.directory}/spotbugs</spotbugsXmlOutputDirectory>
 					</configuration>
-					<executions>
-						<execution>
-							<id>analyze-compile</id>
-							<phase>compile</phase>
-							<goals>
-								<goal>check</goal>
-							</goals>
-						</execution>
-					</executions>
 				</plugin>
 				<plugin>
 					<artifactId>maven-surefire-plugin</artifactId>
@@ -199,14 +261,6 @@
 					<groupId>com.github.wvengen</groupId>
 					<artifactId>proguard-maven-plugin</artifactId>
 					<version>${plugin.proguard.version}</version>
-					<executions>
-						<execution>
-							<phase>package</phase>
-							<goals>
-								<goal>proguard</goal>
-							</goals>
-						</execution>
-					</executions>
 					<configuration>
 						<injarNotExistsSkip>true</injarNotExistsSkip>
 						<obfuscate>${obfuscate}</obfuscate>
@@ -218,6 +272,7 @@
 
 							<!-- keep Java language specific objects -->
 							<option>-keepclassmembers class * implements java.io.Serializable { static final long serialVersionUID; }</option>
+							<option>-keep class module-info</option>
 
 							<!-- keep JPA specific objects -->
 							<option>-keep @jakarta.persistence.Embeddable public class *</option>
@@ -272,10 +327,14 @@
 						<keywords>true</keywords>
 						<serialwarn>true</serialwarn>
 						<links>
-							<link>${lombok.javadoc-url}</link>
-							<link>${slf4j.javadoc-url}</link>
-							<link>${junit.platform.javadoc-url}</link>
-							<link>${mockito.javadoc-url}</link>
+							<link>${jcip-annotations.javadoc.url}</link>
+							<link>${spotbugs.javadoc.url}</link>
+							<link>${lombok.javadoc.url}</link>
+							<link>${proguard.annotations.javadoc.url}</link>
+							<link>${jetbrains-annotations.javadoc.url}</link>
+							<link>${slf4j.javadoc.url}</link>
+							<link>${junit.platform.javadoc.url}</link>
+							<link>${mockito.javadoc.url}</link>
 						</links>
 					</configuration>
 				</plugin>
@@ -283,8 +342,23 @@
 		</pluginManagement>
 		<plugins>
 			<plugin>
-				<groupId>com.github.spotbugs</groupId>
-				<artifactId>spotbugs-maven-plugin</artifactId>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>build-helper-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>export-module-path</id>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>build-classpath</goal>
+						</goals>
+						<configuration>
+							<outputProperty>module.path</outputProperty>
+						</configuration>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>
@@ -301,12 +375,23 @@
 				<version>${plugin.javadoc.version}</version>
 				<configuration>
 					<links>
-						<link>${lombok.javadoc-url}</link>
-						<link>${slf4j.javadoc-url}</link>
-						<link>${junit.platform.javadoc-url}</link>
-						<link>${mockito.javadoc-url}</link>
+						<link>${jcip-annotations.javadoc.url}</link>
+						<link>${spotbugs.javadoc.url}</link>
+						<link>${lombok.javadoc.url}</link>
+						<link>${proguard.annotations.javadoc.url}</link>
+						<link>${jetbrains-annotations.javadoc.url}</link>
+						<link>${slf4j.javadoc.url}</link>
+						<link>${junit.platform.javadoc.url}</link>
+						<link>${mockito.javadoc.url}</link>
 					</links>
 				</configuration>
+				<reportSets>
+					<reportSet>
+						<reports>
+							<report>javadoc</report>
+						</reports>
+					</reportSet>
+				</reportSets>
 			</plugin>
 		</plugins>
 	</reporting>
@@ -346,6 +431,13 @@
 							<artifactId>maven-compiler-plugin</artifactId>
 							<configuration>
 								<release>${java.version}</release>
+								<annotationProcessorPaths>
+									<path>
+										<groupId>org.projectlombok</groupId>
+										<artifactId>lombok</artifactId>
+										<version>${lombok.version}</version>
+									</path>
+								</annotationProcessorPaths>
 							</configuration>
 						</plugin>
 						<plugin>
@@ -393,6 +485,31 @@
 			</build>
 		</profile>
 		<profile>
+			<id>code-analysis</id>
+			<activation>
+				<property>
+					<name>fullBuild</name>
+				</property>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>com.github.spotbugs</groupId>
+						<artifactId>spotbugs-maven-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>analyze-compile</id>
+								<phase>compile</phase>
+								<goals>
+									<goal>check</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile>
 			<id>obfuscate</id>
 			<activation>
 				<file>
@@ -408,20 +525,27 @@
 					<plugin>
 						<groupId>com.github.wvengen</groupId>
 						<artifactId>proguard-maven-plugin</artifactId>
+						<executions>
+							<execution>
+								<phase>package</phase>
+								<goals>
+									<goal>proguard</goal>
+								</goals>
+							</execution>
+						</executions>
 					</plugin>
 				</plugins>
 			</build>
 		</profile>
 		<profile>
 			<id>attach-docs-and-sources</id>
+			<activation>
+				<property>
+					<name>fullBuild</name>
+				</property>
+			</activation>
 			<build>
 				<plugins>
-					<plugin>
-						<artifactId>maven-source-plugin</artifactId>
-						<configuration>
-							<attach>false</attach>
-						</configuration>
-					</plugin>
 					<plugin>
 						<artifactId>maven-javadoc-plugin</artifactId>
 						<executions>
@@ -491,11 +615,27 @@
 				</plugins>
 			</build>
 		</profile>
+		<profile>
+			<id>no-failure-on-javadoc-error</id>
+			<build>
+				<pluginManagement>
+					<plugins>
+						<plugin>
+							<artifactId>maven-javadoc-plugin</artifactId>
+							<configuration>
+								<failOnError>false</failOnError>
+							</configuration>
+						</plugin>
+					</plugins>
+				</pluginManagement>
+			</build>
+		</profile>
 	</profiles>
 
 	<modules>
 		<module>java-parent-test</module>
 		<module>webapp-parent</module>
 		<module>java-exe-parent</module>
+		<module>maven-plugin-parent</module>
 	</modules>
 </project>
