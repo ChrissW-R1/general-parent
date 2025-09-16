@@ -7,8 +7,6 @@ on:
     # Triggers the workflow on push or pull request events but only for version branches
     push:
         branches: ["version/*", "!version/release/*"]
-    pull_request:
-        branches: ["version/*", "!version/release/*"]
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
