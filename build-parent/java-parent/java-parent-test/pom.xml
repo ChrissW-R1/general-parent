@@ -5,9 +5,9 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<groupId>me.chrisswr1</groupId>
+		<groupId>me.chrissw-r1</groupId>
 		<artifactId>java-parent</artifactId>
-		<version>2.3.2-SNAPSHOT</version>
+		<version>3.0.22-SNAPSHOT</version>
 	</parent>
 
 	<!-- project identifier -->

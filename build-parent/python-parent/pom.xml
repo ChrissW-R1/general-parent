@@ -5,9 +5,9 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<groupId>me.chrisswr1</groupId>
+		<groupId>me.chrissw-r1</groupId>
 		<artifactId>build-parent</artifactId>
-		<version>2.3.2-SNAPSHOT</version>
+		<version>3.0.22-SNAPSHOT</version>
 	</parent>
 
 	<!-- project identifier -->
@@ -23,7 +23,7 @@
 	<properties>
 		<!-- technically-based properties -->
 		<project.module-root.relativedir>${project.parent.relativedir}../</project.module-root.relativedir>
-		<assembly.config.file>src/main/assembly/bin.xml</assembly.config.file>
+		<assembly.config.file>src/assembly/bin.xml</assembly.config.file>
 	</properties>
 
 	<build>
@@ -31,22 +31,12 @@
 			<plugins>
 				<plugin>
 					<artifactId>maven-assembly-plugin</artifactId>
-					<version>${plugin.assembly.version}</version>
 					<configuration>
 						<descriptors>
 							<descriptor>${assembly.config.file}</descriptor>
 						</descriptors>
 						<appendAssemblyId>false</appendAssemblyId>
 					</configuration>
-					<executions>
-						<execution>
-							<id>assemble</id>
-							<phase>package</phase>
-							<goals>
-								<goal>single</goal>
-							</goals>
-						</execution>
-					</executions>
 				</plugin>
 			</plugins>
 		</pluginManagement>
@@ -64,6 +54,15 @@
 				<plugins>
 					<plugin>
 						<artifactId>maven-assembly-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>assemble</id>
+								<phase>package</phase>
+								<goals>
+									<goal>single</goal>
+								</goals>
+							</execution>
+						</executions>
 					</plugin>
 				</plugins>
 			</build>
