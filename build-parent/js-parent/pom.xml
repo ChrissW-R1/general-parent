@@ -5,9 +5,9 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<groupId>me.chrisswr1</groupId>
+		<groupId>me.chrissw-r1</groupId>
 		<artifactId>build-parent</artifactId>
-		<version>1.0.0-SNAPSHOT</version>
+		<version>3.0.22-SNAPSHOT</version>
 	</parent>
 
 	<!-- project identifier -->
@@ -25,36 +25,47 @@
 		<project.module-root.relativedir>${project.parent.relativedir}../</project.module-root.relativedir>
 
 		<!-- dependency versions -->
-		<nodejs.version>16.6.2</nodejs.version>
-		<yarn.version>1.22.11</yarn.version>
-		<core-js.version>3.16.1</core-js.version>
-		<rxjs.version>7.3.0</rxjs.version>
-		<zonejs.version>0.11.4</zonejs.version>
-		<angular.version>12.2.1</angular.version>
-		<npm-typescript.version>4.3.5</npm-typescript.version>
-		<ts-node.version>10.2.0</ts-node.version>
-		<grunt.version>1.4.1</grunt.version>
-		<grunt-cli.version>1.4.3</grunt-cli.version>
-		<grunt-eslint.version>23.0.0</grunt-eslint.version>
-		<grunt-ts.version>5.5.1</grunt-ts.version>
-		<uglify.version>5.0.1</uglify.version>
-		<angular.cli.version>12.2.1</angular.cli.version>
-		<eslint.version>7.32.0</eslint.version>
-		<angular.eslint-plugin.version>12.3.1</angular.eslint-plugin.version>
-		<typescript.eslint.version>4.29.1</typescript.eslint.version>
-		<eslint.prettier.version>8.3.0</eslint.prettier.version>
-		<eslint.import.version>2.24.0</eslint.import.version>
-		<eslint.jsdoc.version>36.0.7</eslint.jsdoc.version>
+		<nodejs.version>24.8.0</nodejs.version>
+		<yarn.version>1.22.22</yarn.version>
+		<yarn-berry.version>4.9.4</yarn-berry.version>
+		<core-js.version>3.45.1</core-js.version>
+		<rxjs.version>7.8.2</rxjs.version>
+		<zonejs.version>0.15.1</zonejs.version>
+		<angular.base.version>20.2</angular.base.version>
+		<angular.version>${angular.base.version}.4</angular.version>
+		<angular.cli.version>${angular.base.version}.2</angular.cli.version>
+		<cordova-assets.version>2.0.7</cordova-assets.version>
+		<npm-typescript.version>5.9.2</npm-typescript.version>
+		<ts-node.version>10.9.2</ts-node.version>
+		<grunt.version>1.6.1</grunt.version>
+		<grunt-cli.version>1.5.0</grunt-cli.version>
+		<grunt-eslint.version>26.0.0</grunt-eslint.version>
+		<grunt-ts.version>6.0.0-beta.22</grunt-ts.version>
+		<grunt-less.version>3.0.0</grunt-less.version>
+		<grunt-uglify.version>5.2.2</grunt-uglify.version>
+		<grunt-htmlmin.version>3.1.0</grunt-htmlmin.version>
+		<grunt-webpack.version>7.0.0</grunt-webpack.version>
+		<webpack.version>5.101.3</webpack.version>
+		<webpack-cli.version>6.0.1</webpack-cli.version>
+		<webpack-server.version>5.2.2</webpack-server.version>
+		<eslint.version>9.35.0</eslint.version>
+		<angular.eslint.version>${angular.base.version}.0</angular.eslint.version>
+		<eslint.config-prettier.version>10.1.8</eslint.config-prettier.version>
+		<eslint.import.version>2.32.0</eslint.import.version>
+		<eslint.jsdoc.version>56.1.2</eslint.jsdoc.version>
 		<eslint.prefer-arrow.version>1.2.3</eslint.prefer-arrow.version>
+		<eslint.compat.version>1.3.2</eslint.compat.version>
+		<typescript.eslint.version>8.43.0</typescript.eslint.version>
+		<tslint-to-eslint.version>2.14.3</tslint-to-eslint.version>
 		<codelyzer.version>6.0.2</codelyzer.version>
 		<eslint.codelyzer.version>0.0.1-alpha.12</eslint.codelyzer.version>
-		<mocha.version>9.0.3</mocha.version>
-		<chai.version>4.3.4</chai.version>
-		<karma.version>6.3.4</karma.version>
+		<mocha.version>11.7.2</mocha.version>
+		<chai.version>6.0.1</chai.version>
+		<karma.version>6.4.4</karma.version>
 		<karma.mocha.version>2.0.1</karma.mocha.version>
 		<karma.chai.version>0.1.0</karma.chai.version>
-		<karma.chrome.version>3.1.0</karma.chrome.version>
-		<karma.firefox.version>2.1.1</karma.firefox.version>
+		<karma.chrome.version>3.2.0</karma.chrome.version>
+		<karma.firefox.version>2.1.3</karma.firefox.version>
 		<karma.opera.version>1.0.0</karma.opera.version>
 		<karma.safari.version>1.0.0</karma.safari.version>
 		<karma.edgium.version>4.0.0-0</karma.edgium.version>
@@ -63,7 +74,7 @@
 		<karma.mocha.reporter.version>2.2.5</karma.mocha.reporter.version>
 
 		<!-- plugin versions -->
-		<plugin.frontend.version>1.12.0</plugin.frontend.version>
+		<plugin.frontend.version>1.15.1</plugin.frontend.version>
 	</properties>
 
 	<build>
@@ -92,85 +103,6 @@
 		<pluginManagement>
 			<plugins>
 				<plugin>
-					<groupId>nl.praegus</groupId>
-					<artifactId>jetspeed-unpack-maven-plugin</artifactId>
-					<executions>
-						<execution>
-							<id>unpack-js-project-files</id>
-							<phase>initialize</phase>
-							<goals>
-								<goal>unpack</goal>
-							</goals>
-							<configuration>
-								<unpack>
-									<artifact>me.chrisswr1:general-resources:jar</artifact>
-									<targetDirectory>${project.basedir}</targetDirectory>
-									<resources>
-										<resource>
-											<path>resources</path>
-											<include>.eslintrc.json</include>
-											<overwrite>true</overwrite>
-											<flat>true</flat>
-										</resource>
-									</resources>
-								</unpack>
-							</configuration>
-						</execution>
-						<execution>
-							<id>unpack-unfiltered-js-project-files</id>
-							<phase>initialize</phase>
-							<goals>
-								<goal>unpack</goal>
-							</goals>
-							<configuration>
-								<unpack>
-									<artifact>me.chrisswr1:general-resources:jar</artifact>
-									<targetDirectory>${project.build.directory}/generated-resources</targetDirectory>
-									<resources>
-										<resource>
-											<path>unfiltered-resources</path>
-											<include>tsconfig.json</include>
-											<flat>true</flat>
-										</resource>
-									</resources>
-								</unpack>
-							</configuration>
-						</execution>
-					</executions>
-				</plugin>
-				<plugin>
-					<artifactId>maven-resources-plugin</artifactId>
-					<executions>
-						<execution>
-							<id>generate-js-project-files</id>
-							<phase>generate-sources</phase>
-							<goals>
-								<goal>copy-resources</goal>
-							</goals>
-							<configuration>
-								<resources>
-									<resource>
-										<directory>${project.build.directory}/generated-resources</directory>
-										<includes>
-											<include>tsconfig.json</include>
-										</includes>
-										<filtering>true</filtering>
-									</resource>
-									<resource>
-										<directory>src/main/node</directory>
-										<includes>
-											<include>package.json</include>
-											<include>Gruntfile.js</include>
-										</includes>
-										<filtering>true</filtering>
-									</resource>
-								</resources>
-								<outputDirectory>${project.basedir}</outputDirectory>
-							</configuration>
-						</execution>
-					</executions>
-				</plugin>
-				<plugin>
 					<groupId>com.github.eirslett</groupId>
 					<artifactId>frontend-maven-plugin</artifactId>
 					<version>${plugin.frontend.version}</version>
@@ -179,33 +111,119 @@
 						<nodeVersion>v${nodejs.version}</nodeVersion>
 						<yarnVersion>v${yarn.version}</yarnVersion>
 					</configuration>
-					<executions>
-						<execution>
-							<id>install-nodejs</id>
-							<goals>
-								<goal>install-node-and-yarn</goal>
-							</goals>
-						</execution>
-						<execution>
-							<id>yarn-install</id>
-							<goals>
-								<goal>yarn</goal>
-							</goals>
-						</execution>
-						<execution>
-							<id>grunt-build</id>
-							<goals>
-								<goal>grunt</goal>
-							</goals>
-						</execution>
-					</executions>
 				</plugin>
 			</plugins>
 		</pluginManagement>
 		<plugins>
 			<plugin>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>unpack-js-project-files</id>
+						<phase>initialize</phase>
+						<goals>
+							<goal>unpack</goal>
+						</goals>
+						<configuration>
+							<artifactItems>
+								<artifactItem>
+									<groupId>me.chrissw-r1</groupId>
+									<artifactId>general-resources</artifactId>
+									<version>${general-parent.version}</version>
+									<type>jar</type>
+									<overWrite>true</overWrite>
+									<outputDirectory>${project.basedir}</outputDirectory>
+									<includes>resources/eslint.config.js</includes>
+									<fileMappers>
+										<fileMapper implementation="org.codehaus.plexus.components.io.filemappers.FlattenFileMapper" />
+									</fileMappers>
+								</artifactItem>
+							</artifactItems>
+						</configuration>
+					</execution>
+					<execution>
+						<id>unpack-unfiltered-js-project-files</id>
+						<phase>initialize</phase>
+						<goals>
+							<goal>unpack</goal>
+						</goals>
+						<configuration>
+							<artifactItems>
+								<artifactItem>
+									<groupId>me.chrissw-r1</groupId>
+									<artifactId>general-resources</artifactId>
+									<version>${general-parent.version}</version>
+									<type>jar</type>
+									<outputDirectory>${project.build.directory}/generated-resources
+									</outputDirectory>
+									<includes>unfiltered-resources/tsconfig.json</includes>
+									<fileMappers>
+										<fileMapper implementation="org.codehaus.plexus.components.io.filemappers.FlattenFileMapper" />
+									</fileMappers>
+								</artifactItem>
+							</artifactItems>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<artifactId>maven-resources-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>generate-js-project-files</id>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<resources>
+								<resource>
+									<directory>${project.build.directory}/generated-resources</directory>
+									<includes>
+										<include>tsconfig.json</include>
+									</includes>
+									<filtering>true</filtering>
+								</resource>
+								<resource>
+									<directory>src/main/node</directory>
+									<includes>
+										<include>package.json</include>
+										<include>Gruntfile.js</include>
+										<include>Gruntfile.cjs</include>
+										<include>webpack.config.js</include>
+										<include>webpack.config.cjs</include>
+									</includes>
+									<filtering>true</filtering>
+								</resource>
+							</resources>
+							<outputDirectory>${project.basedir}</outputDirectory>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
 				<groupId>com.github.eirslett</groupId>
 				<artifactId>frontend-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>install-nodejs</id>
+						<goals>
+							<goal>install-node-and-yarn</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>yarn-install</id>
+						<goals>
+							<goal>yarn</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>grunt-build</id>
+						<goals>
+							<goal>grunt</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>

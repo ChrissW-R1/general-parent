@@ -5,9 +5,9 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
+		<groupId>me.chrissw-r1</groupId>
 		<artifactId>java-parent</artifactId>
-		<groupId>me.chrisswr1</groupId>
-		<version>1.0.0-SNAPSHOT</version>
+		<version>3.0.22-SNAPSHOT</version>
 	</parent>
 
 	<!-- project identifier -->
@@ -24,8 +24,13 @@
 		<!-- technically-based properties -->
 		<project.module-root.relativedir>${project.parent.relativedir}../../</project.module-root.relativedir>
 
+		<!-- project-specific properties -->
+		<fileVersion>${project.baseVersion}.${parsedVersion.buildNumber}</fileVersion>
+		<headerType>gui</headerType>
+		<copyright.notice>© ${project.versionYear} by ${project.organization.name}</copyright.notice>
+
 		<!-- plugin versions -->
-		<plugin.launch4j.version>2.1.1</plugin.launch4j.version>
+		<plugin.launch4j.version>2.6.0</plugin.launch4j.version>
 	</properties>
 
 	<build>
@@ -35,32 +40,6 @@
 					<groupId>com.akathist.maven.plugins.launch4j</groupId>
 					<artifactId>launch4j-maven-plugin</artifactId>
 					<version>${plugin.launch4j.version}</version>
-					<executions>
-						<execution>
-							<id>launch4j</id>
-							<phase>package</phase>
-							<goals>
-								<goal>launch4j</goal>
-							</goals>
-							<configuration>
-								<outfile>${project.build.directory}/${project.build.finalName}.exe</outfile>
-								<jar>${project.build.directory}/${project.build.finalName}.jar</jar>
-								<classPath>
-									<mainClass>${mainClass.fullPath}</mainClass>
-								</classPath>
-								<jre>
-									<minVersion>${java.version.prefixed}</minVersion>
-								</jre>
-								<versionInfo>
-									<fileVersion>${project.version}</fileVersion>
-									<companyName>${project.organization.name}</companyName>
-									<productVersion>${project.version}</productVersion>
-									<productName>${project.name}</productName>
-									<originalFilename>${project.build.finalName}.exe</originalFilename>
-								</versionInfo>
-							</configuration>
-						</execution>
-					</executions>
 				</plugin>
 			</plugins>
 		</pluginManagement>
@@ -70,8 +49,11 @@
 		<profile>
 			<id>launch4j</id>
 			<activation>
+				<property>
+					<name>executable</name>
+				</property>
 				<file>
-					<exists>target/*.jar</exists>
+					<exists>src/main/java</exists>
 				</file>
 			</activation>
 			<build>
@@ -79,9 +61,67 @@
 					<plugin>
 						<groupId>com.akathist.maven.plugins.launch4j</groupId>
 						<artifactId>launch4j-maven-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>launch4j</id>
+								<phase>pre-integration-test</phase>
+								<goals>
+									<goal>launch4j</goal>
+								</goals>
+								<configuration>
+									<outfile>${project.build.directory}/${project.build.finalName}.exe</outfile>
+									<jar>${project.build.directory}/${project.build.finalName}-jar-with-dependencies.jar</jar>
+									<classPath>
+										<mainClass>${mainClass.fullPath}</mainClass>
+									</classPath>
+									<jre>
+										<path>${java.home}</path>
+										<minVersion>${java.version.prefixed}</minVersion>
+									</jre>
+									<headerType>${headerType}</headerType>
+									<versionInfo>
+										<productName>${project.name}</productName>
+										<productVersion>${fileVersion}</productVersion>
+										<txtProductVersion>${project.version}</txtProductVersion>
+										<internalName>${project.artifactId}</internalName>
+										<companyName>${project.organization.name}</companyName>
+										<copyright>${copyright.notice}</copyright>
+										<fileVersion>${fileVersion}</fileVersion>
+										<txtFileVersion>${project.version}</txtFileVersion>
+										<originalFilename>${project.build.finalName}.exe</originalFilename>
+										<fileDescription>${project.description}</fileDescription>
+									</versionInfo>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>build-helper-maven-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>attach-exe</id>
+								<phase>pre-integration-test</phase>
+								<goals>
+									<goal>attach-artifact</goal>
+								</goals>
+								<configuration>
+									<artifacts>
+										<artifact>
+											<file>${project.build.directory}/${project.build.finalName}.exe</file>
+											<type>exe</type>
+										</artifact>
+									</artifacts>
+								</configuration>
+							</execution>
+						</executions>
 					</plugin>
 				</plugins>
 			</build>
 		</profile>
 	</profiles>
+
+	<modules>
+		<module>java-exe-parent-test</module>
+	</modules>
 </project>

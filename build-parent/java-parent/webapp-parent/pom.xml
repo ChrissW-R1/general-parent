@@ -5,9 +5,9 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
+		<groupId>me.chrissw-r1</groupId>
 		<artifactId>java-parent</artifactId>
-		<groupId>me.chrisswr1</groupId>
-		<version>1.0.0-SNAPSHOT</version>
+		<version>3.0.22-SNAPSHOT</version>
 	</parent>
 
 	<!-- project identifier -->
@@ -25,19 +25,24 @@
 		<project.module-root.relativedir>${project.parent.relativedir}../../</project.module-root.relativedir>
 
 		<!-- dependency versions -->
-		<servlet.version>4.0.1</servlet.version>
-		<jersey.version>3.0.2</jersey.version>
+		<servlet.version>6.1.0</servlet.version>
+		<jersey.version>3.1.11</jersey.version>
+
+		<!-- plugin versions -->
+		<plugin.war.version>3.4.0</plugin.war.version>
 
 		<!-- JavaDoc URLs -->
-		<servlet.javadoc-url>https://javaee.github.io/javaee-spec/javadocs</servlet.javadoc-url>
-		<jersey.javadoc-url>https://eclipse-ee4j.github.io/jersey.github.io/apidocs/${jersey.version}/jersey</jersey.javadoc-url>
+		<servlet.javadoc.url>https://javadoc.io/doc/jakarta.servlet/jakarta.servlet-api/${servlet.version}</servlet.javadoc.url>
+		<jersey.server.javadoc.url>https://javadoc.io/doc/org.glassfish.jersey.core/jersey-server/${jersey.version}</jersey.server.javadoc.url>
+		<jersey.container.javadoc.url>https://javadoc.io/doc/org.glassfish.jersey.containers/jersey-container-servlet/${jersey.version}</jersey.container.javadoc.url>
+		<jersey.hk2.javadoc.url>https://javadoc.io/doc/org.glassfish.jersey.inject/jersey-hk2/${jersey.version}</jersey.hk2.javadoc.url>
 	</properties>
 
 	<dependencies>
 		<!-- provided dependencies -->
 		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>javax.servlet-api</artifactId>
+			<groupId>jakarta.servlet</groupId>
+			<artifactId>jakarta.servlet-api</artifactId>
 			<version>${servlet.version}</version>
 			<scope>provided</scope>
 		</dependency>
@@ -64,11 +69,28 @@
 		<pluginManagement>
 			<plugins>
 				<plugin>
+					<artifactId>maven-war-plugin</artifactId>
+					<version>${plugin.war.version}</version>
+					<configuration>
+						<webResources>
+							<resource>
+								<directory>src/main/webapp</directory>
+								<includes>
+									<include>**/web.xml</include>
+								</includes>
+								<filtering>true</filtering>
+							</resource>
+						</webResources>
+					</configuration>
+				</plugin>
+				<plugin>
 					<artifactId>maven-javadoc-plugin</artifactId>
 					<configuration>
 						<links combine.children="append">
-							<link>${servlet.javadoc-url}</link>
-							<link>${jersey.javadoc-url}</link>
+							<link>${servlet.javadoc.url}</link>
+							<link>${jersey.server.javadoc.url}</link>
+							<link>${jersey.container.javadoc.url}</link>
+							<link>${jersey.hk2.javadoc.url}</link>
 						</links>
 					</configuration>
 				</plugin>
@@ -82,11 +104,17 @@
 				<artifactId>maven-javadoc-plugin</artifactId>
 				<configuration>
 					<links combine.children="append">
-						<link>${servlet.javadoc-url}</link>
-						<link>${jersey.javadoc-url}</link>
+						<link>${servlet.javadoc.url}</link>
+						<link>${jersey.server.javadoc.url}</link>
+						<link>${jersey.container.javadoc.url}</link>
+						<link>${jersey.hk2.javadoc.url}</link>
 					</links>
 				</configuration>
 			</plugin>
 		</plugins>
 	</reporting>
+
+	<modules>
+		<module>webapp-parent-test</module>
+	</modules>
 </project>

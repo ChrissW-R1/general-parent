@@ -19,9 +19,9 @@ your POM:
 At First, set the parent to the project type parent. Example as a Java Project:
 ```XML
 <parent>
-	<groupId>me.chrissw-r1</groupId>
+	<groupId>${project.groupId}</groupId>
 	<artifactId>java-parent</artifactId>
-	<version>3.0.21</version>
+	<version>${project.version}</version>
 </parent>
 ```
 
