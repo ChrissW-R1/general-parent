@@ -33,7 +33,7 @@
 		<!-- dependency versions -->
 		<jetbrains-annotations.version>26.0.2-1</jetbrains-annotations.version>
 		<jcip-annotations.version>1.0-1</jcip-annotations.version>
-		<spotbugs.version>4.9.3</spotbugs.version>
+		<spotbugs.version>4.9.5</spotbugs.version>
 		<lombok.version>1.18.38</lombok.version>
 		<lombok-pg.version>0.11.3</lombok-pg.version>
 		<proguard.annotations.version>7.7.0</proguard.annotations.version>
