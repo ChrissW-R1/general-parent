@@ -95,7 +95,7 @@
 		<license.signature>${license.name} License (${license.abbr}), Version ${license.version} (${license.id})</license.signature>
 
 		<!-- dependency versions -->
-		<ant-contrib.version>1.0b3</ant-contrib.version>
+		<ant-contrib.version>20020829</ant-contrib.version>
 		<wagon.version>3.5.3</wagon.version>
 
 		<!-- plugin versions -->
