@@ -91,7 +91,7 @@
 
 		<!-- dependency versions -->
 		<ant-contrib.version>1.0b3</ant-contrib.version>
-		<wagon.version>3.5.2</wagon.version>
+		<wagon.version>3.5.3</wagon.version>
 
 		<!-- plugin versions -->
 		<plugin.dependency.version>3.3.0</plugin.dependency.version>
