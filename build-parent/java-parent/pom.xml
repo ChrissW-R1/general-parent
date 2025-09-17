@@ -44,7 +44,7 @@
 
 		<!-- plugin versions -->
 		<plugin.proguard.version>2.6.0</plugin.proguard.version>
-		<plugin.spotbugs.version>4.7.1.1</plugin.spotbugs.version>
+		<plugin.spotbugs.version>4.9.6.0</plugin.spotbugs.version>
 		<plugin.surefire.version>3.0.0-M7</plugin.surefire.version>
 		<plugin.shade.version>3.3.0</plugin.shade.version>
 		<plugin.javadoc.version>3.4.1</plugin.javadoc.version>
