@@ -40,7 +40,7 @@
 		<junit.minor-version>13.4</junit.minor-version>
 		<junit.jupiter.version>5.${junit.minor-version}</junit.jupiter.version>
 		<junit.platform.version>1.${junit.minor-version}</junit.platform.version>
-		<mockito.version>5.19.0</mockito.version>
+		<mockito.version>5.20.0</mockito.version>
 
 		<!-- plugin versions -->
 		<plugin.proguard.version>2.7.0</plugin.proguard.version>
