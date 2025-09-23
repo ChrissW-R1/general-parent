@@ -126,7 +126,7 @@
 		<plugin.project-info-reports.version>3.9.0</plugin.project-info-reports.version>
 		<plugin.release.version>3.1.1</plugin.release.version>
 		<plugin.scm.version>2.1.0</plugin.scm.version>
-		<plugin.central-publish.version>0.8.0</plugin.central-publish.version>
+		<plugin.central-publish.version>0.9.0</plugin.central-publish.version>
 	</properties>
 
 	<scm child.scm.url.inherit.append.path="false"
