@@ -590,24 +590,6 @@
 				</pluginManagement>
 				<plugins>
 					<plugin>
-						<groupId>org.codehaus.gmavenplus</groupId>
-						<artifactId>gmavenplus-plugin</artifactId>
-						<executions>
-							<execution>
-								<id>remove-parsed-version-qualifier-property</id>
-								<phase>generate-sources</phase>
-								<goals>
-									<goal>execute</goal>
-								</goals>
-								<configuration>
-									<scripts>
-										<script><![CDATA[project.properties.remove('parsedVersion.qualifier?')]]></script>
-									</scripts>
-								</configuration>
-							</execution>
-						</executions>
-					</plugin>
-					<plugin>
 						<artifactId>maven-assembly-plugin</artifactId>
 						<executions>
 							<execution>
