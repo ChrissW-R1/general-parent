@@ -99,7 +99,7 @@
 		<plugin.takari-lifecycle.version>2.3.2</plugin.takari-lifecycle.version>
 		<plugin.multi-module.version>1.1.7</plugin.multi-module.version>
 		<plugin.dependency.version>3.8.1</plugin.dependency.version>
-		<plugin.versions.version>2.19.0</plugin.versions.version>
+		<plugin.versions.version>2.19.1</plugin.versions.version>
 		<plugin.clean.version>3.5.0</plugin.clean.version>
 		<plugin.help.version>3.5.1</plugin.help.version>
 		<plugin.replacer.version>1.5.3</plugin.replacer.version>
