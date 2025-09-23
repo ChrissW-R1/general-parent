@@ -97,6 +97,7 @@
 		<!-- dependency versions -->
 		<ant-contrib.version>1.0b3</ant-contrib.version>
 		<wagon.version>3.5.3</wagon.version>
+		<groovy.version>5.0.1</groovy.version>
 
 		<!-- plugin versions -->
 		<plugin.takari-lifecycle.version>2.3.2</plugin.takari-lifecycle.version>
@@ -223,6 +224,13 @@
 					<groupId>org.codehaus.gmavenplus</groupId>
 					<artifactId>gmavenplus-plugin</artifactId>
 					<version>${plugin.gmavenplus.version}</version>
+					<dependencies>
+						<dependency>
+							<groupId>org.apache.groovy</groupId>
+							<artifactId>groovy-ant</artifactId>
+							<version>${groovy.version}</version>
+						</dependency>
+					</dependencies>
 				</plugin>
 				<plugin>
 					<groupId>me.chrissw-r1</groupId>

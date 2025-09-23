@@ -583,46 +583,6 @@
 							</configuration>
 						</plugin>
 						<plugin>
-							<artifactId>maven-assembly-plugin</artifactId>
-							<configuration>
-								<archive>
-									<manifest>
-										<mainClass>${mainClass.fullPath}</mainClass>
-									</manifest>
-								</archive>
-								<descriptorRefs>
-									<descriptorRef>jar-with-dependencies</descriptorRef>
-								</descriptorRefs>
-							</configuration>
-							<executions>
-								<execution>
-									<id>assemble</id>
-									<phase>package</phase>
-									<goals>
-										<goal>single</goal>
-									</goals>
-								</execution>
-							</executions>
-						</plugin>
-						<plugin>
-							<groupId>org.codehaus.gmavenplus</groupId>
-							<artifactId>gmavenplus-plugin</artifactId>
-							<executions>
-								<execution>
-									<id>remove-parsed-version-qualifier-property</id>
-									<phase>generate-sources</phase>
-									<goals>
-										<goal>execute</goal>
-									</goals>
-									<configuration>
-										<scripts>
-											<script><![CDATA[project.properties.remove('parsedVersion.qualifier?')]]></script>
-										</scripts>
-									</configuration>
-								</execution>
-							</executions>
-						</plugin>
-						<plugin>
 							<artifactId>maven-shade-plugin</artifactId>
 							<version>${plugin.shade.version}</version>
 						</plugin>
@@ -630,7 +590,44 @@
 				</pluginManagement>
 				<plugins>
 					<plugin>
+						<groupId>org.codehaus.gmavenplus</groupId>
+						<artifactId>gmavenplus-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>remove-parsed-version-qualifier-property</id>
+								<phase>generate-sources</phase>
+								<goals>
+									<goal>execute</goal>
+								</goals>
+								<configuration>
+									<scripts>
+										<script><![CDATA[project.properties.remove('parsedVersion.qualifier?')]]></script>
+									</scripts>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
 						<artifactId>maven-assembly-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>assemble</id>
+								<phase>package</phase>
+								<goals>
+									<goal>single</goal>
+								</goals>
+								<configuration>
+									<archive>
+										<manifest>
+											<mainClass>${mainClass.fullPath}</mainClass>
+										</manifest>
+									</archive>
+									<descriptorRefs>
+										<descriptorRef>jar-with-dependencies</descriptorRef>
+									</descriptorRefs>
+								</configuration>
+							</execution>
+						</executions>
 					</plugin>
 				</plugins>
 			</build>
