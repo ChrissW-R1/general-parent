@@ -1,7 +1,7 @@
 > [!CAUTION]
 > Don't use the version `3.0.x` for projects!
-> This version is only for developing and testing
-> the release process with GitHub Actions.
+> This version is only for developing and testing the release process with
+> GitHub Actions.
 > The next stable release will be version `3.1.x`.
 
 # General Parent
@@ -9,7 +9,13 @@
 This project only contains the default properties and settings, which should be
 used in all projects of ChrissW-R1.
 
-![build status](https://github.com/ChrissW-R1/general-parent/actions/workflows/maven-build.yml/badge.svg)
+## Status
+
+| Type       | Status                                                                                                                                                                                                                                                               |
+|------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Build (CI) | [![Maven Build](https://github.com/${project.organization.name}/${project.module-root.artifactId}/actions/workflows/maven-build.yml/badge.svg)](https://github.com/${project.organization.name}/${project.module-root.artifactId}/actions/workflows/maven-build.yml) |
+| Artifacts  | [![Maven Central](https://img.shields.io/maven-central/v/${project.groupId}/${project.module-root.artifactId}/badge.svg)](https://central.sonatype.com/namespace/${project.groupId}/${project.module-root.artifactId})                                               |
+| JavaDoc    | [![JavaDoc](https://javadoc.io/badge/${project.groupId}/${project.module-root.artifactId}.svg)](https://javadoc.io/doc/${project.groupId}/${project.module-root.artifactId})                                                                                         |
 
 ## Usage
 
