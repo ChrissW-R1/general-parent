@@ -39,7 +39,9 @@
 		<lombok.version>1.18.42</lombok.version>
 		<proguard.annotations.version>7.7.0</proguard.annotations.version>
 		<slf4j.version>2.0.17</slf4j.version>
-		<junit.version>6.0.0</junit.version>
+		<junit.minor-version>14.0</junit.minor-version>
+		<junit.jupiter.version>5.${junit.minor-version}</junit.jupiter.version>
+		<junit.platform.version>1.${junit.minor-version}</junit.platform.version>
 		<mockito.version>5.20.0</mockito.version>
 
 		<!-- plugin versions -->
@@ -56,7 +58,7 @@
 		<proguard.annotations.javadoc.url>https://javadoc.io/doc/com.guardsquare/proguard-annotations/${proguard.annotations.version}</proguard.annotations.javadoc.url>
 		<jetbrains-annotations.javadoc.url>https://javadoc.io/doc/org.jetbrains/annotations/${jetbrains-annotations.version}</jetbrains-annotations.javadoc.url>
 		<slf4j.javadoc.url>https://slf4j.org/apidocs</slf4j.javadoc.url>
-		<junit.platform.javadoc.url>https://junit.org/junit5/docs/${junit.version}/api</junit.platform.javadoc.url>
+		<junit.platform.javadoc.url>https://junit.org/junit5/docs/${junit.jupiter.version}/api</junit.platform.javadoc.url>
 		<mockito.javadoc.url>https://javadoc.io/doc/org.mockito/mockito-core/${mockito.version}</mockito.javadoc.url>
 	</properties>
 
@@ -106,19 +108,19 @@
 		<dependency>
 			<groupId>org.junit.jupiter</groupId>
 			<artifactId>junit-jupiter-engine</artifactId>
-			<version>${junit.version}</version>
+			<version>${junit.jupiter.version}</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.junit.jupiter</groupId>
 			<artifactId>junit-jupiter</artifactId>
-			<version>${junit.version}</version>
+			<version>${junit.jupiter.version}</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.junit.platform</groupId>
 			<artifactId>junit-platform-commons</artifactId>
-			<version>${junit.version}</version>
+			<version>${junit.platform.version}</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
