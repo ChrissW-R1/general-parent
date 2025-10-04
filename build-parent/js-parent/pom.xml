@@ -72,7 +72,7 @@
 		<karma.mocha.reporter.version>2.2.5</karma.mocha.reporter.version>
 
 		<!-- plugin versions -->
-		<plugin.frontend.version>1.15.1</plugin.frontend.version>
+		<plugin.frontend.version>1.15.4</plugin.frontend.version>
 	</properties>
 
 	<build>
