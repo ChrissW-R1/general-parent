@@ -99,7 +99,7 @@
 		<!-- plugin versions -->
 		<plugin.takari-lifecycle.version>2.3.2</plugin.takari-lifecycle.version>
 		<plugin.gmavenplus.version>4.2.1</plugin.gmavenplus.version>
-		<plugin.multi-module.version>1.1.7</plugin.multi-module.version>
+		<plugin.multi-module.version>1.2.0</plugin.multi-module.version>
 		<plugin.dependency.version>3.9.0</plugin.dependency.version>
 		<plugin.versions.version>2.19.1</plugin.versions.version>
 		<plugin.clean.version>3.5.0</plugin.clean.version>
