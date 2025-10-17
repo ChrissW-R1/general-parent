@@ -35,7 +35,7 @@
 		<jcip-annotations.version>1.0-1</jcip-annotations.version>
 		<spotbugs.version>4.9.6</spotbugs.version>
 		<lombok.version>1.18.42</lombok.version>
-		<proguard.annotations.version>7.7.0</proguard.annotations.version>
+		<proguard.annotations.version>7.8.0</proguard.annotations.version>
 		<slf4j.version>2.0.17</slf4j.version>
 		<junit.minor-version>14.0</junit.minor-version>
 		<junit.jupiter.version>5.${junit.minor-version}</junit.jupiter.version>
