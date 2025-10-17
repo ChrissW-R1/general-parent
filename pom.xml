@@ -99,7 +99,7 @@
 		<wagon.version>3.5.3</wagon.version>
 
 		<!-- plugin versions -->
-		<plugin.dependency.version>3.8.1</plugin.dependency.version>
+		<plugin.dependency.version>3.9.0</plugin.dependency.version>
 		<plugin.versions.version>2.18.0</plugin.versions.version>
 		<plugin.clean.version>3.5.0</plugin.clean.version>
 		<plugin.help.version>3.5.1</plugin.help.version>
