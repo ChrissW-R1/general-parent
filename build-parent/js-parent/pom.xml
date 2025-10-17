@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
@@ -23,15 +25,15 @@
 		<project.module-root.relativedir>${project.parent.relativedir}../</project.module-root.relativedir>
 
 		<!-- dependency versions -->
-		<nodejs.version>24.9.0</nodejs.version>
+		<nodejs.version>25.0.0</nodejs.version>
 		<yarn.version>1.22.22</yarn.version>
 		<yarn-berry.version>4.10.3</yarn-berry.version>
-		<core-js.version>3.45.1</core-js.version>
+		<core-js.version>3.46.0</core-js.version>
 		<rxjs.version>7.8.2</rxjs.version>
 		<zonejs.version>0.15.1</zonejs.version>
 		<angular.base.version>20.3</angular.base.version>
-		<angular.version>${angular.base.version}.3</angular.version>
-		<angular.cli.version>${angular.base.version}.4</angular.cli.version>
+		<angular.version>${angular.base.version}.6</angular.version>
+		<angular.cli.version>${angular.version}</angular.cli.version>
 		<cordova-assets.version>2.0.7</cordova-assets.version>
 		<npm-typescript.version>5.9.3</npm-typescript.version>
 		<ts-node.version>10.9.2</ts-node.version>
@@ -43,17 +45,17 @@
 		<grunt-uglify.version>5.2.2</grunt-uglify.version>
 		<grunt-htmlmin.version>3.1.0</grunt-htmlmin.version>
 		<grunt-webpack.version>7.0.0</grunt-webpack.version>
-		<webpack.version>5.102.0</webpack.version>
+		<webpack.version>5.102.1</webpack.version>
 		<webpack-cli.version>6.0.1</webpack-cli.version>
 		<webpack-server.version>5.2.2</webpack-server.version>
-		<eslint.version>9.37.0</eslint.version>
+		<eslint.version>9.38.0</eslint.version>
 		<angular.eslint.version>${angular.base.version}.0</angular.eslint.version>
 		<eslint.config-prettier.version>10.1.8</eslint.config-prettier.version>
 		<eslint.import.version>2.32.0</eslint.import.version>
-		<eslint.jsdoc.version>60.8.0</eslint.jsdoc.version>
+		<eslint.jsdoc.version>61.1.4</eslint.jsdoc.version>
 		<eslint.prefer-arrow.version>1.2.3</eslint.prefer-arrow.version>
 		<eslint.compat.version>1.4.0</eslint.compat.version>
-		<typescript.eslint.version>8.45.0</typescript.eslint.version>
+		<typescript.eslint.version>8.46.1</typescript.eslint.version>
 		<tslint-to-eslint.version>2.14.3</tslint-to-eslint.version>
 		<codelyzer.version>6.0.2</codelyzer.version>
 		<eslint.codelyzer.version>0.0.1-alpha.12</eslint.codelyzer.version>
