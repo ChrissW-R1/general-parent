@@ -119,7 +119,7 @@
 		<plugin.dependency-check.version>12.1.9</plugin.dependency-check.version>
 		<plugin.cyclonedx.version>2.9.1</plugin.cyclonedx.version>
 		<plugin.deploy-pom.version>1.2.1</plugin.deploy-pom.version>
-		<plugin.jar.version>3.4.2</plugin.jar.version>
+		<plugin.jar.version>3.5.0</plugin.jar.version>
 		<plugin.source.version>3.3.1</plugin.source.version>
 		<plugin.gpg.version>3.2.8</plugin.gpg.version>
 		<plugin.site.version>3.21.0</plugin.site.version>
