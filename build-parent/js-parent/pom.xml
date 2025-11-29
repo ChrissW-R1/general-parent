@@ -25,14 +25,14 @@
 		<project.module-root.relativedir>${project.parent.relativedir}../</project.module-root.relativedir>
 
 		<!-- dependency versions -->
-		<nodejs.version>25.0.0</nodejs.version>
+		<nodejs.version>25.2.1</nodejs.version>
 		<yarn.version>1.22.22</yarn.version>
-		<yarn-berry.version>4.10.3</yarn-berry.version>
-		<core-js.version>3.46.0</core-js.version>
+		<yarn-berry.version>4.12.0</yarn-berry.version>
+		<core-js.version>3.47.0</core-js.version>
 		<rxjs.version>7.8.2</rxjs.version>
-		<zonejs.version>0.15.1</zonejs.version>
-		<angular.base.version>20.3</angular.base.version>
-		<angular.version>${angular.base.version}.6</angular.version>
+		<zonejs.version>0.16.0</zonejs.version>
+		<angular.base.version>21.0</angular.base.version>
+		<angular.version>${angular.base.version}.1</angular.version>
 		<angular.cli.version>${angular.version}</angular.cli.version>
 		<cordova-assets.version>2.0.7</cordova-assets.version>
 		<npm-typescript.version>5.9.3</npm-typescript.version>
@@ -44,23 +44,23 @@
 		<grunt-less.version>3.0.0</grunt-less.version>
 		<grunt-uglify.version>5.2.2</grunt-uglify.version>
 		<grunt-htmlmin.version>3.1.0</grunt-htmlmin.version>
-		<grunt-webpack.version>7.0.0</grunt-webpack.version>
-		<webpack.version>5.102.1</webpack.version>
+		<grunt-webpack.version>7.0.1</grunt-webpack.version>
+		<webpack.version>5.103.0</webpack.version>
 		<webpack-cli.version>6.0.1</webpack-cli.version>
 		<webpack-server.version>5.2.2</webpack-server.version>
-		<eslint.version>9.38.0</eslint.version>
-		<angular.eslint.version>${angular.base.version}.0</angular.eslint.version>
+		<eslint.version>9.39.1</eslint.version>
+		<angular.eslint.version>${angular.version}</angular.eslint.version>
 		<eslint.config-prettier.version>10.1.8</eslint.config-prettier.version>
 		<eslint.import.version>2.32.0</eslint.import.version>
-		<eslint.jsdoc.version>61.1.4</eslint.jsdoc.version>
+		<eslint.jsdoc.version>61.4.1</eslint.jsdoc.version>
 		<eslint.prefer-arrow.version>1.2.3</eslint.prefer-arrow.version>
-		<eslint.compat.version>1.4.0</eslint.compat.version>
-		<typescript.eslint.version>8.46.1</typescript.eslint.version>
-		<tslint-to-eslint.version>2.14.3</tslint-to-eslint.version>
+		<eslint.compat.version>2.0.0</eslint.compat.version>
+		<typescript.eslint.version>8.48.0</typescript.eslint.version>
+		<tslint-to-eslint.version>2.15.0</tslint-to-eslint.version>
 		<codelyzer.version>6.0.2</codelyzer.version>
 		<eslint.codelyzer.version>0.0.1-alpha.12</eslint.codelyzer.version>
-		<mocha.version>11.7.4</mocha.version>
-		<chai.version>6.2.0</chai.version>
+		<mocha.version>11.7.5</mocha.version>
+		<chai.version>6.2.1</chai.version>
 		<karma.version>6.4.4</karma.version>
 		<karma.mocha.version>2.0.1</karma.mocha.version>
 		<karma.chai.version>0.1.0</karma.chai.version>
