@@ -69,6 +69,7 @@
 		<project.site.deploy.baseUrl>ftps://${project.site.baseDomain}</project.site.deploy.baseUrl>
 		<project.site.deploy.url>${project.site.deploy.baseUrl}/${project.site.urlPath}</project.site.deploy.url>
 		<properties.file>build.properties</properties.file>
+		<deploy-pom.file>${project.build.finalName}-deploy.pom</deploy-pom.file>
 		<semver.regex>(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)(?:[-+]([0-9A-Za-z][0-9A-Za-z-+\.]+))?</semver.regex>
 		<java.version.prefixed>1.${java.version}</java.version.prefixed>
 		<netbeans.hint.jdkPlatform>JDK_${java.version.prefixed}</netbeans.hint.jdkPlatform>
@@ -126,6 +127,7 @@
 		<plugin.project-info-reports.version>3.9.0</plugin.project-info-reports.version>
 		<plugin.release.version>3.2.0</plugin.release.version>
 		<plugin.scm.version>2.2.1</plugin.scm.version>
+		<plugin.deploy.version>3.1.4</plugin.deploy.version>
 		<plugin.central-publish.version>0.9.0</plugin.central-publish.version>
 	</properties>
 
@@ -619,6 +621,9 @@
 					<groupId>me.chrissw-r1</groupId>
 					<artifactId>deploy-pom-maven-plugin</artifactId>
 					<version>${plugin.deploy-pom.version}</version>
+					<configuration>
+						<outputPom>${deploy-pom.file}</outputPom>
+					</configuration>
 				</plugin>
 				<plugin>
 					<artifactId>maven-jar-plugin</artifactId>
@@ -791,6 +796,10 @@
 			</plugin>
 			<plugin>
 				<artifactId>maven-antrun-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<artifactId>maven-deploy-plugin</artifactId>
+				<version>${plugin.deploy.version}</version>
 			</plugin>
 		</plugins>
 	</build>

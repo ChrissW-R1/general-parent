@@ -105,6 +105,12 @@
 						</execution>
 					</executions>
 				</plugin>
+				<plugin>
+					<artifactId>maven-deploy-plugin</artifactId>
+					<configuration>
+						<pomFile>${deploy-pom.file}</pomFile>
+					</configuration>
+				</plugin>
 			</plugins>
 		</pluginManagement>
 	</build>
