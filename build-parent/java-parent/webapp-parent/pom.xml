@@ -29,7 +29,7 @@
 		<jersey.version>3.1.11</jersey.version>
 
 		<!-- plugin versions -->
-		<plugin.war.version>3.5.0</plugin.war.version>
+		<plugin.war.version>3.5.1</plugin.war.version>
 
 		<!-- JavaDoc URLs -->
 		<servlet.javadoc.url>https://javadoc.io/doc/jakarta.servlet/jakarta.servlet-api/${servlet.version}</servlet.javadoc.url>
