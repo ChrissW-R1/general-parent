@@ -59,12 +59,6 @@
 					<artifactId>maven-assembly-plugin</artifactId>
 					<version>${plugin.assembly.version}</version>
 				</plugin>
-				<plugin>
-					<artifactId>maven-deploy-plugin</artifactId>
-					<configuration>
-						<pomFile>${deploy-pom.file}</pomFile>
-					</configuration>
-				</plugin>
 			</plugins>
 		</pluginManagement>
 		<plugins>
