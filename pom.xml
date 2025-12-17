@@ -98,7 +98,7 @@
 		<!-- dependency versions -->
 		<ant-contrib.version>1.0b3</ant-contrib.version>
 		<wagon.version>3.5.3</wagon.version>
-		<groovy.version>5.0.2</groovy.version>
+		<groovy.version>5.0.3</groovy.version>
 
 		<!-- plugin versions -->
 		<plugin.takari-lifecycle.version>2.3.2</plugin.takari-lifecycle.version>
@@ -119,13 +119,13 @@
 		<plugin.compiler.version>3.14.1</plugin.compiler.version>
 		<plugin.dependency-check.version>12.1.9</plugin.dependency-check.version>
 		<plugin.cyclonedx.version>2.9.1</plugin.cyclonedx.version>
-		<plugin.deploy-pom.version>1.2.2</plugin.deploy-pom.version>
+		<plugin.deploy-pom.version>1.2.3</plugin.deploy-pom.version>
 		<plugin.jar.version>3.5.0</plugin.jar.version>
 		<plugin.source.version>3.4.0</plugin.source.version>
 		<plugin.gpg.version>3.2.8</plugin.gpg.version>
 		<plugin.site.version>3.21.0</plugin.site.version>
 		<plugin.project-info-reports.version>3.9.0</plugin.project-info-reports.version>
-		<plugin.release.version>3.2.0</plugin.release.version>
+		<plugin.release.version>3.3.1</plugin.release.version>
 		<plugin.scm.version>2.2.1</plugin.scm.version>
 		<plugin.central-publish.version>0.9.0</plugin.central-publish.version>
 	</properties>

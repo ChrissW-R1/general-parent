@@ -37,12 +37,12 @@
 		<jcip-annotations.version>1.0-1</jcip-annotations.version>
 		<spotbugs.version>4.9.8</spotbugs.version>
 		<lombok.version>1.18.42</lombok.version>
-		<proguard.annotations.version>7.8.1</proguard.annotations.version>
+		<proguard.annotations.version>7.8.2</proguard.annotations.version>
 		<slf4j.version>2.0.17</slf4j.version>
 		<junit.minor-version>14.1</junit.minor-version>
 		<junit.jupiter.version>5.${junit.minor-version}</junit.jupiter.version>
 		<junit.platform.version>1.${junit.minor-version}</junit.platform.version>
-		<mockito.version>5.20.0</mockito.version>
+		<mockito.version>5.21.0</mockito.version>
 
 		<!-- plugin versions -->
 		<plugin.proguard.version>2.7.0</plugin.proguard.version>
