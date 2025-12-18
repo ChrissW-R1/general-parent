@@ -76,6 +76,14 @@
 				<targetPath>unfiltered-resources</targetPath>
 				<filtering>false</filtering>
 			</resource>
+			<resource>
+				<directory>../.github</directory>
+				<includes>
+					<include>renovate.json</include>
+				</includes>
+				<targetPath>unfiltered-resources</targetPath>
+				<filtering>false</filtering>
+			</resource>
 		</resources>
 		<pluginManagement>
 			<plugins>
