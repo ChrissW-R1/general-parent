@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
@@ -24,7 +26,7 @@
 		<general-resources.skipUnpack>false</general-resources.skipUnpack>
 
 		<!-- plugin versions -->
-		<plugin.assembly.version>3.7.1</plugin.assembly.version>
+		<plugin.assembly.version>3.8.0</plugin.assembly.version>
 	</properties>
 
 	<build>
@@ -164,7 +166,8 @@
 								</goals>
 								<configuration>
 									<target>
-										<move file="${project.module-root.basedir}/default.gitignore" tofile="${project.module-root.basedir}/.gitignore" />
+										<move file="${project.module-root.basedir}/default.gitignore"
+											  tofile="${project.module-root.basedir}/.gitignore" />
 									</target>
 								</configuration>
 							</execution>

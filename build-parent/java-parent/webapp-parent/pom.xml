@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
@@ -24,10 +26,10 @@
 
 		<!-- dependency versions -->
 		<servlet.version>6.1.0</servlet.version>
-		<jersey.version>3.1.11</jersey.version>
+		<jersey.version>4.0.0</jersey.version>
 
 		<!-- plugin versions -->
-		<plugin.war.version>3.4.0</plugin.war.version>
+		<plugin.war.version>3.5.1</plugin.war.version>
 
 		<!-- JavaDoc URLs -->
 		<servlet.javadoc.url>https://javadoc.io/doc/jakarta.servlet/jakarta.servlet-api/${servlet.version}</servlet.javadoc.url>
