@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>me.chrissw-r1</groupId>
 		<artifactId>general-parent</artifactId>
-		<version>3.0.28</version>
+		<version>3.0.29-SNAPSHOT</version>
 	</parent>
 
 	<!-- project identifier -->
@@ -73,6 +73,14 @@
 			</resource>
 			<resource>
 				<directory>../.github/workflows/</directory>
+				<targetPath>unfiltered-resources</targetPath>
+				<filtering>false</filtering>
+			</resource>
+			<resource>
+				<directory>../.github</directory>
+				<includes>
+					<include>renovate.json</include>
+				</includes>
 				<targetPath>unfiltered-resources</targetPath>
 				<filtering>false</filtering>
 			</resource>
