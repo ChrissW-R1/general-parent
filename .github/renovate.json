@@ -17,14 +17,12 @@
 	"packageRules":       [
 		{
 			"matchBaseBranches": "/^version\\/eol\\/[^\\/]+$/",
-			"enabled":           true,
 			"updateTypes":       [
 				"patch"
 			]
 		},
 		{
-			"matchBaseBranches": "/^version\\/[^\\/]+$/",
-			"enabled":           true
+			"matchBaseBranches": "/^version\\/[^\\/]+$/"
 		},
 		{
 			"matchManagers":        [
