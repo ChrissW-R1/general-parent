@@ -16,15 +16,6 @@
 	],
 	"packageRules":       [
 		{
-			"matchBaseBranches": "/^version\\/eol\\/[^\\/]+$/",
-			"updateTypes":       [
-				"patch"
-			]
-		},
-		{
-			"matchBaseBranches": "/^version\\/[^\\/]+$/"
-		},
-		{
 			"matchManagers":        [
 				"maven"
 			],
