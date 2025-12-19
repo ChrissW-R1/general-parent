@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
@@ -32,7 +34,7 @@
 		<angular.version.major>21</angular.version.major>
 		<angular.version.base>${angular.version.major}.0</angular.version.base>
 		<angular.version>${angular.version.base}.6</angular.version>
-		<angular.cli.version>${angular.version.base}.3</angular.cli.version>
+		<angular.cli.version>${angular.version.base}.4</angular.cli.version>
 		<cordova-assets.version>2.0.7</cordova-assets.version>
 		<npm-typescript.version>5.9.3</npm-typescript.version>
 		<ts-node.version>10.9.2</ts-node.version>
@@ -44,7 +46,7 @@
 		<grunt-uglify.version>5.2.2</grunt-uglify.version>
 		<grunt-htmlmin.version>3.1.0</grunt-htmlmin.version>
 		<grunt-webpack.version>7.0.1</grunt-webpack.version>
-		<webpack.version>5.104.0</webpack.version>
+		<webpack.version>5.104.1</webpack.version>
 		<webpack-cli.version>6.0.1</webpack-cli.version>
 		<webpack-server.version>5.2.2</webpack-server.version>
 		<eslint.version>9.39.2</eslint.version>
