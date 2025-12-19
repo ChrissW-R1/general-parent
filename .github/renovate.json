@@ -3,16 +3,16 @@
 	"extends":            [
 		"config:recommended"
 	],
-	"labels":             [
-		"dependencies",
-		"renovate"
-	],
 	"baseBranchPatterns": [
 		"/^version\\/[^\\/]+$/",
 		"/^version\\/eol\\/[^\\/]+$/"
 	],
 	"enabledManagers":    [
 		"maven"
+	],
+	"labels":             [
+		"dependencies",
+		"renovate"
 	],
 	"packageRules":       [
 		{
