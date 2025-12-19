@@ -11,11 +11,12 @@ used in all projects of ChrissW-R1.
 
 ## Status
 
-| Type       | Status                                                                                                                                                                                                                                                               |
-|------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Build (CI) | [![Maven Build](https://github.com/ChrissW-R1/general-parent/actions/workflows/maven-build.yml/badge.svg)](https://github.com/ChrissW-R1/general-parent/actions/workflows/maven-build.yml) |
-| Artifacts  | [![Maven Central](https://img.shields.io/maven-central/v/me.chrissw-r1/general-parent)](https://central.sonatype.com/artifact/me.chrissw-r1/general-parent)                                                          |
-| JavaDoc    | [![JavaDoc](https://javadoc.io/badge/me.chrissw-r1/general-parent.svg)](https://javadoc.io/doc/me.chrissw-r1/general-parent)                                                                                         |
+| Type              | Status                                                                                                                                                                                                                                                               |
+|-------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Build (CI)        | [![Maven Build](https://github.com/ChrissW-R1/general-parent/actions/workflows/maven-build.yml/badge.svg)](https://github.com/ChrissW-R1/general-parent/actions/workflows/maven-build.yml) |
+| Artifacts         | [![Maven Central](https://img.shields.io/maven-central/v/me.chrissw-r1/general-parent)](https://central.sonatype.com/artifact/me.chrissw-r1/general-parent)                                                          |
+| JavaDoc           | [![JavaDoc](https://javadoc.io/badge/me.chrissw-r1/general-parent.svg)](https://javadoc.io/doc/me.chrissw-r1/general-parent)                                                                                         |
+| OpenSSF Scorecard | [![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/ChrissW-R1/general-parent/badge)](https://scorecard.dev/viewer/?uri=github.com/ChrissW-R1/general-parent)              |
 
 ## Usage
 
@@ -27,7 +28,7 @@ At First, set the parent to the project type parent. Example as a Java Project:
 <parent>
 	<groupId>me.chrissw-r1</groupId>
 	<artifactId>java-parent</artifactId>
-	<version>3.0.29</version>
+	<version>3.0.30</version>
 </parent>
 ```
 
