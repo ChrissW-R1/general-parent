@@ -25,7 +25,7 @@ jobs:
             # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
             -   id:   checkout
                 name: Git Checkout
-                uses: actions/checkout@v5
+                uses: actions/checkout@v6
                 with:
                     fetch-depth: 0
                     fetch-tags:  true
@@ -225,7 +225,7 @@ jobs:
 
         steps:
             -   name: "Checkout code"
-                uses: actions/checkout@v5
+                uses: actions/checkout@v6
                 with:
                     persist-credentials: false
                     ref:                 main
