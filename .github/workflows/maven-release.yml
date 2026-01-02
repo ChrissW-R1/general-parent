@@ -105,6 +105,7 @@ jobs:
                                    echo "Upload to GitHub release: $TAG"
 
                                    SETTINGS_FILE="../../ci_settings.xml"
+                                   SIGNATURE_EXTENSION="asc"
 
                                    echo "::group::Prepare modules list"
                                    ROOT_BUILD_DIR=$(mvn -B initialize help:evaluate -e -s $SETTINGS_FILE -Dexpression="project.build.directory" -Ddistribution -q -DforceStdout)
@@ -138,8 +139,11 @@ jobs:
                                      FINAL_NAME=$(mvn -B initialize help:evaluate -e -s $SETTINGS_FILE -Dexpression="project.build.finalName" -Ddistribution -q -DforceStdout -pl "$MODULE")
 
                                      ARTIFACT_PATH=${BUILD_DIR}/${FILENAME}
+                                     SIGNATURE_PATH=${ARTIFACT_PATH}.${SIGNATURE_EXTENSION}
                                      echo "Uploading: $ARTIFACT_PATH"
                                      gh release upload "$TAG" "$ARTIFACT_PATH" --clobber || echo "Upload of $ARTIFACT_PATH failed!"
+                                     echo "Uploading signature: $SIGNATURE_PATH"
+                                     gh release upload "$TAG" "$SIGNATURE_PATH" --clobber || echo "Upload of $SIGNATURE_PATH failed!"
 
                                      echo "::endgroup::"
                                    done
