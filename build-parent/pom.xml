@@ -103,6 +103,18 @@
 												<fileMapper implementation="org.codehaus.plexus.components.io.filemappers.FlattenFileMapper" />
 											</fileMappers>
 										</artifactItem>
+										<artifactItem>
+											<groupId>me.chrissw-r1</groupId>
+											<artifactId>general-resources</artifactId>
+											<version>${general-parent.version}</version>
+											<type>jar</type>
+											<overWrite>false</overWrite>
+											<outputDirectory>${project.module-root.basedir}/.github/workflows</outputDirectory>
+											<includes>unfiltered-resources/scorecard.yml,unfiltered-resources/codeql.yml</includes>
+											<fileMappers>
+												<fileMapper implementation="org.codehaus.plexus.components.io.filemappers.FlattenFileMapper" />
+											</fileMappers>
+										</artifactItem>
 									</artifactItems>
 								</configuration>
 							</execution>
