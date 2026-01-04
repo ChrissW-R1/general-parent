@@ -56,12 +56,12 @@
 		<eslint.jsdoc.version>61.5.0</eslint.jsdoc.version>
 		<eslint.prefer-arrow.version>1.2.3</eslint.prefer-arrow.version>
 		<eslint.compat.version>2.0.0</eslint.compat.version>
-		<typescript.eslint.version>8.50.0</typescript.eslint.version>
-		<tslint-to-eslint.version>2.15.0</tslint-to-eslint.version>
+		<typescript.eslint.version>8.51.0</typescript.eslint.version>
+		<tslint-to-eslint.version>2.16.0</tslint-to-eslint.version>
 		<codelyzer.version>6.0.2</codelyzer.version>
 		<eslint.codelyzer.version>0.0.1-alpha.12</eslint.codelyzer.version>
 		<mocha.version>11.7.5</mocha.version>
-		<chai.version>6.2.1</chai.version>
+		<chai.version>6.2.2</chai.version>
 		<karma.version>6.4.4</karma.version>
 		<karma.mocha.version>2.0.1</karma.mocha.version>
 		<karma.chai.version>0.1.0</karma.chai.version>
