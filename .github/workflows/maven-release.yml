@@ -24,7 +24,7 @@ jobs:
             # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
             -   id:   checkout
                 name: Git Checkout
-                uses: actions/checkout@v6
+                uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
                 with:
                     fetch-depth: 0
                     fetch-tags:  true
@@ -39,7 +39,7 @@ jobs:
                       git config --global tag.gpgSign true
             -   id:   setup_java
                 name: Setup JDK 11
-                uses: actions/setup-java@v5
+                uses: actions/setup-java@f2beeb24e141e01a676f977032f5a29d81c9e27e # v5.1.0
                 with:
                     distribution:    'temurin'
                     java-version:    '11'
@@ -77,7 +77,7 @@ jobs:
                 run:  echo "tag_name=$(git describe --tags --abbrev=0)" >> "$GITHUB_OUTPUT"
             -   id:   github_release
                 name: Create GitHub Release
-                uses: elgohr/Github-Release-Action@v5
+                uses: elgohr/Github-Release-Action@c5ea99036abb741a89f8bf1f2cd7fba845e3313a # v5
                 env:
                     GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
                 with:
