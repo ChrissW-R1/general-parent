@@ -85,7 +85,7 @@
 		<project.site.baseDomain>urelion.world</project.site.baseDomain>
 		<project.site.fullDomain>docs.${project.site.baseDomain}</project.site.fullDomain>
 		<project.gitlab.id>25831549</project.gitlab.id>
-		<java.version>11</java.version>
+		<java.version>17</java.version>
 
 		<!-- license definition -->
 		<license.name>Apache</license.name>
