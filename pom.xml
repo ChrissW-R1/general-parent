@@ -113,7 +113,7 @@
 		<plugin.properties.version>1.2.1</plugin.properties.version>
 		<plugin.buildhelper.version>3.6.1</plugin.buildhelper.version>
 		<plugin.buildplan.version>2.2.2</plugin.buildplan.version>
-		<plugin.license.version>2.7.0</plugin.license.version>
+		<plugin.license.version>2.7.1</plugin.license.version>
 		<plugin.spdx-license-fetch.version>1.1.1</plugin.spdx-license-fetch.version>
 		<plugin.resources.version>3.4.0</plugin.resources.version>
 		<plugin.antrun.version>3.2.0</plugin.antrun.version>
