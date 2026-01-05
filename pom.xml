@@ -85,6 +85,7 @@
 		<project.site.baseDomain>urelion.world</project.site.baseDomain>
 		<project.site.fullDomain>docs.${project.site.baseDomain}</project.site.fullDomain>
 		<project.gitlab.id>25831549</project.gitlab.id>
+		<openssf.project.id>11691</openssf.project.id>
 		<java.version>17</java.version>
 
 		<!-- license definition -->
