@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
@@ -101,6 +103,18 @@
 												<fileMapper implementation="org.codehaus.plexus.components.io.filemappers.FlattenFileMapper" />
 											</fileMappers>
 										</artifactItem>
+										<artifactItem>
+											<groupId>me.chrissw-r1</groupId>
+											<artifactId>general-resources</artifactId>
+											<version>${general-parent.version}</version>
+											<type>jar</type>
+											<overWrite>false</overWrite>
+											<outputDirectory>${project.module-root.basedir}/.github/workflows</outputDirectory>
+											<includes>unfiltered-resources/scorecard.yml,unfiltered-resources/codeql.yml</includes>
+											<fileMappers>
+												<fileMapper implementation="org.codehaus.plexus.components.io.filemappers.FlattenFileMapper" />
+											</fileMappers>
+										</artifactItem>
 									</artifactItems>
 								</configuration>
 							</execution>
@@ -164,7 +178,8 @@
 								</goals>
 								<configuration>
 									<target>
-										<move file="${project.module-root.basedir}/default.gitignore" tofile="${project.module-root.basedir}/.gitignore" />
+										<move file="${project.module-root.basedir}/default.gitignore"
+											  tofile="${project.module-root.basedir}/.gitignore" />
 									</target>
 								</configuration>
 							</execution>

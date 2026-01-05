@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" child.project.url.inherit.append.path="false">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+		 child.project.url.inherit.append.path="false">
 	<modelVersion>4.0.0</modelVersion>
 
 	<!-- project identifier -->
@@ -82,7 +85,8 @@
 		<project.site.baseDomain>urelion.world</project.site.baseDomain>
 		<project.site.fullDomain>docs.${project.site.baseDomain}</project.site.fullDomain>
 		<project.gitlab.id>25831549</project.gitlab.id>
-		<java.version>11</java.version>
+		<openssf.project.id>11691</openssf.project.id>
+		<java.version>17</java.version>
 
 		<!-- license definition -->
 		<license.name>Apache</license.name>
@@ -100,7 +104,7 @@
 		<!-- plugin versions -->
 		<plugin.takari-lifecycle.version>2.3.2</plugin.takari-lifecycle.version>
 		<plugin.gmavenplus.version>4.2.1</plugin.gmavenplus.version>
-		<plugin.multi-module.version>1.2.1</plugin.multi-module.version>
+		<plugin.multi-module.version>1.2.2</plugin.multi-module.version>
 		<plugin.dependency.version>3.9.0</plugin.dependency.version>
 		<plugin.versions.version>2.20.1</plugin.versions.version>
 		<plugin.clean.version>3.5.0</plugin.clean.version>
@@ -109,14 +113,14 @@
 		<plugin.properties.version>1.2.1</plugin.properties.version>
 		<plugin.buildhelper.version>3.6.1</plugin.buildhelper.version>
 		<plugin.buildplan.version>2.2.2</plugin.buildplan.version>
-		<plugin.license.version>2.7.0</plugin.license.version>
-		<plugin.spdx-license-fetch.version>1.1.0</plugin.spdx-license-fetch.version>
+		<plugin.license.version>2.7.1</plugin.license.version>
+		<plugin.spdx-license-fetch.version>1.1.1</plugin.spdx-license-fetch.version>
 		<plugin.resources.version>3.4.0</plugin.resources.version>
 		<plugin.antrun.version>3.2.0</plugin.antrun.version>
 		<plugin.compiler.version>3.14.1</plugin.compiler.version>
 		<plugin.dependency-check.version>12.1.9</plugin.dependency-check.version>
 		<plugin.cyclonedx.version>2.9.1</plugin.cyclonedx.version>
-		<plugin.deploy-pom.version>1.2.4</plugin.deploy-pom.version>
+		<plugin.deploy-pom.version>1.2.5</plugin.deploy-pom.version>
 		<plugin.jar.version>3.5.0</plugin.jar.version>
 		<plugin.source.version>3.4.0</plugin.source.version>
 		<plugin.gpg.version>3.2.8</plugin.gpg.version>
@@ -127,7 +131,9 @@
 		<plugin.central-publish.version>0.9.0</plugin.central-publish.version>
 	</properties>
 
-	<scm child.scm.url.inherit.append.path="false" child.scm.connection.inherit.append.path="false" child.scm.developerConnection.inherit.append.path="false">
+	<scm child.scm.url.inherit.append.path="false"
+		 child.scm.connection.inherit.append.path="false"
+		 child.scm.developerConnection.inherit.append.path="false">
 		<url>https://github.com/${project.organization.name}/${project.module-root.artifactId}</url>
 		<connection>scm:git:${project.scm.url}.git</connection>
 		<developerConnection>${project.scm.connection}</developerConnection>
@@ -666,16 +672,21 @@
 							</goals>
 							<configuration>
 								<target>
-									<taskdef resource="net/sf/antcontrib/antcontrib.properties" classpathref="maven.runtime.classpath" />
+									<taskdef resource="net/sf/antcontrib/antcontrib.properties"
+											 classpathref="maven.runtime.classpath" />
 									<if>
 										<available file="${third-party-properties.target.fullPath}" />
 										<then>
-											<echo message="third-party.properties exists." level="info" />
-											<property name="third-party-properties.target.missing" value="false" />
+											<echo message="third-party.properties exists."
+												  level="info" />
+											<property name="third-party-properties.target.missing"
+													  value="false" />
 										</then>
 										<else>
-											<echo message="third-party.properties missing." level="info" />
-											<property name="third-party-properties.target.missing" value="true" />
+											<echo message="third-party.properties missing."
+												  level="info" />
+											<property name="third-party-properties.target.missing"
+													  value="true" />
 										</else>
 									</if>
 								</target>
@@ -1256,7 +1267,9 @@
 								</goals>
 								<configuration>
 									<target>
-										<checksum todir="${project.build.directory}" algorithm="SHA-512" fileext=".sha512">
+										<checksum todir="${project.build.directory}"
+												  algorithm="SHA-512"
+												  fileext=".sha512">
 											<fileset dir="${project.build.directory}">
 												<include name="*" />
 												<exclude name="**/*.asc" />
@@ -1266,7 +1279,9 @@
 												<exclude name="**/*.sha512" />
 											</fileset>
 										</checksum>
-										<checksum todir="${project.build.directory}" algorithm="SHA-256" fileext=".sha256">
+										<checksum todir="${project.build.directory}"
+												  algorithm="SHA-256"
+												  fileext=".sha256">
 											<fileset dir="${project.build.directory}">
 												<include name="*" />
 												<exclude name="**/*.asc" />
@@ -1424,7 +1439,8 @@
 									<target>
 										<mkdir dir="${copy-artifact.dir}" />
 										<copy todir="${copy-artifact.dir}">
-											<fileset dir="${project.build.directory}" includes="${project.build.artifact.fileName}" />
+											<fileset dir="${project.build.directory}"
+													 includes="${project.build.artifact.fileName}" />
 										</copy>
 									</target>
 								</configuration>
