@@ -70,6 +70,7 @@
 		<project.site.baseUrl>https://${project.site.fullDomain}</project.site.baseUrl>
 		<project.site.deploy.baseUrl>ftps://${project.site.baseDomain}</project.site.deploy.baseUrl>
 		<project.site.deploy.url>${project.site.deploy.baseUrl}/${project.site.urlPath}</project.site.deploy.url>
+		<project.organization.id>${project.organization.name}</project.organization.id>
 		<properties.file>build.properties</properties.file>
 		<deploy-pom.file>${project.build.finalName}-deploy.pom</deploy-pom.file>
 		<semver.regex>(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)(?:[-+]([0-9A-Za-z][0-9A-Za-z-+\.]+))?</semver.regex>
@@ -137,7 +138,7 @@
 	<scm child.scm.url.inherit.append.path="false"
 		 child.scm.connection.inherit.append.path="false"
 		 child.scm.developerConnection.inherit.append.path="false">
-		<url>https://github.com/${project.organization.name}/${project.module-root.artifactId}</url>
+		<url>https://github.com/${project.organization.id}/${project.module-root.artifactId}</url>
 		<connection>scm:git:${project.scm.url}.git</connection>
 		<developerConnection>${project.scm.connection}</developerConnection>
 		<tag>HEAD</tag>
@@ -152,7 +153,7 @@
 		<repository>
 			<id>project-repo</id>
 			<name>Project Repository</name>
-			<url>https://maven.pkg.github.com/${project.organization.name}/${project.module-root.artifactId}</url>
+			<url>https://maven.pkg.github.com/${project.organization.id}/${project.module-root.artifactId}</url>
 		</repository>
 		<site>
 			<id>project-site-repo</id>
@@ -165,14 +166,14 @@
 		<repository>
 			<id>project-repo</id>
 			<name>Project Repository</name>
-			<url>https://maven.pkg.github.com/${project.organization.name}/${project.module-root.artifactId}</url>
+			<url>https://maven.pkg.github.com/${project.organization.id}/${project.module-root.artifactId}</url>
 		</repository>
 	</repositories>
 	<pluginRepositories>
 		<pluginRepository>
 			<id>project-repo</id>
 			<name>Project Repository</name>
-			<url>https://maven.pkg.github.com/${project.organization.name}/${project.module-root.artifactId}</url>
+			<url>https://maven.pkg.github.com/${project.organization.id}/${project.module-root.artifactId}</url>
 		</pluginRepository>
 		<pluginRepository>
 			<id>general-parent</id>
