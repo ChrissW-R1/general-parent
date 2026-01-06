@@ -65,6 +65,7 @@
 		<project.build.artifact.extension>${project.packaging}</project.build.artifact.extension>
 		<project.build.artifact.fileName>${project.build.finalName}.${project.build.artifact.extension}</project.build.artifact.fileName>
 		<project.scm.id>project-repo</project.scm.id>
+		<project.issueManagement.url.create>${project.issueManagement.url}/new</project.issueManagement.url.create>
 		<project.site.urlPath>${project.groupId}/${project.module-root.artifactId}/${project.version}</project.site.urlPath>
 		<project.site.baseUrl>https://${project.site.fullDomain}</project.site.baseUrl>
 		<project.site.deploy.baseUrl>ftps://${project.site.baseDomain}</project.site.deploy.baseUrl>
@@ -772,7 +773,7 @@
 				<artifactId>maven-resources-plugin</artifactId>
 				<executions>
 					<execution>
-						<id>copy-readme</id>
+						<id>copy-root-doc-files</id>
 						<phase>process-resources</phase>
 						<goals>
 							<goal>copy-resources</goal>
@@ -784,6 +785,8 @@
 									<directory>${project.module-root.basedir}/src/main/resources</directory>
 									<includes>
 										<include>README.md</include>
+										<include>VERSIONING.md</include>
+										<include>CONTRIBUTING.md</include>
 									</includes>
 									<filtering>true</filtering>
 								</resource>
@@ -1404,7 +1407,7 @@
 									<goal>add</goal>
 								</goals>
 								<configuration>
-									<includes>pom.xml,.gitignore,LICENSE,README.md</includes>
+									<includes>pom.xml,.gitignore,LICENSE,README.md,VERSIONING.md,CONTRIBUTING.md</includes>
 									<pushChanges>false</pushChanges>
 								</configuration>
 							</execution>
