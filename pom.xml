@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" child.project.url.inherit.append.path="false">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+		 child.project.url.inherit.append.path="false">
 	<modelVersion>4.0.0</modelVersion>
 
 	<!-- project identifier -->
@@ -53,6 +56,7 @@
 		<project.fileEncoding>UTF-8</project.fileEncoding>
 		<project.build.sourceEncoding>${project.fileEncoding}</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>${project.fileEncoding}</project.reporting.outputEncoding>
+		<project.versioning.scheme>semver</project.versioning.scheme>
 		<project.parent.relativedir />
 		<project.parent.basedir>${project.basedir}/${project.parent.relativedir}</project.parent.basedir>
 		<project.module-root.artifactId>general-parent</project.module-root.artifactId>
@@ -61,10 +65,12 @@
 		<project.build.artifact.extension>${project.packaging}</project.build.artifact.extension>
 		<project.build.artifact.fileName>${project.build.finalName}.${project.build.artifact.extension}</project.build.artifact.fileName>
 		<project.scm.id>project-repo</project.scm.id>
+		<project.issueManagement.url.create>${project.issueManagement.url}/new</project.issueManagement.url.create>
 		<project.site.urlPath>${project.groupId}/${project.module-root.artifactId}/${project.version}</project.site.urlPath>
 		<project.site.baseUrl>https://${project.site.fullDomain}</project.site.baseUrl>
 		<project.site.deploy.baseUrl>ftps://${project.site.baseDomain}</project.site.deploy.baseUrl>
 		<project.site.deploy.url>${project.site.deploy.baseUrl}/${project.site.urlPath}</project.site.deploy.url>
+		<project.organization.id>${project.organization.name}</project.organization.id>
 		<properties.file>build.properties</properties.file>
 		<deploy-pom.file>${project.build.finalName}-deploy.pom</deploy-pom.file>
 		<semver.regex>(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)(?:[-+]([0-9A-Za-z][0-9A-Za-z-+\.]+))?</semver.regex>
@@ -94,6 +100,7 @@
 		<license.signature>${license.name} License (${license.abbr}), Version ${license.version} (${license.id})</license.signature>
 
 		<!-- dependency versions -->
+		<semver.version>2.0.0</semver.version>
 		<ant-contrib.version>1.0b3</ant-contrib.version>
 		<wagon.version>3.5.3</wagon.version>
 		<groovy.version>5.0.3</groovy.version>
@@ -128,8 +135,10 @@
 		<plugin.central-publish.version>0.9.0</plugin.central-publish.version>
 	</properties>
 
-	<scm child.scm.url.inherit.append.path="false" child.scm.connection.inherit.append.path="false" child.scm.developerConnection.inherit.append.path="false">
-		<url>https://github.com/${project.organization.name}/${project.module-root.artifactId}</url>
+	<scm child.scm.url.inherit.append.path="false"
+		 child.scm.connection.inherit.append.path="false"
+		 child.scm.developerConnection.inherit.append.path="false">
+		<url>https://github.com/${project.organization.id}/${project.module-root.artifactId}</url>
 		<connection>scm:git:${project.scm.url}.git</connection>
 		<developerConnection>${project.scm.connection}</developerConnection>
 		<tag>HEAD</tag>
@@ -144,7 +153,7 @@
 		<repository>
 			<id>project-repo</id>
 			<name>Project Repository</name>
-			<url>https://maven.pkg.github.com/${project.organization.name}/${project.module-root.artifactId}</url>
+			<url>https://maven.pkg.github.com/${project.organization.id}/${project.module-root.artifactId}</url>
 		</repository>
 		<site>
 			<id>project-site-repo</id>
@@ -157,14 +166,14 @@
 		<repository>
 			<id>project-repo</id>
 			<name>Project Repository</name>
-			<url>https://maven.pkg.github.com/${project.organization.name}/${project.module-root.artifactId}</url>
+			<url>https://maven.pkg.github.com/${project.organization.id}/${project.module-root.artifactId}</url>
 		</repository>
 	</repositories>
 	<pluginRepositories>
 		<pluginRepository>
 			<id>project-repo</id>
 			<name>Project Repository</name>
-			<url>https://maven.pkg.github.com/${project.organization.name}/${project.module-root.artifactId}</url>
+			<url>https://maven.pkg.github.com/${project.organization.id}/${project.module-root.artifactId}</url>
 		</pluginRepository>
 		<pluginRepository>
 			<id>general-parent</id>
@@ -667,16 +676,21 @@
 							</goals>
 							<configuration>
 								<target>
-									<taskdef resource="net/sf/antcontrib/antcontrib.properties" classpathref="maven.runtime.classpath" />
+									<taskdef resource="net/sf/antcontrib/antcontrib.properties"
+											 classpathref="maven.runtime.classpath" />
 									<if>
 										<available file="${third-party-properties.target.fullPath}" />
 										<then>
-											<echo message="third-party.properties exists." level="info" />
-											<property name="third-party-properties.target.missing" value="false" />
+											<echo message="third-party.properties exists."
+												  level="info" />
+											<property name="third-party-properties.target.missing"
+													  value="false" />
 										</then>
 										<else>
-											<echo message="third-party.properties missing." level="info" />
-											<property name="third-party-properties.target.missing" value="true" />
+											<echo message="third-party.properties missing."
+												  level="info" />
+											<property name="third-party-properties.target.missing"
+													  value="true" />
 										</else>
 									</if>
 								</target>
@@ -760,7 +774,7 @@
 				<artifactId>maven-resources-plugin</artifactId>
 				<executions>
 					<execution>
-						<id>copy-readme</id>
+						<id>copy-root-doc-files</id>
 						<phase>process-resources</phase>
 						<goals>
 							<goal>copy-resources</goal>
@@ -772,6 +786,8 @@
 									<directory>${project.module-root.basedir}/src/main/resources</directory>
 									<includes>
 										<include>README.md</include>
+										<include>VERSIONING.md</include>
+										<include>CONTRIBUTING.md</include>
 									</includes>
 									<filtering>true</filtering>
 								</resource>
@@ -1257,7 +1273,9 @@
 								</goals>
 								<configuration>
 									<target>
-										<checksum todir="${project.build.directory}" algorithm="SHA-512" fileext=".sha512">
+										<checksum todir="${project.build.directory}"
+												  algorithm="SHA-512"
+												  fileext=".sha512">
 											<fileset dir="${project.build.directory}">
 												<include name="*" />
 												<exclude name="**/*.asc" />
@@ -1267,7 +1285,9 @@
 												<exclude name="**/*.sha512" />
 											</fileset>
 										</checksum>
-										<checksum todir="${project.build.directory}" algorithm="SHA-256" fileext=".sha256">
+										<checksum todir="${project.build.directory}"
+												  algorithm="SHA-256"
+												  fileext=".sha256">
 											<fileset dir="${project.build.directory}">
 												<include name="*" />
 												<exclude name="**/*.asc" />
@@ -1388,7 +1408,7 @@
 									<goal>add</goal>
 								</goals>
 								<configuration>
-									<includes>pom.xml,.gitignore,LICENSE,README.md</includes>
+									<includes>pom.xml,.gitignore,LICENSE,README.md,VERSIONING.md,CONTRIBUTING.md</includes>
 									<pushChanges>false</pushChanges>
 								</configuration>
 							</execution>
@@ -1425,7 +1445,8 @@
 									<target>
 										<mkdir dir="${copy-artifact.dir}" />
 										<copy todir="${copy-artifact.dir}">
-											<fileset dir="${project.build.directory}" includes="${project.build.artifact.fileName}" />
+											<fileset dir="${project.build.directory}"
+													 includes="${project.build.artifact.fileName}" />
 										</copy>
 									</target>
 								</configuration>

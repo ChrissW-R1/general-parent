@@ -11,13 +11,13 @@ used in all projects of ChrissW-R1.
 
 ## Status
 
-| Type                   | Status                                                                                                                                                                                                                                                               |
-|------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Build (CI)             | [![Maven Build](https://github.com/${project.organization.name}/${project.module-root.artifactId}/actions/workflows/maven-build.yml/badge.svg)](https://github.com/${project.organization.name}/${project.module-root.artifactId}/actions/workflows/maven-build.yml) |
-| Artifacts              | [![Maven Central](https://img.shields.io/maven-central/v/${project.groupId}/${project.module-root.artifactId})](https://central.sonatype.com/artifact/${project.groupId}/${project.module-root.artifactId})                                                          |
-| JavaDoc                | [![JavaDoc](https://javadoc.io/badge/${project.groupId}/${project.module-root.artifactId}.svg)](https://javadoc.io/doc/${project.groupId}/${project.module-root.artifactId})                                                                                         |
-| OpenSSF Scorecard      | [![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/${project.organization.name}/${project.module-root.artifactId}/badge)](https://scorecard.dev/viewer/?uri=github.com/${project.organization.name}/${project.module-root.artifactId})              |
-| OpenSSF Best Practices | [![OpenSSF Best Practices](https://bestpractices.dev/projects/${openssf.project.id/badge})](https://bestpractices.dev/projects/${openssf.project.id})                                                                                                                |
+| Type                   | Status                                                                                                                                                                                                                                                           |
+|------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Build (CI)             | [![Maven Build](https://github.com/${project.organization.id}/${project.module-root.artifactId}/actions/workflows/maven-build.yml/badge.svg)](https://github.com/${project.organization.id}/${project.module-root.artifactId}/actions/workflows/maven-build.yml) |
+| Artifacts              | [![Maven Central](https://img.shields.io/maven-central/v/${project.groupId}/${project.module-root.artifactId})](https://central.sonatype.com/artifact/${project.groupId}/${project.module-root.artifactId})                                                      |
+| JavaDoc                | [![JavaDoc](https://javadoc.io/badge/${project.groupId}/${project.module-root.artifactId}.svg)](https://javadoc.io/doc/${project.groupId}/${project.module-root.artifactId})                                                                                     |
+| OpenSSF Scorecard      | [![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/${project.organization.id}/${project.module-root.artifactId}/badge)](https://scorecard.dev/viewer/?uri=github.com/${project.organization.id}/${project.module-root.artifactId})              |
+| OpenSSF Best Practices | [![OpenSSF Best Practices](https://bestpractices.dev/projects/${openssf.project.id}/badge)](https://bestpractices.dev/projects/${openssf.project.id})                                                                                                            |
 
 ## Usage
 
@@ -25,6 +25,7 @@ To use this in one of your projects, you only have to define some settings in
 your POM:
 
 At First, set the parent to the project type parent. Example as a Java Project:
+
 ```XML
 <parent>
 	<groupId>${project.groupId}</groupId>
@@ -35,6 +36,7 @@ At First, set the parent to the project type parent. Example as a Java Project:
 
 Last but not least some technical properties have to be overridden by your POM
 to set all derived properties correctly:
+
 ```XML
 <properties>
 	...
@@ -43,6 +45,17 @@ to set all derived properties correctly:
 	...
 </properties>
 ```
+
+## Versioning
+
+This project follows **Semantic Versioning** as defined
+by [SemVer ${semver.version}](https://semver.org).
+
+Version numbers use the format: `MAJOR.MINOR.PATCH`
+
+- **MAJOR** version changes indicate incompatible or breaking changes
+- **MINOR** version changes add functionality in a backward-compatible manner
+- **PATCH** version changes include backward-compatible bug fixes only
 
 ## License
 
