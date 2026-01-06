@@ -11,7 +11,9 @@ looks forward to your contributions. 🎉
 
 ## Table of Contents
 
+- [Project scope](#project-scope)
 - [Code of Conduct](#code-of-conduct)
+- [Versioning](#versioning)
 - [I have a question](#i-have-a-question)
 - [I want to contribute](#i-want-to-contribute)
 - [Reporting bugs](#reporting-bugs)
@@ -22,19 +24,45 @@ looks forward to your contributions. 🎉
 - [Commit messages](#commit-messages)
 - [Join the project team](#join-the-project-team)
 
+## Project scope
+
+This repository provides parent POMs and shared build configuration intended to
+be reused by multiple downstream projects.
+
+Changes to this project can therefore have wide-ranging effects. Please consider
+compatibility, default behavior, and migration impact carefully when proposing
+changes.
+
 ## Code of Conduct
 
-This project and everyone participating in it is governed by the
-[Code of Conduct](CODE_OF_CONDUCT.md).
+This project and everyone participating in it is governed by
+the [Code of Conduct](CODE_OF_CONDUCT.md).
 By participating, you are expected to uphold this code.
+
+## Versioning
+
+The Versioning Policy could be found in the [VERSIONING.md](VERSIONING.md) file.
+
+Contributors must consider the impact of their changes on downstream projects:
+
+- Breaking changes require a **major version bump**
+- New backward-compatible features require a **minor version bump**
+- Bug fixes only require a **patch version bump**
+
+Any change that affects default behavior, enforced build rules, plugin
+configuration, or dependency management may be considered a breaking change and
+must be clearly documented.
+
+If you are unsure whether a change is breaking, please open an issue for
+discussion before submitting a pull request.
 
 ## I have a question
 
-Before you ask a question, it is best to search for existing
-[Issues](https://github.com/ChrissW-R1/general-parent/issues) that might help
-you. In case you have found a suitable issue and still need clarification, you
-can write your question in this issue. It is also advisable to search the
-internet for answers first.
+Before you ask a question, it is best to search for
+existing [Issues](https://github.com/ChrissW-R1/general-parent/issues) that
+might help you. In case you have found a suitable issue and still need
+clarification, you can write your question in this issue. It is also advisable
+to search the internet for answers first.
 
 If you then still feel the need to ask a question and need clarification, we
 recommend the following:
@@ -65,12 +93,12 @@ steps in advance to help us fix any potential bug as fast as possible.
 - Make sure that you are using the latest version.
 - Determine if your bug is really a bug and not an error on your side e.g. using
   incompatible environment components/versions (Make sure that you have read
-  the [README](README.md). If you are looking for support, you might want to
+  the [Read Me](README.md). If you are looking for support, you might want to
   check [this section](#i-have-a-question)).
 - To see if other users have experienced (and potentially already solved) the
   same issue you are having, check if there is not already a bug report existing
-  for your bug or error in the
-  [bug tracker](https://github.com/ChrissW-R1/general-parent/issues?q=label%3Abug).
+  for your bug or error in
+  the [bug tracker](https://github.com/ChrissW-R1/general-parent/issues?q=label%3Abug).
 - Also make sure to search the internet (including Stack Overflow) to see if
   users outside the GitHub community have discussed the issue.
 - Collect information about the bug:
@@ -81,12 +109,16 @@ steps in advance to help us fix any potential bug as fast as possible.
 - Possibly your input and the output
 - Can you reliably reproduce the issue? And can you also reproduce it with older
   versions?
+- URL to the source code of your child project (if applicable)
 
 #### How do I submit a good bug report?
 
 > You must never report security related issues, vulnerabilities or bugs
-> including sensitive information to the issue tracker, or elsewhere in public.
-> Instead sensitive bugs must be sent by email to <>.
+> including sensitive information via the public issue tracker or in any public
+> forum.
+>
+> For responsible disclosure and reporting instructions, refer to the
+> project’s [SECURITY.md](SECURITY.md).
 
 We use GitHub issues to track bugs and errors. If you run into an issue with the
 project:
@@ -116,14 +148,14 @@ Once it's filed:
 ### Suggesting enhancements
 
 This section guides you through submitting an enhancement suggestion for
-CONTRIBUTING.md, **including completely new features and minor improvements to
+`CONTRIBUTING.md`, **including completely new features and minor improvements to
 existing functionality**. Following these guidelines will help maintainers and
 the community to understand your suggestion and find related suggestions.
 
 #### Before submitting an enhancement
 
 - Make sure that you are using the latest version.
-- Read the [README](README.md) carefully and find out if the functionality is
+- Read the [Read Me](README.md) carefully and find out if the functionality is
   already covered, maybe by an individual configuration.
 - Perform a [search](https://github.com/ChrissW-R1/general-parent/issues) to see
   if the enhancement has already been suggested. If it has, add a comment to the
@@ -136,8 +168,8 @@ the community to understand your suggestion and find related suggestions.
 
 #### How do I submit a good enhancement suggestion?
 
-Enhancement suggestions are tracked as
-[GitHub issues](https://github.com/ChrissW-R1/general-parent/issues).
+Enhancement suggestions are tracked
+as [GitHub issues](https://github.com/ChrissW-R1/general-parent/issues).
 
 - Use a **clear and descriptive title** for the issue to identify the
   suggestion.
@@ -148,12 +180,25 @@ Enhancement suggestions are tracked as
   not work for you.
 - You may want to **include screenshots and animated GIFs** which help you
   demonstrate the steps or point out the part which the suggestion is related
-  to. You can use [this tool](https://cockos.com/licecap/) to record GIFs on
-  macOS and Windows, and [this tool](https://github.com/colinkeenan/silentcast)
-  or [this tool](https://github.com/GNOME/byzanz) on Linux.
+  to.
 - **Explain why this enhancement would be useful** to most CONTRIBUTING.md
   users. You may also want to point out the other projects that solved it better
   and which could serve as inspiration.
+
+### Breaking changes
+
+Any change that alters default build behavior, plugin configuration, dependency
+versions, or enforced rules may be considered a breaking change.
+
+Breaking changes must be clearly documented in the pull request description and,
+if accepted, will typically require a major version bump.
+
+### Commits and pull requests
+
+- Commit **MUST** be signed, except for automated commits by bots
+- Keep commits focused and logically structured
+- Avoid mixing refactoring, formatting, and functional changes
+- Pull requests should explain the motivation and impact of the change
 
 ### Your first code contribution
 

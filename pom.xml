@@ -56,6 +56,7 @@
 		<project.fileEncoding>UTF-8</project.fileEncoding>
 		<project.build.sourceEncoding>${project.fileEncoding}</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>${project.fileEncoding}</project.reporting.outputEncoding>
+		<project.versioning.scheme>semver</project.versioning.scheme>
 		<project.parent.relativedir />
 		<project.parent.basedir>${project.basedir}/${project.parent.relativedir}</project.parent.basedir>
 		<project.module-root.artifactId>general-parent</project.module-root.artifactId>
@@ -97,6 +98,7 @@
 		<license.signature>${license.name} License (${license.abbr}), Version ${license.version} (${license.id})</license.signature>
 
 		<!-- dependency versions -->
+		<semver.version>2.0.0</semver.version>
 		<ant-contrib.version>1.0b3</ant-contrib.version>
 		<wagon.version>3.5.3</wagon.version>
 		<groovy.version>5.0.3</groovy.version>

@@ -25,6 +25,7 @@ To use this in one of your projects, you only have to define some settings in
 your POM:
 
 At First, set the parent to the project type parent. Example as a Java Project:
+
 ```XML
 <parent>
 	<groupId>${project.groupId}</groupId>
@@ -35,6 +36,7 @@ At First, set the parent to the project type parent. Example as a Java Project:
 
 Last but not least some technical properties have to be overridden by your POM
 to set all derived properties correctly:
+
 ```XML
 <properties>
 	...
@@ -43,6 +45,17 @@ to set all derived properties correctly:
 	...
 </properties>
 ```
+
+## Versioning
+
+This project follows **Semantic Versioning** as defined
+by [SemVer ${semver.version}](https://semver.org).
+
+Version numbers use the format: `MAJOR.MINOR.PATCH`
+
+- **MAJOR** version changes indicate incompatible or breaking changes
+- **MINOR** version changes add functionality in a backward-compatible manner
+- **PATCH** version changes include backward-compatible bug fixes only
 
 ## License
 
