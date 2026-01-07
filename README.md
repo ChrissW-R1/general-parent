@@ -11,13 +11,13 @@ used in all projects of ChrissW-R1.
 
 ## Status
 
-| Type                   | Status                                                                                                                                                                                                                                                               |
-|------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Type                   | Status                                                                                                                                                                                                                                                           |
+|------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Build (CI)             | [![Maven Build](https://github.com/ChrissW-R1/general-parent/actions/workflows/maven-build.yml/badge.svg)](https://github.com/ChrissW-R1/general-parent/actions/workflows/maven-build.yml) |
-| Artifacts              | [![Maven Central](https://img.shields.io/maven-central/v/me.chrissw-r1/general-parent)](https://central.sonatype.com/artifact/me.chrissw-r1/general-parent)                                                          |
-| JavaDoc                | [![JavaDoc](https://javadoc.io/badge/me.chrissw-r1/general-parent.svg)](https://javadoc.io/doc/me.chrissw-r1/general-parent)                                                                                         |
+| Artifacts              | [![Maven Central](https://img.shields.io/maven-central/v/me.chrissw-r1/general-parent)](https://central.sonatype.com/artifact/me.chrissw-r1/general-parent)                                                      |
+| JavaDoc                | [![JavaDoc](https://javadoc.io/badge/me.chrissw-r1/general-parent.svg)](https://javadoc.io/doc/me.chrissw-r1/general-parent)                                                                                     |
 | OpenSSF Scorecard      | [![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/ChrissW-R1/general-parent/badge)](https://scorecard.dev/viewer/?uri=github.com/ChrissW-R1/general-parent)              |
-| OpenSSF Best Practices | [![OpenSSF Best Practices](https://bestpractices.dev/projects/${openssf.project.id/badge})](https://bestpractices.dev/projects/11691)                                                                                                                |
+| OpenSSF Best Practices | [![OpenSSF Best Practices](https://bestpractices.dev/projects/11691/badge)](https://bestpractices.dev/projects/11691)                                                                                                            |
 
 ## Usage
 
@@ -25,16 +25,18 @@ To use this in one of your projects, you only have to define some settings in
 your POM:
 
 At First, set the parent to the project type parent. Example as a Java Project:
+
 ```XML
 <parent>
 	<groupId>me.chrissw-r1</groupId>
 	<artifactId>java-parent</artifactId>
-	<version>3.0.35</version>
+	<version>3.0.36</version>
 </parent>
 ```
 
 Last but not least some technical properties have to be overridden by your POM
 to set all derived properties correctly:
+
 ```XML
 <properties>
 	...
@@ -43,6 +45,17 @@ to set all derived properties correctly:
 	...
 </properties>
 ```
+
+## Versioning
+
+This project follows **Semantic Versioning** as defined
+by [SemVer 2.0.0](https://semver.org).
+
+Version numbers use the format: `MAJOR.MINOR.PATCH`
+
+- **MAJOR** version changes indicate incompatible or breaking changes
+- **MINOR** version changes add functionality in a backward-compatible manner
+- **PATCH** version changes include backward-compatible bug fixes only
 
 ## License
 
