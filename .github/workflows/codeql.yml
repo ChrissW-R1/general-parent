@@ -9,13 +9,15 @@
 # the `language` matrix defined below to confirm you have the correct set of
 # supported CodeQL languages.
 #
-name: "CodeQL Advanced"
+name:        "CodeQL Advanced"
 
 on:
     push:
         branches: ["version/*"]
     pull_request:
         branches: ["version/*"]
+
+permissions: read-all
 
 jobs:
     analyze:
