@@ -202,6 +202,8 @@ if accepted, will typically require a major version bump.
 	  `security:`
 		- If the security issue has an OSV identifier, the message **MUST**
 		  begin with `security(OSV_ID):`
+- Issues and pull requests addressing security issues **MUST** carry the
+  `security` label
 - Keep commits focused and logically structured
 - Avoid mixing refactoring, formatting, and functional changes
 - Pull requests should explain the motivation and impact of the change
