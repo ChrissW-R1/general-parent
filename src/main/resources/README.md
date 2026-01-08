@@ -48,14 +48,8 @@ to set all derived properties correctly:
 
 ## Versioning
 
-This project follows **Semantic Versioning** as defined
-by [SemVer ${semver.version}](https://semver.org).
-
-Version numbers use the format: `MAJOR.MINOR.PATCH`
-
-- **MAJOR** version changes indicate incompatible or breaking changes
-- **MINOR** version changes add functionality in a backward-compatible manner
-- **PATCH** version changes include backward-compatible bug fixes only
+This project follows **Semantic Versioning**. For more information see
+the [Versioning Policy](VERSIONING.md).
 
 ## License
 
