@@ -69,6 +69,22 @@ We follow coordinated vulnerability disclosure.
 Please allow a reasonable time window for investigation and remediation before
 public disclosure.
 
+### CVE Support
+
+If required, the maintainers will coordinate with a CVE Numbering Authority
+(CNA) for CVE assignment.
+
+### OSV Support
+
+This project supports the OSV (Open Source Vulnerabilities) ecosystem.
+
+Security issues may be tracked via GitHub Security Advisories (GHSA), which are
+automatically exported to the OSV database and downstream consumers. Affected
+versions and fixes are identified using semantic versions and Git commit ranges
+where applicable.
+
+### Public Disclosure and Publication
+
 We support the responsible publication of vulnerability even beyond the actual
 remediation. This may include - especially in the context of open-source
 projects - technical exchanges and the provision of background information for

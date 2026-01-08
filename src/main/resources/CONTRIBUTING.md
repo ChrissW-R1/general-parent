@@ -196,6 +196,12 @@ if accepted, will typically require a major version bump.
 ### Commits and pull requests
 
 - Commit **MUST** be signed, except for automated commits by bots
+- Commit message rules:
+	- Commit messages of bugfixes **MUST** be start wird `fix: ISSUE_ID`
+	- Commit messages which deals with security issues **MUST** start with
+	  `security:`
+		- If the security issue has an OSV identifier, the message **MUST**
+		  begin with `security: OSV_ID`
 - Keep commits focused and logically structured
 - Avoid mixing refactoring, formatting, and functional changes
 - Pull requests should explain the motivation and impact of the change
