@@ -1,4 +1,4 @@
-# Contributing to ${project.name}
+# Contributing to ${project.module-root.name}
 
 First off, thanks for taking the time to contribute! ❤️
 
