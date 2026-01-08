@@ -76,7 +76,7 @@
 				<filtering>false</filtering>
 			</resource>
 			<resource>
-				<directory>../src/main/resources</directory>
+				<directory>../src/main/repo-doc</directory>
 				<includes>
 					<include>VERSIONING.md</include>
 					<include>CONTRIBUTING.md</include>
