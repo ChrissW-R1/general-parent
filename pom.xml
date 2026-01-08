@@ -133,7 +133,7 @@
 		<plugin.release.version>3.3.1</plugin.release.version>
 		<plugin.slsa-hash.version>0.0.1</plugin.slsa-hash.version>
 		<plugin.scm.version>2.2.1</plugin.scm.version>
-		<plugin.central-publish.version>0.9.0</plugin.central-publish.version>
+		<plugin.central-publish.version>0.10.0</plugin.central-publish.version>
 	</properties>
 
 	<scm child.scm.url.inherit.append.path="false"
