@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
@@ -36,6 +38,7 @@
 				<directory>src/main/resources</directory>
 				<excludes>
 					<exclude>project.properties</exclude>
+					<exclude>SECURITY.md</exclude>
 					<exclude>lrgrwrks.txt</exclude>
 					<exclude>pack-dist.xml</exclude>
 					<exclude>package.json</exclude>
@@ -48,6 +51,7 @@
 				<directory>src/main/resources</directory>
 				<includes>
 					<include>project.properties</include>
+					<include>SECURITY.md</include>
 					<include>lrgrwrks.txt</include>
 					<include>pack-dist.xml</include>
 					<include>package.json</include>
@@ -69,6 +73,15 @@
 					<include>build.sample.properties</include>
 				</includes>
 				<targetPath>resources</targetPath>
+				<filtering>false</filtering>
+			</resource>
+			<resource>
+				<directory>../src/main/repo-doc</directory>
+				<includes>
+					<include>VERSIONING.md</include>
+					<include>CONTRIBUTING.md</include>
+				</includes>
+				<targetPath>unfiltered-resources</targetPath>
 				<filtering>false</filtering>
 			</resource>
 			<resource>
@@ -104,7 +117,8 @@
 							</goals>
 							<configuration>
 								<target>
-									<move file="${project.build.outputDirectory}/resources/.gitignore" tofile="${project.build.outputDirectory}/resources/default.gitignore" />
+									<move file="${project.build.outputDirectory}/resources/.gitignore"
+										  tofile="${project.build.outputDirectory}/resources/default.gitignore" />
 								</target>
 							</configuration>
 						</execution>

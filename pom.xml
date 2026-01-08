@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" child.project.url.inherit.append.path="false">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+		 child.project.url.inherit.append.path="false">
 	<modelVersion>4.0.0</modelVersion>
 
 	<!-- project identifier -->
@@ -128,11 +131,14 @@
 		<plugin.site.version>3.21.0</plugin.site.version>
 		<plugin.project-info-reports.version>3.9.0</plugin.project-info-reports.version>
 		<plugin.release.version>3.3.1</plugin.release.version>
+		<plugin.slsa-hash.version>0.0.1</plugin.slsa-hash.version>
 		<plugin.scm.version>2.2.1</plugin.scm.version>
-		<plugin.central-publish.version>0.9.0</plugin.central-publish.version>
+		<plugin.central-publish.version>0.10.0</plugin.central-publish.version>
 	</properties>
 
-	<scm child.scm.url.inherit.append.path="false" child.scm.connection.inherit.append.path="false" child.scm.developerConnection.inherit.append.path="false">
+	<scm child.scm.url.inherit.append.path="false"
+		 child.scm.connection.inherit.append.path="false"
+		 child.scm.developerConnection.inherit.append.path="false">
 		<url>https://github.com/${project.organization.id}/${project.module-root.artifactId}</url>
 		<connection>scm:git:${project.scm.url}.git</connection>
 		<developerConnection>${project.scm.connection}</developerConnection>
@@ -671,16 +677,21 @@
 							</goals>
 							<configuration>
 								<target>
-									<taskdef resource="net/sf/antcontrib/antcontrib.properties" classpathref="maven.runtime.classpath" />
+									<taskdef resource="net/sf/antcontrib/antcontrib.properties"
+											 classpathref="maven.runtime.classpath" />
 									<if>
 										<available file="${third-party-properties.target.fullPath}" />
 										<then>
-											<echo message="third-party.properties exists." level="info" />
-											<property name="third-party-properties.target.missing" value="false" />
+											<echo message="third-party.properties exists."
+												  level="info" />
+											<property name="third-party-properties.target.missing"
+													  value="false" />
 										</then>
 										<else>
-											<echo message="third-party.properties missing." level="info" />
-											<property name="third-party-properties.target.missing" value="true" />
+											<echo message="third-party.properties missing."
+												  level="info" />
+											<property name="third-party-properties.target.missing"
+													  value="true" />
 										</else>
 									</if>
 								</target>
@@ -704,6 +715,11 @@
 						<preparationProfiles>stage-release-changes</preparationProfiles>
 						<arguments>-DfullBuild -Ddistribution -Dexecutable</arguments>
 					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>io.github.adamkorcz</groupId>
+					<artifactId>slsa-hashing-plugin</artifactId>
+					<version>${plugin.slsa-hash.version}</version>
 				</plugin>
 				<plugin>
 					<artifactId>maven-scm-plugin</artifactId>
@@ -764,7 +780,7 @@
 				<artifactId>maven-resources-plugin</artifactId>
 				<executions>
 					<execution>
-						<id>copy-root-doc-files</id>
+						<id>copy-repo-doc-files</id>
 						<phase>process-resources</phase>
 						<goals>
 							<goal>copy-resources</goal>
@@ -773,9 +789,10 @@
 							<outputDirectory>${project.module-root.basedir}</outputDirectory>
 							<resources>
 								<resource>
-									<directory>${project.module-root.basedir}/src/main/resources</directory>
+									<directory>${project.module-root.basedir}/src/repo-doc/resources</directory>
 									<includes>
 										<include>README.md</include>
+										<include>SECURITY.md</include>
 										<include>VERSIONING.md</include>
 										<include>CONTRIBUTING.md</include>
 									</includes>
@@ -1263,7 +1280,9 @@
 								</goals>
 								<configuration>
 									<target>
-										<checksum todir="${project.build.directory}" algorithm="SHA-512" fileext=".sha512">
+										<checksum todir="${project.build.directory}"
+												  algorithm="SHA-512"
+												  fileext=".sha512">
 											<fileset dir="${project.build.directory}">
 												<include name="*" />
 												<exclude name="**/*.asc" />
@@ -1273,7 +1292,9 @@
 												<exclude name="**/*.sha512" />
 											</fileset>
 										</checksum>
-										<checksum todir="${project.build.directory}" algorithm="SHA-256" fileext=".sha256">
+										<checksum todir="${project.build.directory}"
+												  algorithm="SHA-256"
+												  fileext=".sha256">
 											<fileset dir="${project.build.directory}">
 												<include name="*" />
 												<exclude name="**/*.asc" />
@@ -1285,6 +1306,29 @@
 										</checksum>
 									</target>
 								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile>
+			<id>generate-provenance</id>
+			<activation>
+				<property>
+					<name>fullBuild</name>
+				</property>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>io.github.adamkorcz</groupId>
+						<artifactId>slsa-hashing-plugin</artifactId>
+						<executions>
+							<execution>
+								<goals>
+									<goal>hash-jarfile</goal>
+								</goals>
 							</execution>
 						</executions>
 					</plugin>
@@ -1394,7 +1438,7 @@
 									<goal>add</goal>
 								</goals>
 								<configuration>
-									<includes>pom.xml,.gitignore,LICENSE,README.md,VERSIONING.md,CONTRIBUTING.md</includes>
+									<includes>pom.xml,.gitignore,LICENSE,README.md,SECURITY.md,VERSIONING.md,CONTRIBUTING.md</includes>
 									<pushChanges>false</pushChanges>
 								</configuration>
 							</execution>
@@ -1431,7 +1475,8 @@
 									<target>
 										<mkdir dir="${copy-artifact.dir}" />
 										<copy todir="${copy-artifact.dir}">
-											<fileset dir="${project.build.directory}" includes="${project.build.artifact.fileName}" />
+											<fileset dir="${project.build.directory}"
+													 includes="${project.build.artifact.fileName}" />
 										</copy>
 									</target>
 								</configuration>
