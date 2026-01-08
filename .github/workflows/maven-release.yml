@@ -20,6 +20,7 @@ jobs:
             contents:      write
             packages:      write
             pull-requests: write
+            id-token:      write
 
         # Steps represent a sequence of tasks that will be executed as part of the job
         steps:
@@ -148,6 +149,9 @@ jobs:
 
                                      echo "::endgroup::"
                                    done
+            -   id:   generate_provenance
+                name: Generate build provenance
+                uses: slsa-framework/slsa-github-generator/.github/workflows/builder_maven_slsa3.yml@f7dd8c54c2067bafc12ca7a55595d5ee9b75204a # v2.1.0
 
             -   id:    derive_branches
                 name:  Derive version and branches
