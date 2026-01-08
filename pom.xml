@@ -792,6 +792,7 @@
 									<directory>${project.module-root.basedir}/src/main/resources</directory>
 									<includes>
 										<include>README.md</include>
+										<include>SECURITY.md</include>
 										<include>VERSIONING.md</include>
 										<include>CONTRIBUTING.md</include>
 									</includes>
@@ -1437,7 +1438,7 @@
 									<goal>add</goal>
 								</goals>
 								<configuration>
-									<includes>pom.xml,.gitignore,LICENSE,README.md,VERSIONING.md,CONTRIBUTING.md</includes>
+									<includes>pom.xml,.gitignore,LICENSE,README.md,SECURITY.md,VERSIONING.md,CONTRIBUTING.md</includes>
 									<pushChanges>false</pushChanges>
 								</configuration>
 							</execution>
