@@ -215,4 +215,6 @@ jobs:
     generate_provenance:
         uses: slsa-framework/slsa-github-generator/.github/workflows/builder_maven_slsa3.yml@f7dd8c54c2067bafc12ca7a55595d5ee9b75204a # v2.1.0
         permissions:
+            contents: read
+            actions:  read
             id-token: write
