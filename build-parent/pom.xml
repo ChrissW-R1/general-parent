@@ -51,7 +51,7 @@
 						<dependency>
 							<groupId>me.chrissw-r1</groupId>
 							<artifactId>general-resources</artifactId>
-							<version>3.0.37-SNAPSHOT</version>
+							<version>3.0.37</version>
 						</dependency>
 					</dependencies>
 				</plugin>
