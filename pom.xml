@@ -122,7 +122,7 @@
 		<plugin.resources.version>3.4.0</plugin.resources.version>
 		<plugin.antrun.version>3.2.0</plugin.antrun.version>
 		<plugin.compiler.version>3.14.1</plugin.compiler.version>
-		<plugin.dependency-check.version>12.1.9</plugin.dependency-check.version>
+		<plugin.dependency-check.version>12.2.0</plugin.dependency-check.version>
 		<plugin.cyclonedx.version>2.9.1</plugin.cyclonedx.version>
 		<plugin.deploy-pom.version>1.2.5</plugin.deploy-pom.version>
 		<plugin.jar.version>3.5.0</plugin.jar.version>
