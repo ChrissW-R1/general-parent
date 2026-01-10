@@ -4,7 +4,7 @@
 > GitHub Actions.
 > The next stable release will be version `3.1.x`.
 
-# General Parent
+# ${project.module-root.name}
 
 This project only contains the default properties and settings, which should be
 used in all projects of ChrissW-R1.
@@ -15,6 +15,7 @@ used in all projects of ChrissW-R1.
 |------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Build (CI)             | [![Maven Build](https://github.com/${project.organization.id}/${project.module-root.artifactId}/actions/workflows/maven-build.yml/badge.svg)](https://github.com/${project.organization.id}/${project.module-root.artifactId}/actions/workflows/maven-build.yml) |
 | Artifacts              | [![Maven Central](https://img.shields.io/maven-central/v/${project.groupId}/${project.module-root.artifactId})](https://central.sonatype.com/artifact/${project.groupId}/${project.module-root.artifactId})                                                      |
+| GitHub Release         | [![GitHub Release](https://img.shields.io/github/v/release/${project.organization.id}/${project.module-root.artifactId})](https://github.com/${project.organization.id}/${project.module-root.artifactId}/releases)                                              |
 | JavaDoc                | [![JavaDoc](https://javadoc.io/badge/${project.groupId}/${project.module-root.artifactId}.svg)](https://javadoc.io/doc/${project.groupId}/${project.module-root.artifactId})                                                                                     |
 | OpenSSF Scorecard      | [![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/${project.organization.id}/${project.module-root.artifactId}/badge)](https://scorecard.dev/viewer/?uri=github.com/${project.organization.id}/${project.module-root.artifactId})              |
 | OpenSSF Best Practices | [![OpenSSF Best Practices](https://bestpractices.dev/projects/${openssf.project.id}/badge)](https://bestpractices.dev/projects/${openssf.project.id})                                                                                                            |
