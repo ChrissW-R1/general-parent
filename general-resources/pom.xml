@@ -71,6 +71,7 @@
 				<includes>
 					<include>.gitignore</include>
 					<include>build.sample.properties</include>
+					<include>CODE_OF_CONDUCT.md</include>
 				</includes>
 				<targetPath>resources</targetPath>
 				<filtering>false</filtering>
