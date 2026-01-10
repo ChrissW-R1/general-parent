@@ -5,13 +5,9 @@
 The following table shows which versions of this project are provided with
 security updates:
 
-> ToDo: Change this list to right project versions!
-
-| Version | Status   |
-|---------|----------|
-| 2.0.x   | ✅ Active |
-| 1.5.x   | ✅ EOL    |
-| < 1.5   | ❌ EOS    |
+| Version            | Status   |
+|--------------------|----------|
+| ${project.version} | ✅ Active |
 
 - Active: are actively under development and will receive any updates
 - EOL: End of Life, will only receive bug and security fixes
