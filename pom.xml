@@ -789,7 +789,7 @@
 							<outputDirectory>${project.module-root.basedir}</outputDirectory>
 							<resources>
 								<resource>
-									<directory>${project.module-root.basedir}/src/repo-doc/resources</directory>
+									<directory>${project.module-root.basedir}/src/main/repo-doc</directory>
 									<includes>
 										<include>README.md</include>
 										<include>SECURITY.md</include>

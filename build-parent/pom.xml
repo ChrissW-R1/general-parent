@@ -109,7 +109,7 @@
 											<version>${general-parent.version}</version>
 											<type>jar</type>
 											<overWrite>false</overWrite>
-											<outputDirectory>${project.module-root.basedir}/src/repo-doc/resources</outputDirectory>
+											<outputDirectory>${project.module-root.basedir}/src/main/repo-doc</outputDirectory>
 											<includes>unfiltered-resources/SECURITY.md,unfiltered-resources/VERSIONING.md,unfiltered-resources/CONTRIBUTING.md</includes>
 											<fileMappers>
 												<fileMapper implementation="org.codehaus.plexus.components.io.filemappers.FlattenFileMapper" />
