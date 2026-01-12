@@ -17,9 +17,13 @@ jobs:
         runs-on: ubuntu-latest
         # Allows to push, create PRs and upload to Maven repository with the GITHUB_TOKEN
         permissions:
+            actions:       read
             contents:      write
             packages:      write
             pull-requests: write
+            id-token:      write
+        env:
+            RELEASE_ARTIFACTS_DIR: release-artifacts
 
         # Steps represent a sequence of tasks that will be executed as part of the job
         steps:
@@ -108,6 +112,8 @@ jobs:
                                    SETTINGS_FILE="../../ci_settings.xml"
                                    SIGNATURE_EXTENSION="asc"
 
+                                   mkdir -p "${RELEASE_ARTIFACTS_DIR}"
+
                                    echo "::group::Prepare modules list"
                                    ROOT_BUILD_DIR=$(mvn -B initialize help:evaluate -e -s $SETTINGS_FILE -Dexpression="project.build.directory" -Ddistribution -q -DforceStdout)
                                    MODULES_LIST_FILENAME="modules-list.txt"
@@ -141,9 +147,11 @@ jobs:
 
                                      ARTIFACT_PATH=${BUILD_DIR}/${FILENAME}
                                      SIGNATURE_PATH=${ARTIFACT_PATH}.${SIGNATURE_EXTENSION}
-                                     echo "Uploading: $ARTIFACT_PATH"
+                                     echo "Uploading artifact: $ARTIFACT_PATH"
+                                     cp "$ARTIFACT_PATH" "${RELEASE_ARTIFACTS_DIR}/"
                                      gh release upload "$TAG" "$ARTIFACT_PATH" --clobber || echo "Upload of $ARTIFACT_PATH failed!"
                                      echo "Uploading signature: $SIGNATURE_PATH"
+                                     cp "$SIGNATURE_PATH" "${RELEASE_ARTIFACTS_DIR}/"
                                      gh release upload "$TAG" "$SIGNATURE_PATH" --clobber || echo "Upload of $SIGNATURE_PATH failed!"
 
                                      echo "::endgroup::"
@@ -212,9 +220,8 @@ jobs:
                                      echo "::error::No fast-forward possible (diverged or unrelated histories)."
                                      exit 1
                                    fi
-    generate_provenance:
-        uses: slsa-framework/slsa-github-generator/.github/workflows/builder_maven_slsa3.yml@f7dd8c54c2067bafc12ca7a55595d5ee9b75204a # v2.1.0
-        permissions:
-            contents: read
-            actions:  read
-            id-token: write
+            -   id:   generate_provenance
+                name: Attest build provenance
+                uses: actions/attest-build-provenance@00014ed6ed5efc5b1ab7f7f34a39eb55d41aa4f8 # v3.1.0
+                with:
+                    subject-path: ${{ env.RELEASE_ARTIFACTS_DIR }}/**
