@@ -96,6 +96,7 @@
 											<artifactId>general-resources</artifactId>
 											<version>${general-parent.version}</version>
 											<type>jar</type>
+											<overWrite>true</overWrite>
 											<outputDirectory>${project.module-root.basedir}</outputDirectory>
 											<includes>resources/default.gitignore,resources/.editorconfig</includes>
 											<fileMappers>
@@ -107,7 +108,7 @@
 											<artifactId>general-resources</artifactId>
 											<version>${general-parent.version}</version>
 											<type>jar</type>
-											<overWriteIfNewer>false</overWriteIfNewer>
+											<overWrite>false</overWrite>
 											<outputDirectory>${project.module-root.basedir}/src/main/repo-doc</outputDirectory>
 											<includes>unfiltered-resources/SECURITY.md,unfiltered-resources/VERSIONING.md,unfiltered-resources/CONTRIBUTING.md</includes>
 											<fileMappers>
@@ -119,7 +120,7 @@
 											<artifactId>general-resources</artifactId>
 											<version>${general-parent.version}</version>
 											<type>jar</type>
-											<overWriteIfNewer>false</overWriteIfNewer>
+											<overWrite>false</overWrite>
 											<outputDirectory>${project.module-root.basedir}</outputDirectory>
 											<includes>unfiltered-resources/CODE_OF_CONDUCT.md</includes>
 											<fileMappers>
@@ -131,7 +132,7 @@
 											<artifactId>general-resources</artifactId>
 											<version>${general-parent.version}</version>
 											<type>jar</type>
-											<overWriteIfNewer>false</overWriteIfNewer>
+											<overWrite>false</overWrite>
 											<outputDirectory>${project.module-root.basedir}/.github/workflows</outputDirectory>
 											<includes>unfiltered-resources/scorecard.yml,unfiltered-resources/codeql.yml</includes>
 											<fileMappers>
@@ -282,6 +283,7 @@
 											<artifactId>general-resources</artifactId>
 											<version>${general-parent.version}</version>
 											<type>jar</type>
+											<overWrite>true</overWrite>
 											<outputDirectory>${project.basedir}/src/assembly</outputDirectory>
 											<includes>unfiltered-resources/pack-dist.xml</includes>
 											<fileMappers>
