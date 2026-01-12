@@ -132,7 +132,6 @@
 									<artifactId>general-resources</artifactId>
 									<version>${general-parent.version}</version>
 									<type>jar</type>
-									<overWrite>true</overWrite>
 									<outputDirectory>${project.basedir}</outputDirectory>
 									<includes>resources/eslint.config.js</includes>
 									<fileMappers>
