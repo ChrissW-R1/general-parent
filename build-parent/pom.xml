@@ -103,7 +103,7 @@
 												<fileMapper implementation="org.codehaus.plexus.components.io.filemappers.FlattenFileMapper" />
 											</fileMappers>
 										</artifactItem>
-										<artifactItem>
+										<!--artifactItem>
 											<groupId>me.chrissw-r1</groupId>
 											<artifactId>general-resources</artifactId>
 											<version>${general-parent.version}</version>
@@ -114,7 +114,7 @@
 											<fileMappers>
 												<fileMapper implementation="org.codehaus.plexus.components.io.filemappers.FlattenFileMapper" />
 											</fileMappers>
-										</artifactItem>
+										</artifactItem-->
 										<artifactItem>
 											<groupId>me.chrissw-r1</groupId>
 											<artifactId>general-resources</artifactId>
