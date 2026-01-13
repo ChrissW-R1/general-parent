@@ -103,6 +103,7 @@
 												<fileMapper implementation="org.codehaus.plexus.components.io.filemappers.FlattenFileMapper" />
 											</fileMappers>
 										</artifactItem>
+										<!-- ToDo: Use another way to initially unpack the basic files -->
 										<!--artifactItem>
 											<groupId>me.chrissw-r1</groupId>
 											<artifactId>general-resources</artifactId>
@@ -114,7 +115,7 @@
 											<fileMappers>
 												<fileMapper implementation="org.codehaus.plexus.components.io.filemappers.FlattenFileMapper" />
 											</fileMappers>
-										</artifactItem-->
+										</artifactItem>
 										<artifactItem>
 											<groupId>me.chrissw-r1</groupId>
 											<artifactId>general-resources</artifactId>
@@ -138,7 +139,7 @@
 											<fileMappers>
 												<fileMapper implementation="org.codehaus.plexus.components.io.filemappers.FlattenFileMapper" />
 											</fileMappers>
-										</artifactItem>
+										</artifactItem-->
 									</artifactItems>
 								</configuration>
 							</execution>
