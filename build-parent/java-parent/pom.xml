@@ -52,7 +52,7 @@
 		<plugin.javadoc.version>3.12.0</plugin.javadoc.version>
 
 		<!-- JavaDoc URLs -->
-		<jcip-annotations.javadoc.url>https://javadoc.io/doc/com.google.code.findbugs/annotations/latest</jcip-annotations.javadoc.url>
+		<jcip-annotations.javadoc.url>https://jcip.net/annotations/doc</jcip-annotations.javadoc.url>
 		<spotbugs.javadoc.url>https://javadoc.io/doc/com.github.spotbugs/spotbugs-annotations/${spotbugs.version}</spotbugs.javadoc.url>
 		<lombok.javadoc.url>https://projectlombok.org/api</lombok.javadoc.url>
 		<proguard.annotations.javadoc.url>https://javadoc.io/doc/com.guardsquare/proguard-annotations/${proguard.annotations.version}</proguard.annotations.javadoc.url>
