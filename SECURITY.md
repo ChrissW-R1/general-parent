@@ -21,7 +21,7 @@ security updates:
 
 For reference and internal tracking purposes, the following proposed CPE may be
 used until an official assignment is made:
-`cpe:2.3:a:ChrissW-R1:general-parent:3.0.38:*:*:*:*:*:*:*`
+`cpe:2.3:a:ChrissW-R1:general-parent:3.0.39:*:*:*:*:*:*:*`
 This identifier is not authoritative and has not been registered with the
 National Vulnerability Database (NVD). It is provided solely as a stable
 reference to support vulnerability discussions, SBOM metadata, and coordination
