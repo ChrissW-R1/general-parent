@@ -58,7 +58,7 @@
 		<proguard.annotations.javadoc.url>https://javadoc.io/doc/com.guardsquare/proguard-annotations/${proguard.annotations.version}</proguard.annotations.javadoc.url>
 		<jetbrains-annotations.javadoc.url>https://javadoc.io/doc/org.jetbrains/annotations/${jetbrains-annotations.version}</jetbrains-annotations.javadoc.url>
 		<slf4j.javadoc.url>https://slf4j.org/apidocs</slf4j.javadoc.url>
-		<junit.platform.javadoc.url>https://junit.org/junit5/docs/${junit.jupiter.version}/api</junit.platform.javadoc.url>
+		<junit.platform.javadoc.url>https://docs.junit.org/${junit.jupiter.version}/api</junit.platform.javadoc.url>
 		<mockito.javadoc.url>https://javadoc.io/doc/org.mockito/mockito-core/${mockito.version}</mockito.javadoc.url>
 	</properties>
 
