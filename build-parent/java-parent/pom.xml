@@ -270,7 +270,10 @@
 							<!-- control options -->
 							<option>-allowaccessmodification</option>
 							<option>-keepattributes Signature</option>
+							<option>-keepattributes Exceptions</option>
 							<option>-keepattributes RuntimeVisibleAnnotations</option>
+							<option>-keepattributes RuntimeVisibleParameterAnnotations</option>
+							<option>-keepattributes RuntimeVisibleTypeAnnotations</option>
 
 							<!-- keep Java language specific objects -->
 							<option>-keepclassmembers class * implements java.io.Serializable { static final long serialVersionUID; }</option>
