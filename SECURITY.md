@@ -5,13 +5,11 @@
 The following table shows which versions of this project are provided with
 security updates:
 
-> ToDo: Change this list to right project versions!
-
 | Version | Status   |
 |---------|----------|
-| 2.0.x   | ✅ Active |
-| 1.5.x   | ✅ EOL    |
-| < 1.5   | ❌ EOS    |
+| 3.0.x   | ✅ Active |
+| 2.4.x   | ✅ EOL    |
+| < 2.4   | ❌ EOS    |
 
 - Active: are actively under development and will receive any updates
 - EOL: End of Life, will only receive bug and security fixes
@@ -23,7 +21,7 @@ security updates:
 
 For reference and internal tracking purposes, the following proposed CPE may be
 used until an official assignment is made:
-`cpe:2.3:a:ChrissW-R1:general-parent:3.0.37:*:*:*:*:*:*:*`
+`cpe:2.3:a:ChrissW-R1:general-parent:3.0.38:*:*:*:*:*:*:*`
 This identifier is not authoritative and has not been registered with the
 National Vulnerability Database (NVD). It is provided solely as a stable
 reference to support vulnerability discussions, SBOM metadata, and coordination
