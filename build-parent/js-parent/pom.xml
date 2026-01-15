@@ -25,16 +25,16 @@
 		<project.module-root.relativedir>${project.parent.relativedir}../</project.module-root.relativedir>
 
 		<!-- dependency versions -->
-		<nodejs.version>25.2.1</nodejs.version>
+		<nodejs.version>25.3.0</nodejs.version>
 		<yarn.version>1.22.22</yarn.version>
 		<yarn-berry.version>4.12.0</yarn-berry.version>
 		<core-js.version>3.47.0</core-js.version>
 		<rxjs.version>7.8.2</rxjs.version>
 		<zonejs.version>0.16.0</zonejs.version>
 		<angular.version.major>21</angular.version.major>
-		<angular.version.base>${angular.version.major}.0</angular.version.base>
-		<angular.version>${angular.version.base}.6</angular.version>
-		<angular.cli.version>${angular.version.base}.4</angular.cli.version>
+		<angular.version.base>${angular.version.major}.1</angular.version.base>
+		<angular.version>${angular.version.base}.0</angular.version>
+		<angular.cli.version>${angular.version}</angular.cli.version>
 		<cordova-assets.version>2.0.7</cordova-assets.version>
 		<npm-typescript.version>5.9.3</npm-typescript.version>
 		<ts-node.version>10.9.2</ts-node.version>
@@ -48,15 +48,15 @@
 		<grunt-webpack.version>7.0.1</grunt-webpack.version>
 		<webpack.version>5.104.1</webpack.version>
 		<webpack-cli.version>6.0.1</webpack-cli.version>
-		<webpack-server.version>5.2.2</webpack-server.version>
+		<webpack-server.version>5.2.3</webpack-server.version>
 		<eslint.version>9.39.2</eslint.version>
-		<angular.eslint.version>${angular.version.major}.1.0</angular.eslint.version>
+		<angular.eslint.version>${angular.version}</angular.eslint.version>
 		<eslint.config-prettier.version>10.1.8</eslint.config-prettier.version>
 		<eslint.import.version>2.32.0</eslint.import.version>
-		<eslint.jsdoc.version>61.5.0</eslint.jsdoc.version>
+		<eslint.jsdoc.version>62.0.0</eslint.jsdoc.version>
 		<eslint.prefer-arrow.version>1.2.3</eslint.prefer-arrow.version>
-		<eslint.compat.version>2.0.0</eslint.compat.version>
-		<typescript.eslint.version>8.51.0</typescript.eslint.version>
+		<eslint.compat.version>2.0.1</eslint.compat.version>
+		<typescript.eslint.version>8.53.0</typescript.eslint.version>
 		<tslint-to-eslint.version>2.16.0</tslint-to-eslint.version>
 		<codelyzer.version>6.0.2</codelyzer.version>
 		<eslint.codelyzer.version>0.0.1-alpha.12</eslint.codelyzer.version>
