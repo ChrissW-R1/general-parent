@@ -1,5 +1,5 @@
 /**
- * this module tests the java-parent project with sample source code
+ * this module tests the {@code java-parent} project with sample source code
  *
  * @version 3.0.15
  * @since 3.0.15
