@@ -7,7 +7,7 @@
 	<parent>
 		<groupId>me.chrissw-r1</groupId>
 		<artifactId>build-parent</artifactId>
-		<version>3.0.39-SNAPSHOT</version>
+		<version>3.0.40-SNAPSHOT</version>
 	</parent>
 
 	<!-- project identifier -->
@@ -52,13 +52,13 @@
 		<plugin.javadoc.version>3.12.0</plugin.javadoc.version>
 
 		<!-- JavaDoc URLs -->
-		<jcip-annotations.javadoc.url>https://javadoc.io/doc/com.google.code.findbugs/annotations/latest</jcip-annotations.javadoc.url>
+		<jcip-annotations.javadoc.url>https://jcip.net/annotations/doc</jcip-annotations.javadoc.url>
 		<spotbugs.javadoc.url>https://javadoc.io/doc/com.github.spotbugs/spotbugs-annotations/${spotbugs.version}</spotbugs.javadoc.url>
 		<lombok.javadoc.url>https://projectlombok.org/api</lombok.javadoc.url>
 		<proguard.annotations.javadoc.url>https://javadoc.io/doc/com.guardsquare/proguard-annotations/${proguard.annotations.version}</proguard.annotations.javadoc.url>
 		<jetbrains-annotations.javadoc.url>https://javadoc.io/doc/org.jetbrains/annotations/${jetbrains-annotations.version}</jetbrains-annotations.javadoc.url>
 		<slf4j.javadoc.url>https://slf4j.org/apidocs</slf4j.javadoc.url>
-		<junit.platform.javadoc.url>https://junit.org/junit5/docs/${junit.jupiter.version}/api</junit.platform.javadoc.url>
+		<junit.platform.javadoc.url>https://docs.junit.org/${junit.jupiter.version}/api</junit.platform.javadoc.url>
 		<mockito.javadoc.url>https://javadoc.io/doc/org.mockito/mockito-core/${mockito.version}</mockito.javadoc.url>
 	</properties>
 
