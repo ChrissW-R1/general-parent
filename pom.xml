@@ -107,7 +107,7 @@
 
 		<!-- plugin versions -->
 		<plugin.takari-lifecycle.version>2.3.2</plugin.takari-lifecycle.version>
-		<plugin.gmavenplus.version>4.2.1</plugin.gmavenplus.version>
+		<plugin.gmavenplus.version>4.3.0</plugin.gmavenplus.version>
 		<plugin.multi-module.version>1.2.2</plugin.multi-module.version>
 		<plugin.dependency.version>3.9.0</plugin.dependency.version>
 		<plugin.versions.version>2.21.0</plugin.versions.version>
