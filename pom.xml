@@ -110,11 +110,11 @@
 		<plugin.gmavenplus.version>4.2.1</plugin.gmavenplus.version>
 		<plugin.multi-module.version>1.2.2</plugin.multi-module.version>
 		<plugin.dependency.version>3.9.0</plugin.dependency.version>
-		<plugin.versions.version>2.20.1</plugin.versions.version>
+		<plugin.versions.version>2.21.0</plugin.versions.version>
 		<plugin.clean.version>3.5.0</plugin.clean.version>
 		<plugin.help.version>3.5.1</plugin.help.version>
 		<plugin.replacer.version>1.5.3</plugin.replacer.version>
-		<plugin.properties.version>1.2.1</plugin.properties.version>
+		<plugin.properties.version>1.3.0</plugin.properties.version>
 		<plugin.buildhelper.version>3.6.1</plugin.buildhelper.version>
 		<plugin.buildplan.version>2.2.2</plugin.buildplan.version>
 		<plugin.license.version>2.7.1</plugin.license.version>
