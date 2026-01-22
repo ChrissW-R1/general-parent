@@ -103,7 +103,7 @@
 		<semver.version>2.0.0</semver.version>
 		<ant-contrib.version>1.0b3</ant-contrib.version>
 		<wagon.version>3.5.3</wagon.version>
-		<groovy.version>5.0.3</groovy.version>
+		<groovy.version>5.0.4</groovy.version>
 
 		<!-- plugin versions -->
 		<plugin.takari-lifecycle.version>2.3.2</plugin.takari-lifecycle.version>
