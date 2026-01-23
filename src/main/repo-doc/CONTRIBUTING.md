@@ -215,6 +215,9 @@ if accepted, will typically require a major version bump.
   identifiers **MUST** be listed, separated by commas in the body and the main
   identifier **MUST** be used at the start of the description
 
+Example subject line of a commit message:
+`fix(api): #42: resolves null pointer exception in module XYZ`
+
 ### Your first code contribution
 
 ### Improving the documentation
