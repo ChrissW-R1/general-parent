@@ -43,6 +43,7 @@
 		<junit.jupiter.version>5.${junit.minor-version}</junit.jupiter.version>
 		<junit.platform.version>1.${junit.minor-version}</junit.platform.version>
 		<mockito.version>5.21.0</mockito.version>
+		<jazzer.version>0.29.1</jazzer.version>
 
 		<!-- plugin versions -->
 		<plugin.proguard.version>2.7.0</plugin.proguard.version>
@@ -60,6 +61,7 @@
 		<slf4j.javadoc.url>https://slf4j.org/apidocs</slf4j.javadoc.url>
 		<junit.platform.javadoc.url>https://docs.junit.org/${junit.jupiter.version}/api</junit.platform.javadoc.url>
 		<mockito.javadoc.url>https://javadoc.io/doc/org.mockito/mockito-core/${mockito.version}</mockito.javadoc.url>
+		<jazzer.javadoc.url>https://codeintelligencetesting.github.io/jazzer-docs/jazzer-junit</jazzer.javadoc.url>
 	</properties>
 
 	<dependencies>
@@ -127,6 +129,12 @@
 			<groupId>org.mockito</groupId>
 			<artifactId>mockito-core</artifactId>
 			<version>${mockito.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.code-intelligence</groupId>
+			<artifactId>jazzer-junit</artifactId>
+			<version>${jazzer.version}</version>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
@@ -388,6 +396,7 @@
 						<link>${slf4j.javadoc.url}</link>
 						<link>${junit.platform.javadoc.url}</link>
 						<link>${mockito.javadoc.url}</link>
+						<link>${jazzer.javadoc.url}</link>
 					</links>
 				</configuration>
 				<reportSets>
