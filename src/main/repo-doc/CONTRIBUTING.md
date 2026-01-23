@@ -196,22 +196,24 @@ if accepted, will typically require a major version bump.
 ### Commits and pull requests
 
 - Commit **MUST** be signed, except for automated commits by bots
-- Commit message rules:
-	- Commit messages **MUST** follow
-	  the [Conventional Commits](https://conventionalcommits.org) specification
-	- The commit message **MUST** be written in English
-	- The description of a commit message, which deals with bugfixes **MUST**
-	  start with `{ISSUE_ID}: `
-	- If the commit addresses a security issue with an OSV identifier, the
-	  description **MUST** begin with `{OSV_ID}: `
-	- In case of multiple issues being addressed, all issue identifiers and OSV
-	  identifiers **MUST** be listed, separated by commas in the body and the
-	  main identifier **MUST** be used at the start of the description
 - Issues and pull requests addressing security issues **MUST** carry the
   `security` label
 - Keep commits focused and logically structured
 - Avoid mixing refactoring, formatting, and functional changes
 - Pull requests should explain the motivation and impact of the change
+
+#### Commit message rules
+
+- Commit messages **MUST** follow
+  the [Conventional Commits](https://conventionalcommits.org) specification
+- The commit message **MUST** be written in English
+- The description of a commit message, which deals with bugfixes **MUST** start
+  with `{ISSUE_ID}: `
+- If the commit addresses a security issue with an OSV identifier, the
+  description **MUST** begin with `{OSV_ID}: `
+- In case of multiple issues being addressed, all issue identifiers and OSV
+  identifiers **MUST** be listed, separated by commas in the body and the main
+  identifier **MUST** be used at the start of the description
 
 ### Your first code contribution
 
