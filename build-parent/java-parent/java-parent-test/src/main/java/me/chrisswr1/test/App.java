@@ -44,7 +44,7 @@ public class App {
 		final @Nullable String caller
 	) {
 		App.log.trace("Given caller: '{}'", caller);
-		final @NotNull String nonNullCaller = "";
+		final @NotNull String nonNullCaller;
 		if (caller != null && !(caller.isEmpty())) {
 			App.log.trace("Caller is given as '{}'", caller);
 			nonNullCaller = caller;
