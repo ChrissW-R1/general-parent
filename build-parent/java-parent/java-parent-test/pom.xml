@@ -28,16 +28,6 @@
 		<mainClass.localPath>App</mainClass.localPath>
 	</properties>
 
-	<dependencyManagement>
-		<dependencies>
-			<!-- test dependencies -->
-			<dependency>
-				<groupId>org.slf4j</groupId>
-				<artifactId>slf4j-simple</artifactId>
-				<version>${slf4j.version}</version>
-			</dependency>
-		</dependencies>
-	</dependencyManagement>
 	<dependencies>
 		<!-- test dependencies -->
 		<dependency>
