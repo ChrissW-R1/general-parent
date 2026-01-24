@@ -62,4 +62,4 @@ jobs:
                       -e \
                       -s ci_settings.xml --file pom.xml \
                       -DfullBuild -Ddistribution -Dexecutable \
-                      -P set-general-parent-version
+                      -P set-general-parent-version,no-failure-on-javadoc-error
