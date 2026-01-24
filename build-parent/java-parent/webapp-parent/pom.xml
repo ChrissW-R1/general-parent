@@ -25,14 +25,14 @@
 		<project.module-root.relativedir>${project.parent.relativedir}../../</project.module-root.relativedir>
 
 		<!-- dependency versions -->
-		<servlet.version>6.1.0</servlet.version>
+		<jakarta-ee.version>11.0.0</jakarta-ee.version>
 		<jersey.version>4.0.1</jersey.version>
 
 		<!-- plugin versions -->
 		<plugin.war.version>3.5.1</plugin.war.version>
 
 		<!-- JavaDoc URLs -->
-		<servlet.javadoc.url>https://javadoc.io/doc/jakarta.servlet/jakarta.servlet-api/${servlet.version}</servlet.javadoc.url>
+		<jakarta-ee.javadoc.url>https://javadoc.io/doc/jakarta.platform/jakarta.jakartaee-api/${jakarta-ee.version}</jakarta-ee.javadoc.url>
 		<jersey.server.javadoc.url>https://javadoc.io/doc/org.glassfish.jersey.core/jersey-server/${jersey.version}</jersey.server.javadoc.url>
 		<jersey.container.javadoc.url>https://javadoc.io/doc/org.glassfish.jersey.containers/jersey-container-servlet/${jersey.version}</jersey.container.javadoc.url>
 		<jersey.hk2.javadoc.url>https://javadoc.io/doc/org.glassfish.jersey.inject/jersey-hk2/${jersey.version}</jersey.hk2.javadoc.url>
@@ -42,9 +42,11 @@
 		<dependencies>
 			<!-- provided dependencies -->
 			<dependency>
-				<groupId>jakarta.servlet</groupId>
-				<artifactId>jakarta.servlet-api</artifactId>
-				<version>${servlet.version}</version>
+				<groupId>jakarta.platform</groupId>
+				<artifactId>jakarta.jakartaee-bom</artifactId>
+				<version>${jakarta-ee.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
 			</dependency>
 
 			<!-- default dependencies -->
@@ -110,7 +112,7 @@
 					<artifactId>maven-javadoc-plugin</artifactId>
 					<configuration>
 						<links combine.children="append">
-							<link>${servlet.javadoc.url}</link>
+							<link>${jakarta-ee.javadoc.url}</link>
 							<link>${jersey.server.javadoc.url}</link>
 							<link>${jersey.container.javadoc.url}</link>
 							<link>${jersey.hk2.javadoc.url}</link>
@@ -127,7 +129,7 @@
 				<artifactId>maven-javadoc-plugin</artifactId>
 				<configuration>
 					<links combine.children="append">
-						<link>${servlet.javadoc.url}</link>
+						<link>${jakarta-ee.javadoc.url}</link>
 						<link>${jersey.server.javadoc.url}</link>
 						<link>${jersey.container.javadoc.url}</link>
 						<link>${jersey.hk2.javadoc.url}</link>
