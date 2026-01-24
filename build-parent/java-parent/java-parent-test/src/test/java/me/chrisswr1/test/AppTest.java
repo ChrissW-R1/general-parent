@@ -2,6 +2,7 @@ package me.chrisswr1.test;
 
 import com.code_intelligence.jazzer.junit.FuzzTest;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -30,7 +31,7 @@ public class AppTest {
 	 */
 	@Test
 	public void testHelloWithName() {
-		assertEquals("Hello, Alice!", App.hello("Alice"));
+		assertEquals("Hello Alice!", App.hello("Alice"));
 	}
 
 	/**
@@ -40,7 +41,7 @@ public class AppTest {
 	 */
 	@Test
 	public void testHelloWithNullCaller() {
-		assertEquals("Hello, World!", App.hello(null));
+		assertEquals("Hello World!", App.hello(null));
 	}
 
 	/**
@@ -50,7 +51,7 @@ public class AppTest {
 	 */
 	@Test
 	public void testHelloWithEmptyCaller() {
-		assertEquals("Hello, World!", App.hello(""));
+		assertEquals("Hello World!", App.hello(""));
 	}
 
 	/**
@@ -61,7 +62,15 @@ public class AppTest {
 	 * @since 3.0.40
 	 */
 	@FuzzTest
-	public void fuzzHello(final @NotNull String caller) {
-		assertEquals("Hello, " + caller + "!", App.hello(caller));
+	public void fuzzHello(final @Nullable String caller) {
+		final @NotNull String nonEmptyCaller = (
+			caller == null ||
+			caller.isEmpty()
+		) ? "World" : caller;
+
+		assertEquals(
+			"Hello " + nonEmptyCaller + "!",
+			App.hello(caller)
+		);
 	}
 }
