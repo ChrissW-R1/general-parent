@@ -33,9 +33,7 @@
 
 		<!-- JavaDoc URLs -->
 		<jakarta-ee.javadoc.url>https://javadoc.io/doc/jakarta.platform/jakarta.jakartaee-api/${jakarta-ee.version}</jakarta-ee.javadoc.url>
-		<jersey.server.javadoc.url>https://javadoc.io/doc/org.glassfish.jersey.core/jersey-server/${jersey.version}</jersey.server.javadoc.url>
-		<jersey.container.javadoc.url>https://javadoc.io/doc/org.glassfish.jersey.containers/jersey-container-servlet/${jersey.version}</jersey.container.javadoc.url>
-		<jersey.hk2.javadoc.url>https://javadoc.io/doc/org.glassfish.jersey.inject/jersey-hk2/${jersey.version}</jersey.hk2.javadoc.url>
+		<jersey.javadoc.url>https://eclipse-ee4j.github.io/jersey.github.io/apidocs/latest4x/jersey</jersey.javadoc.url>
 	</properties>
 
 	<dependencyManagement>
@@ -105,9 +103,7 @@
 					<configuration>
 						<links combine.children="append">
 							<link>${jakarta-ee.javadoc.url}</link>
-							<link>${jersey.server.javadoc.url}</link>
-							<link>${jersey.container.javadoc.url}</link>
-							<link>${jersey.hk2.javadoc.url}</link>
+							<link>${jersey.javadoc.url}</link>
 						</links>
 					</configuration>
 				</plugin>
@@ -122,9 +118,7 @@
 				<configuration>
 					<links combine.children="append">
 						<link>${jakarta-ee.javadoc.url}</link>
-						<link>${jersey.server.javadoc.url}</link>
-						<link>${jersey.container.javadoc.url}</link>
-						<link>${jersey.hk2.javadoc.url}</link>
+						<link>${jersey.javadoc.url}</link>
 					</links>
 				</configuration>
 			</plugin>
