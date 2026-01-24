@@ -58,7 +58,7 @@ jobs:
                     mvnsiteuploader_password: ${{ secrets.MVNSITEUPLOADER_PASSWORD }}
                 run:  |
                       mvn -B \
-                      clean deploy site-deploy \
+                      clean deploy \
                       -e \
                       -s ci_settings.xml --file pom.xml \
                       -Ddistribution -Dexecutable \
