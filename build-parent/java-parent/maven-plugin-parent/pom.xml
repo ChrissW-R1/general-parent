@@ -24,6 +24,9 @@
 		<!-- technically-based properties -->
 		<project.module-root.relativedir>${project.parent.relativedir}../../</project.module-root.relativedir>
 
+		<!-- project-specific properties -->
+		<goalPrefix />
+
 		<!-- dependency versions -->
 		<maven.version>3.9.12</maven.version>
 
