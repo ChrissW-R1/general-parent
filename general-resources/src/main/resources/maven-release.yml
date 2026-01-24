@@ -23,7 +23,7 @@ jobs:
             pull-requests: write
             id-token:      write
         env:
-            RELEASE_ARTIFACTS_DIR: release-artifacts
+            RELEASE_ARTIFACTS_DIR: ${{ github.workspace }}/release-artifacts
 
         # Steps represent a sequence of tasks that will be executed as part of the job
         steps:
