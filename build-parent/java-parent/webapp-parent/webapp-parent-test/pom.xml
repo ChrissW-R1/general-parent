@@ -33,12 +33,20 @@
 		<java-parent.javadoc.offlinePath>${project.basedir}/../../java-parent-test/target/reports/apidocs</java-parent.javadoc.offlinePath>
 	</properties>
 
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>java-parent-test</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 	<dependencies>
 		<!-- default dependencies -->
 		<dependency>
 			<groupId>${project.groupId}</groupId>
 			<artifactId>java-parent-test</artifactId>
-			<version>${project.version}</version>
 		</dependency>
 	</dependencies>
 
