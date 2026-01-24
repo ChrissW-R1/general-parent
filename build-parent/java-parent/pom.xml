@@ -66,6 +66,7 @@
 
 	<dependencyManagement>
 		<dependencies>
+			<!-- build-only dependencies -->
 			<dependency>
 				<groupId>com.github.stephenc.jcip</groupId>
 				<artifactId>jcip-annotations</artifactId>
@@ -86,16 +87,22 @@
 				<artifactId>proguard-annotations</artifactId>
 				<version>${proguard.annotations.version}</version>
 			</dependency>
+
+			<!-- provided dependencies -->
 			<dependency>
 				<groupId>org.jetbrains</groupId>
 				<artifactId>annotations</artifactId>
 				<version>${jetbrains-annotations.version}</version>
 			</dependency>
+
+			<!-- default dependencies -->
 			<dependency>
 				<groupId>org.slf4j</groupId>
 				<artifactId>slf4j-api</artifactId>
 				<version>${slf4j.version}</version>
 			</dependency>
+
+			<!-- test dependencies -->
 			<dependency>
 				<groupId>org.junit.jupiter</groupId>
 				<artifactId>junit-jupiter-engine</artifactId>

@@ -35,6 +35,7 @@
 
 	<dependencyManagement>
 		<dependencies>
+			<!-- default dependencies -->
 			<dependency>
 				<groupId>${project.groupId}</groupId>
 				<artifactId>java-parent-test</artifactId>
