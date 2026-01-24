@@ -397,6 +397,7 @@
 							<link>${slf4j.javadoc.url}</link>
 							<link>${junit.platform.javadoc.url}</link>
 							<link>${mockito.javadoc.url}</link>
+							<link>${jazzer.javadoc.url}</link>
 						</links>
 					</configuration>
 				</plugin>
