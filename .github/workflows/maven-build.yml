@@ -61,5 +61,5 @@ jobs:
                       clean deploy site-deploy \
                       -e \
                       -s ci_settings.xml --file pom.xml \
-                      -DfullBuild -Ddistribution -Dexecutable \
-                      -P set-general-parent-version,no-failure-on-javadoc-error
+                      -Ddistribution -Dexecutable \
+                      -P set-general-parent-version
