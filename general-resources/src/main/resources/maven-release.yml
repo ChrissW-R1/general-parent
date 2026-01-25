@@ -22,6 +22,7 @@ jobs:
             packages:      write
             pull-requests: write
             id-token:      write
+            attestations:  write
         env:
             RELEASE_ARTIFACTS_DIR: ${{ github.workspace }}/release-artifacts
 
