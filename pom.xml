@@ -1345,9 +1345,13 @@
 						<artifactId>slsa-hashing-plugin</artifactId>
 						<executions>
 							<execution>
+								<phase>verify</phase>
 								<goals>
 									<goal>hash-jarfile</goal>
 								</goals>
+								<configuration>
+									<outputJsonPath>${project.build.directory}/${project.build.finalName}.hash.json</outputJsonPath>
+								</configuration>
 							</execution>
 						</executions>
 					</plugin>
