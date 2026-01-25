@@ -20,7 +20,7 @@ used in all projects of ChrissW-R1.
 | JavaDoc                | [![JavaDoc](https://javadoc.io/badge/me.chrissw-r1/general-parent.svg)](https://javadoc.io/doc/me.chrissw-r1/general-parent)                                                                                     |
 | OpenSSF Scorecard      | [![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/ChrissW-R1/general-parent/badge)](https://scorecard.dev/viewer/?uri=github.com/ChrissW-R1/general-parent)              |
 | OpenSSF Best Practices | [![OpenSSF Best Practices](https://bestpractices.dev/projects/11691/badge)](https://bestpractices.dev/projects/11691)                                                                                                            |
-| Commit Activity        | [![Commit Activity](https://img.shields.io/github/release-date/ChrissW-R1/general-parent)](https://github.com/ChrissW-R1/general-parent/commits/)                                          |
+| Commit Activity        | [![Commit Activity](https://img.shields.io/github/commit-activity/y/ChrissW-R1/general-parent)](https://github.com/ChrissW-R1/general-parent/commits/)                                     |
 
 ## Usage
 
@@ -33,7 +33,7 @@ At First, set the parent to the project type parent. Example as a Java Project:
 <parent>
 	<groupId>me.chrissw-r1</groupId>
 	<artifactId>java-parent</artifactId>
-	<version>3.0.39</version>
+	<version>3.0.40</version>
 </parent>
 ```
 
