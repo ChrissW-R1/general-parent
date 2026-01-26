@@ -221,8 +221,34 @@ jobs:
                                      echo "::error::No fast-forward possible (diverged or unrelated histories)."
                                      exit 1
                                    fi
-            -   id:   generate_provenance
-                name: Attest build provenance
+
+            -   id:   create_attestation
+                name: Attest build run
                 uses: actions/attest-build-provenance@00014ed6ed5efc5b1ab7f7f34a39eb55d41aa4f8 # v3.1.0
                 with:
                     subject-path: ${{ env.RELEASE_ARTIFACTS_DIR }}/**
+            -   id:   upload_provenance
+                name: Collect and upload provenance
+                env:
+                    GH_TOKEN:   ${{ secrets.GITHUB_TOKEN }}
+                    TAG:        ${{ steps.get_tag.outputs.tag_name }}
+                    REPO:       ${{ github.repository }}
+                    TARGET_DIR: ${{ github.workspace }}/provenance
+                run:  |
+                      set -euo pipefail
+
+                      mkdir -p "${TARGET_DIR}"
+
+                      while IFS= read -r -d '' file; do
+                        echo "Downloading attestation for artifact: $file"
+                        gh attestation download "$file" --repo "$REPO"
+                      done < <(find "${RELEASE_ARTIFACTS_DIR}" -type f -print0)
+
+                      find . -maxdepth 1 -type f -name 'sha256-*.jsonl' -print0 \
+                        | xargs -0 -I{} mv "{}" "${TARGET_DIR}/"
+
+                      REPO_NAME="${REPO##*/}"
+                      ASSET_NAME="${TARGET_DIR}/${REPO_NAME}-${TAG}.intoto.jsonl"
+                      cat "${TARGET_DIR}"/sha256-*.jsonl > "${ASSET_NAME}"
+
+                      gh release upload "${TAG}" "${ASSET_NAME}" --clobber
