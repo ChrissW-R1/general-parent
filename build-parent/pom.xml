@@ -3,9 +3,9 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<groupId>me.chrisswr1</groupId>
+		<groupId>me.chrissw-r1</groupId>
 		<artifactId>general-parent</artifactId>
-		<version>2.4.1-SNAPSHOT</version>
+		<version>3.0.46-SNAPSHOT</version>
 	</parent>
 
 	<!-- project identifier -->
@@ -21,9 +21,10 @@
 	<properties>
 		<!-- technically-based properties -->
 		<project.parent.relativedir>../</project.parent.relativedir>
+		<general-resources.skipUnpack>false</general-resources.skipUnpack>
 
 		<!-- plugin versions -->
-		<plugin.assembly.version>3.7.1</plugin.assembly.version>
+		<plugin.assembly.version>3.8.0</plugin.assembly.version>
 	</properties>
 
 	<build>
@@ -39,12 +40,6 @@
 				</includes>
 				<filtering>true</filtering>
 			</resource>
-			<resource>
-				<directory>${project.basedir}</directory>
-				<includes>
-					<include>README.md</include>
-				</includes>
-			</resource>
 		</resources>
 		<pluginManagement>
 			<plugins>
@@ -52,87 +47,15 @@
 					<artifactId>maven-dependency-plugin</artifactId>
 					<dependencies>
 						<dependency>
-							<groupId>me.chrisswr1</groupId>
+							<groupId>me.chrissw-r1</groupId>
 							<artifactId>general-resources</artifactId>
-							<version>2.4.1-SNAPSHOT</version>
+							<version>3.0.46-SNAPSHOT</version>
 						</dependency>
 					</dependencies>
-					<executions>
-						<execution>
-							<id>unpack-common-project-files</id>
-							<phase>initialize</phase>
-							<goals>
-								<goal>unpack</goal>
-							</goals>
-							<configuration>
-								<artifactItems>
-									<artifactItem>
-										<groupId>me.chrisswr1</groupId>
-										<artifactId>general-resources</artifactId>
-										<version>${general-parent.version}</version>
-										<type>jar</type>
-										<overWrite>true</overWrite>
-										<outputDirectory>${project.module-root.basedir}</outputDirectory>
-										<includes>resources/default.gitignore,resources/.editorconfig</includes>
-										<fileMappers>
-											<fileMapper implementation="org.codehaus.plexus.components.io.filemappers.FlattenFileMapper" />
-										</fileMappers>
-									</artifactItem>
-								</artifactItems>
-							</configuration>
-						</execution>
-						<execution>
-							<id>unpack-common-resources</id>
-							<phase>generate-resources</phase>
-							<goals>
-								<goal>unpack</goal>
-							</goals>
-							<configuration>
-								<artifactItems>
-									<artifactItem>
-										<groupId>me.chrisswr1</groupId>
-										<artifactId>general-resources</artifactId>
-										<version>${general-parent.version}</version>
-										<type>jar</type>
-										<outputDirectory>${project.build.directory}/generated-resources</outputDirectory>
-										<includes>unfiltered-resources/project.properties</includes>
-										<fileMappers>
-											<fileMapper implementation="org.codehaus.plexus.components.io.filemappers.FlattenFileMapper" />
-										</fileMappers>
-									</artifactItem>
-								</artifactItems>
-							</configuration>
-						</execution>
-					</executions>
 				</plugin>
 				<plugin>
-					<artifactId>maven-antrun-plugin</artifactId>
-					<executions>
-						<execution>
-							<id>move-gitignore</id>
-							<phase>process-resources</phase>
-							<goals>
-								<goal>run</goal>
-							</goals>
-							<configuration>
-								<target>
-									<move file="${project.module-root.basedir}/default.gitignore" tofile="${project.module-root.basedir}/.gitignore" />
-								</target>
-							</configuration>
-						</execution>
-						<execution>
-							<id>delete-gitignore</id>
-							<phase>package</phase>
-							<goals>
-								<goal>run</goal>
-							</goals>
-							<configuration>
-								<target>
-									<delete file="${project.module-root.basedir}/default.gitignore" />
-								</target>
-							</configuration>
-						</execution>
-					</executions>
+					<artifactId>maven-assembly-plugin</artifactId>
+					<version>${plugin.assembly.version}</version>
 				</plugin>
 			</plugins>
 		</pluginManagement>
@@ -141,11 +64,267 @@
 				<groupId>nl.praegus</groupId>
 				<artifactId>jetspeed-unpack-maven-plugin</artifactId>
 			</plugin-->
-			<plugin>
-				<artifactId>maven-dependency-plugin</artifactId>
-			</plugin>
 		</plugins>
 	</build>
+
+	<profiles>
+		<profile>
+			<id>unpack-common-resources</id>
+			<activation>
+				<property>
+					<name>fullBuild</name>
+				</property>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<artifactId>maven-dependency-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>unpack-common-project-files</id>
+								<phase>initialize</phase>
+								<goals>
+									<goal>unpack</goal>
+								</goals>
+								<configuration>
+									<skip>${general-resources.skipUnpack}</skip>
+									<artifactItems>
+										<artifactItem>
+											<groupId>me.chrissw-r1</groupId>
+											<artifactId>general-resources</artifactId>
+											<version>${general-parent.version}</version>
+											<type>jar</type>
+											<overWrite>true</overWrite>
+											<outputDirectory>${project.module-root.basedir}</outputDirectory>
+											<includes>resources/default.gitignore,resources/.editorconfig</includes>
+											<fileMappers>
+												<fileMapper implementation="org.codehaus.plexus.components.io.filemappers.FlattenFileMapper" />
+											</fileMappers>
+										</artifactItem>
+										<!-- ToDo: Use another way to initially unpack the basic files -->
+										<!--artifactItem>
+											<groupId>me.chrissw-r1</groupId>
+											<artifactId>general-resources</artifactId>
+											<version>${general-parent.version}</version>
+											<type>jar</type>
+											<overWrite>false</overWrite>
+											<outputDirectory>${project.module-root.basedir}/src/main/repo-doc</outputDirectory>
+											<includes>unfiltered-resources/SECURITY.md,unfiltered-resources/VERSIONING.md,unfiltered-resources/CONTRIBUTING.md</includes>
+											<fileMappers>
+												<fileMapper implementation="org.codehaus.plexus.components.io.filemappers.FlattenFileMapper" />
+											</fileMappers>
+										</artifactItem>
+										<artifactItem>
+											<groupId>me.chrissw-r1</groupId>
+											<artifactId>general-resources</artifactId>
+											<version>${general-parent.version}</version>
+											<type>jar</type>
+											<overWrite>false</overWrite>
+											<outputDirectory>${project.module-root.basedir}</outputDirectory>
+											<includes>unfiltered-resources/CODE_OF_CONDUCT.md</includes>
+											<fileMappers>
+												<fileMapper implementation="org.codehaus.plexus.components.io.filemappers.FlattenFileMapper" />
+											</fileMappers>
+										</artifactItem>
+										<artifactItem>
+											<groupId>me.chrissw-r1</groupId>
+											<artifactId>general-resources</artifactId>
+											<version>${general-parent.version}</version>
+											<type>jar</type>
+											<overWrite>false</overWrite>
+											<outputDirectory>${project.module-root.basedir}/.github/workflows</outputDirectory>
+											<includes>unfiltered-resources/scorecard.yml,unfiltered-resources/codeql.yml</includes>
+											<fileMappers>
+												<fileMapper implementation="org.codehaus.plexus.components.io.filemappers.FlattenFileMapper" />
+											</fileMappers>
+										</artifactItem-->
+									</artifactItems>
+								</configuration>
+							</execution>
+							<execution>
+								<id>unpack-common-resources</id>
+								<phase>generate-resources</phase>
+								<goals>
+									<goal>unpack</goal>
+								</goals>
+								<configuration>
+									<skip>${general-resources.skipUnpack}</skip>
+									<artifactItems>
+										<artifactItem>
+											<groupId>me.chrissw-r1</groupId>
+											<artifactId>general-resources</artifactId>
+											<version>${general-parent.version}</version>
+											<type>jar</type>
+											<outputDirectory>${project.build.directory}/generated-resources</outputDirectory>
+											<includes>unfiltered-resources/project.properties,unfiltered-resources/lrgrwrks.txt</includes>
+											<fileMappers>
+												<fileMapper implementation="org.codehaus.plexus.components.io.filemappers.FlattenFileMapper" />
+											</fileMappers>
+										</artifactItem>
+									</artifactItems>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<artifactId>maven-resources-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>copy-lrgrwrks</id>
+								<phase>process-resources</phase>
+								<goals>
+									<goal>copy-resources</goal>
+								</goals>
+								<configuration>
+									<outputDirectory>${project.build.outputDirectory}</outputDirectory>
+									<resources>
+										<resource>
+											<directory>${project.build.directory}/generated-resources</directory>
+											<includes>
+												<include>lrgrwrks.txt</include>
+											</includes>
+											<filtering>true</filtering>
+										</resource>
+									</resources>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<artifactId>maven-antrun-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>move-gitignore</id>
+								<phase>process-resources</phase>
+								<goals>
+									<goal>run</goal>
+								</goals>
+								<configuration>
+									<target>
+										<move file="${project.module-root.basedir}/default.gitignore" tofile="${project.module-root.basedir}/.gitignore" />
+									</target>
+								</configuration>
+							</execution>
+							<execution>
+								<id>delete-gitignore</id>
+								<phase>package</phase>
+								<goals>
+									<goal>run</goal>
+								</goals>
+								<configuration>
+									<target>
+										<delete file="${project.module-root.basedir}/default.gitignore" />
+									</target>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile>
+			<id>pack-dist</id>
+			<activation>
+				<property>
+					<name>distribution</name>
+				</property>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>build-helper-maven-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>set-dist-artifact-extension</id>
+								<phase>validate</phase>
+								<goals>
+									<goal>regex-property</goal>
+								</goals>
+								<configuration>
+									<name>project.build.artifact.extension</name>
+									<value>${project.packaging}</value>
+									<regex>^(?!pom$).+$</regex>
+									<replacement>zip</replacement>
+									<failIfNoMatch>false</failIfNoMatch>
+								</configuration>
+							</execution>
+							<execution>
+								<id>set-dist-artifact-filename</id>
+								<phase>validate</phase>
+								<goals>
+									<goal>regex-property</goal>
+								</goals>
+								<configuration>
+									<name>project.build.artifact.fileName</name>
+									<value>${project.build.artifact.fileName}</value>
+									<regex>\.(?!pom$)[^.]+$</regex>
+									<replacement>-dist.zip</replacement>
+									<failIfNoMatch>false</failIfNoMatch>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<artifactId>maven-dependency-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>unpack-assembly-definitions</id>
+								<phase>initialize</phase>
+								<goals>
+									<goal>unpack</goal>
+								</goals>
+								<configuration>
+									<artifactItems>
+										<artifactItem>
+											<groupId>me.chrissw-r1</groupId>
+											<artifactId>general-resources</artifactId>
+											<version>${general-parent.version}</version>
+											<type>jar</type>
+											<overWrite>true</overWrite>
+											<outputDirectory>${project.basedir}/src/assembly</outputDirectory>
+											<includes>unfiltered-resources/pack-dist.xml</includes>
+											<fileMappers>
+												<fileMapper implementation="org.codehaus.plexus.components.io.filemappers.FlattenFileMapper" />
+											</fileMappers>
+										</artifactItem>
+									</artifactItems>
+								</configuration>
+							</execution>
+							<execution>
+								<id>copy-dependencies</id>
+								<phase>package</phase>
+								<goals>
+									<goal>copy-dependencies</goal>
+								</goals>
+								<configuration>
+									<outputDirectory>${project.build.directory}/dependencies</outputDirectory>
+									<includeScope>runtime</includeScope>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<artifactId>maven-assembly-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>pack-dist</id>
+								<phase>package</phase>
+								<goals>
+									<goal>single</goal>
+								</goals>
+								<configuration>
+									<descriptors>
+										<descriptor>src/assembly/pack-dist.xml</descriptor>
+									</descriptors>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
 
 	<modules>
 		<module>java-parent</module>

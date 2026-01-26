@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" child.project.url.inherit.append.path="false">
 	<modelVersion>4.0.0</modelVersion>
 
 	<!-- project identifier -->
-	<groupId>me.chrisswr1</groupId>
+	<groupId>me.chrissw-r1</groupId>
 	<artifactId>general-parent</artifactId>
-	<version>2.4.1-SNAPSHOT</version>
+	<version>3.0.46-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<!-- project metadata -->
@@ -19,7 +19,7 @@
 
 	<organization>
 		<name>ChrissW-R1</name>
-		<url>http://ChrissW-R1.me</url>
+		<url>https://ChrissW-R1.me</url>
 	</organization>
 
 	<licenses>
@@ -35,7 +35,7 @@
 			<id>ChrissW-R1</id>
 			<name>ChrissW-R1</name>
 			<email>contact@ChrissW-R1.me</email>
-			<url>http://ChrissW-R1.me</url>
+			<url>https://ChrissW-R1.me</url>
 			<timezone>Europe/Berlin</timezone>
 			<roles>
 				<role>manager</role>
@@ -43,84 +43,98 @@
 				<role>developer</role>
 			</roles>
 			<properties>
-				<picUrl>
-					https://www.gravatar.com/avatar/625826a28e0cb12855ef6f5d169f8b67
-				</picUrl>
+				<picUrl>https://gravatar.com/avatar/625826a28e0cb12855ef6f5d169f8b67</picUrl>
 			</properties>
 		</developer>
 	</developers>
 
 	<properties>
 		<!-- technically-based properties -->
-		<project.build.artifactFileName>${project.build.finalName}.${project.packaging}</project.build.artifactFileName>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<project.scm.id>project-repo</project.scm.id>
+		<project.fileEncoding>UTF-8</project.fileEncoding>
+		<project.build.sourceEncoding>${project.fileEncoding}</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>${project.fileEncoding}</project.reporting.outputEncoding>
+		<project.versioning.scheme>semver</project.versioning.scheme>
 		<project.parent.relativedir />
-		<project.parent.basedir>${basedir}/${project.parent.relativedir}</project.parent.basedir>
+		<project.parent.basedir>${project.basedir}/${project.parent.relativedir}</project.parent.basedir>
 		<project.module-root.artifactId>general-parent</project.module-root.artifactId>
 		<project.module-root.relativedir>${project.parent.relativedir}</project.module-root.relativedir>
-		<project.module-root.basedir>${basedir}/${project.module-root.relativedir}</project.module-root.basedir>
-		<project.site.urlPath>${project.groupId}/${project.module-root.artifactId}/${project.version}
-		</project.site.urlPath>
-		<project.site.baseUrl>https://${project.site.basePath}</project.site.baseUrl>
+		<project.module-root.basedir>${project.basedir}/${project.module-root.relativedir}</project.module-root.basedir>
+		<project.build.artifact.extension>${project.packaging}</project.build.artifact.extension>
+		<project.build.artifact.fileName>${project.build.finalName}.${project.build.artifact.extension}</project.build.artifact.fileName>
+		<project.scm.id>project-repo</project.scm.id>
+		<project.issueManagement.url.create>${project.issueManagement.url}/new</project.issueManagement.url.create>
+		<project.site.urlPath>${project.groupId}/${project.module-root.artifactId}/${project.version}</project.site.urlPath>
+		<project.site.baseUrl>https://${project.site.fullDomain}</project.site.baseUrl>
 		<project.site.deploy.baseUrl>ftps://${project.site.baseDomain}</project.site.deploy.baseUrl>
 		<project.site.deploy.url>${project.site.deploy.baseUrl}/${project.site.urlPath}</project.site.deploy.url>
+		<project.organization.id>${project.organization.name}</project.organization.id>
+		<properties.file>build.properties</properties.file>
+		<deploy-pom.file>${project.build.finalName}-deploy.pom</deploy-pom.file>
+		<semver.regex>(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)(?:[-+]([0-9A-Za-z][0-9A-Za-z-+\.]+))?</semver.regex>
 		<java.version.prefixed>1.${java.version}</java.version.prefixed>
 		<netbeans.hint.jdkPlatform>JDK_${java.version.prefixed}</netbeans.hint.jdkPlatform>
 		<copy-artifact.dir />
-		<general-parent.version>2.4.1-SNAPSHOT</general-parent.version>
-		<properties.file>build.properties</properties.file>
+		<effective-pom.path>${project.build.directory}/${project.build.finalName}-effective.pom</effective-pom.path>
+		<general-parent.version>3.0.45</general-parent.version>
 		<third-party-properties.filename>THIRD-PARTY.properties</third-party-properties.filename>
 		<third-party-properties.src.path>${project.module-root.basedir}/src/license</third-party-properties.src.path>
-		<third-party-properties.src.fullPath>${third-party-properties.src.path}/${third-party-properties.filename}
-		</third-party-properties.src.fullPath>
-		<third-party-properties.target.path>${project.build.directory}/generated-resources
-		</third-party-properties.target.path>
-		<third-party-properties.target.fullPath>
-			${third-party-properties.target.path}/${third-party-properties.filename}
-		</third-party-properties.target.fullPath>
+		<third-party-properties.target.path>${project.build.directory}/generated-resources</third-party-properties.target.path>
+		<third-party-properties.target.fullPath>${third-party-properties.target.path}/${third-party-properties.filename}</third-party-properties.target.fullPath>
 
 		<!-- project-specific properties -->
 		<project.site.baseDomain>urelion.world</project.site.baseDomain>
-		<project.site.basePath>docs.${project.site.baseDomain}</project.site.basePath>
+		<project.site.fullDomain>docs.${project.site.baseDomain}</project.site.fullDomain>
 		<project.gitlab.id>25831549</project.gitlab.id>
-		<java.version>11</java.version>
+		<openssf.project.id>11691</openssf.project.id>
+		<java.version>17</java.version>
 
 		<!-- license definition -->
 		<license.name>Apache</license.name>
 		<license.version>2.0</license.version>
 		<license.abbr>ASL</license.abbr>
 		<license.id>${license.name}-${license.version}</license.id>
-		<license.url>http://www.apache.org/licenses/LICENSE-${license.version}.txt</license.url>
+		<license.url>https://raw.githubusercontent.com/spdx/license-list-data/main/text/${license.id}.txt</license.url>
 		<license.signature>${license.name} License (${license.abbr}), Version ${license.version} (${license.id})</license.signature>
 
 		<!-- dependency versions -->
+		<semver.version>2.0.0</semver.version>
 		<ant-contrib.version>1.0b3</ant-contrib.version>
 		<wagon.version>3.5.3</wagon.version>
+		<groovy.version>5.0.4</groovy.version>
 
 		<!-- plugin versions -->
-		<plugin.dependency.version>3.8.1</plugin.dependency.version>
-		<plugin.versions.version>2.18.0</plugin.versions.version>
+		<plugin.takari-lifecycle.version>2.3.2</plugin.takari-lifecycle.version>
+		<plugin.gmavenplus.version>4.3.0</plugin.gmavenplus.version>
+		<plugin.multi-module.version>1.2.2</plugin.multi-module.version>
+		<plugin.dependency.version>3.9.0</plugin.dependency.version>
+		<plugin.versions.version>2.21.0</plugin.versions.version>
 		<plugin.clean.version>3.5.0</plugin.clean.version>
 		<plugin.help.version>3.5.1</plugin.help.version>
 		<plugin.replacer.version>1.5.3</plugin.replacer.version>
-		<plugin.properties.version>1.2.1</plugin.properties.version>
+		<plugin.properties.version>1.3.0</plugin.properties.version>
 		<plugin.buildhelper.version>3.6.1</plugin.buildhelper.version>
-		<plugin.license.version>2.6.0</plugin.license.version>
-		<plugin.resources.version>3.3.1</plugin.resources.version>
-		<plugin.antrun.version>3.1.0</plugin.antrun.version>
+		<plugin.buildplan.version>2.2.2</plugin.buildplan.version>
+		<plugin.license.version>2.7.1</plugin.license.version>
+		<plugin.spdx-license-fetch.version>1.1.1</plugin.spdx-license-fetch.version>
+		<plugin.resources.version>3.4.0</plugin.resources.version>
+		<plugin.antrun.version>3.2.0</plugin.antrun.version>
 		<plugin.compiler.version>3.14.1</plugin.compiler.version>
-		<plugin.dependency-check.version>12.1.9</plugin.dependency-check.version>
-		<plugin.jar.version>3.4.2</plugin.jar.version>
-		<plugin.source.version>3.3.1</plugin.source.version>
+		<plugin.dependency-check.version>12.2.0</plugin.dependency-check.version>
+		<plugin.cyclonedx.version>2.9.1</plugin.cyclonedx.version>
+		<plugin.deploy-pom.version>1.2.5</plugin.deploy-pom.version>
+		<plugin.jar.version>3.5.0</plugin.jar.version>
+		<plugin.source.version>3.4.0</plugin.source.version>
 		<plugin.gpg.version>3.2.8</plugin.gpg.version>
 		<plugin.site.version>3.21.0</plugin.site.version>
 		<plugin.project-info-reports.version>3.9.0</plugin.project-info-reports.version>
-		<plugin.release.version>3.1.1</plugin.release.version>
+		<plugin.release.version>3.3.1</plugin.release.version>
+		<plugin.slsa-hash.version>0.0.1</plugin.slsa-hash.version>
+		<plugin.scm.version>2.2.1</plugin.scm.version>
+		<plugin.central-publish.version>0.10.0</plugin.central-publish.version>
 	</properties>
 
-	<scm>
-		<url>https://github.com/${project.organization.name}/${project.module-root.artifactId}</url>
+	<scm child.scm.url.inherit.append.path="false" child.scm.connection.inherit.append.path="false" child.scm.developerConnection.inherit.append.path="false">
+		<url>https://github.com/${project.organization.id}/${project.module-root.artifactId}</url>
 		<connection>scm:git:${project.scm.url}.git</connection>
 		<developerConnection>${project.scm.connection}</developerConnection>
 		<tag>HEAD</tag>
@@ -135,7 +149,7 @@
 		<repository>
 			<id>project-repo</id>
 			<name>Project Repository</name>
-			<url>https://maven.pkg.github.com/${project.organization.name}/${project.module-root.artifactId}</url>
+			<url>https://maven.pkg.github.com/${project.organization.id}/${project.module-root.artifactId}</url>
 		</repository>
 		<site>
 			<id>project-site-repo</id>
@@ -148,14 +162,14 @@
 		<repository>
 			<id>project-repo</id>
 			<name>Project Repository</name>
-			<url>https://maven.pkg.github.com/${project.organization.name}/${project.module-root.artifactId}</url>
+			<url>https://maven.pkg.github.com/${project.organization.id}/${project.module-root.artifactId}</url>
 		</repository>
 	</repositories>
 	<pluginRepositories>
 		<pluginRepository>
 			<id>project-repo</id>
 			<name>Project Repository</name>
-			<url>https://maven.pkg.github.com/${project.organization.name}/${project.module-root.artifactId}</url>
+			<url>https://maven.pkg.github.com/${project.organization.id}/${project.module-root.artifactId}</url>
 		</pluginRepository>
 		<pluginRepository>
 			<id>general-parent</id>
@@ -204,6 +218,46 @@
 		<pluginManagement>
 			<plugins>
 				<plugin>
+					<groupId>io.takari.maven.plugins</groupId>
+					<artifactId>takari-lifecycle-plugin</artifactId>
+					<version>${plugin.takari-lifecycle.version}</version>
+				</plugin>
+				<plugin>
+					<groupId>org.codehaus.gmavenplus</groupId>
+					<artifactId>gmavenplus-plugin</artifactId>
+					<version>${plugin.gmavenplus.version}</version>
+					<dependencies>
+						<dependency>
+							<groupId>org.apache.groovy</groupId>
+							<artifactId>groovy-ant</artifactId>
+							<version>${groovy.version}</version>
+						</dependency>
+					</dependencies>
+					<executions>
+						<execution>
+							<id>remove-parsed-version-qualifier-property</id>
+							<phase>generate-sources</phase>
+							<goals>
+								<goal>execute</goal>
+							</goals>
+							<configuration>
+								<scripts>
+									<script><![CDATA[project.properties.remove('parsedVersion.qualifier?')]]></script>
+								</scripts>
+							</configuration>
+						</execution>
+					</executions>
+				</plugin>
+				<plugin>
+					<groupId>me.chrissw-r1</groupId>
+					<artifactId>multi-module-maven-plugin</artifactId>
+					<version>${plugin.multi-module.version}</version>
+					<configuration>
+						<resolveUrl>true</resolveUrl>
+						<resolveRepositories>true</resolveRepositories>
+					</configuration>
+				</plugin>
+				<plugin>
 					<artifactId>maven-dependency-plugin</artifactId>
 					<version>${plugin.dependency.version}</version>
 				</plugin>
@@ -211,15 +265,6 @@
 					<groupId>org.codehaus.mojo</groupId>
 					<artifactId>versions-maven-plugin</artifactId>
 					<version>${plugin.versions.version}</version>
-					<executions>
-						<execution>
-							<id>display-updates</id>
-							<goals>
-								<goal>display-property-updates</goal>
-							</goals>
-							<phase>validate</phase>
-						</execution>
-					</executions>
 				</plugin>
 				<plugin>
 					<artifactId>maven-clean-plugin</artifactId>
@@ -230,12 +275,17 @@
 								<directory>./</directory>
 								<includes>
 									<include>dependency-reduced-pom.xml</include>
+									<include>${project.build.finalName}-deploy.pom</include>
+									<include>${project.artifactId}-*-deploy.pom</include>
 									<!--include>.github/workflows/maven-build.yml</include>
 									<include>.gitlab-ci.yml</include-->
 									<include>tsconfig.json</include>
 									<include>eslint.config.js</include>
 									<include>package.json</include>
 									<include>Gruntfile.js</include>
+									<include>Gruntfile.cjs</include>
+									<include>webpack.config.js</include>
+									<include>webpack.config.cjs</include>
 								</includes>
 							</fileset>
 						</filesets>
@@ -249,24 +299,6 @@
 					<groupId>com.google.code.maven-replacer-plugin</groupId>
 					<artifactId>replacer</artifactId>
 					<version>${plugin.replacer.version}</version>
-					<executions>
-						<execution>
-							<id>set-general-parent-version</id>
-							<phase>generate-resources</phase>
-							<goals>
-								<goal>replace</goal>
-							</goals>
-							<configuration>
-								<file>pom.xml</file>
-								<replacements>
-									<replacement>
-										<token>&lt;general-parent.version&gt;(.*)&lt;/general-parent.version&gt;</token>
-										<value>&lt;general-parent.version&gt;${project.version}&lt;/general-parent.version&gt;</value>
-									</replacement>
-								</replacements>
-							</configuration>
-						</execution>
-					</executions>
 				</plugin>
 				<plugin>
 					<groupId>org.codehaus.mojo</groupId>
@@ -294,17 +326,17 @@
 					<executions>
 						<execution>
 							<id>parse-version</id>
+							<phase>initialize</phase>
 							<goals>
 								<goal>parse-version</goal>
 							</goals>
-							<phase>initialize</phase>
 						</execution>
 						<execution>
 							<id>base-version-property</id>
+							<phase>initialize</phase>
 							<goals>
 								<goal>regex-property</goal>
 							</goals>
-							<phase>initialize</phase>
 							<configuration>
 								<name>project.baseVersion</name>
 								<value>${project.version}</value>
@@ -314,10 +346,10 @@
 						</execution>
 						<execution>
 							<id>java-qualified-version-property</id>
+							<phase>validate</phase>
 							<goals>
 								<goal>regex-property</goal>
 							</goals>
-							<phase>validate</phase>
 							<configuration>
 								<name>java.version.qualified</name>
 								<value>${java.version}</value>
@@ -328,34 +360,22 @@
 						</execution>
 						<execution>
 							<id>timestamp-property</id>
+							<phase>initialize</phase>
 							<goals>
 								<goal>timestamp-property</goal>
 							</goals>
-							<phase>initialize</phase>
 							<configuration>
 								<name>project.versionYear</name>
 								<pattern>yyyy</pattern>
 								<locale>en,US</locale>
 							</configuration>
 						</execution>
-						<execution>
-							<id>attach-third-party-properties</id>
-							<phase>post-site</phase>
-							<goals>
-								<goal>attach-artifact</goal>
-							</goals>
-							<configuration>
-								<artifacts>
-									<artifact>
-										<file>${third-party-properties.target.fullPath}</file>
-										<type>properties</type>
-										<classifier>third-party</classifier>
-									</artifact>
-								</artifacts>
-								<skipAttach>${third-party-properties.target.missing}</skipAttach>
-							</configuration>
-						</execution>
 					</executions>
+				</plugin>
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>buildplan-maven-plugin</artifactId>
+					<version>${plugin.buildplan.version}</version>
 				</plugin>
 				<plugin>
 					<groupId>org.codehaus.mojo</groupId>
@@ -384,8 +404,8 @@
 							<licenseMerge>
 								Apache License (ASL), Version 2.0 (Apache-2.0)
 								| Apache-2.0
-								| Apache 2.0
 								| Apache 2
+								| Apache 2.0
 								| Apache License 2.0
 								| Apache License version 2.0
 								| Apache License, 2.0
@@ -442,9 +462,10 @@
 							<licenseMerge>
 								Eclipse Public License (EPL), Version 2.0 (EPL-2.0)
 								| EPL-2.0
-								| Eclipse Public License v2.0
-								| Eclipse Public License - v 2.0
 								| EPL 2.0
+								| Eclipse Public License - v 2.0
+								| Eclipse Public License v2.0
+								| Eclipse Public License, Version 2.0
 							</licenseMerge>
 							<licenseMerge>
 								EPSG database distribution license (EPSG-DDL)
@@ -469,10 +490,10 @@
 							<licenseMerge>
 								GNU General Public License (GPL), Version 2.0+ (GPL-2.0-or-later)
 								| GPL-2.0-or-later
-								| GPL-2.0
 								| GNU General Public License (GPL) version 2.0
 								| GNU General Public License version 2 (GPLv2)
 								| GNU General Public License, Version 2
+								| GPL-2.0
 							</licenseMerge>
 							<licenseMerge>
 								GNU General Public License (GPL), Version 3.0+ (GPL-3.0-or-later)
@@ -482,9 +503,9 @@
 							<licenseMerge>
 								GNU General Public License (GPL) with Classpath exception (CPE), Version 2.0 (GPL-2.0-with-classpath-exception)
 								| GPL-2.0-with-classpath-exception
+								| GNU General Public License, version 2, with the Classpath Exception
 								| GPL2 w/ CPE
 								| The GNU General Public License (GPL), Version 2, With Classpath Exception
-								| GNU General Public License, version 2, with the Classpath Exception
 							</licenseMerge>
 							<licenseMerge>
 								Java Distribution License (JDL), Version 1.1.x (JDL-1.1.x)
@@ -494,8 +515,8 @@
 							<licenseMerge>
 								GNU Lesser General Public License (LGPL), Version 2.1 (LGPL-2.1-only)
 								| LGPL-2.1-only
-								| GNU Lesser General Public License, Version 2.1
 								| GNU LESSER GENERAL PUBLIC LICENSE, Version 2.1
+								| GNU Lesser General Public License, Version 2.1
 								| LGPL 2.1
 								| LGPLv2
 							</licenseMerge>
@@ -503,6 +524,7 @@
 								GNU Lesser General Public License (LGPL), Version 2.1+ (LGPL-2.1-or-later)
 								| LGPL-2.1-or-later
 								| GNU General Lesser Public License (LGPL) version 2.1
+								| GNU Lesser General Public License
 								| GNU Lesser General Public License (LGPL)
 								| GNU Lesser General Public License version 2.1 (LGPLv2.1)
 								| Lesser General Public License (LGPL)
@@ -566,15 +588,11 @@
 						</licenseMerges>
 						<failOnMissing>false</failOnMissing>
 					</configuration>
-					<executions>
-						<execution>
-							<id>update-license</id>
-							<phase>generate-resources</phase>
-							<goals>
-								<goal>update-project-license</goal>
-							</goals>
-						</execution>
-					</executions>
+				</plugin>
+				<plugin>
+					<groupId>me.chrissw-r1</groupId>
+					<artifactId>spdx-license-fetch-maven-plugin</artifactId>
+					<version>${plugin.spdx-license-fetch.version}</version>
 				</plugin>
 				<plugin>
 					<artifactId>maven-resources-plugin</artifactId>
@@ -582,55 +600,30 @@
 					<configuration>
 						<escapeString>\</escapeString>
 					</configuration>
-					<executions>
-						<execution>
-							<id>copy-readme</id>
-							<phase>process-resources</phase>
-							<goals>
-								<goal>copy-resources</goal>
-							</goals>
-							<configuration>
-								<outputDirectory>${project.module-root.basedir}</outputDirectory>
-								<resources>
-									<resource>
-										<directory>${project.module-root.basedir}/src/main/resources</directory>
-										<includes>
-											<include>README.md</include>
-										</includes>
-										<filtering>true</filtering>
-									</resource>
-								</resources>
-							</configuration>
-						</execution>
-						<execution>
-							<id>third-party-filtering</id>
-							<phase>pre-site</phase>
-							<goals>
-								<goal>copy-resources</goal>
-							</goals>
-							<configuration>
-								<outputDirectory>${third-party-properties.target.path}</outputDirectory>
-								<resources>
-									<resource>
-										<directory>${third-party-properties.src.path}</directory>
-										<includes>
-											<include>${third-party-properties.filename}</include>
-										</includes>
-										<filtering>true</filtering>
-									</resource>
-								</resources>
-							</configuration>
-						</execution>
-					</executions>
 				</plugin>
 				<plugin>
 					<groupId>org.owasp</groupId>
 					<artifactId>dependency-check-maven</artifactId>
 					<version>${plugin.dependency-check.version}</version>
 					<configuration>
+						<ossIndexServerId>ossindex</ossIndexServerId>
 						<nvdApiServerId>nvd.apikey</nvdApiServerId>
 						<pathToCore>${dotnetcore.path}</pathToCore>
+						<nodeAuditAnalyzerEnabled>false</nodeAuditAnalyzerEnabled>
 						<yarnAuditAnalyzerEnabled>false</yarnAuditAnalyzerEnabled>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.cyclonedx</groupId>
+					<artifactId>cyclonedx-maven-plugin</artifactId>
+					<version>${plugin.cyclonedx.version}</version>
+				</plugin>
+				<plugin>
+					<groupId>me.chrissw-r1</groupId>
+					<artifactId>deploy-pom-maven-plugin</artifactId>
+					<version>${plugin.deploy-pom.version}</version>
+					<configuration>
+						<outputPom>${deploy-pom.file}</outputPom>
 					</configuration>
 				</plugin>
 				<plugin>
@@ -700,46 +693,128 @@
 				<plugin>
 					<artifactId>maven-gpg-plugin</artifactId>
 					<version>${plugin.gpg.version}</version>
-					<executions>
-						<execution>
-							<id>sign-artifacts</id>
-							<goals>
-								<goal>sign</goal>
-							</goals>
-						</execution>
-					</executions>
 				</plugin>
 				<plugin>
 					<artifactId>maven-release-plugin</artifactId>
 					<version>${plugin.release.version}</version>
 					<configuration>
+						<goals>deploy site-deploy</goals>
 						<autoVersionSubmodules>true</autoVersionSubmodules>
 						<tagNameFormat>@{project.version}</tagNameFormat>
 						<scmCommentPrefix>[maven-release-plugin] [skip ci]</scmCommentPrefix>
-						<arguments>-Dexecutable -DfullBuild</arguments>
+						<preparationGoals>clean install scm:add@stage-release-changes</preparationGoals>
+						<preparationProfiles>stage-release-changes</preparationProfiles>
+						<arguments>-DfullBuild -Ddistribution -Dexecutable</arguments>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>io.github.adamkorcz</groupId>
+					<artifactId>slsa-hashing-plugin</artifactId>
+					<version>${plugin.slsa-hash.version}</version>
+				</plugin>
+				<plugin>
+					<artifactId>maven-scm-plugin</artifactId>
+					<version>${plugin.scm.version}</version>
+				</plugin>
+				<plugin>
+					<groupId>org.sonatype.central</groupId>
+					<artifactId>central-publishing-maven-plugin</artifactId>
+					<version>${plugin.central-publish.version}</version>
+					<extensions>true</extensions>
+					<configuration>
+						<publishingServerId>central</publishingServerId>
+						<deploymentName>${project.module-root.name} ${project.version}</deploymentName>
+						<autoPublish>true</autoPublish>
 					</configuration>
 				</plugin>
 			</plugins>
 		</pluginManagement>
 		<plugins>
 			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>versions-maven-plugin</artifactId>
+				<groupId>io.takari.maven.plugins</groupId>
+				<artifactId>takari-lifecycle-plugin</artifactId>
 			</plugin>
 			<plugin>
-				<groupId>com.google.code.maven-replacer-plugin</groupId>
-				<artifactId>replacer</artifactId>
+				<groupId>me.chrissw-r1</groupId>
+				<artifactId>multi-module-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>multi-module-properties-default</id>
+						<goals>
+							<goal>module-root-properties</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>multi-module-properties-site</id>
+						<phase>pre-site</phase>
+						<goals>
+							<goal>module-root-properties</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>list-modules</id>
+						<goals>
+							<goal>list-modules</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>build-helper-maven-plugin</artifactId>
 			</plugin>
 			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>license-maven-plugin</artifactId>
+				<groupId>org.codehaus.gmavenplus</groupId>
+				<artifactId>gmavenplus-plugin</artifactId>
 			</plugin>
 			<plugin>
 				<artifactId>maven-resources-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>copy-repo-doc-files</id>
+						<phase>process-resources</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${project.module-root.basedir}</outputDirectory>
+							<resources>
+								<resource>
+									<directory>${project.module-root.basedir}/src/main/repo-doc</directory>
+									<includes>
+										<include>SECURITY.md</include>
+										<include>VERSIONING.md</include>
+										<include>CONTRIBUTING.md</include>
+									</includes>
+									<filtering>true</filtering>
+								</resource>
+							</resources>
+						</configuration>
+					</execution>
+					<execution>
+						<id>copy-project-readme</id>
+						<phase>process-resources</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${project.basedir}</outputDirectory>
+							<resources>
+								<resource>
+									<directory>${project.basedir}/src/main/repo-doc</directory>
+									<includes>
+										<include>README.md</include>
+									</includes>
+									<filtering>true</filtering>
+								</resource>
+							</resources>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>me.chrissw-r1</groupId>
+				<artifactId>deploy-pom-maven-plugin</artifactId>
 			</plugin>
 			<plugin>
 				<artifactId>maven-antrun-plugin</artifactId>
@@ -750,14 +825,10 @@
 	<reporting>
 		<plugins>
 			<plugin>
-				<artifactId>maven-site-plugin</artifactId>
-				<version>${plugin.site.version}</version>
-			</plugin>
-			<plugin>
 				<artifactId>maven-project-info-reports-plugin</artifactId>
 				<version>${plugin.project-info-reports.version}</version>
 			</plugin>
-			<!--plugin>
+			<plugin>
 				<groupId>org.owasp</groupId>
 				<artifactId>dependency-check-maven</artifactId>
 				<version>${plugin.dependency-check.version}</version>
@@ -769,7 +840,7 @@
 						</reports>
 					</reportSet>
 				</reportSets>
-			</plugin-->
+			</plugin>
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>license-maven-plugin</artifactId>
@@ -804,14 +875,42 @@
 			</build>
 		</profile>
 		<profile>
-			<id>echo-properties</id>
+			<id>echo-build-parameters</id>
 			<activation>
 				<property>
-					<name>fullBuild</name>
+					<name>debug</name>
 				</property>
 			</activation>
 			<build>
 				<plugins>
+					<plugin>
+						<artifactId>maven-help-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>show-active-profiles</id>
+								<phase>validate</phase>
+								<goals>
+									<goal>active-profiles</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>buildplan-maven-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>echo-phases</id>
+								<phase>generate-sources</phase>
+								<goals>
+									<goal>list-phase</goal>
+								</goals>
+								<configuration>
+									<showLifecycles>true</showLifecycles>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
 					<plugin>
 						<artifactId>maven-antrun-plugin</artifactId>
 						<executions>
@@ -833,22 +932,23 @@
 			</build>
 		</profile>
 		<profile>
-			<id>show-active-profiles</id>
+			<id>echo-updates</id>
 			<activation>
 				<property>
-					<name>fullBuild</name>
+					<name>debug</name>
 				</property>
 			</activation>
 			<build>
 				<plugins>
 					<plugin>
-						<artifactId>maven-help-plugin</artifactId>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>versions-maven-plugin</artifactId>
 						<executions>
 							<execution>
-								<id>show-active-profiles</id>
+								<id>display-updates</id>
 								<phase>validate</phase>
 								<goals>
-									<goal>active-profiles</goal>
+									<goal>display-property-updates</goal>
 								</goals>
 							</execution>
 						</executions>
@@ -860,7 +960,7 @@
 			<id>effective-pom</id>
 			<activation>
 				<property>
-					<name>fullBuild</name>
+					<name>debug</name>
 				</property>
 			</activation>
 			<build>
@@ -875,7 +975,28 @@
 									<goal>effective-pom</goal>
 								</goals>
 								<configuration>
-									<output>${project.build.directory}/${project.build.finalName}-effective.pom</output>
+									<output>${effective-pom.path}</output>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<groupId>com.google.code.maven-replacer-plugin</groupId>
+						<artifactId>replacer</artifactId>
+						<executions>
+							<execution>
+								<id>remove-wrong-qualifier-property</id>
+								<phase>process-sources</phase>
+								<goals>
+									<goal>replace</goal>
+								</goals>
+								<configuration>
+									<file>${effective-pom.path}</file>
+									<replacements>
+										<replacement>
+											<token>&lt;parsedVersion.qualifier\?&gt;(.*)&lt;/parsedVersion.qualifier\?&gt;</token>
+										</replacement>
+									</replacements>
 								</configuration>
 							</execution>
 						</executions>
@@ -885,11 +1006,11 @@
 		</profile>
 		<profile>
 			<id>check-dependencies</id>
-			<!--activation>
+			<activation>
 				<property>
 					<name>fullBuild</name>
 				</property>
-			</activation-->
+			</activation>
 			<build>
 				<plugins>
 					<plugin>
@@ -915,11 +1036,27 @@
 				</property>
 			</activation>
 			<build>
+				<resources>
+					<resource>
+						<directory>${project.build.directory}/generated-resources</directory>
+						<includes>
+							<include>lrgrwrks.txt</include>
+						</includes>
+						<filtering>true</filtering>
+					</resource>
+				</resources>
 				<plugins>
 					<plugin>
 						<groupId>org.codehaus.mojo</groupId>
 						<artifactId>license-maven-plugin</artifactId>
 						<executions>
+							<execution>
+								<id>update-license</id>
+								<phase>generate-resources</phase>
+								<goals>
+									<goal>update-project-license</goal>
+								</goals>
+							</execution>
 							<execution>
 								<id>add-licenses</id>
 								<phase>generate-resources</phase>
@@ -927,6 +1064,135 @@
 									<goal>add-third-party</goal>
 									<goal>download-licenses</goal>
 								</goals>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<groupId>me.chrissw-r1</groupId>
+						<artifactId>spdx-license-fetch-maven-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>download-spdx-licenses</id>
+								<goals>
+									<goal>fetch-spdx-licenses</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<artifactId>maven-resources-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>third-party-filtering</id>
+								<phase>pre-site</phase>
+								<goals>
+									<goal>copy-resources</goal>
+								</goals>
+								<configuration>
+									<outputDirectory>${third-party-properties.target.path}</outputDirectory>
+									<resources>
+										<resource>
+											<directory>${third-party-properties.src.path}</directory>
+											<includes>
+												<include>${third-party-properties.filename}</include>
+											</includes>
+											<filtering>true</filtering>
+										</resource>
+									</resources>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>build-helper-maven-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>attach-third-party-properties</id>
+								<phase>post-site</phase>
+								<goals>
+									<goal>attach-artifact</goal>
+								</goals>
+								<configuration>
+									<artifacts>
+										<artifact>
+											<file>${third-party-properties.target.fullPath}</file>
+											<type>properties</type>
+											<classifier>third-party</classifier>
+										</artifact>
+									</artifacts>
+									<skipAttach>${third-party-properties.target.missing}</skipAttach>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile>
+			<id>modify-deploy-pom</id>
+			<activation>
+				<property>
+					<name>fullBuild</name>
+				</property>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>me.chrissw-r1</groupId>
+						<artifactId>deploy-pom-maven-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>add-defaults-default</id>
+								<goals>
+									<goal>add-defaults</goal>
+								</goals>
+							</execution>
+							<execution>
+								<id>add-defaults-site</id>
+								<phase>pre-site</phase>
+								<goals>
+									<goal>add-defaults</goal>
+								</goals>
+							</execution>
+							<execution>
+								<id>copy-from-effective</id>
+								<goals>
+									<goal>copy-from-effective</goal>
+								</goals>
+								<configuration>
+									<copyEffectiveUrl>true</copyEffectiveUrl>
+									<copyEffectiveLicenses>true</copyEffectiveLicenses>
+									<copyEffectiveDevelopers>true</copyEffectiveDevelopers>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile>
+			<id>generate-sbom</id>
+			<activation>
+				<property>
+					<name>fullBuild</name>
+				</property>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.cyclonedx</groupId>
+						<artifactId>cyclonedx-maven-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>generate-sbom</id>
+								<phase>prepare-package</phase>
+								<goals>
+									<goal>makeAggregateBom</goal>
+								</goals>
+								<configuration>
+									<outputName>${project.build.finalName}-sbom</outputName>
+								</configuration>
 							</execution>
 						</executions>
 					</plugin>
@@ -991,6 +1257,89 @@
 				<plugins>
 					<plugin>
 						<artifactId>maven-gpg-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>sign-artifacts</id>
+								<goals>
+									<goal>sign</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile>
+			<id>hash-artifacts</id>
+			<activation>
+				<property>
+					<name>fullBuild</name>
+				</property>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<artifactId>maven-antrun-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>hash-artifacts</id>
+								<phase>post-integration-test</phase>
+								<goals>
+									<goal>run</goal>
+								</goals>
+								<configuration>
+									<target>
+										<checksum todir="${project.build.directory}" algorithm="SHA-512" fileext=".sha512">
+											<fileset dir="${project.build.directory}">
+												<include name="*" />
+												<exclude name="**/*.asc" />
+												<exclude name="**/*.md5" />
+												<exclude name="**/*.sha1" />
+												<exclude name="**/*.sha256" />
+												<exclude name="**/*.sha512" />
+											</fileset>
+										</checksum>
+										<checksum todir="${project.build.directory}" algorithm="SHA-256" fileext=".sha256">
+											<fileset dir="${project.build.directory}">
+												<include name="*" />
+												<exclude name="**/*.asc" />
+												<exclude name="**/*.md5" />
+												<exclude name="**/*.sha1" />
+												<exclude name="**/*.sha256" />
+												<exclude name="**/*.sha512" />
+											</fileset>
+										</checksum>
+									</target>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile>
+			<id>generate-provenance</id>
+			<activation>
+				<property>
+					<name>fullBuild</name>
+				</property>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>io.github.adamkorcz</groupId>
+						<artifactId>slsa-hashing-plugin</artifactId>
+						<executions>
+							<execution>
+								<phase>verify</phase>
+								<goals>
+									<goal>hash-jarfile</goal>
+								</goals>
+								<configuration>
+									<outputJsonPath>${project.build.directory}/${project.build.finalName}.hash.json</outputJsonPath>
+								</configuration>
+							</execution>
+						</executions>
 					</plugin>
 				</plugins>
 			</build>
@@ -1048,6 +1397,77 @@
 			</build>
 		</profile>
 		<profile>
+			<id>set-general-parent-version</id>
+			<properties>
+				<general-parent.version>${project.version}</general-parent.version>
+			</properties>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>com.google.code.maven-replacer-plugin</groupId>
+						<artifactId>replacer</artifactId>
+						<executions>
+							<execution>
+								<id>set-general-parent-version</id>
+								<phase>generate-resources</phase>
+								<goals>
+									<goal>replace</goal>
+								</goals>
+								<configuration>
+									<file>pom.xml</file>
+									<replacements>
+										<replacement>
+											<token>&lt;general-parent.version&gt;${semver.regex}&lt;/general-parent.version&gt;</token>
+											<value>&lt;general-parent.version&gt;${project.version}&lt;/general-parent.version&gt;</value>
+										</replacement>
+									</replacements>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<artifactId>maven-release-plugin</artifactId>
+						<configuration>
+							<preparationProfiles>set-general-parent-version,stage-release-changes</preparationProfiles>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile>
+			<id>stage-release-changes</id>
+			<build>
+				<plugins>
+					<plugin>
+						<artifactId>maven-scm-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>stage-release-changes</id>
+								<goals>
+									<goal>add</goal>
+								</goals>
+								<configuration>
+									<includes>pom.xml,.gitignore,LICENSE,README.md,SECURITY.md,VERSIONING.md,CONTRIBUTING.md</includes>
+									<pushChanges>false</pushChanges>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile>
+			<id>central-deploy</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.sonatype.central</groupId>
+						<artifactId>central-publishing-maven-plugin</artifactId>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile>
 			<id>copy-artifact</id>
 			<build>
 				<plugins>
@@ -1064,7 +1484,7 @@
 									<target>
 										<mkdir dir="${copy-artifact.dir}" />
 										<copy todir="${copy-artifact.dir}">
-											<fileset dir="${project.build.directory}" includes="${project.build.artifactFileName}" />
+											<fileset dir="${project.build.directory}" includes="${project.build.artifact.fileName}" />
 										</copy>
 									</target>
 								</configuration>

@@ -1,0 +1,7 @@
+This project "${project.name}", developed by ${project.organization.name},
+may include software components that are licensed under the Universal Permissive License (UPL).
+
+Such components, if present, are part of the larger work: "${project.name}".
+
+A complete list of third-party components, including any that may be covered by the UPL,
+along with their licenses and attribution notices, can be found in the file: THIRD-PARTY.txt.

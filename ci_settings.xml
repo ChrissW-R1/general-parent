@@ -14,8 +14,19 @@
 			<password>${env.mvnsiteuploader_password}</password>
 		</server>
 		<server>
-			<id>gpg.passphrase</id>
-			<passphrase>${env.gpg_passphrase}</passphrase>
+			<id>general-parent</id>
+			<username>${env.GITHUB_ACTOR}</username>
+			<password>${env.GITHUB_TOKEN}</password>
+		</server>
+		<server>
+			<id>central</id>
+			<username>${env.mvn_central_user}</username>
+			<password>${env.mvn_central_token}</password>
+		</server>
+		<server>
+			<id>ossindex</id>
+			<username>${env.ossindex_user}</username>
+			<password>${env.ossindex_api_key}</password>
 		</server>
 		<server>
 			<id>nvd.apikey</id>

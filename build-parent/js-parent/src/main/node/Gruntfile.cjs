@@ -1,4 +1,4 @@
-const webpackConfig = require("./webpack.config.js");
+const webpackConfig = require("./webpack.config.cjs");
 
 module.exports = function(grunt) {
 	const packageJson = grunt.file.readJSON("package.json");
@@ -21,7 +21,8 @@ module.exports = function(grunt) {
 				},
 				main:    {
 					src:      "${project.build.sourceDirectory}/**/*.ts",
-					dest:     "${project.build.directory}/generated-sources/ts-compiled"
+					dest:     "${project.build.directory}/generated-sources/ts-compiled",
+					tsconfig: "./tsconfig.json"
 				}
 			},
 			less:    {

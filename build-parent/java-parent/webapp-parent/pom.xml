@@ -3,9 +3,9 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<groupId>me.chrisswr1</groupId>
+		<groupId>me.chrissw-r1</groupId>
 		<artifactId>java-parent</artifactId>
-		<version>2.4.1-SNAPSHOT</version>
+		<version>3.0.46-SNAPSHOT</version>
 	</parent>
 
 	<!-- project identifier -->
@@ -23,23 +23,43 @@
 		<project.module-root.relativedir>${project.parent.relativedir}../../</project.module-root.relativedir>
 
 		<!-- dependency versions -->
-		<servlet.version>6.1.0</servlet.version>
-		<jersey.version>3.1.11</jersey.version>
+		<jakarta-ee.version>11.0.0</jakarta-ee.version>
+		<jersey.version>4.0.1</jersey.version>
 
 		<!-- plugin versions -->
-		<plugin.war.version>3.4.0</plugin.war.version>
+		<plugin.war.version>3.5.1</plugin.war.version>
 
 		<!-- JavaDoc URLs -->
-		<servlet.javadoc-url>https://javaee.github.io/javaee-spec/javadocs</servlet.javadoc-url>
-		<jersey.javadoc-url>https://eclipse-ee4j.github.io/jersey.github.io/apidocs/${jersey.version}/jersey</jersey.javadoc-url>
+		<jakarta-ee.javadoc.url>https://javadoc.io/doc/jakarta.platform/jakarta.jakartaee-api/${jakarta-ee.version}</jakarta-ee.javadoc.url>
+		<jersey.javadoc.url>https://eclipse-ee4j.github.io/jersey.github.io/apidocs/latest4x/jersey</jersey.javadoc.url>
 	</properties>
 
+	<dependencyManagement>
+		<dependencies>
+			<!-- provided dependencies -->
+			<dependency>
+				<groupId>jakarta.platform</groupId>
+				<artifactId>jakarta.jakartaee-bom</artifactId>
+				<version>${jakarta-ee.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+
+			<!-- default dependencies -->
+			<dependency>
+				<groupId>org.glassfish.jersey</groupId>
+				<artifactId>jersey-bom</artifactId>
+				<version>${jersey.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 	<dependencies>
 		<!-- provided dependencies -->
 		<dependency>
 			<groupId>jakarta.servlet</groupId>
 			<artifactId>jakarta.servlet-api</artifactId>
-			<version>${servlet.version}</version>
 			<scope>provided</scope>
 		</dependency>
 
@@ -47,17 +67,14 @@
 		<dependency>
 			<groupId>org.glassfish.jersey.core</groupId>
 			<artifactId>jersey-server</artifactId>
-			<version>${jersey.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.glassfish.jersey.containers</groupId>
 			<artifactId>jersey-container-servlet</artifactId>
-			<version>${jersey.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.glassfish.jersey.inject</groupId>
 			<artifactId>jersey-hk2</artifactId>
-			<version>${jersey.version}</version>
 		</dependency>
 	</dependencies>
 
@@ -83,8 +100,8 @@
 					<artifactId>maven-javadoc-plugin</artifactId>
 					<configuration>
 						<links combine.children="append">
-							<link>${servlet.javadoc-url}</link>
-							<link>${jersey.javadoc-url}</link>
+							<link>${jakarta-ee.javadoc.url}</link>
+							<link>${jersey.javadoc.url}</link>
 						</links>
 					</configuration>
 				</plugin>
@@ -98,8 +115,8 @@
 				<artifactId>maven-javadoc-plugin</artifactId>
 				<configuration>
 					<links combine.children="append">
-						<link>${servlet.javadoc-url}</link>
-						<link>${jersey.javadoc-url}</link>
+						<link>${jakarta-ee.javadoc.url}</link>
+						<link>${jersey.javadoc.url}</link>
 					</links>
 				</configuration>
 			</plugin>
