@@ -23,12 +23,16 @@ jobs:
             pull-requests: write
             id-token:      write
             attestations:  write
+        env:
+            TAG: 3.0.45
 
         # Steps represent a sequence of tasks that will be executed as part of the job
         steps:
             -   id:   checkout
                 name: Git Checkout
                 uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+                with:
+                    ref: ${TAG}
             -   id:   setup_git
                 name: Setup Git
                 run:  |
@@ -38,7 +42,6 @@ jobs:
                 name: Collect and upload provenance
                 env:
                     GH_TOKEN:      ${{ secrets.GITHUB_TOKEN }}
-                    TAG:           3.0.45
                     REPO:          ${{ github.repository }}
                     WORKSPACE_DIR: ${{ github.workspace }}
                 run:  |
