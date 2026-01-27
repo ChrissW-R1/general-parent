@@ -39,38 +39,40 @@ jobs:
                       echo "create ${TARGET_DIR}"
                       mkdir -p "${TARGET_DIR}"
 
+                      FILES=(
+                        "general-parent-${TAG}.pom"
+                        "general-parent-${TAG}.pom.asc"
+                        "general-resources-${TAG}.jar"
+                        "general-resources-${TAG}.jar.asc"
+                        "build-parent-${TAG}.pom"
+                        "build-parent-${TAG}.pom.asc"
+                        "java-parent-${TAG}.pom"
+                        "java-parent-${TAG}.pom.asc"
+                        "java-parent-test-${TAG}-dist.zip"
+                        "java-parent-test-${TAG}-dist.zip.asc"
+                        "webapp-parent-${TAG}.pom"
+                        "webapp-parent-${TAG}.pom.asc"
+                        "webapp-parent-test-${TAG}-dist.zip"
+                        "webapp-parent-test-${TAG}-dist.zip.asc"
+                        "java-exe-parent-${TAG}.pom"
+                        "java-exe-parent-${TAG}.pom.asc"
+                        "java-exe-parent-test-${TAG}-dist.zip"
+                        "java-exe-parent-test-${TAG}-dist.zip.asc"
+                        "maven-plugin-parent-${TAG}.pom"
+                        "maven-plugin-parent-${TAG}.pom.asc"
+                        "js-parent-${TAG}.pom"
+                        "js-parent-${TAG}.pom.asc"
+                        "php-parent-${TAG}.pom"
+                        "php-parent-${TAG}.pom.asc"
+                        "python-parent-${TAG}.pom"
+                        "python-parent-${TAG}.pom.asc"
+                      )
+
                       echo "Iterate over all assets"
                       while IFS= read -r -d '' file; do
                         echo "Downloading attestation for artifact: $file"
                         gh attestation download "$file" --repo "$REPO"
-                      done <<'EOF'
-                      general-parent-${TAG}.pom\0
-                      general-parent-${TAG}.pom.asc\0
-                      general-resources-${TAG}.jar\0
-                      general-resources-${TAG}.jar.asc\0
-                      build-parent-${TAG}.pom\0
-                      build-parent-${TAG}.pom.asc\0
-                      java-parent-${TAG}.pom\0
-                      java-parent-${TAG}.pom.asc\0
-                      java-parent-test-${TAG}-dist.zip\0
-                      java-parent-test-${TAG}-dist.zip.asc\0
-                      webapp-parent-${TAG}.pom\0
-                      webapp-parent-${TAG}.pom.asc\0
-                      webapp-parent-test-${TAG}-dist.zip\0
-                      webapp-parent-test-${TAG}-dist.zip.asc\0
-                      java-exe-parent-${TAG}.pom\0
-                      java-exe-parent-${TAG}.pom.asc\0
-                      java-exe-parent-test-${TAG}-dist.zip\0
-                      java-exe-parent-test-${TAG}-dist.zip.asc\0
-                      maven-plugin-parent-${TAG}.pom\0
-                      maven-plugin-parent-${TAG}.pom.asc\0
-                      js-parent-${TAG}.pom\0
-                      js-parent-${TAG}.pom.asc\0
-                      php-parent-${TAG}.pom\0
-                      php-parent-${TAG}.pom.asc\0
-                      python-parent-${TAG}.pom\0
-                      python-parent-${TAG}.pom.asc\0
-                      EOF
+                      done < <(printf '%s\0' "${FILES[@]}")
 
                       echo "Move files"
                       find . -maxdepth 1 -type f -name 'sha256:*.jsonl' -print0 \
