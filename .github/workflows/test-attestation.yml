@@ -29,50 +29,29 @@ jobs:
             -   id:   upload_provenance
                 name: Collect and upload provenance
                 env:
-                    GH_TOKEN:   ${{ secrets.GITHUB_TOKEN }}
-                    TAG:        3.0.45
-                    REPO:       ${{ github.repository }}
-                    TARGET_DIR: ${{ github.workspace }}/provenance
+                    GH_TOKEN:      ${{ secrets.GITHUB_TOKEN }}
+                    TAG:           3.0.45
+                    REPO:          ${{ github.repository }}
+                    WORKSPACE_DIR: ${{ github.workspace }}
                 run:  |
                       set -euo pipefail
 
-                      echo "create ${TARGET_DIR}"
-                      mkdir -p "${TARGET_DIR}"
+                      ASSETS_DIR="${WORKSPACE_DIR}/release-assets"
+                      echo "create ${WORKSPACE_DIR}"
+                      mkdir -p "${ASSETS_DIR}"
 
-                      FILES=(
-                        "general-parent-${TAG}.pom"
-                        "general-parent-${TAG}.pom.asc"
-                        "general-resources-${TAG}.jar"
-                        "general-resources-${TAG}.jar.asc"
-                        "build-parent-${TAG}.pom"
-                        "build-parent-${TAG}.pom.asc"
-                        "java-parent-${TAG}.pom"
-                        "java-parent-${TAG}.pom.asc"
-                        "java-parent-test-${TAG}-dist.zip"
-                        "java-parent-test-${TAG}-dist.zip.asc"
-                        "webapp-parent-${TAG}.pom"
-                        "webapp-parent-${TAG}.pom.asc"
-                        "webapp-parent-test-${TAG}-dist.zip"
-                        "webapp-parent-test-${TAG}-dist.zip.asc"
-                        "java-exe-parent-${TAG}.pom"
-                        "java-exe-parent-${TAG}.pom.asc"
-                        "java-exe-parent-test-${TAG}-dist.zip"
-                        "java-exe-parent-test-${TAG}-dist.zip.asc"
-                        "maven-plugin-parent-${TAG}.pom"
-                        "maven-plugin-parent-${TAG}.pom.asc"
-                        "js-parent-${TAG}.pom"
-                        "js-parent-${TAG}.pom.asc"
-                        "php-parent-${TAG}.pom"
-                        "php-parent-${TAG}.pom.asc"
-                        "python-parent-${TAG}.pom"
-                        "python-parent-${TAG}.pom.asc"
-                      )
+                      echo "Download release ${TAG}"
+                      gh release download "${TAG}" --repo "${REPO}" --dir "${ASSETS_DIR}"
 
                       echo "Iterate over all assets"
                       while IFS= read -r -d '' file; do
                         echo "Downloading attestation for artifact: $file"
                         gh attestation download "$file" --repo "$REPO"
-                      done < <(printf '%s\0' "${FILES[@]}")
+                      done < <(find "${ASSETS_DIR}" -type f -print0)
+
+                      TARGET_DIR="${WORKSPACE_DIR}/provenance"
+                      echo "create ${TARGET_DIR}"
+                      mkdir -p "${TARGET_DIR}"
 
                       echo "Move files"
                       find . -maxdepth 1 -type f -name 'sha256:*.jsonl' -print0 \
