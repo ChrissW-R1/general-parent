@@ -1,0 +1,80 @@
+# This is a basic workflow to help you get started with Actions
+
+name:        Test Attestation
+
+# Controls when the action will run.
+on:
+    # Triggers the workflow on push events but only for version branches
+    push:
+        branches: ["version/3.0.x"]
+
+permissions: read-all
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+    release:
+        # The type of runner that the job will run on
+        runs-on: ubuntu-latest
+        # Allows to push, create PRs and upload to Maven repository with the GITHUB_TOKEN
+        permissions:
+            actions:       read
+            contents:      write
+            packages:      write
+            pull-requests: write
+            id-token:      write
+            attestations:  write
+
+        # Steps represent a sequence of tasks that will be executed as part of the job
+        steps:
+            -   id:   upload_provenance
+                name: Collect and upload provenance
+                env:
+                    GH_TOKEN:   ${{ secrets.GITHUB_TOKEN }}
+                    TAG:        3.0.45
+                    REPO:       ${{ github.repository }}
+                    TARGET_DIR: ${{ github.workspace }}/provenance
+                run:  |
+                      set -euo pipefail
+
+                      mkdir -p "${TARGET_DIR}"
+
+                      while IFS= read -r -d '' file; do
+                        echo "Downloading attestation for artifact: $file"
+                        gh attestation download "$file" --repo "$REPO"
+                      done <<'EOF'
+                      general-parent-${TAG}.pom\0
+                      general-parent-${TAG}.pom.asc\0
+                      general-resources-${TAG}.jar\0
+                      general-resources-${TAG}.jar.asc\0
+                      build-parent-${TAG}.pom\0
+                      build-parent-${TAG}.pom.asc\0
+                      java-parent-${TAG}.pom\0
+                      java-parent-${TAG}.pom.asc\0
+                      java-parent-test-${TAG}-dist.zip\0
+                      java-parent-test-${TAG}-dist.zip.asc\0
+                      webapp-parent-${TAG}.pom\0
+                      webapp-parent-${TAG}.pom.asc\0
+                      webapp-parent-test-${TAG}-dist.zip\0
+                      webapp-parent-test-${TAG}-dist.zip.asc\0
+                      java-exe-parent-${TAG}.pom\0
+                      java-exe-parent-${TAG}.pom.asc\0
+                      java-exe-parent-test-${TAG}-dist.zip\0
+                      java-exe-parent-test-${TAG}-dist.zip.asc\0
+                      maven-plugin-parent-${TAG}.pom\0
+                      maven-plugin-parent-${TAG}.pom.asc\0
+                      js-parent-${TAG}.pom\0
+                      js-parent-${TAG}.pom.asc\0
+                      php-parent-${TAG}.pom\0
+                      php-parent-${TAG}.pom.asc\0
+                      python-parent-${TAG}.pom\0
+                      python-parent-${TAG}.pom.asc\0
+                      EOF
+
+                      find . -maxdepth 1 -type f -name 'sha256:*.jsonl' -print0 \
+                        | xargs -0 -I{} mv "{}" "${TARGET_DIR}/"
+
+                      REPO_NAME="${REPO##*/}"
+                      ASSET_NAME="${TARGET_DIR}/${REPO_NAME}-${TAG}.intoto.jsonl"
+                      cat "${TARGET_DIR}"/sha256:*.jsonl > "${ASSET_NAME}"
+
+                      gh release upload "${TAG}" "${ASSET_NAME}" --clobber
