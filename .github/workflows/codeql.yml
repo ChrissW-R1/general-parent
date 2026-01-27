@@ -13,9 +13,15 @@ name:        "CodeQL Advanced"
 
 on:
     push:
-        branches: ["version/*"]
+        branches: [
+            "version/*",
+            "!version/3.0.x"
+        ]
     pull_request:
-        branches: ["version/*"]
+        branches: [
+            "version/*",
+            "!version/3.0.x"
+        ]
 
 permissions: read-all
 
