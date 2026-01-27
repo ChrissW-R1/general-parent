@@ -244,11 +244,11 @@ jobs:
                         gh attestation download "$file" --repo "$REPO"
                       done < <(find "${RELEASE_ARTIFACTS_DIR}" -type f -print0)
 
-                      find . -maxdepth 1 -type f \( -name 'sha256:*.jsonl' -o -name 'sha256-*.jsonl' \) -print0 \
+                      find . -maxdepth 1 -type f -name 'sha256:*.jsonl' -print0 \
                         | xargs -0 -I{} mv "{}" "${TARGET_DIR}/"
 
                       REPO_NAME="${REPO##*/}"
                       ASSET_NAME="${TARGET_DIR}/${REPO_NAME}-${TAG}.intoto.jsonl"
-                      cat "${TARGET_DIR}"/sha256-*.jsonl > "${ASSET_NAME}"
+                      cat "${TARGET_DIR}"/sha256:*.jsonl > "${ASSET_NAME}"
 
                       gh release upload "${TAG}" "${ASSET_NAME}" --clobber
