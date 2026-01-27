@@ -26,6 +26,14 @@ jobs:
 
         # Steps represent a sequence of tasks that will be executed as part of the job
         steps:
+            -   id:   checkout
+                name: Git Checkout
+                uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+            -   id:   setup_git
+                name: Setup Git
+                run:  |
+                      git config --global user.name  "github-actions[bot]"
+                      git config --global user.email "github-actions[bot]@users.noreply.github.com"
             -   id:   upload_provenance
                 name: Collect and upload provenance
                 env:
