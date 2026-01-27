@@ -3,13 +3,13 @@
 name:        Maven - Default Build
 
 # Controls when the action will run.
-on:
-    # Triggers the workflow on push events but only for version branches
-    push:
-        branches: [
-            "version/*",
-            "!version/release/*"
-        ]
+#on:
+#    # Triggers the workflow on push events but only for version branches
+#    push:
+#        branches: [
+#            "version/*",
+#            "!version/release/*"
+#        ]
 
 permissions: read-all
 
