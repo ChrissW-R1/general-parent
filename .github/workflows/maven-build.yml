@@ -8,8 +8,7 @@ on:
     push:
         branches: [
             "version/*",
-            "!version/release/*",
-            "!version/3.0.x"
+            "!version/release/*"
         ]
 
 permissions: read-all
