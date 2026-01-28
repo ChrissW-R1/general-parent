@@ -49,31 +49,28 @@ jobs:
                 run:  |
                       set -euo pipefail
 
-                      ASSETS_DIR="${WORKSPACE_DIR}/release-assets"
-                      echo "create ${WORKSPACE_DIR}"
+                      ASSETS_DIR="${WORKSPACE_DIR}/assets"
+                      echo "Create assets directory: ${ASSETS_DIR}"
                       mkdir -p "${ASSETS_DIR}"
 
-                      echo "Download release ${TAG}"
+                      echo "Download release assets: ${TAG}"
                       gh release download "${TAG}" --repo "${REPO}" --dir "${ASSETS_DIR}"
 
-                      echo "Iterate over all assets"
-                      while IFS= read -r -d '' file; do
-                        echo "Downloading attestation for artifact: $file"
-                        gh attestation download "$file" --repo "$REPO"
-                      done < <(find "${ASSETS_DIR}" -type f -print0)
+                      asset="$(find "${ASSETS_DIR}" -type f | head -n 1)"
+                      echo "Download attestation of asset: ${asset}"
+                      gh attestation download "${asset}" --repo "${REPO}"
+
+                      attestation="$(ls -1 sha256:*.jsonl | head -n 1)"
+                      echo "Downloaded attestation: ${attestation}"
 
                       TARGET_DIR="${WORKSPACE_DIR}/provenance"
-                      echo "create ${TARGET_DIR}"
+                      echo "Create target directory: ${TARGET_DIR}"
                       mkdir -p "${TARGET_DIR}"
-
-                      echo "Move files"
-                      find . -maxdepth 1 -type f -name 'sha256:*.jsonl' -print0 \
-                        | xargs -0 -I{} echo "{} to ${TARGET_DIR}/"
-                      find . -maxdepth 1 -type f -name 'sha256:*.jsonl' -print0 \
-                        | xargs -0 -I{} mv "{}" "${TARGET_DIR}/"
 
                       REPO_NAME="${REPO##*/}"
                       ASSET_NAME="${TARGET_DIR}/${REPO_NAME}-${TAG}.intoto.jsonl"
-                      cat "${TARGET_DIR}"/sha256:*.jsonl > "${ASSET_NAME}"
+                      echo "Move attestation to ${ASSET_NAME}"
+                      mv "${attestation}" "${ASSET_NAME}"
 
+                      echo "Upload attestation as release asset"
                       gh release upload "${TAG}" "${ASSET_NAME}" --clobber
