@@ -230,25 +230,23 @@ jobs:
             -   id:   upload_provenance
                 name: Collect and upload provenance
                 env:
-                    GH_TOKEN:   ${{ secrets.GITHUB_TOKEN }}
-                    TAG:        ${{ steps.get_tag.outputs.tag_name }}
-                    REPO:       ${{ github.repository }}
-                    TARGET_DIR: ${{ github.workspace }}/provenance
+                    GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                    TAG:      ${{ steps.get_tag.outputs.tag_name }}
+                    REPO:     ${{ github.repository }}
                 run:  |
                       set -euo pipefail
 
-                      mkdir -p "${TARGET_DIR}"
+                      asset="$(find "${RELEASE_ARTIFACTS_DIR}" -type f | head -n 1)"
+                      echo "Download attestation of asset: ${asset}"
+                      gh attestation download "${asset}" --repo "${REPO}"
 
-                      while IFS= read -r -d '' file; do
-                        echo "Downloading attestation for artifact: $file"
-                        gh attestation download "$file" --repo "$REPO"
-                      done < <(find "${RELEASE_ARTIFACTS_DIR}" -type f -print0)
-
-                      find . -maxdepth 1 -type f -name 'sha256:*.jsonl' -print0 \
-                        | xargs -0 -I{} mv "{}" "${TARGET_DIR}/"
+                      attestation="$(ls -1 sha256:*.jsonl | head -n 1)"
+                      echo "Downloaded attestation: ${attestation}"
 
                       REPO_NAME="${REPO##*/}"
-                      ASSET_NAME="${TARGET_DIR}/${REPO_NAME}-${TAG}.intoto.jsonl"
-                      cat "${TARGET_DIR}"/sha256:*.jsonl > "${ASSET_NAME}"
+                      ASSET_NAME="${REPO_NAME}-${TAG}.intoto.jsonl"
+                      echo "Move attestation to ${ASSET_NAME}"
+                      mv "${attestation}" "${ASSET_NAME}"
 
+                      echo "Upload attestation as release asset"
                       gh release upload "${TAG}" "${ASSET_NAME}" --clobber
