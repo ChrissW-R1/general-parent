@@ -6,7 +6,9 @@ name:        Test Attestation
 on:
     # Triggers the workflow on push events but only for version branches
     push:
-        branches: ["version/3.0.x"]
+        branches: [
+            "feature/provenance"
+        ]
 
 permissions: read-all
 
