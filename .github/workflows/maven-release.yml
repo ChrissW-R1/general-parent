@@ -46,7 +46,7 @@ jobs:
                       git config --global tag.gpgSign true
             -   id:   setup_java
                 name: Setup JDK 17
-                uses: actions/setup-java@f2beeb24e141e01a676f977032f5a29d81c9e27e # v5.1.0
+                uses: actions/setup-java@be666c2fcd27ec809703dec50e508c2fdc7f6654 # v5.2.0
                 with:
                     distribution:    'temurin'
                     java-version:    '17'
@@ -224,7 +224,7 @@ jobs:
 
             -   id:   create_attestation
                 name: Attest build run
-                uses: actions/attest-build-provenance@00014ed6ed5efc5b1ab7f7f34a39eb55d41aa4f8 # v3.1.0
+                uses: actions/attest-build-provenance@96278af6caaf10aea03fd8d33a09a777ca52d62f # v3.2.0
                 with:
                     subject-path: ${{ env.RELEASE_ARTIFACTS_DIR }}/**
             -   id:   upload_provenance
