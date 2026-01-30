@@ -24,7 +24,7 @@
 
 		<!-- dependency versions -->
 		<jakarta-ee.version>11.0.0</jakarta-ee.version>
-		<jersey.version>4.0.1</jersey.version>
+		<jersey.version>4.0.2</jersey.version>
 
 		<!-- plugin versions -->
 		<plugin.war.version>3.5.1</plugin.war.version>
