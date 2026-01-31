@@ -1059,8 +1059,7 @@
 									<target>
 										<mkdir dir="${copy-artifact.dir}" />
 										<copy todir="${copy-artifact.dir}">
-											<fileset dir="${project.build.directory}"
-													 includes="${project.build.artifactFileName}" />
+											<fileset dir="${project.build.directory}" includes="${project.build.artifactFileName}" />
 										</copy>
 									</target>
 								</configuration>
