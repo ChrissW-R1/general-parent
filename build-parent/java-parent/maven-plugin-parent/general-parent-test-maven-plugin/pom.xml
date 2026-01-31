@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>me.chrissw-r1</groupId>
+		<artifactId>maven-plugin-parent</artifactId>
+		<version>3.0.48-SNAPSHOT</version>
+	</parent>
+
+	<!-- project identifier -->
+	<artifactId>general-parent-test-maven-plugin</artifactId>
+	<packaging>maven-plugin</packaging>
+
+	<!-- project metadata -->
+	<name>General Parent Maven Test Plugin</name>
+	<description>
+		Test for Maven Plugin Parent
+	</description>
+
+	<properties>
+		<!-- technically-based properties -->
+		<project.module-root.relativedir>${project.parent.relativedir}../../../</project.module-root.relativedir>
+
+		<!-- project-specific properties -->
+		<java.package>test.mavenplugin</java.package>
+		<mainClass.localPath>HelloWorldMojo</mainClass.localPath>
+	</properties>
+
+	<dependencyManagement>
+		<dependencies>
+			<!-- default dependencies -->
+			<dependency>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>java-parent-test</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+	<dependencies>
+		<!-- default dependencies -->
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>java-parent-test</artifactId>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<sourceDirectory>src/main/java</sourceDirectory>
+		<plugins>
+			<plugin>
+				<artifactId>maven-shade-plugin</artifactId>
+				<executions>
+					<execution>
+						<goals>
+							<goal>shade</goal>
+						</goals>
+						<configuration>
+							<minimizeJar>false</minimizeJar>
+							<artifactSet>
+								<includes>
+									<include>${project.groupId}:java-parent-test</include>
+								</includes>
+							</artifactSet>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+</project>

@@ -190,4 +190,8 @@
 			</plugin>
 		</plugins>
 	</reporting>
+
+	<modules>
+		<module>general-parent-test-maven-plugin</module>
+	</modules>
 </project>
