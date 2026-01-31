@@ -25,7 +25,7 @@
 		<project.module-root.relativedir>${project.parent.relativedir}../../../</project.module-root.relativedir>
 
 		<!-- project-specific properties -->
-		<java.package>test</java.package>
+		<java.package>test.webapp</java.package>
 		<mainClass.localPath>MainServlet</mainClass.localPath>
 
 		<!-- JavaDoc URLs -->
