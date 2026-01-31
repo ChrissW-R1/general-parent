@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>me.chrissw-r1</groupId>
 		<artifactId>build-parent</artifactId>
-		<version>3.0.23</version>
+		<version>3.0.47</version>
 	</parent>
 
 	<!-- project identifier -->
@@ -33,57 +33,115 @@
 		<!-- dependency versions -->
 		<jetbrains-annotations.version>26.0.2-1</jetbrains-annotations.version>
 		<jcip-annotations.version>1.0-1</jcip-annotations.version>
-		<spotbugs.version>4.9.6</spotbugs.version>
+		<spotbugs.version>4.9.8</spotbugs.version>
 		<lombok.version>1.18.42</lombok.version>
-		<proguard.annotations.version>7.7.0</proguard.annotations.version>
+		<proguard.annotations.version>7.8.2</proguard.annotations.version>
 		<slf4j.version>2.0.17</slf4j.version>
-		<junit.minor-version>13.4</junit.minor-version>
-		<junit.jupiter.version>5.${junit.minor-version}</junit.jupiter.version>
-		<junit.platform.version>1.${junit.minor-version}</junit.platform.version>
-		<mockito.version>5.20.0</mockito.version>
+		<junit.version>6.0.2</junit.version>
+		<mockito.version>5.21.0</mockito.version>
+		<jazzer.version>0.29.1</jazzer.version>
 
 		<!-- plugin versions -->
 		<plugin.proguard.version>2.7.0</plugin.proguard.version>
-		<plugin.spotbugs.version>${spotbugs.version}.0</plugin.spotbugs.version>
+		<plugin.spotbugs.version>${spotbugs.version}.2</plugin.spotbugs.version>
 		<plugin.surefire.version>3.5.4</plugin.surefire.version>
 		<plugin.shade.version>3.6.1</plugin.shade.version>
 		<plugin.javadoc.version>3.12.0</plugin.javadoc.version>
 
 		<!-- JavaDoc URLs -->
-		<jcip-annotations.javadoc.url>https://javadoc.io/doc/com.google.code.findbugs/annotations/latest</jcip-annotations.javadoc.url>
+		<jcip-annotations.javadoc.url>https://jcip.net/annotations/doc</jcip-annotations.javadoc.url>
 		<spotbugs.javadoc.url>https://javadoc.io/doc/com.github.spotbugs/spotbugs-annotations/${spotbugs.version}</spotbugs.javadoc.url>
 		<lombok.javadoc.url>https://projectlombok.org/api</lombok.javadoc.url>
 		<proguard.annotations.javadoc.url>https://javadoc.io/doc/com.guardsquare/proguard-annotations/${proguard.annotations.version}</proguard.annotations.javadoc.url>
 		<jetbrains-annotations.javadoc.url>https://javadoc.io/doc/org.jetbrains/annotations/${jetbrains-annotations.version}</jetbrains-annotations.javadoc.url>
 		<slf4j.javadoc.url>https://slf4j.org/apidocs</slf4j.javadoc.url>
-		<junit.platform.javadoc.url>https://junit.org/junit5/docs/${junit.jupiter.version}/api</junit.platform.javadoc.url>
+		<junit.platform.javadoc.url>https://docs.junit.org/${junit.version}/api</junit.platform.javadoc.url>
 		<mockito.javadoc.url>https://javadoc.io/doc/org.mockito/mockito-core/${mockito.version}</mockito.javadoc.url>
+		<jazzer.javadoc.url>https://codeintelligencetesting.github.io/jazzer-docs/jazzer-junit</jazzer.javadoc.url>
 	</properties>
 
+	<dependencyManagement>
+		<dependencies>
+			<!-- build-only dependencies -->
+			<dependency>
+				<groupId>com.github.stephenc.jcip</groupId>
+				<artifactId>jcip-annotations</artifactId>
+				<version>${jcip-annotations.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.github.spotbugs</groupId>
+				<artifactId>spotbugs-annotations</artifactId>
+				<version>${spotbugs.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.projectlombok</groupId>
+				<artifactId>lombok</artifactId>
+				<version>${lombok.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.guardsquare</groupId>
+				<artifactId>proguard-annotations</artifactId>
+				<version>${proguard.annotations.version}</version>
+			</dependency>
+
+			<!-- provided dependencies -->
+			<dependency>
+				<groupId>org.jetbrains</groupId>
+				<artifactId>annotations</artifactId>
+				<version>${jetbrains-annotations.version}</version>
+			</dependency>
+
+			<!-- default dependencies -->
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>slf4j-bom</artifactId>
+				<version>${slf4j.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+
+			<!-- test dependencies -->
+			<dependency>
+				<groupId>org.junit</groupId>
+				<artifactId>junit-bom</artifactId>
+				<version>${junit.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.mockito</groupId>
+				<artifactId>mockito-bom</artifactId>
+				<version>${mockito.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<dependency>
+				<groupId>com.code-intelligence</groupId>
+				<artifactId>jazzer-junit</artifactId>
+				<version>${jazzer.version}</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 	<dependencies>
 		<!-- build-only dependencies -->
 		<dependency>
 			<groupId>com.github.stephenc.jcip</groupId>
 			<artifactId>jcip-annotations</artifactId>
-			<version>${jcip-annotations.version}</version>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>com.github.spotbugs</groupId>
 			<artifactId>spotbugs-annotations</artifactId>
-			<version>${spotbugs.version}</version>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
-			<version>${lombok.version}</version>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>com.guardsquare</groupId>
 			<artifactId>proguard-annotations</artifactId>
-			<version>${proguard.annotations.version}</version>
 			<scope>provided</scope>
 		</dependency>
 
@@ -91,7 +149,6 @@
 		<dependency>
 			<groupId>org.jetbrains</groupId>
 			<artifactId>annotations</artifactId>
-			<version>${jetbrains-annotations.version}</version>
 			<scope>provided</scope>
 		</dependency>
 
@@ -99,32 +156,32 @@
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
-			<version>${slf4j.version}</version>
 		</dependency>
 
 		<!-- test dependencies -->
 		<dependency>
 			<groupId>org.junit.jupiter</groupId>
 			<artifactId>junit-jupiter-engine</artifactId>
-			<version>${junit.jupiter.version}</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.junit.jupiter</groupId>
 			<artifactId>junit-jupiter</artifactId>
-			<version>${junit.jupiter.version}</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.junit.platform</groupId>
 			<artifactId>junit-platform-commons</artifactId>
-			<version>${junit.platform.version}</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.mockito</groupId>
 			<artifactId>mockito-core</artifactId>
-			<version>${mockito.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.code-intelligence</groupId>
+			<artifactId>jazzer-junit</artifactId>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
@@ -268,7 +325,10 @@
 							<!-- control options -->
 							<option>-allowaccessmodification</option>
 							<option>-keepattributes Signature</option>
+							<option>-keepattributes Exceptions</option>
 							<option>-keepattributes RuntimeVisibleAnnotations</option>
+							<option>-keepattributes RuntimeVisibleParameterAnnotations</option>
+							<option>-keepattributes RuntimeVisibleTypeAnnotations</option>
 
 							<!-- keep Java language specific objects -->
 							<option>-keepclassmembers class * implements java.io.Serializable { static final long serialVersionUID; }</option>
@@ -335,6 +395,7 @@
 							<link>${slf4j.javadoc.url}</link>
 							<link>${junit.platform.javadoc.url}</link>
 							<link>${mockito.javadoc.url}</link>
+							<link>${jazzer.javadoc.url}</link>
 						</links>
 					</configuration>
 				</plugin>
@@ -383,6 +444,7 @@
 						<link>${slf4j.javadoc.url}</link>
 						<link>${junit.platform.javadoc.url}</link>
 						<link>${mockito.javadoc.url}</link>
+						<link>${jazzer.javadoc.url}</link>
 					</links>
 				</configuration>
 				<reportSets>
@@ -447,6 +509,7 @@
 								<libs>
 									<lib>${java.home}/jmods/java.base.jmod</lib>
 									<lib>${java.home}/jmods/java.logging.jmod</lib>
+									<lib>${java.home}/jmods/java.xml.jmod</lib>
 								</libs>
 							</configuration>
 						</plugin>
@@ -581,28 +644,6 @@
 							</configuration>
 						</plugin>
 						<plugin>
-							<artifactId>maven-assembly-plugin</artifactId>
-							<configuration>
-								<archive>
-									<manifest>
-										<mainClass>${mainClass.fullPath}</mainClass>
-									</manifest>
-								</archive>
-								<descriptorRefs>
-									<descriptorRef>jar-with-dependencies</descriptorRef>
-								</descriptorRefs>
-							</configuration>
-							<executions>
-								<execution>
-									<id>assemble</id>
-									<phase>package</phase>
-									<goals>
-										<goal>single</goal>
-									</goals>
-								</execution>
-							</executions>
-						</plugin>
-						<plugin>
 							<artifactId>maven-shade-plugin</artifactId>
 							<version>${plugin.shade.version}</version>
 						</plugin>
@@ -611,6 +652,25 @@
 				<plugins>
 					<plugin>
 						<artifactId>maven-assembly-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>assemble</id>
+								<phase>package</phase>
+								<goals>
+									<goal>single</goal>
+								</goals>
+								<configuration>
+									<archive>
+										<manifest>
+											<mainClass>${mainClass.fullPath}</mainClass>
+										</manifest>
+									</archive>
+									<descriptorRefs>
+										<descriptorRef>jar-with-dependencies</descriptorRef>
+									</descriptorRefs>
+								</configuration>
+							</execution>
+						</executions>
 					</plugin>
 				</plugins>
 			</build>
