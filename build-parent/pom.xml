@@ -23,7 +23,7 @@
 		<project.parent.relativedir>../</project.parent.relativedir>
 
 		<!-- plugin versions -->
-		<plugin.assembly.version>3.7.1</plugin.assembly.version>
+		<plugin.assembly.version>3.8.0</plugin.assembly.version>
 	</properties>
 
 	<build>
