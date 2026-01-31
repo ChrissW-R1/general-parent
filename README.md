@@ -3,6 +3,9 @@
 This project only contains the default properties and settings, which should be
 used in all projects of ChrissW-R1.
 
+
+[![pipeline status](https://gitlab.com/ChrissW-R1/general-parent/badges/main/pipeline.svg)](https://gitlab.com/ChrissW-R1/general-parent/-/commits/main)
+
 ## Usage
 
 To use this in one of your projects, you only have to define some settings in
@@ -26,7 +29,7 @@ Secondly, set the parent to the project type parent. Example as a Java Project:
 <parent>
 	<groupId>me.chrisswr1</groupId>
 	<artifactId>java-parent</artifactId>
-	<version>1.4.0-SNAPSHOT</version>
+	<version>2.0.0-SNAPSHOT</version>
 </parent>
 ```
 
