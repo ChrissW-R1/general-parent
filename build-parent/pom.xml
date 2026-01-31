@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>me.chrissw-r1</groupId>
 		<artifactId>general-parent</artifactId>
-		<version>3.0.23</version>
+		<version>3.0.47</version>
 	</parent>
 
 	<!-- project identifier -->
@@ -24,7 +24,7 @@
 		<general-resources.skipUnpack>false</general-resources.skipUnpack>
 
 		<!-- plugin versions -->
-		<plugin.assembly.version>3.7.1</plugin.assembly.version>
+		<plugin.assembly.version>3.8.0</plugin.assembly.version>
 	</properties>
 
 	<build>
@@ -49,7 +49,7 @@
 						<dependency>
 							<groupId>me.chrissw-r1</groupId>
 							<artifactId>general-resources</artifactId>
-							<version>3.0.23</version>
+							<version>3.0.47</version>
 						</dependency>
 					</dependencies>
 				</plugin>
@@ -101,6 +101,43 @@
 												<fileMapper implementation="org.codehaus.plexus.components.io.filemappers.FlattenFileMapper" />
 											</fileMappers>
 										</artifactItem>
+										<!-- ToDo: Use another way to initially unpack the basic files -->
+										<!--artifactItem>
+											<groupId>me.chrissw-r1</groupId>
+											<artifactId>general-resources</artifactId>
+											<version>${general-parent.version}</version>
+											<type>jar</type>
+											<overWrite>false</overWrite>
+											<outputDirectory>${project.module-root.basedir}/src/main/repo-doc</outputDirectory>
+											<includes>unfiltered-resources/SECURITY.md,unfiltered-resources/VERSIONING.md,unfiltered-resources/CONTRIBUTING.md</includes>
+											<fileMappers>
+												<fileMapper implementation="org.codehaus.plexus.components.io.filemappers.FlattenFileMapper" />
+											</fileMappers>
+										</artifactItem>
+										<artifactItem>
+											<groupId>me.chrissw-r1</groupId>
+											<artifactId>general-resources</artifactId>
+											<version>${general-parent.version}</version>
+											<type>jar</type>
+											<overWrite>false</overWrite>
+											<outputDirectory>${project.module-root.basedir}</outputDirectory>
+											<includes>unfiltered-resources/CODE_OF_CONDUCT.md</includes>
+											<fileMappers>
+												<fileMapper implementation="org.codehaus.plexus.components.io.filemappers.FlattenFileMapper" />
+											</fileMappers>
+										</artifactItem>
+										<artifactItem>
+											<groupId>me.chrissw-r1</groupId>
+											<artifactId>general-resources</artifactId>
+											<version>${general-parent.version}</version>
+											<type>jar</type>
+											<overWrite>false</overWrite>
+											<outputDirectory>${project.module-root.basedir}/.github/workflows</outputDirectory>
+											<includes>unfiltered-resources/scorecard.yml,unfiltered-resources/codeql.yml</includes>
+											<fileMappers>
+												<fileMapper implementation="org.codehaus.plexus.components.io.filemappers.FlattenFileMapper" />
+											</fileMappers>
+										</artifactItem-->
 									</artifactItems>
 								</configuration>
 							</execution>

@@ -14,6 +14,7 @@
 			<outputDirectory>/</outputDirectory>
 			<includes>
 				<include>${project.build.finalName}.${project.build.artifact.extension}</include>
+				<include>${project.build.finalName}.${project.packaging}</include>
 				<include>${project.build.finalName}.exe</include>
 			</includes>
 		</fileSet>
