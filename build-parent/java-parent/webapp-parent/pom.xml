@@ -3,9 +3,9 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<artifactId>java-parent</artifactId>
 		<groupId>me.chrisswr1</groupId>
-		<version>1.0.2-SNAPSHOT</version>
+		<artifactId>java-parent</artifactId>
+		<version>1.1.1-SNAPSHOT</version>
 	</parent>
 
 	<!-- project identifier -->
@@ -23,8 +23,8 @@
 		<project.module-root.relativedir>${project.parent.relativedir}../../</project.module-root.relativedir>
 
 		<!-- dependency versions -->
-		<servlet.version>4.0.1</servlet.version>
-		<jersey.version>3.0.6</jersey.version>
+		<servlet.version>4.0.4</servlet.version>
+		<jersey.version>3.1.1</jersey.version>
 
 		<!-- plugin versions -->
 		<plugin.war.version>3.3.2</plugin.war.version>
@@ -37,8 +37,8 @@
 	<dependencies>
 		<!-- provided dependencies -->
 		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>javax.servlet-api</artifactId>
+			<groupId>jakarta.servlet</groupId>
+			<artifactId>jakarta.servlet-api</artifactId>
 			<version>${servlet.version}</version>
 			<scope>provided</scope>
 		</dependency>

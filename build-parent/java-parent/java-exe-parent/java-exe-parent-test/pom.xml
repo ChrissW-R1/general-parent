@@ -3,9 +3,9 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<artifactId>java-exe-parent</artifactId>
 		<groupId>me.chrisswr1</groupId>
-		<version>1.0.2-SNAPSHOT</version>
+		<artifactId>java-exe-parent</artifactId>
+		<version>1.1.1-SNAPSHOT</version>
 	</parent>
 
 	<!-- project identifier -->

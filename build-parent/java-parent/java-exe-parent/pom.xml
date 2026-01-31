@@ -3,9 +3,9 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<artifactId>java-parent</artifactId>
 		<groupId>me.chrisswr1</groupId>
-		<version>1.0.2-SNAPSHOT</version>
+		<artifactId>java-parent</artifactId>
+		<version>1.1.1-SNAPSHOT</version>
 	</parent>
 
 	<!-- project identifier -->
@@ -28,7 +28,7 @@
 		<copyright.notice>© ${project.versionYear} by ${project.organization.name}</copyright.notice>
 
 		<!-- plugin versions -->
-		<plugin.launch4j.version>2.1.2</plugin.launch4j.version>
+		<plugin.launch4j.version>2.3.3</plugin.launch4j.version>
 	</properties>
 
 	<build>
@@ -52,6 +52,7 @@
 									<mainClass>${mainClass.fullPath}</mainClass>
 								</classPath>
 								<jre>
+									<path>${java.home}</path>
 									<minVersion>${java.version.prefixed}</minVersion>
 								</jre>
 								<headerType>${headerType}</headerType>

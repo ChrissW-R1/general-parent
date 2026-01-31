@@ -7,13 +7,16 @@
                          }
                          maven_init
 
+variables:
+    MAVEN_OPTS: "-Dexecutable -DfullBuild -Dorg.slf4j.simpleLogger.showDateTime=true -Dorg.slf4j.simpleLogger.dateTimeFormat=HH:mm:ss,SSS"
+
 maven_build:
     image:  maven:3-jdk-8
     before_script:
         - *maven_init
-    script: mvn -B clean install deploy site-deploy -Dexecutable -DfullBuild -s ci_settings.xml
+    script: mvn -B clean install deploy site-deploy -s ci_settings.xml
     only:
-        - main
+        - /^(main)|(version\/[^/]+)$/
 
 maven_release:
     image: maven:3-jdk-8
@@ -21,9 +24,9 @@ maven_release:
         - *maven_init
     script:
         - git checkout -B "${CI_BUILD_REF_NAME}"
-        - mvn -B clean release:prepare release:perform -Dexecutable -DfullBuild -s ci_settings.xml -Dusername=${ci_git_user} -Dpassword=${ci_git_token}
+        - mvn -B clean release:prepare release:perform -s ci_settings.xml -Dusername=${ci_git_user} -Dpassword=${ci_git_token}
     only:
-        - release
+        - /^(release)|(version\/release\/[^/]+)$/
 
 
 # You can override the included template(s) by including variable overrides
