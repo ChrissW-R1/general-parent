@@ -18,9 +18,10 @@
 		{
 			"name":  "ChrissW-R1",
 			"email": "contact@ChrissW-R1.me",
-			"url":   "http://ChrissW-R1.me"
+			"url":   "https://ChrissW-R1.me"
 		}
 	],
+	"type":            "module",
 	"repository":      {
 		"type": "git",
 		"url":  "git+${project.scm.url}.git"

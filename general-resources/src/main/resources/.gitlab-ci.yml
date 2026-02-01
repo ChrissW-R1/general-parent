@@ -3,7 +3,7 @@
                             git config user.email "${GITLAB_USER_EMAIL}"
                             git config user.name "${GITLAB_USER_NAME}"
                             cat ${gpg_private_key} | gpg --batch --import > /dev/null
-                            echo ${gpg_passphrase} | gpg --batch --always-trust --yes --passphrase-fd 0 --pinentry-mode=loopback -s $(mktemp) > /dev/null
+                            echo ${MAVEN_GPG_PASSPHRASE} | gpg --batch --always-trust --yes --passphrase-fd 0 --pinentry-mode=loopback -s $(mktemp) > /dev/null
                          }
                          maven_init
 

@@ -14,7 +14,8 @@
 		"experimentalDecorators": true,
 		"emitDecoratorMetadata":  true,
 		"noEmitOnError":          false,
-		"noImplicitAny":          true
+		"noImplicitAny":          true,
+		"skipLibCheck":           true
 	},
 	"compileOnSave":   true,
 	"typeRoots":       [
