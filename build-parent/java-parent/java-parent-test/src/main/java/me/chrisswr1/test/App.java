@@ -52,7 +52,7 @@ public class App {
 			App.log.trace(
 				"No caller is given! Use default caler: '{}'",
 				App.DEFAULT_CALLER
-						 );
+			);
 			nonNullCaller = App.DEFAULT_CALLER;
 		}
 		App.log.trace("Create greeting for caller: '{}'", nonNullCaller);
