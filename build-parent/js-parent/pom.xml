@@ -29,7 +29,7 @@
 		<yarn.version>1.22.22</yarn.version>
 		<yarn-berry.version>4.12.0</yarn-berry.version>
 		<core-js.version>3.48.0</core-js.version>
-		<rxjs.version>7.8.2</rxjs.version>
+		<rxjs.version>7.8.3</rxjs.version>
 		<zonejs.version>0.16.0</zonejs.version>
 		<angular.version.major>21</angular.version.major>
 		<angular.version.base>${angular.version.major}.1</angular.version.base>
