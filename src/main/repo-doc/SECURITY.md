@@ -45,7 +45,7 @@ project’s security metadata and SBOMs where applicable.
 Please report security issues privately and **do not** open a public issue.
 To do so, please use the appropriate function on GitHub:
 
-https://github.com/ChrissW-R1/general-parent/security/advisories
+https://github.com/${project.organization.id}/${project.module-root.artifactId}/security/advisories
 
 Include as much of the following as possible:
 
