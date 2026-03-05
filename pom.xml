@@ -109,7 +109,7 @@
 		<plugin.takari-lifecycle.version>2.3.2</plugin.takari-lifecycle.version>
 		<plugin.gmavenplus.version>4.3.1</plugin.gmavenplus.version>
 		<plugin.multi-module.version>1.2.2</plugin.multi-module.version>
-		<plugin.dependency.version>3.9.0</plugin.dependency.version>
+		<plugin.dependency.version>3.10.0</plugin.dependency.version>
 		<plugin.versions.version>2.21.0</plugin.versions.version>
 		<plugin.clean.version>3.5.0</plugin.clean.version>
 		<plugin.help.version>3.5.1</plugin.help.version>
@@ -121,7 +121,7 @@
 		<plugin.spdx-license-fetch.version>1.1.1</plugin.spdx-license-fetch.version>
 		<plugin.resources.version>3.4.0</plugin.resources.version>
 		<plugin.antrun.version>3.2.0</plugin.antrun.version>
-		<plugin.compiler.version>3.14.1</plugin.compiler.version>
+		<plugin.compiler.version>3.15.0</plugin.compiler.version>
 		<plugin.dependency-check.version>12.2.0</plugin.dependency-check.version>
 		<plugin.cyclonedx.version>2.9.1</plugin.cyclonedx.version>
 		<plugin.deploy-pom.version>1.2.5</plugin.deploy-pom.version>
