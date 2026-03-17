@@ -39,6 +39,66 @@ This project and everyone participating in it is governed by
 the [Code of Conduct](CODE_OF_CONDUCT.md).
 By participating, you are expected to uphold this code.
 
+## Building
+
+This project can be built entirely with Maven. The build generates all modules,
+documentation, distributions, and optional executable artifacts.
+
+### Properties
+
+The build can be customized with the following properties:
+
+| Property		| Description											|
+|---------------|-------------------------------------------------------|
+| fullBuild		| Enables a full multi-module build						|
+| distribution	| Generates distribution artifacts						|
+| executable	| Builds executable artifacts (if supported by modules)	|
+| debug			| Enables additional debug output						|
+
+### Full build
+
+A full build compiles all modules, generates the project documentation, and
+produces all distribution artifacts.
+
+`mvn site install -DfullBuild -Ddistribution -Dexecutable`
+
+This command performs the following steps:
+
+- builds all modules
+- generates the project documentation (site)
+- installs all artifacts into the local Maven repository
+- generates optional distribution packages
+- creates executable artifacts where supported
+
+### Clean dependency build
+
+In some cases it may be useful to rebuild the project with refreshed
+dependencies and additional debug output. The following command performs a clean
+dependency build:
+
+`mvn clean site install -U -DfullBuild -Ddistribution -Dexecutable -Pclean-dependencies`
+
+Additional options used in this build:
+
+| Option				| Description								|
+|-----------------------|-------------------------------------------|
+| -U					| Forces Maven to update all dependencies	|
+| -Pclean-dependencies	| Activates the clean-dependencies profile	|
+
+This build is useful when:
+
+- dependencies have changed in remote repositories
+- troubleshooting build problems
+- verifying a clean dependency resolution
+
+### Notes
+
+- The build may take several minutes depending on the number of modules and the
+  selected scope.
+- Internet access is required for dependency resolution.
+- Some modules may require additional tooling depending on the enabled build
+  features.
+
 ## Versioning
 
 The Versioning Policy could be found in the [VERSIONING.md](VERSIONING.md) file.
