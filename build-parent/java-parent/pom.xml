@@ -39,7 +39,7 @@
 		<lombok.version>1.18.42</lombok.version>
 		<proguard.annotations.version>7.9.0</proguard.annotations.version>
 		<slf4j.version>2.0.17</slf4j.version>
-		<junit.version>6.0.2</junit.version>
+		<junit.version>6.0.3</junit.version>
 		<mockito.version>5.23.0</mockito.version>
 		<jazzer.version>0.30.0</jazzer.version>
 
