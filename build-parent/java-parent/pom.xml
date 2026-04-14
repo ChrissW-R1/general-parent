@@ -36,18 +36,18 @@
 		<jetbrains-annotations.version>26.1.0</jetbrains-annotations.version>
 		<jcip-annotations.version>1.0-1</jcip-annotations.version>
 		<spotbugs.version>4.9.8</spotbugs.version>
-		<lombok.version>1.18.42</lombok.version>
+		<lombok.version>1.18.44</lombok.version>
 		<proguard.annotations.version>7.9.1</proguard.annotations.version>
 		<slf4j.version>2.0.17</slf4j.version>
-		<junit.version>6.0.2</junit.version>
+		<junit.version>6.0.3</junit.version>
 		<mockito.version>5.23.0</mockito.version>
 		<jazzer.version>0.30.0</jazzer.version>
 
 		<!-- plugin versions -->
 		<plugin.proguard.version>2.7.0</plugin.proguard.version>
 		<plugin.spotbugs.version>${spotbugs.version}.2</plugin.spotbugs.version>
-		<plugin.surefire.version>3.5.4</plugin.surefire.version>
-		<plugin.shade.version>3.6.1</plugin.shade.version>
+		<plugin.surefire.version>3.5.5</plugin.surefire.version>
+		<plugin.shade.version>3.6.2</plugin.shade.version>
 		<plugin.javadoc.version>3.12.0</plugin.javadoc.version>
 
 		<!-- JavaDoc URLs -->
