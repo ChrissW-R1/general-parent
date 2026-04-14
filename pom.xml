@@ -127,6 +127,8 @@
 		<plugin.deploy-pom.version>1.2.5</plugin.deploy-pom.version>
 		<plugin.jar.version>3.5.0</plugin.jar.version>
 		<plugin.source.version>3.4.0</plugin.source.version>
+		<plugin.jarsigner.version>3.1.0</plugin.jarsigner.version>
+		<plugin.sigstore.version>2.0.0</plugin.sigstore.version>
 		<plugin.gpg.version>3.2.8</plugin.gpg.version>
 		<plugin.site.version>3.21.0</plugin.site.version>
 		<plugin.project-info-reports.version>3.9.0</plugin.project-info-reports.version>
@@ -701,6 +703,15 @@
 					</executions>
 				</plugin>
 				<plugin>
+					<artifactId>maven-jarsigner-plugin</artifactId>
+					<version>${plugin.jarsigner.version}</version>
+				</plugin>
+				<plugin>
+					<groupId>dev.sigstore</groupId>
+					<artifactId>sigstore-maven-plugin</artifactId>
+					<version>${plugin.sigstore.version}</version>
+				</plugin>
+				<plugin>
 					<artifactId>maven-gpg-plugin</artifactId>
 					<version>${plugin.gpg.version}</version>
 				</plugin>
@@ -1265,6 +1276,40 @@
 			</activation>
 			<build>
 				<plugins>
+					<plugin>
+						<artifactId>maven-jarsigner-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>jarsign</id>
+								<phase>verify</phase>
+								<goals>
+									<goal>sign</goal>
+								</goals>
+								<configuration>
+									<keystore>/home/chrissw-r1/Downloads/ci.p12</keystore>
+									<storetype>PKCS12</storetype>
+									<storepass>changeit</storepass>
+									<keypass>changeit</keypass>
+									<alias>ci</alias>
+									<tsa>
+										<url>https://freetsa.org/tsr</url>
+									</tsa>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<groupId>dev.sigstore</groupId>
+						<artifactId>sigstore-maven-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>sign</id>
+								<goals>
+									<goal>sign</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
 					<plugin>
 						<artifactId>maven-gpg-plugin</artifactId>
 						<executions>
