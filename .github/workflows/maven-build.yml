@@ -54,7 +54,6 @@ jobs:
                     ossindex_user:            ${{ vars.OSSINDEX_USER }}
                     ossindex_api_key:         ${{ secrets.OSSINDEX_API_KEY }}
                     nvd_api_key:              ${{ secrets.NVD_API_KEY }}
-                    gpg_keyid:                ${{ secrets.GPG_KEYID }}
                     mvnsiteuploader_password: ${{ secrets.MVNSITEUPLOADER_PASSWORD }}
                 run:  |
                       mvn -B \

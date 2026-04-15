@@ -1286,11 +1286,11 @@
 									<goal>sign</goal>
 								</goals>
 								<configuration>
-									<keystore>/home/chrissw-r1/Downloads/ci.p12</keystore>
+									<keystore>${signing.keystore.path}</keystore>
 									<storetype>PKCS12</storetype>
-									<storepass>changeit</storepass>
-									<keypass>changeit</keypass>
-									<alias>ci</alias>
+									<storepass>${signing.keystore.password}</storepass>
+									<alias>${signing.key.alias}</alias>
+									<keypass>${signing.key.password}</keypass>
 									<tsa>
 										<url>https://freetsa.org/tsr</url>
 									</tsa>
