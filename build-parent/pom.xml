@@ -22,7 +22,6 @@
 
 	<properties>
 		<!-- technically-based properties -->
-		<project.parent.relativedir>../</project.parent.relativedir>
 		<general-resources.skipUnpack>false</general-resources.skipUnpack>
 
 		<!-- plugin versions -->
@@ -97,7 +96,7 @@
 											<version>${general-parent.version}</version>
 											<type>jar</type>
 											<overWrite>true</overWrite>
-											<outputDirectory>${project.module-root.basedir}</outputDirectory>
+											<outputDirectory>${maven.multiModuleProjectDirectory}</outputDirectory>
 											<includes>resources/default.gitignore,resources/.editorconfig</includes>
 											<fileMappers>
 												<fileMapper implementation="org.codehaus.plexus.components.io.filemappers.FlattenFileMapper" />
@@ -110,7 +109,7 @@
 											<version>${general-parent.version}</version>
 											<type>jar</type>
 											<overWrite>false</overWrite>
-											<outputDirectory>${project.module-root.basedir}/src/main/repo-doc</outputDirectory>
+											<outputDirectory>${maven.multiModuleProjectDirectory}/src/main/repo-doc</outputDirectory>
 											<includes>unfiltered-resources/SECURITY.md,unfiltered-resources/VERSIONING.md,unfiltered-resources/CONTRIBUTING.md</includes>
 											<fileMappers>
 												<fileMapper implementation="org.codehaus.plexus.components.io.filemappers.FlattenFileMapper" />
@@ -122,7 +121,7 @@
 											<version>${general-parent.version}</version>
 											<type>jar</type>
 											<overWrite>false</overWrite>
-											<outputDirectory>${project.module-root.basedir}</outputDirectory>
+											<outputDirectory>${maven.multiModuleProjectDirectory}</outputDirectory>
 											<includes>unfiltered-resources/CODE_OF_CONDUCT.md</includes>
 											<fileMappers>
 												<fileMapper implementation="org.codehaus.plexus.components.io.filemappers.FlattenFileMapper" />
@@ -134,7 +133,7 @@
 											<version>${general-parent.version}</version>
 											<type>jar</type>
 											<overWrite>false</overWrite>
-											<outputDirectory>${project.module-root.basedir}/.github/workflows</outputDirectory>
+											<outputDirectory>${maven.multiModuleProjectDirectory}/.github/workflows</outputDirectory>
 											<includes>unfiltered-resources/scorecard.yml,unfiltered-resources/codeql.yml</includes>
 											<fileMappers>
 												<fileMapper implementation="org.codehaus.plexus.components.io.filemappers.FlattenFileMapper" />
@@ -203,8 +202,8 @@
 								</goals>
 								<configuration>
 									<target>
-										<move file="${project.module-root.basedir}/default.gitignore"
-											  tofile="${project.module-root.basedir}/.gitignore" />
+										<move file="${maven.multiModuleProjectDirectory}/default.gitignore"
+											  tofile="${maven.multiModuleProjectDirectory}/.gitignore" />
 									</target>
 								</configuration>
 							</execution>
@@ -216,7 +215,7 @@
 								</goals>
 								<configuration>
 									<target>
-										<delete file="${project.module-root.basedir}/default.gitignore" />
+										<delete file="${maven.multiModuleProjectDirectory}/default.gitignore" />
 									</target>
 								</configuration>
 							</execution>

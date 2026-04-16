@@ -21,9 +21,6 @@
 	</description>
 
 	<properties>
-		<!-- technically-based properties -->
-		<project.module-root.relativedir>${project.parent.relativedir}../../</project.module-root.relativedir>
-
 		<!-- project-specific properties -->
 		<fileVersion>${project.baseVersion}.${parsedVersion.buildNumber}</fileVersion>
 		<headerType>gui</headerType>

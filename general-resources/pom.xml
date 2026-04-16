@@ -19,11 +19,6 @@
 		Contains different resources for new projects and repositories.
 	</description>
 
-	<properties>
-		<!-- technically-based properties -->
-		<project.parent.relativedir>../</project.parent.relativedir>
-	</properties>
-
 	<build>
 		<resources>
 			<resource>

@@ -22,7 +22,6 @@
 
 	<properties>
 		<!-- technically-based properties -->
-		<project.module-root.relativedir>${project.parent.relativedir}../</project.module-root.relativedir>
 		<assembly.config.file>src/assembly/bin.xml</assembly.config.file>
 	</properties>
 

@@ -57,11 +57,7 @@
 		<project.build.sourceEncoding>${project.fileEncoding}</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>${project.fileEncoding}</project.reporting.outputEncoding>
 		<project.versioning.scheme>semver</project.versioning.scheme>
-		<project.parent.relativedir />
-		<project.parent.basedir>${project.basedir}/${project.parent.relativedir}</project.parent.basedir>
 		<project.module-root.artifactId>general-parent</project.module-root.artifactId>
-		<project.module-root.relativedir>${project.parent.relativedir}</project.module-root.relativedir>
-		<project.module-root.basedir>${project.basedir}/${project.module-root.relativedir}</project.module-root.basedir>
 		<project.build.artifact.extension>${project.packaging}</project.build.artifact.extension>
 		<project.build.artifact.fileName>${project.build.finalName}.${project.build.artifact.extension}</project.build.artifact.fileName>
 		<project.scm.id>project-repo</project.scm.id>
@@ -71,7 +67,7 @@
 		<project.site.deploy.baseUrl>ftps://${project.site.baseDomain}</project.site.deploy.baseUrl>
 		<project.site.deploy.url>${project.site.deploy.baseUrl}/${project.site.urlPath}</project.site.deploy.url>
 		<project.organization.id>${project.organization.name}</project.organization.id>
-		<properties.file>${project.module-root.basedir}/build.properties</properties.file>
+		<properties.file>${maven.multiModuleProjectDirectory}/build.properties</properties.file>
 		<deploy-pom.file>${project.build.finalName}-deploy.pom</deploy-pom.file>
 		<semver.regex>(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)(?:[-+]([0-9A-Za-z][0-9A-Za-z-+\.]+))?</semver.regex>
 		<java.version.prefixed>1.${java.version}</java.version.prefixed>
@@ -80,7 +76,7 @@
 		<effective-pom.path>${project.build.directory}/${project.build.finalName}-effective.pom</effective-pom.path>
 		<general-parent.version>3.0.47</general-parent.version>
 		<third-party-properties.filename>THIRD-PARTY.properties</third-party-properties.filename>
-		<third-party-properties.src.path>${project.module-root.basedir}/src/license</third-party-properties.src.path>
+		<third-party-properties.src.path>${maven.multiModuleProjectDirectory}/src/license</third-party-properties.src.path>
 		<third-party-properties.target.path>${project.build.directory}/generated-resources</third-party-properties.target.path>
 		<third-party-properties.target.fullPath>${third-party-properties.target.path}/${third-party-properties.filename}</third-party-properties.target.fullPath>
 
@@ -389,10 +385,10 @@
 					<artifactId>license-maven-plugin</artifactId>
 					<version>${plugin.license.version}</version>
 					<configuration>
-						<licenseFile>${project.module-root.basedir}/LICENSE</licenseFile>
+						<licenseFile>${maven.multiModuleProjectDirectory}/LICENSE</licenseFile>
 						<licenseName>apache_v2</licenseName>
 						<missingFile>${third-party-properties.target.fullPath}</missingFile>
-						<licensesConfigFile>${project.module-root.basedir}/src/license/licenses.xml</licensesConfigFile>
+						<licensesConfigFile>${maven.multiModuleProjectDirectory}/src/license/licenses.xml</licensesConfigFile>
 						<useMissingFile>true</useMissingFile>
 						<sortArtifactByName>true</sortArtifactByName>
 						<fileTemplate>/org/codehaus/mojo/license/third-party-file-groupByLicense.ftl</fileTemplate>
@@ -798,10 +794,10 @@
 							<goal>copy-resources</goal>
 						</goals>
 						<configuration>
-							<outputDirectory>${project.module-root.basedir}</outputDirectory>
+							<outputDirectory>${maven.multiModuleProjectDirectory}</outputDirectory>
 							<resources>
 								<resource>
-									<directory>${project.module-root.basedir}/src/main/repo-doc</directory>
+									<directory>${maven.multiModuleProjectDirectory}/src/main/repo-doc</directory>
 									<includes>
 										<include>SECURITY.md</include>
 										<include>VERSIONING.md</include>

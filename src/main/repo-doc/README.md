@@ -37,13 +37,12 @@ At First, set the parent to the project type parent. Example as a Java Project:
 </parent>
 ```
 
-Last but not least some technical properties have to be overridden by your POM
-to set all derived properties correctly:
+Last but not least a technical properties have to be overridden by your POM to
+set all derived properties correctly:
 
 ```XML
 <properties>
 	...
-	<project.module-root.relativedir>./</project.module-root.relativedir>
 	<project.module-root.artifactId>{your-top-project-artifactId}</project.module-root.artifactId>
 	...
 </properties>
