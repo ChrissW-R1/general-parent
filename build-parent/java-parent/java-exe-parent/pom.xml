@@ -61,7 +61,6 @@
 						<executions>
 							<execution>
 								<id>launch4j</id>
-								<phase>pre-integration-test</phase>
 								<goals>
 									<goal>launch4j</goal>
 								</goals>
