@@ -311,7 +311,7 @@
 						<executions>
 							<execution>
 								<id>pack-dist</id>
-								<phase>package</phase>
+								<phase>verify</phase>
 								<goals>
 									<goal>single</goal>
 								</goals>

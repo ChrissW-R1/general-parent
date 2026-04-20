@@ -1277,6 +1277,7 @@
 						<executions>
 							<execution>
 								<id>jarsign</id>
+								<phase>verify</phase>
 								<goals>
 									<goal>sign</goal>
 								</goals>
