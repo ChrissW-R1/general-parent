@@ -226,7 +226,7 @@ jobs:
 
             -   id:   create_attestation
                 name: Attest build run
-                uses: actions/attest-build-provenance@a2bbfa25375fe432b6a289bc6b6cd05ecd0c4c32 # v4.1.0
+                uses: actions/attest@v4.0.0 # v4.0.0
                 with:
                     subject-path: ${{ env.RELEASE_ARTIFACTS_DIR }}/**
             -   id:   upload_provenance
