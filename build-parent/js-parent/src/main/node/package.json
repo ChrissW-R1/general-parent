@@ -72,6 +72,7 @@
 		"@angular-eslint/eslint-plugin":    "~${angular.eslint.version}",
 		"codelyzer":                        "~${codelyzer.version}",
 		"eslint-plugin-codelyzer":          "~${eslint.codelyzer.version}",
+		"@conterra/vuln-scan":              "~${ct-vuln-scan.version}",
 		"mocha":                            "~${mocha.version}",
 		"chai":                             "~${chai.version}",
 		"karma":                            "~${karma.version}",
@@ -85,5 +86,8 @@
 		"karma-edge-launcher":              "~${karma.edge.version}",
 		"karma-ie-launcher":                "~${karma.ie.version}",
 		"karma-mocha-reporter":             "~${karma.mocha.reporter.version}"
+	},
+	"scripts":         {
+		"vuln:scan": "ct-vuln-scan"
 	}
 }
