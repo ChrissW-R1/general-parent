@@ -62,7 +62,7 @@
 				</includes>
 			</resource>
 			<resource>
-				<directory>../</directory>
+				<directory>${maven.multiModuleProjectDirectory}</directory>
 				<includes>
 					<include>.gitignore</include>
 					<include>build.sample.properties</include>
@@ -72,7 +72,7 @@
 				<filtering>false</filtering>
 			</resource>
 			<resource>
-				<directory>../src/main/repo-doc</directory>
+				<directory>${maven.multiModuleProjectDirectory}/src/main/repo-doc</directory>
 				<includes>
 					<include>VERSIONING.md</include>
 					<include>CONTRIBUTING.md</include>
@@ -81,12 +81,12 @@
 				<filtering>false</filtering>
 			</resource>
 			<resource>
-				<directory>../.github/workflows/</directory>
+				<directory>${maven.multiModuleProjectDirectory}/.github/workflows/</directory>
 				<targetPath>unfiltered-resources</targetPath>
 				<filtering>false</filtering>
 			</resource>
 			<resource>
-				<directory>../.github</directory>
+				<directory>${maven.multiModuleProjectDirectory}/.github</directory>
 				<includes>
 					<include>renovate.json</include>
 				</includes>
