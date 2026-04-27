@@ -20,9 +20,10 @@ module.exports = function(grunt) {
 					rootDir: "${project.build.sourceDirectory}"
 				},
 				main:    {
-					src:      "${project.build.sourceDirectory}/**/*.ts",
-					dest:     "${project.build.directory}/generated-sources/ts-compiled",
-					tsconfig: "./tsconfig.json"
+					tsconfig: {
+						tsconfig: "./tsconfig.json",
+						passThrough: true
+					}
 				}
 			},
 			less:    {

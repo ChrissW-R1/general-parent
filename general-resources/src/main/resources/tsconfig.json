@@ -4,6 +4,7 @@
 		"ES5"
 	],
 	"compilerOptions": {
+		"rootDir":                "${project.build.sourceDirectory}",
 		"sourceRoot":             "${project.build.sourceDirectory}",
 		"outDir":                 "${project.build.directory}/generated-sources/ts-compiled",
 		"target":                 "ES5",
@@ -20,6 +21,9 @@
 	"compileOnSave":   true,
 	"typeRoots":       [
 		"node_modules/@types"
+	],
+	"include":         [
+		"${project.build.sourceDirectory}/**/*.ts"
 	],
 	"exclude":         [
 		"${project.build.directory}",
